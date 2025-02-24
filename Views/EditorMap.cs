@@ -16,10 +16,10 @@ namespace GranDnDDM.Views
 {
     public partial class EditorMap : Form
     {
- 
+
         private string imagesFolder = Path.Combine(Application.StartupPath, "imagenes");
         private string jsonDataFile = Path.Combine(Application.StartupPath, "data_img.json");
-
+        private MapEditor mapEditor;
         public EditorMap()
         {
             InitializeComponent();
@@ -66,6 +66,14 @@ namespace GranDnDDM.Views
             string sinEspacios = Regex.Replace(GlobalTools.DM, @"\s+", "");
             jsonDataFile = Path.Combine(Application.StartupPath, "data_" + sinEspacios + "_img.json");
             LoadGridData();
+
+            // Configuración e integración del control MapEditor
+          /*  mapEditor = new MapEditor();
+            mapEditor.Location = new Point(1, 1); // Ajusta la ubicación según tu diseño
+            mapEditor.Size = new Size(gbMap.Size.Width,gbMap.Size.Height);//new Size(640, 480);
+            gbMap.Controls.Add(mapEditor);*/
+
+
         }
 
 
@@ -145,7 +153,7 @@ namespace GranDnDDM.Views
             }
         }
 
-        
+
         // Método para aplicar el filtro por categoría
         private void ApplyFilter()
         {
@@ -213,5 +221,49 @@ namespace GranDnDDM.Views
         {
             ApplyFilter();
         }
+
+        private void dgvImages_MouseDown_1(object sender, MouseEventArgs e)
+        {
+
+
+            var hitTest = dgvImages.HitTest(e.X, e.Y);
+            if (hitTest.Type == DataGridViewHitTestType.Cell &&
+                hitTest.RowIndex >= 0 && hitTest.ColumnIndex >= 0)
+            {
+                var column = dgvImages.Columns[hitTest.ColumnIndex];
+                if (column is DataGridViewImageColumn)
+                {
+                    var cell = dgvImages.Rows[hitTest.RowIndex].Cells[hitTest.ColumnIndex] as DataGridViewImageCell;
+                    if (cell?.Value is Image img)
+                    {
+                        // Obtenemos la categoría desde la columna "Categoria"
+                        string category = dgvImages.Rows[hitTest.RowIndex].Cells["Categoria"].Value.ToString();
+
+                        // Creamos un objeto que transporta la información del ítem
+                        var draggedItem = new DraggedMapItem
+                        {
+                            Image = img,
+                            Category = category
+                        };
+
+                        // Configuramos el DataObject para incluir nuestro tipo y también el bitmap para compatibilidad
+                        DataObject dataObject = new DataObject();
+                        dataObject.SetData("DraggedMapItem", draggedItem);
+                        dataObject.SetData(DataFormats.Bitmap, img);
+
+                        dgvImages.DoDragDrop(dataObject, DragDropEffects.Copy);
+                    }
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
     }
 }

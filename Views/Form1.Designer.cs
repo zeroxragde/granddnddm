@@ -38,7 +38,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(20, 30);
+            label1.Location = new Point(44, 60);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(259, 23);
@@ -49,7 +49,7 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(20, 56);
+            comboBox1.Location = new Point(27, 86);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(339, 31);
             comboBox1.TabIndex = 1;
@@ -57,7 +57,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(20, 106);
+            label2.Location = new Point(27, 142);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(146, 23);
@@ -66,7 +66,7 @@
             // 
             // txtDMName
             // 
-            txtDMName.Location = new Point(20, 148);
+            txtDMName.Location = new Point(20, 168);
             txtDMName.Name = "txtDMName";
             txtDMName.Size = new Size(339, 30);
             txtDMName.TabIndex = 3;
@@ -87,8 +87,9 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaptionText;
+            BackColor = Color.FromArgb(17, 17, 17);
             ClientSize = new Size(389, 286);
+            ControlBox = false;
             Controls.Add(btnStasrt);
             Controls.Add(txtDMName);
             Controls.Add(label2);
@@ -99,7 +100,7 @@
             Margin = new Padding(5);
             MaximizeBox = false;
             Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
+           
             Text = "GrandDnD/DM";
             Load += Form1_Load;
             ResumeLayout(false);

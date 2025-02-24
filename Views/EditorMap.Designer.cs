@@ -35,7 +35,11 @@
             btnAddImage = new Button();
             imageList1 = new ImageList(components);
             cmbCategory = new ComboBox();
+            gbMap = new GroupBox();
+            mCapa1 = new Tools.MapEditor();
+            mCapa2 = new Tools.MapEditor();
             ((System.ComponentModel.ISupportInitialize)dgvImages).BeginInit();
+            gbMap.SuspendLayout();
             SuspendLayout();
             // 
             // CmbFilter
@@ -56,6 +60,7 @@
             dgvImages.Size = new Size(346, 335);
             dgvImages.TabIndex = 6;
             dgvImages.CellContentClick += dgvImages_CellContentClick;
+            dgvImages.MouseDown += dgvImages_MouseDown_1;
             // 
             // btnAddImage
             // 
@@ -85,12 +90,45 @@
             cmbCategory.Size = new Size(149, 23);
             cmbCategory.TabIndex = 4;
             // 
+            // gbMap
+            // 
+            gbMap.Controls.Add(mCapa2);
+            gbMap.Controls.Add(mCapa1);
+            gbMap.Location = new Point(365, 12);
+            gbMap.Name = "gbMap";
+            gbMap.Size = new Size(1035, 407);
+            gbMap.TabIndex = 8;
+            gbMap.TabStop = false;
+            // 
+            // mCapa1
+            // 
+            mCapa1.AllowDrop = true;
+            mCapa1.Columns = 32;
+            mCapa1.Location = new Point(6, 16);
+            mCapa1.Name = "mCapa1";
+            mCapa1.Rows = 15;
+            mCapa1.Size = new Size(1023, 385);
+            mCapa1.TabIndex = 0;
+            mCapa1.TileSize = 32;
+            // 
+            // mCapa2
+            // 
+            mCapa2.AllowDrop = true;
+            mCapa2.Columns = 32;
+            mCapa2.Location = new Point(6, 16);
+            mCapa2.Name = "mCapa2";
+            mCapa2.Rows = 15;
+            mCapa2.Size = new Size(1023, 385);
+            mCapa2.TabIndex = 1;
+            mCapa2.TileSize = 32;
+            // 
             // EditorMap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1412, 505);
+            Controls.Add(gbMap);
             Controls.Add(CmbFilter);
             Controls.Add(dgvImages);
             Controls.Add(btnAddImage);
@@ -101,6 +139,7 @@
             Text = "EditorMap";
             Load += EditorMap_Load;
             ((System.ComponentModel.ISupportInitialize)dgvImages).EndInit();
+            gbMap.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -111,5 +150,8 @@
         private Button btnAddImage;
         private ComboBox cmbCategory;
         private ImageList imageList1;
+        private GroupBox gbMap;
+        private Tools.MapEditor mCapa1;
+        private Tools.MapEditor mCapa2;
     }
 }

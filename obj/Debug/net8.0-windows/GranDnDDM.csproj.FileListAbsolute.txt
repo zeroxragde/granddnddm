@@ -19,3 +19,4 @@ C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Properties.Resources.resources
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.Mapa.resources
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.EditorMap.resources
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Tools.MapEditor.resources

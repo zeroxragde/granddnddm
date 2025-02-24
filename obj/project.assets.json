@@ -8,25 +8,25 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Ragde\\.nuget\\packages\\": {},
-    "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\ecarrizales\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM\\GranDnDDM.csproj",
+      "projectUniqueName": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
       "projectName": "GranDnDDM",
-      "projectPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM\\GranDnDDM.csproj",
-      "packagesPath": "C:\\Users\\Ragde\\.nuget\\packages\\",
-      "outputPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM\\obj\\",
+      "projectPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
+      "packagesPath": "C:\\Users\\ecarrizales\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ragde\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ecarrizales\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -78,7 +78,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

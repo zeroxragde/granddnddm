@@ -9,21 +9,24 @@ namespace GranDnDDM.Tools
 {
     public class MapEditor : UserControl
     {
-        // Tamaño de celda (por defecto 32x32)
         public int TileSize { get; set; } = 32;
         public int Columns { get; set; } = 20;
         public int Rows { get; set; } = 15;
 
-        // Almacenamos los ítems colocados en la cuadrícula
         private Dictionary<Point, MapItem> gridTiles = new Dictionary<Point, MapItem>();
-        // Almacenamos los ítems de colocación libre (que abarcan toda la grid)
         private List<MapItem> freeItems = new List<MapItem>();
 
-        // Distancia umbral para disparar el evento de activación
-        public int ActivationThreshold { get; set; } = 40;
+        // Selección y manipulación
+        private MapItem selectedItem = null;
+        private bool isDragging = false;
+        private bool isResizing = false;
+        private ResizeHandle currentHandle = ResizeHandle.None;
 
-        // Evento para notificar la activación de un objeto (por ejemplo, al detectar la cercanía de un personaje)
-        public event Action<MapItem> ObjectActivated;
+        private Point dragStartPos;
+        private Rectangle originalBounds; // Guardamos el tamaño/posición original al iniciar resize/move
+
+        // Tamaño del "handler" de las esquinas
+        private const int HANDLE_SIZE = 8;
 
         public MapEditor()
         {
@@ -31,10 +34,15 @@ namespace GranDnDDM.Tools
             this.AllowDrop = true;
             this.DragEnter += MapEditor_DragEnter;
             this.DragDrop += MapEditor_DragDrop;
-            this.MouseClick += MapEditor_MouseClick;
+
+            // Manejo de mouse para seleccionar/mover/redimensionar
+            this.MouseDown += MapEditor_MouseDown;
+            this.MouseMove += MapEditor_MouseMove;
+            this.MouseUp += MapEditor_MouseUp;
         }
 
-        // En DragEnter verificamos que el objeto arrastrado incluya la información de nuestro ítem
+        // ============ DRAG & DROP BÁSICO ============
+
         private void MapEditor_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("DraggedMapItem") || e.Data.GetDataPresent(DataFormats.Bitmap))
@@ -43,56 +51,53 @@ namespace GranDnDDM.Tools
                 e.Effect = DragDropEffects.None;
         }
 
-        // En DragDrop obtenemos la información del ítem (imagen y categoría) y lo colocamos en el mapa
         private void MapEditor_DragDrop(object sender, DragEventArgs e)
         {
+            Point dropPoint = this.PointToClient(new Point(e.X, e.Y));
+
+            // Si viene con categoría
             if (e.Data.GetDataPresent("DraggedMapItem"))
             {
                 var draggedItem = e.Data.GetData("DraggedMapItem") as DraggedMapItem;
                 if (draggedItem != null)
                 {
-                    Image image = draggedItem.Image;
-                    string category = draggedItem.Category;
-                    Point dropPoint = this.PointToClient(new Point(e.X, e.Y));
-
-                    // Creamos un nuevo MapItem con la información arrastrada
-                    MapItem newItem = new MapItem
+                    var newItem = new MapItem
                     {
-                        Image = (Image)image.Clone(),
-                        Category = category,
-                        // En free placement se utiliza la posición del drop; en grid se calculará la celda
+                        Image = (Image)draggedItem.Image.Clone(),
+                        Category = draggedItem.Category,
                         Location = dropPoint
                     };
 
-                    // Si se mantiene pulsada la tecla Control, se coloca libremente (ignora la cuadrícula)
-                    if (ModifierKeys.HasFlag(Keys.Control))
+                    // Ajustamos el tamaño inicial al de la imagen
+                    newItem.Width = newItem.Image.Width;
+                    newItem.Height = newItem.Image.Height;
+
+                    if (draggedItem.Category== "imagenes generales")
                     {
                         freeItems.Add(newItem);
                     }
                     else
                     {
-                        // Calculamos la celda de la cuadrícula donde se soltó la imagen
                         int col = dropPoint.X / TileSize;
                         int row = dropPoint.Y / TileSize;
-                        Point gridPoint = new Point(col, row);
-                        newItem.GridLocation = gridPoint;
-                        gridTiles[gridPoint] = newItem;
+                        newItem.GridLocation = new Point(col, row);
+                        gridTiles[newItem.GridLocation.Value] = newItem;
                     }
-                    this.Invalidate(); // Redibuja el control
                 }
             }
             else if (e.Data.GetDataPresent(DataFormats.Bitmap))
             {
-                // Si no se incluye la información de categoría, usamos un valor por defecto
+                // Caso sin categoría
                 var bmp = e.Data.GetData(DataFormats.Bitmap) as Image;
                 if (bmp != null)
                 {
-                    Point dropPoint = this.PointToClient(new Point(e.X, e.Y));
-                    MapItem newItem = new MapItem
+                    var newItem = new MapItem
                     {
                         Image = (Image)bmp.Clone(),
                         Category = "desconocido",
-                        Location = dropPoint
+                        Location = dropPoint,
+                        Width = bmp.Width,
+                        Height = bmp.Height
                     };
                     if (ModifierKeys.HasFlag(Keys.Control))
                     {
@@ -102,35 +107,168 @@ namespace GranDnDDM.Tools
                     {
                         int col = dropPoint.X / TileSize;
                         int row = dropPoint.Y / TileSize;
-                        Point gridPoint = new Point(col, row);
-                        newItem.GridLocation = gridPoint;
-                        gridTiles[gridPoint] = newItem;
+                        newItem.GridLocation = new Point(col, row);
+                        gridTiles[newItem.GridLocation.Value] = newItem;
                     }
-                    this.Invalidate();
                 }
             }
+
+            this.Invalidate();
         }
 
-        // Ejemplo: con clic derecho se pueden eliminar ítems de colocación libre
-        private void MapEditor_MouseClick(object sender, MouseEventArgs e)
+        // ============ SELECCIÓN, MOVER Y REDIMENSIONAR ============
+
+        private void MapEditor_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            // Primero, chequeamos si dimos clic en un handle de redimensionado del ítem seleccionado
+            if (selectedItem != null && selectedItem.GridLocation == null)
             {
-                for (int i = freeItems.Count - 1; i >= 0; i--)
+                // Solo redimensionamos los items "free"
+                currentHandle = GetHandleAtPoint(selectedItem, e.Location);
+                if (currentHandle != ResizeHandle.None)
                 {
-                    var item = freeItems[i];
-                    Rectangle rect = new Rectangle(item.Location, item.Image.Size);
-                    if (rect.Contains(e.Location))
-                    {
-                        freeItems.RemoveAt(i);
-                        this.Invalidate();
-                        break;
-                    }
+                    isResizing = true;
+                    dragStartPos = e.Location;
+                    originalBounds = selectedItem.GetBounds();
+                    return;
                 }
+            }
+
+            // Si no se dio clic en un handle, revisamos si se clicó sobre algún ítem "free"
+            MapItem clickedItem = null;
+            for (int i = freeItems.Count - 1; i >= 0; i--)
+            {
+                var item = freeItems[i];
+                if (item.GetBounds().Contains(e.Location))
+                {
+                    clickedItem = item;
+                    break;
+                }
+            }
+
+            // Seleccionamos el ítem clicado (o ninguno si se clicó en un área vacía)
+            selectedItem = clickedItem;
+
+            // Si clicamos en un ítem, iniciamos arrastre para moverlo
+            if (selectedItem != null)
+            {
+                isDragging = true;
+                dragStartPos = e.Location;
+                originalBounds = selectedItem.GetBounds();
+            }
+
+            this.Invalidate();
+        }
+
+        private void MapEditor_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Cambio de cursor si pasamos sobre un handle de redimensionado
+            if (!isDragging && !isResizing && selectedItem != null && selectedItem.GridLocation == null)
+            {
+                var handle = GetHandleAtPoint(selectedItem, e.Location);
+                switch (handle)
+                {
+                    case ResizeHandle.TopLeft:
+                    case ResizeHandle.BottomRight:
+                        this.Cursor = Cursors.SizeNWSE;
+                        break;
+                    case ResizeHandle.TopRight:
+                    case ResizeHandle.BottomLeft:
+                        this.Cursor = Cursors.SizeNESW;
+                        break;
+                    case ResizeHandle.TopCenter:
+                    case ResizeHandle.BottomCenter:
+                        this.Cursor = Cursors.SizeNS;
+                        break;
+                    case ResizeHandle.MiddleLeft:
+                    case ResizeHandle.MiddleRight:
+                        this.Cursor = Cursors.SizeWE;
+                        break;
+                    default:
+                        this.Cursor = Cursors.Default;
+                        break;
+                }
+            }
+            else if (isResizing && selectedItem != null)
+            {
+                // Redimensionar según el handle
+                Rectangle newBounds = originalBounds;
+                int dx = e.X - dragStartPos.X;
+                int dy = e.Y - dragStartPos.Y;
+
+                switch (currentHandle)
+                {
+                    case ResizeHandle.TopLeft:
+                        newBounds.X += dx;
+                        newBounds.Width -= dx;
+                        newBounds.Y += dy;
+                        newBounds.Height -= dy;
+                        break;
+                    case ResizeHandle.TopCenter:
+                        newBounds.Y += dy;
+                        newBounds.Height -= dy;
+                        break;
+                    case ResizeHandle.TopRight:
+                        newBounds.Y += dy;
+                        newBounds.Height -= dy;
+                        newBounds.Width += dx;
+                        break;
+                    case ResizeHandle.MiddleLeft:
+                        newBounds.X += dx;
+                        newBounds.Width -= dx;
+                        break;
+                    case ResizeHandle.MiddleRight:
+                        newBounds.Width += dx;
+                        break;
+                    case ResizeHandle.BottomLeft:
+                        newBounds.X += dx;
+                        newBounds.Width -= dx;
+                        newBounds.Height += dy;
+                        break;
+                    case ResizeHandle.BottomCenter:
+                        newBounds.Height += dy;
+                        break;
+                    case ResizeHandle.BottomRight:
+                        newBounds.Width += dx;
+                        newBounds.Height += dy;
+                        break;
+                }
+
+                // Aseguramos que el tamaño no sea negativo
+                if (newBounds.Width < 1) newBounds.Width = 1;
+                if (newBounds.Height < 1) newBounds.Height = 1;
+
+                selectedItem.Location = new Point(newBounds.X, newBounds.Y);
+                selectedItem.Width = newBounds.Width;
+                selectedItem.Height = newBounds.Height;
+
+                this.Invalidate();
+            }
+            else if (isDragging && selectedItem != null)
+            {
+                // Mover el ítem
+                int dx = e.X - dragStartPos.X;
+                int dy = e.Y - dragStartPos.Y;
+
+                var bounds = originalBounds;
+                bounds.X += dx;
+                bounds.Y += dy;
+
+                selectedItem.Location = new Point(bounds.X, bounds.Y);
+                this.Invalidate();
             }
         }
 
-        // Método para pintar el mapa, la cuadrícula y los ítems
+        private void MapEditor_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+            isResizing = false;
+            currentHandle = ResizeHandle.None;
+            this.Cursor = Cursors.Default;
+        }
+
+        // ============ PINTAR LA CUADRÍCULA E ÍTEMS ============
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -146,81 +284,112 @@ namespace GranDnDDM.Tools
                 g.DrawLine(Pens.LightGray, 0, j * TileSize, Columns * TileSize, j * TileSize);
             }
 
-            // Dibuja los ítems colocados en la cuadrícula
+            // Dibuja los ítems en la cuadrícula
             foreach (var kvp in gridTiles)
             {
                 MapItem item = kvp.Value;
-                Rectangle destRect = new Rectangle(item.GridLocation.Value.X * TileSize, item.GridLocation.Value.Y * TileSize, TileSize, TileSize);
+                Rectangle destRect = new Rectangle(
+                    item.GridLocation.Value.X * TileSize,
+                    item.GridLocation.Value.Y * TileSize,
+                    TileSize,
+                    TileSize
+                );
                 g.DrawImage(item.Image, destRect);
             }
 
-            // Dibuja los ítems de colocación libre (que abarcan toda la grid)
+            // Dibuja los ítems de colocación libre
             foreach (var item in freeItems)
             {
-                g.DrawImage(item.Image, item.Location);
+                var rect = item.GetBounds();
+                g.DrawImage(item.Image, rect);
             }
 
-            // Opcional: dibuja un borde rojo alrededor de los objetos para visualizarlos
-            foreach (var item in GetAllItems().Where(mi => mi.Category.Equals("objetos", StringComparison.OrdinalIgnoreCase)))
+            // Dibuja marco de selección y handlers
+            if (selectedItem != null && selectedItem.GridLocation == null)
             {
-                Rectangle rect;
-                if (item.GridLocation.HasValue)
-                {
-                    rect = new Rectangle(item.GridLocation.Value.X * TileSize, item.GridLocation.Value.Y * TileSize, TileSize, TileSize);
-                }
-                else
-                {
-                    rect = new Rectangle(item.Location, item.Image.Size);
-                }
-                g.DrawRectangle(Pens.Red, rect);
+                DrawSelection(g, selectedItem);
             }
         }
 
-        // Método para obtener todos los ítems (tanto grid como free)
-        public IEnumerable<MapItem> GetAllItems()
+        // Dibuja el rectángulo de selección y los manejadores (handles)
+        private void DrawSelection(Graphics g, MapItem item)
         {
-            foreach (var item in gridTiles.Values)
-                yield return item;
-            foreach (var item in freeItems)
-                yield return item;
+            Rectangle r = item.GetBounds();
+            using (Pen pen = new Pen(Color.Red, 1))
+            {
+                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+                g.DrawRectangle(pen, r);
+            }
+
+            // Dibujar 8 handles (esquinas y lados)
+            foreach (var handle in Enum.GetValues(typeof(ResizeHandle)).Cast<ResizeHandle>())
+            {
+                if (handle == ResizeHandle.None) continue;
+                Rectangle hr = GetHandleRect(r, handle);
+                g.FillRectangle(Brushes.White, hr);
+                g.DrawRectangle(Pens.Black, hr);
+            }
         }
 
-        // Método que se puede llamar (por ejemplo, en un Timer o tras un movimiento) para revisar interacciones
-        // Si un objeto (categoría "objetos") está cerca de un personaje ("personajes"), se dispara el evento de activación.
-        public void CheckInteractions()
+        // ============ CÁLCULO DE HANDLES ============
+
+        private ResizeHandle GetHandleAtPoint(MapItem item, Point p)
         {
-            var characters = GetAllItems().Where(mi => mi.Category.Equals("personajes", StringComparison.OrdinalIgnoreCase)).ToList();
-            var objects = GetAllItems().Where(mi => mi.Category.Equals("objetos", StringComparison.OrdinalIgnoreCase)).ToList();
+            Rectangle r = item.GetBounds();
 
-            foreach (var obj in objects)
+            // Revisamos cada handle
+            foreach (var handle in Enum.GetValues(typeof(ResizeHandle)).Cast<ResizeHandle>())
             {
-                // Calculamos la posición central del objeto
-                Point objPos = obj.GridLocation.HasValue
-                    ? new Point(obj.GridLocation.Value.X * TileSize + TileSize / 2, obj.GridLocation.Value.Y * TileSize + TileSize / 2)
-                    : new Point(obj.Location.X + obj.Image.Width / 2, obj.Location.Y + obj.Image.Height / 2);
-
-                foreach (var chr in characters)
-                {
-                    Point chrPos = chr.GridLocation.HasValue
-                        ? new Point(chr.GridLocation.Value.X * TileSize + TileSize / 2, chr.GridLocation.Value.Y * TileSize + TileSize / 2)
-                        : new Point(chr.Location.X + chr.Image.Width / 2, chr.Location.Y + chr.Image.Height / 2);
-
-                    double distance = Math.Sqrt(Math.Pow(objPos.X - chrPos.X, 2) + Math.Pow(objPos.Y - chrPos.Y, 2));
-                    if (distance <= ActivationThreshold)
-                    {
-                        // Dispara el evento de activación para este objeto
-                        ObjectActivated?.Invoke(obj);
-                    }
-                }
+                if (handle == ResizeHandle.None) continue;
+                Rectangle hr = GetHandleRect(r, handle);
+                if (hr.Contains(p))
+                    return handle;
             }
+            return ResizeHandle.None;
+        }
+
+        private Rectangle GetHandleRect(Rectangle bounds, ResizeHandle handle)
+        {
+            // Calcula las coordenadas del handle según la esquina/lado
+            int x = 0, y = 0;
+            switch (handle)
+            {
+                case ResizeHandle.TopLeft:
+                    x = bounds.Left - HANDLE_SIZE / 2;
+                    y = bounds.Top - HANDLE_SIZE / 2;
+                    break;
+                case ResizeHandle.TopCenter:
+                    x = bounds.Left + (bounds.Width / 2) - HANDLE_SIZE / 2;
+                    y = bounds.Top - HANDLE_SIZE / 2;
+                    break;
+                case ResizeHandle.TopRight:
+                    x = bounds.Right - HANDLE_SIZE / 2;
+                    y = bounds.Top - HANDLE_SIZE / 2;
+                    break;
+                case ResizeHandle.MiddleLeft:
+                    x = bounds.Left - HANDLE_SIZE / 2;
+                    y = bounds.Top + (bounds.Height / 2) - HANDLE_SIZE / 2;
+                    break;
+                case ResizeHandle.MiddleRight:
+                    x = bounds.Right - HANDLE_SIZE / 2;
+                    y = bounds.Top + (bounds.Height / 2) - HANDLE_SIZE / 2;
+                    break;
+                case ResizeHandle.BottomLeft:
+                    x = bounds.Left - HANDLE_SIZE / 2;
+                    y = bounds.Bottom - HANDLE_SIZE / 2;
+                    break;
+                case ResizeHandle.BottomCenter:
+                    x = bounds.Left + (bounds.Width / 2) - HANDLE_SIZE / 2;
+                    y = bounds.Bottom - HANDLE_SIZE / 2;
+                    break;
+                case ResizeHandle.BottomRight:
+                    x = bounds.Right - HANDLE_SIZE / 2;
+                    y = bounds.Bottom - HANDLE_SIZE / 2;
+                    break;
+            }
+            return new Rectangle(x, y, HANDLE_SIZE, HANDLE_SIZE);
         }
     }
 
-    // Clase auxiliar para el posicionamiento de imágenes libres
-    public class ImagePlacement
-    {
-        public Image Image { get; set; }
-        public Point Location { get; set; }
-    }
 }
 

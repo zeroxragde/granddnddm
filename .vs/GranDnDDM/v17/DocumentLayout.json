@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\tools\\mapeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:tools\\mapeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\models\\imageplacement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:models\\imageplacement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\models\\mapitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:models\\mapitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\models\\resizehandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:models\\resizehandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\editormap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\editormap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\tools\\mapeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:tools\\mapeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\models\\draggedmapitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,45 +39,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ImagePlacement.cs",
-              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Models\\ImagePlacement.cs",
-              "RelativeDocumentMoniker": "Models\\ImagePlacement.cs",
-              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Models\\ImagePlacement.cs",
-              "RelativeToolTip": "Models\\ImagePlacement.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Title": "EditorMap.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\EditorMap.Designer.cs",
+              "RelativeDocumentMoniker": "Views\\EditorMap.Designer.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\EditorMap.Designer.cs",
+              "RelativeToolTip": "Views\\EditorMap.Designer.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAAwEIAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T19:57:53.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ResizeHandle.cs",
-              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Models\\ResizeHandle.cs",
-              "RelativeDocumentMoniker": "Models\\ResizeHandle.cs",
-              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Models\\ResizeHandle.cs",
-              "RelativeToolTip": "Models\\ResizeHandle.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T19:57:09.044Z",
+              "WhenOpened": "2025-02-25T00:05:55.074Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MapItem.cs",
-              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Models\\MapItem.cs",
-              "RelativeDocumentMoniker": "Models\\MapItem.cs",
-              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Models\\MapItem.cs",
-              "RelativeToolTip": "Models\\MapItem.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAqwCEAAAAJAAAA",
+              "Title": "EditorMap.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\EditorMap.cs",
+              "RelativeDocumentMoniker": "Views\\EditorMap.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\EditorMap.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\EditorMap.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T19:49:15.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-24T22:04:33.508Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "DraggedMapItem.cs",
               "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Models\\DraggedMapItem.cs",
               "RelativeDocumentMoniker": "Models\\DraggedMapItem.cs",
@@ -94,26 +76,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "EditorMap.cs",
               "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\EditorMap.cs",
               "RelativeDocumentMoniker": "Views\\EditorMap.cs",
               "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\EditorMap.cs",
               "RelativeToolTip": "Views\\EditorMap.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAPIAAAA8AAAA",
+              "ViewState": "AQIAAFABAAAAAAAAAADgv1kBAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T18:52:30.227Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MapEditor.cs",
               "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Tools\\MapEditor.cs",
               "RelativeDocumentMoniker": "Tools\\MapEditor.cs",
               "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Tools\\MapEditor.cs",
               "RelativeToolTip": "Tools\\MapEditor.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAlwEoAAABEAAAA",
+              "ViewState": "AQIAAHoBAAAAAAAAAAAUwIoBAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T17:40:54.218Z",
               "EditorCaption": ""

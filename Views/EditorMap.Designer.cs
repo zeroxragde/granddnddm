@@ -36,8 +36,14 @@
             imageList1 = new ImageList(components);
             cmbCategory = new ComboBox();
             gbMap = new GroupBox();
-            mCapa1 = new Tools.MapEditor();
-            mCapa2 = new Tools.MapEditor();
+            mapEditor = new Tools.MapEditor();
+            cmbLayers = new ComboBox();
+            btnAddLayer = new Button();
+            imageList2 = new ImageList(components);
+            btnDraw = new Button();
+            btnErase = new Button();
+            ilCursores = new ImageList(components);
+            btnNone = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvImages).BeginInit();
             gbMap.SuspendLayout();
             SuspendLayout();
@@ -60,6 +66,7 @@
             dgvImages.Size = new Size(346, 335);
             dgvImages.TabIndex = 6;
             dgvImages.CellContentClick += dgvImages_CellContentClick;
+            dgvImages.Click += dgvImages_CellClick;
             dgvImages.MouseDown += dgvImages_MouseDown_1;
             // 
             // btnAddImage
@@ -80,6 +87,7 @@
             imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "add_img.png");
+            imageList1.Images.SetKeyName(1, "add_layer.png");
             // 
             // cmbCategory
             // 
@@ -92,35 +100,101 @@
             // 
             // gbMap
             // 
-            gbMap.Controls.Add(mCapa2);
-            gbMap.Controls.Add(mCapa1);
+            gbMap.Controls.Add(mapEditor);
             gbMap.Location = new Point(365, 12);
             gbMap.Name = "gbMap";
             gbMap.Size = new Size(1035, 407);
             gbMap.TabIndex = 8;
             gbMap.TabStop = false;
             // 
-            // mCapa1
+            // mapEditor
             // 
-            mCapa1.AllowDrop = true;
-            mCapa1.Columns = 32;
-            mCapa1.Location = new Point(6, 16);
-            mCapa1.Name = "mCapa1";
-            mCapa1.Rows = 15;
-            mCapa1.Size = new Size(1023, 385);
-            mCapa1.TabIndex = 0;
-            mCapa1.TileSize = 32;
+            mapEditor.ActiveLayerIndex = 0;
+            mapEditor.AllowDrop = true;
+            mapEditor.Columns = 32;
+            mapEditor.CurrentToolMode = Enums.ToolMode.None;
+            mapEditor.DrawingImage = null;
+            mapEditor.Location = new Point(6, 16);
+            mapEditor.Name = "mapEditor";
+            mapEditor.Rows = 15;
+            mapEditor.Size = new Size(1023, 385);
+            mapEditor.TabIndex = 0;
+            mapEditor.TileSize = 32;
             // 
-            // mCapa2
+            // cmbLayers
             // 
-            mCapa2.AllowDrop = true;
-            mCapa2.Columns = 32;
-            mCapa2.Location = new Point(6, 16);
-            mCapa2.Name = "mCapa2";
-            mCapa2.Rows = 15;
-            mCapa2.Size = new Size(1023, 385);
-            mCapa2.TabIndex = 1;
-            mCapa2.TileSize = 32;
+            cmbLayers.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbLayers.FormattingEnabled = true;
+            cmbLayers.Location = new Point(1017, 425);
+            cmbLayers.Name = "cmbLayers";
+            cmbLayers.Size = new Size(383, 23);
+            cmbLayers.TabIndex = 9;
+            cmbLayers.SelectedIndexChanged += cmbLayers_SelectedIndexChanged;
+            // 
+            // btnAddLayer
+            // 
+            btnAddLayer.ForeColor = Color.Black;
+            btnAddLayer.ImageIndex = 0;
+            btnAddLayer.ImageList = imageList2;
+            btnAddLayer.Location = new Point(371, 425);
+            btnAddLayer.Name = "btnAddLayer";
+            btnAddLayer.Size = new Size(44, 41);
+            btnAddLayer.TabIndex = 10;
+            btnAddLayer.UseVisualStyleBackColor = true;
+            btnAddLayer.Click += btnAddLayer_Click;
+            // 
+            // imageList2
+            // 
+            imageList2.ColorDepth = ColorDepth.Depth32Bit;
+            imageList2.ImageStream = (ImageListStreamer)resources.GetObject("imageList2.ImageStream");
+            imageList2.TransparentColor = Color.Transparent;
+            imageList2.Images.SetKeyName(0, "add_layer.png");
+            imageList2.Images.SetKeyName(1, "pencil.png");
+            imageList2.Images.SetKeyName(2, "1331349.png");
+            imageList2.Images.SetKeyName(3, "cursor.png");
+            // 
+            // btnDraw
+            // 
+            btnDraw.ForeColor = Color.Black;
+            btnDraw.ImageIndex = 1;
+            btnDraw.ImageList = imageList2;
+            btnDraw.Location = new Point(421, 425);
+            btnDraw.Name = "btnDraw";
+            btnDraw.Size = new Size(44, 41);
+            btnDraw.TabIndex = 11;
+            btnDraw.UseVisualStyleBackColor = true;
+            btnDraw.Click += btnDraw_Click;
+            // 
+            // btnErase
+            // 
+            btnErase.ForeColor = Color.Black;
+            btnErase.ImageIndex = 2;
+            btnErase.ImageList = imageList2;
+            btnErase.Location = new Point(471, 425);
+            btnErase.Name = "btnErase";
+            btnErase.Size = new Size(44, 41);
+            btnErase.TabIndex = 12;
+            btnErase.UseVisualStyleBackColor = true;
+            btnErase.Click += btnErase_Click;
+            // 
+            // ilCursores
+            // 
+            ilCursores.ColorDepth = ColorDepth.Depth32Bit;
+            ilCursores.ImageStream = (ImageListStreamer)resources.GetObject("ilCursores.ImageStream");
+            ilCursores.TransparentColor = Color.Transparent;
+            ilCursores.Images.SetKeyName(0, "penMouse.ico");
+            // 
+            // btnNone
+            // 
+            btnNone.ForeColor = Color.Black;
+            btnNone.ImageIndex = 3;
+            btnNone.ImageList = imageList2;
+            btnNone.Location = new Point(521, 425);
+            btnNone.Name = "btnNone";
+            btnNone.Size = new Size(44, 41);
+            btnNone.TabIndex = 13;
+            btnNone.UseVisualStyleBackColor = true;
+            btnNone.Click += btnNone_Click;
             // 
             // EditorMap
             // 
@@ -128,6 +202,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1412, 505);
+            Controls.Add(btnNone);
+            Controls.Add(btnErase);
+            Controls.Add(btnDraw);
+            Controls.Add(btnAddLayer);
+            Controls.Add(cmbLayers);
             Controls.Add(gbMap);
             Controls.Add(CmbFilter);
             Controls.Add(dgvImages);
@@ -151,7 +230,13 @@
         private ComboBox cmbCategory;
         private ImageList imageList1;
         private GroupBox gbMap;
-        private Tools.MapEditor mCapa1;
-        private Tools.MapEditor mCapa2;
+        private Tools.MapEditor mapEditor;
+        private ComboBox cmbLayers;
+        private Button btnAddLayer;
+        private ImageList imageList2;
+        private Button btnDraw;
+        private Button btnErase;
+        private ImageList ilCursores;
+        private Button btnNone;
     }
 }

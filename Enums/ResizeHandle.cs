@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GranDnDDM.Models
+namespace GranDnDDM.Enums
 {
     public enum ResizeHandle
     {

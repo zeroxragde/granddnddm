@@ -1,4 +1,5 @@
-﻿using GranDnDDM.Models;
+﻿using GranDnDDM.Enums;
+using GranDnDDM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,14 @@ namespace GranDnDDM.Tools
         public int Columns { get; set; } = 20;
         public int Rows { get; set; } = 15;
 
-        private Dictionary<Point, MapItem> gridTiles = new Dictionary<Point, MapItem>();
-        private List<MapItem> freeItems = new List<MapItem>();
+        // Lista de capas y la capa activa
+        private List<MapLayer> layers = new List<MapLayer>();
+        public int ActiveLayerIndex { get; set; } = 0;
+      
+        // Propiedades para la herramienta
+        public ToolMode CurrentToolMode { get; set; } = ToolMode.None;
+        // La imagen que se usará para dibujar (debe ser asignada desde el formulario)
+        public Image DrawingImage { get; set; }
 
         // Selección y manipulación
         private MapItem selectedItem = null;
@@ -30,15 +37,17 @@ namespace GranDnDDM.Tools
 
         public MapEditor()
         {
-            this.DoubleBuffered = true;
-            this.AllowDrop = true;
-            this.DragEnter += MapEditor_DragEnter;
-            this.DragDrop += MapEditor_DragDrop;
+            DoubleBuffered = true;
+            AllowDrop = true;
+            DragEnter += MapEditor_DragEnter;
+            DragDrop += MapEditor_DragDrop;
 
             // Manejo de mouse para seleccionar/mover/redimensionar
-            this.MouseDown += MapEditor_MouseDown;
-            this.MouseMove += MapEditor_MouseMove;
-            this.MouseUp += MapEditor_MouseUp;
+            MouseDown += MapEditor_MouseDown;
+            MouseMove += MapEditor_MouseMove;
+            MouseUp += MapEditor_MouseUp;
+            // Creamos la capa base inicial (grid inicial)
+            layers.Add(new MapLayer("Capa Base"));
         }
 
         // ============ DRAG & DROP BÁSICO ============
@@ -54,34 +63,43 @@ namespace GranDnDDM.Tools
         private void MapEditor_DragDrop(object sender, DragEventArgs e)
         {
             Point dropPoint = this.PointToClient(new Point(e.X, e.Y));
-
+            // Obtenemos la capa activa
+            MapLayer activeLayer = layers[ActiveLayerIndex];
             // Si viene con categoría
+            var draggedItem = e.Data.GetData("DraggedMapItem") as DraggedMapItem;
             if (e.Data.GetDataPresent("DraggedMapItem"))
             {
-                var draggedItem = e.Data.GetData("DraggedMapItem") as DraggedMapItem;
+              
                 if (draggedItem != null)
                 {
                     var newItem = new MapItem
                     {
                         Image = (Image)draggedItem.Image.Clone(),
                         Category = draggedItem.Category,
-                        Location = dropPoint
+                        Location = dropPoint,
+                        Width = draggedItem.Image.Width,
+                        Height = draggedItem.Image.Height
                     };
 
                     // Ajustamos el tamaño inicial al de la imagen
-                    newItem.Width = newItem.Image.Width;
-                    newItem.Height = newItem.Image.Height;
+                  //  newItem.Width = newItem.Image.Width;
+                  //  newItem.Height = newItem.Image.Height;
 
                     if (draggedItem.Category== "imagenes generales")
                     {
-                        freeItems.Add(newItem);
+                        // freeItems.Add(newItem);
+                        activeLayer.FreeItems.Add(newItem);
                     }
                     else
                     {
+                        /*int col = dropPoint.X / TileSize;
+                        int row = dropPoint.Y / TileSize;
+                        newItem.GridLocation = new Point(col, row);
+                        gridTiles[newItem.GridLocation.Value] = newItem;*/
                         int col = dropPoint.X / TileSize;
                         int row = dropPoint.Y / TileSize;
                         newItem.GridLocation = new Point(col, row);
-                        gridTiles[newItem.GridLocation.Value] = newItem;
+                        activeLayer.GridItems[newItem.GridLocation.Value] = newItem;
                     }
                 }
             }
@@ -89,30 +107,34 @@ namespace GranDnDDM.Tools
             {
                 // Caso sin categoría
                 var bmp = e.Data.GetData(DataFormats.Bitmap) as Image;
-                if (bmp != null)
+                if (bmp != null && draggedItem != null)
                 {
                     var newItem = new MapItem
                     {
-                        Image = (Image)bmp.Clone(),
-                        Category = "desconocido",
+                        Image = (Image)draggedItem.Image.Clone(),
+                        Category = draggedItem.Category,
                         Location = dropPoint,
-                        Width = bmp.Width,
-                        Height = bmp.Height
+                        Width = draggedItem.Image.Width,
+                        Height = draggedItem.Image.Height
                     };
-                    if (ModifierKeys.HasFlag(Keys.Control))
+                    if (draggedItem.Category == "imagenes generales")
                     {
-                        freeItems.Add(newItem);
+                        // freeItems.Add(newItem);
+                        activeLayer.FreeItems.Add(newItem);
                     }
                     else
                     {
+                        /*int col = dropPoint.X / TileSize;
+                        int row = dropPoint.Y / TileSize;
+                        newItem.GridLocation = new Point(col, row);
+                        gridTiles[newItem.GridLocation.Value] = newItem;*/
                         int col = dropPoint.X / TileSize;
                         int row = dropPoint.Y / TileSize;
                         newItem.GridLocation = new Point(col, row);
-                        gridTiles[newItem.GridLocation.Value] = newItem;
+                        activeLayer.GridItems[newItem.GridLocation.Value] = newItem;
                     }
                 }
             }
-
             this.Invalidate();
         }
 
@@ -120,44 +142,96 @@ namespace GranDnDDM.Tools
 
         private void MapEditor_MouseDown(object sender, MouseEventArgs e)
         {
-            // Primero, chequeamos si dimos clic en un handle de redimensionado del ítem seleccionado
-            if (selectedItem != null && selectedItem.GridLocation == null)
+
+            // Si la herramienta activa es Dibujar
+            if (CurrentToolMode == ToolMode.Draw)
             {
-                // Solo redimensionamos los items "free"
-                currentHandle = GetHandleAtPoint(selectedItem, e.Location);
-                if (currentHandle != ResizeHandle.None)
+                if (DrawingImage == null)
                 {
-                    isResizing = true;
-                    dragStartPos = e.Location;
-                    originalBounds = selectedItem.GetBounds();
+                    MessageBox.Show("No se ha seleccionado ninguna imagen para dibujar.");
                     return;
                 }
-            }
 
-            // Si no se dio clic en un handle, revisamos si se clicó sobre algún ítem "free"
-            MapItem clickedItem = null;
-            for (int i = freeItems.Count - 1; i >= 0; i--)
-            {
-                var item = freeItems[i];
-                if (item.GetBounds().Contains(e.Location))
+                // Se calcula la celda en la que se hizo click
+                int col = e.X / TileSize;
+                int row = e.Y / TileSize;
+                Point gridPoint = new Point(col, row);
+
+                // Obtenemos la capa activa
+                MapLayer activeLayer = layers[ActiveLayerIndex];
+
+                // Creamos un nuevo ítem usando la imagen seleccionada
+                MapItem newItem = new MapItem
                 {
-                    clickedItem = item;
-                    break;
-                }
+                    Image = (Image)DrawingImage.Clone(),
+                    Category = "tile", // O la categoría que manejes para tiles
+                    GridLocation = gridPoint,
+                    Location = new Point(gridPoint.X * TileSize, gridPoint.Y * TileSize),
+                    Width = TileSize,
+                    Height = TileSize
+                };
+
+                activeLayer.GridItems[gridPoint] = newItem;
+                Invalidate();
+                return;
             }
-
-            // Seleccionamos el ítem clicado (o ninguno si se clicó en un área vacía)
-            selectedItem = clickedItem;
-
-            // Si clicamos en un ítem, iniciamos arrastre para moverlo
-            if (selectedItem != null)
+            else if (CurrentToolMode == ToolMode.Erase)
             {
-                isDragging = true;
-                dragStartPos = e.Location;
-                originalBounds = selectedItem.GetBounds();
+                int col = e.X / TileSize;
+                int row = e.Y / TileSize;
+                Point gridPoint = new Point(col, row);
+
+                MapLayer activeLayer = layers[ActiveLayerIndex];
+                if (activeLayer.GridItems.ContainsKey(gridPoint))
+                {
+                    activeLayer.GridItems.Remove(gridPoint);
+                    Invalidate();
+                }
+                return;
+            }
+            else
+            {
+                // Obtenemos la capa activa
+                MapLayer activeLayer = layers[ActiveLayerIndex];
+                // Primero, chequeamos si dimos clic en un handle de redimensionado del ítem seleccionado
+                if (selectedItem != null && selectedItem.GridLocation == null)
+                {
+                    // Solo redimensionamos los items "free"
+                    currentHandle = GetHandleAtPoint(selectedItem, e.Location);
+                    if (currentHandle != ResizeHandle.None)
+                    {
+                        isResizing = true;
+                        dragStartPos = e.Location;
+                        originalBounds = selectedItem.GetBounds();
+                        return;
+                    }
+                }
+
+                // Si no se dio clic en un handle, revisamos si se clicó sobre algún ítem "free"
+                MapItem clickedItem = null;
+                for (int i = activeLayer.FreeItems.Count - 1; i >= 0; i--)
+                {
+                    var item = activeLayer.FreeItems[i];
+                    if (item.GetBounds().Contains(e.Location))
+                    {
+                        clickedItem = item;
+                        break;
+                    }
+                }
+
+                // Seleccionamos el ítem clicado (o ninguno si se clicó en un área vacía)
+                selectedItem = clickedItem;
+
+                // Si clicamos en un ítem, iniciamos arrastre para moverlo
+                if (selectedItem != null)
+                {
+                    isDragging = true;
+                    dragStartPos = e.Location;
+                    originalBounds = selectedItem.GetBounds();
+                }
+
             }
 
-            this.Invalidate();
         }
 
         private void MapEditor_MouseMove(object sender, MouseEventArgs e)
@@ -274,7 +348,7 @@ namespace GranDnDDM.Tools
             base.OnPaint(e);
             Graphics g = e.Graphics;
 
-            // Dibuja la cuadrícula
+            // Dibuja la cuadrícula (se dibuja una sola vez)
             for (int i = 0; i <= Columns; i++)
             {
                 g.DrawLine(Pens.LightGray, i * TileSize, 0, i * TileSize, Rows * TileSize);
@@ -284,33 +358,48 @@ namespace GranDnDDM.Tools
                 g.DrawLine(Pens.LightGray, 0, j * TileSize, Columns * TileSize, j * TileSize);
             }
 
-            // Dibuja los ítems en la cuadrícula
-            foreach (var kvp in gridTiles)
+            // Recorre y dibuja todas las capas que estén visibles
+            foreach (var layer in layers)
             {
-                MapItem item = kvp.Value;
-                Rectangle destRect = new Rectangle(
-                    item.GridLocation.Value.X * TileSize,
-                    item.GridLocation.Value.Y * TileSize,
-                    TileSize,
-                    TileSize
-                );
-                g.DrawImage(item.Image, destRect);
+                if (!layer.Visible)
+                    continue;
+
+                // Dibuja los ítems en la cuadrícula de la capa
+                foreach (var kvp in layer.GridItems)
+                {
+                    MapItem item = kvp.Value;
+                    Rectangle destRect = new Rectangle(
+                        item.GridLocation.Value.X * TileSize,
+                        item.GridLocation.Value.Y * TileSize,
+                        TileSize,
+                        TileSize
+                    );
+                    g.DrawImage(item.Image, destRect);
+                }
+
+                // Dibuja los ítems de colocación libre de la capa
+                foreach (var item in layer.FreeItems)
+                {
+                    var rect = item.GetBounds();
+                    g.DrawImage(item.Image, rect);
+                }
             }
 
-            // Dibuja los ítems de colocación libre
-            foreach (var item in freeItems)
-            {
-                var rect = item.GetBounds();
-                g.DrawImage(item.Image, rect);
-            }
-
-            // Dibuja marco de selección y handlers
+            // Dibuja el marco de selección y los handlers para el ítem seleccionado, si aplica
             if (selectedItem != null && selectedItem.GridLocation == null)
             {
                 DrawSelection(g, selectedItem);
             }
         }
+        // Método para agregar una nueva capa
+        public void AddLayer(string name)
+        {
+            layers.Add(new MapLayer(name));
+            this.Invalidate();
+        } 
 
+        // Método para obtener la lista de capas (para llenar el ComboBox en el formulario)
+        public List<MapLayer> GetLayers() => layers;
         // Dibuja el rectángulo de selección y los manejadores (handles)
         private void DrawSelection(Graphics g, MapItem item)
         {
@@ -348,6 +437,7 @@ namespace GranDnDDM.Tools
             return ResizeHandle.None;
         }
 
+    
         private Rectangle GetHandleRect(Rectangle bounds, ResizeHandle handle)
         {
             // Calcula las coordenadas del handle según la esquina/lado
@@ -389,6 +479,10 @@ namespace GranDnDDM.Tools
             }
             return new Rectangle(x, y, HANDLE_SIZE, HANDLE_SIZE);
         }
+    
+    
+    
+    
     }
 
 }

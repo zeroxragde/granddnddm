@@ -1,5 +1,7 @@
-﻿using GranDnDDM.Models;
+﻿using GranDnDDM.Enums;
+using GranDnDDM.Models;
 using GranDnDDM.Tools;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +21,7 @@ namespace GranDnDDM.Views
 
         private string imagesFolder = Path.Combine(Application.StartupPath, "imagenes");
         private string jsonDataFile = Path.Combine(Application.StartupPath, "data_img.json");
-        private MapEditor mapEditor;
+        //private MapEditor mapEditor;
         public EditorMap()
         {
             InitializeComponent();
@@ -67,11 +69,14 @@ namespace GranDnDDM.Views
             jsonDataFile = Path.Combine(Application.StartupPath, "data_" + sinEspacios + "_img.json");
             LoadGridData();
 
-            // Configuración e integración del control MapEditor
-          /*  mapEditor = new MapEditor();
-            mapEditor.Location = new Point(1, 1); // Ajusta la ubicación según tu diseño
-            mapEditor.Size = new Size(gbMap.Size.Width,gbMap.Size.Height);//new Size(640, 480);
-            gbMap.Controls.Add(mapEditor);*/
+            cmbLayers.Items.Clear();
+            foreach (var layer in mapEditor.GetLayers())
+            {
+                cmbLayers.Items.Add(layer.Name);
+            }
+            cmbLayers.SelectedIndex = mapEditor.ActiveLayerIndex;
+
+
 
 
         }
@@ -79,13 +84,14 @@ namespace GranDnDDM.Views
 
         private void dgvImages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridViewRow row = dgvImages.Rows[e.RowIndex];
             if (e.RowIndex >= 0 && dgvImages.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 var result = MessageBox.Show("¿Desea eliminar esta imagen?", "Confirmar",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    DataGridViewRow row = dgvImages.Rows[e.RowIndex];
+
 
                     // 1) Libera el objeto Image
                     var cellImg = row.Cells["ImageColumn"] as DataGridViewImageCell;
@@ -110,6 +116,23 @@ namespace GranDnDDM.Views
                     // 4) Actualiza el JSON si procede
                     SaveGridData();
                 }
+            }
+
+
+            // Obtenemos la celda de la imagen, asumiendo que su nombre es "ImageColumn"
+            DataGridViewImageCell imageCell = row.Cells["ImageColumn"] as DataGridViewImageCell;
+            if (imageCell != null && imageCell.Value is Image img)
+            {
+                // Asigna la imagen seleccionada al editor (puedes clonar la imagen para evitar conflictos)
+                mapEditor.DrawingImage = (Image)img.Clone();
+
+                // Extraemos la categoría, suponiendo que la columna se llama "Categoria"
+                string categoria = row.Cells["Categoria"].Value?.ToString() ?? "";
+                MessageBox.Show("Tile seleccionado: " + categoria, "Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("La celda seleccionada no contiene una imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -225,7 +248,6 @@ namespace GranDnDDM.Views
         private void dgvImages_MouseDown_1(object sender, MouseEventArgs e)
         {
 
-
             var hitTest = dgvImages.HitTest(e.X, e.Y);
             if (hitTest.Type == DataGridViewHitTestType.Cell &&
                 hitTest.RowIndex >= 0 && hitTest.ColumnIndex >= 0)
@@ -258,12 +280,74 @@ namespace GranDnDDM.Views
 
         }
 
+        private void cmbLayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbLayers.SelectedIndex >= 0)
+            {
+                mapEditor.ActiveLayerIndex = cmbLayers.SelectedIndex;
+            }
+        }
+
+        private void btnAddLayer_Click(object sender, EventArgs e)
+        {
+            // Puedes pedirle al usuario un nombre (aquí se usa uno automático)
+            string newLayerName = "Nueva Capa " + mapEditor.GetLayers().Count;
+            mapEditor.AddLayer(newLayerName);
+            cmbLayers.Items.Add(newLayerName);
+            cmbLayers.SelectedIndex = cmbLayers.Items.Count - 1; // Se activa la nueva capa
+        }
+
+        private void btnDraw_Click(object sender, EventArgs e)
+        {
 
 
+            // Activa la herramienta de dibujo
+            mapEditor.CurrentToolMode = ToolMode.Draw;
+            // Cambia el cursor (puedes usar un cursor personalizado o uno predefinido)
+            // Supongamos que la clave de la imagen en el ImageList es "penMouse"
+            // (o un índice, si lo agregaste sin clave).
+            Image img = ilCursores.Images["penMouse.ico"];
+            // Convertimos la imagen a Bitmap
+            Bitmap bmp = new Bitmap(img);
+
+            // Creamos el cursor con el punto activo en la esquina superior izquierda (0,0)
+            Cursor customCursor = CursorHelper.CreateCursorFromBitmap(bmp, 0, 0);
+
+            // Asignamos el cursor al formulario o a un control específico
+            Cursor = customCursor;
+            // Actualiza la apariencia de los botones
+            btnDraw.BackColor = Color.LightBlue;
+            btnErase.BackColor = SystemColors.Control;
+        }
 
 
+        private void btnNone_Click(object sender, EventArgs e)
+        {
+            mapEditor.CurrentToolMode = ToolMode.None;
+            mapEditor.Cursor = Cursors.Default;
+            // Restablece los colores de los botones
+            btnDraw.BackColor = SystemColors.Control;
+            btnErase.BackColor = SystemColors.Control;
+        }
 
+        private void btnErase_Click(object sender, EventArgs e)
+        {
+            // Activa la herramienta de borrado
+            mapEditor.CurrentToolMode = ToolMode.Erase;
+            mapEditor.Cursor = Cursors.No; // O el cursor que prefieras para borrar
+            btnErase.BackColor = Color.LightBlue;
+            btnDraw.BackColor = SystemColors.Control;
+        }
 
+  
 
+        private void dgvImages_CellClick(object sender, EventArgs e)
+        {
+            string respuesta = Interaction.InputBox(
+           "Ingresa tu nombre, Master:",
+           "Mi Prompt Personalizado",
+           "Valor por defecto"
+       );
+        }
     }
 }

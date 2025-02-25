@@ -38,10 +38,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(44, 60);
+            label1.Location = new Point(61, 30);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(259, 23);
+            label1.Size = new Size(262, 24);
             label1.TabIndex = 0;
             label1.Text = "Seleccionar Monitor de Mapa:";
             // 
@@ -49,33 +49,33 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(27, 86);
+            comboBox1.Location = new Point(27, 57);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(339, 31);
+            comboBox1.Size = new Size(339, 32);
             comboBox1.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 142);
+            label2.Location = new Point(100, 92);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(146, 23);
+            label2.Size = new Size(144, 24);
             label2.TabIndex = 2;
             label2.Text = "Nombre del DM";
             // 
             // txtDMName
             // 
-            txtDMName.Location = new Point(20, 168);
+            txtDMName.Location = new Point(27, 130);
             txtDMName.Name = "txtDMName";
-            txtDMName.Size = new Size(339, 30);
+            txtDMName.Size = new Size(339, 29);
             txtDMName.TabIndex = 3;
             txtDMName.Text = "ED";
             // 
             // btnStasrt
             // 
             btnStasrt.ForeColor = SystemColors.ActiveCaptionText;
-            btnStasrt.Location = new Point(229, 204);
+            btnStasrt.Location = new Point(114, 181);
             btnStasrt.Name = "btnStasrt";
             btnStasrt.Size = new Size(130, 49);
             btnStasrt.TabIndex = 4;
@@ -85,22 +85,22 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(11F, 23F);
+            AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 17, 17);
-            ClientSize = new Size(389, 286);
+            ClientSize = new Size(389, 250);
             ControlBox = false;
             Controls.Add(btnStasrt);
             Controls.Add(txtDMName);
             Controls.Add(label2);
             Controls.Add(comboBox1);
             Controls.Add(label1);
-            Font = new Font("Univia Pro", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ButtonHighlight;
             Margin = new Padding(5);
             MaximizeBox = false;
             Name = "Form1";
-           
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GrandDnD/DM";
             Load += Form1_Load;
             ResumeLayout(false);

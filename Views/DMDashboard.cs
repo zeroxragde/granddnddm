@@ -31,15 +31,7 @@ namespace GranDnDDM.Views
             principal.Close();
         }
 
-        private void dgvImages_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnAddImage_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void btnMapEditor_Click(object sender, EventArgs e)
         {

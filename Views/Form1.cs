@@ -62,7 +62,7 @@ namespace GranDnDDM
                 MessageBox.Show("Favor de ingresa el nombre de DM que usaras", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Hide(); 
+            Hide();
             // Supongamos que el ComboBox ya tiene items de tipo MonitorItem
             MonitorItem monitorSeleccionado = comboBox1.SelectedItem as MonitorItem;
 
@@ -72,10 +72,12 @@ namespace GranDnDDM
                 GlobalTools.MONITOR = monitorSeleccionado;
             }
 
-            GlobalTools.DM = txtDMName.Text;    
-           DMDashboard dm = new DMDashboard(this);
+            GlobalTools.DM = txtDMName.Text;
+            DMDashboard dm = new DMDashboard(this);
             dm.Show();
 
         }
+
+      
     }
 }

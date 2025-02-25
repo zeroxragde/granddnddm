@@ -44,6 +44,8 @@
             btnErase = new Button();
             ilCursores = new ImageList(components);
             btnNone = new Button();
+            listViewTiles = new ListView();
+            ilTiles = new ImageList(components);
             ((System.ComponentModel.ISupportInitialize)dgvImages).BeginInit();
             gbMap.SuspendLayout();
             SuspendLayout();
@@ -61,12 +63,11 @@
             // 
             dgvImages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvImages.GridColor = Color.Green;
-            dgvImages.Location = new Point(13, 122);
+            dgvImages.Location = new Point(471, 472);
             dgvImages.Name = "dgvImages";
             dgvImages.Size = new Size(346, 335);
             dgvImages.TabIndex = 6;
             dgvImages.CellContentClick += dgvImages_CellContentClick;
-            dgvImages.Click += dgvImages_CellClick;
             dgvImages.MouseDown += dgvImages_MouseDown_1;
             // 
             // btnAddImage
@@ -196,12 +197,31 @@
             btnNone.UseVisualStyleBackColor = true;
             btnNone.Click += btnNone_Click;
             // 
+            // listViewTiles
+            // 
+            listViewTiles.CheckBoxes = true;
+            listViewTiles.LargeImageList = ilTiles;
+            listViewTiles.Location = new Point(13, 118);
+            listViewTiles.Name = "listViewTiles";
+            listViewTiles.Size = new Size(346, 339);
+            listViewTiles.TabIndex = 14;
+            listViewTiles.UseCompatibleStateImageBehavior = false;
+            listViewTiles.SelectedIndexChanged += listViewTiles_SelectedIndexChanged;
+            listViewTiles.MouseDown += listViewTiles_MouseDown;
+            // 
+            // ilTiles
+            // 
+            ilTiles.ColorDepth = ColorDepth.Depth32Bit;
+            ilTiles.ImageSize = new Size(64, 64);
+            ilTiles.TransparentColor = Color.Transparent;
+            // 
             // EditorMap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1412, 505);
+            Controls.Add(listViewTiles);
             Controls.Add(btnNone);
             Controls.Add(btnErase);
             Controls.Add(btnDraw);
@@ -238,5 +258,7 @@
         private Button btnErase;
         private ImageList ilCursores;
         private Button btnNone;
+        private ListView listViewTiles;
+        private ImageList ilTiles;
     }
 }

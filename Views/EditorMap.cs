@@ -21,10 +21,16 @@ namespace GranDnDDM.Views
 
         private string imagesFolder = Path.Combine(Application.StartupPath, "imagenes");
         private string jsonDataFile = Path.Combine(Application.StartupPath, "data_img.json");
+        // Variable a nivel de formulario para almacenar todos los ítems
+        private List<ListViewItem> allTilesItems = new List<ListViewItem>();
+
+
+
         //private MapEditor mapEditor;
         public EditorMap()
         {
             InitializeComponent();
+
         }
 
         private void EditorMap_Load(object sender, EventArgs e)
@@ -145,27 +151,41 @@ namespace GranDnDDM.Views
                 {
                     try
                     {
-                        // Cargar la imagen desde el archivo seleccionado
-                        Image img = Image.FromFile(ofd.FileName);
+                        // Carga la imagen completa desde el archivo seleccionado
+                        Image fullImage = Image.FromFile(ofd.FileName);
                         string category = cmbCategory.SelectedItem.ToString();
 
                         if (!Directory.Exists(imagesFolder))
                             Directory.CreateDirectory(imagesFolder);
 
-                        // Generar un nombre único para la imagen y copiarla a la carpeta "imagenes"
+                        // Genera un nombre único para la imagen y cópiala a la carpeta "imagenes"
                         string extension = Path.GetExtension(ofd.FileName);
                         string uniqueFileName = Guid.NewGuid().ToString() + extension;
                         string destinationPath = Path.Combine(imagesFolder, uniqueFileName);
                         File.Copy(ofd.FileName, destinationPath);
 
-                        // Agregar la imagen al DataGridView y almacenar el nombre del archivo en la propiedad Tag
-                        int rowIndex = dgvImages.Rows.Add(category, img);
-                        dgvImages.Rows[rowIndex].Tag = uniqueFileName;
+                        // Crea un preview pequeño de la imagen (por ejemplo, 64x64)
+                        Image previewImage = new Bitmap(fullImage, new Size(64, 64));
 
-                        // Guardar datos en JSON
+                        // Agrega el preview al ImageList usando el nombre único como clave
+                        if (!ilTiles.Images.ContainsKey(uniqueFileName))
+                        {
+                            ilTiles.Images.Add(uniqueFileName, previewImage);
+                        }
+
+                        // Crea un ListViewItem para el ListView de tiles.
+                        // Usa el preview (a través de ImageKey) y almacena la imagen completa en Tag.
+                        ListViewItem item = new ListViewItem
+                        {
+                            Text = category,         // O puedes poner otro texto informativo
+                            ImageKey = uniqueFileName,
+                            Tag = fullImage          // Aquí guardas la imagen en tamaño real
+                        };
+
+                        listViewTiles.Items.Add(item);
+
+                        // Guarda los datos en JSON y aplica filtros, si es necesario
                         SaveGridData();
-
-                        // Aplicar filtro actual
                         ApplyFilter();
                     }
                     catch (Exception ex)
@@ -180,18 +200,22 @@ namespace GranDnDDM.Views
         // Método para aplicar el filtro por categoría
         private void ApplyFilter()
         {
-            if (!dgvImages.Columns.Contains("Categoria"))
-            {
-                return;
-            }
-
+            // Obtener la categoría seleccionada del ComboBox
             string selectedCategory = CmbFilter.SelectedItem.ToString();
-            foreach (DataGridViewRow row in dgvImages.Rows)
+
+            // Limpiar los ítems actuales del ListView
+            listViewTiles.Items.Clear();
+
+            // Filtrar y agregar solo los ítems que cumplan la condición
+            foreach (ListViewItem item in allTilesItems)
             {
-                if (row.Cells["Categoria"].Value != null)
+                // Aquí, asumo que el Text del ítem representa la categoría;
+                // si lo almacenas en Tag u otra propiedad, ajusta el código.
+                string itemCategory = item.Text;
+
+                if (selectedCategory == "Todas" || itemCategory == selectedCategory)
                 {
-                    string rowCategory = row.Cells["Categoria"].Value.ToString();
-                    row.Visible = (selectedCategory == "Todas" || rowCategory == selectedCategory);
+                    listViewTiles.Items.Add(item);
                 }
             }
         }
@@ -227,9 +251,27 @@ namespace GranDnDDM.Views
                             string fullPath = Path.Combine(imagesFolder, record.FileName);
                             if (File.Exists(fullPath))
                             {
-                                Image img = Image.FromFile(fullPath);
-                                int index = dgvImages.Rows.Add(record.Category, img);
-                                dgvImages.Rows[index].Tag = record.FileName;
+                                // Cargar la imagen completa desde el archivo
+                                Image fullImage = Image.FromFile(fullPath);
+                                // Crear un preview pequeño (por ejemplo, 64x64)
+                                Image previewImage = new Bitmap(fullImage, new Size(64, 64));
+
+                                // Agregar el preview al ImageList, usando el nombre único como clave
+                                if (!ilTiles.Images.ContainsKey(record.FileName))
+                                {
+                                    ilTiles.Images.Add(record.FileName, previewImage);
+                                }
+
+                                // Crear un ListViewItem para el ListView de tiles.
+                                // Se usa el preview (a través de ImageKey) y se almacena la imagen completa en Tag.
+                                ListViewItem item = new ListViewItem
+                                {
+                                    Text = record.Category,         // Muestra la categoría u otra información
+                                    ImageKey = record.FileName,
+                                    Tag = fullImage                   // Almacena la imagen en tamaño real
+                                };
+
+                                listViewTiles.Items.Add(item);
                             }
                         }
                     }
@@ -240,6 +282,8 @@ namespace GranDnDDM.Views
                 }
             }
         }
+
+
         private void CmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyFilter();
@@ -290,8 +334,18 @@ namespace GranDnDDM.Views
 
         private void btnAddLayer_Click(object sender, EventArgs e)
         {
+            //revisar
+            string respuesta = Interaction.InputBox(
+            "Ingresa nombre de capa:",
+            "Capa Nueva",
+            "Nueva Capa " + mapEditor.GetLayers().Count
+            );
+            if (respuesta != null)
+            {
+                return;
+            }
             // Puedes pedirle al usuario un nombre (aquí se usa uno automático)
-            string newLayerName = "Nueva Capa " + mapEditor.GetLayers().Count;
+            string newLayerName = respuesta;
             mapEditor.AddLayer(newLayerName);
             cmbLayers.Items.Add(newLayerName);
             cmbLayers.SelectedIndex = cmbLayers.Items.Count - 1; // Se activa la nueva capa
@@ -339,15 +393,80 @@ namespace GranDnDDM.Views
             btnDraw.BackColor = SystemColors.Control;
         }
 
-  
 
-        private void dgvImages_CellClick(object sender, EventArgs e)
+        private void listViewTiles_MouseDown(object sender, MouseEventArgs e)
         {
-            string respuesta = Interaction.InputBox(
-           "Ingresa tu nombre, Master:",
-           "Mi Prompt Personalizado",
-           "Valor por defecto"
-       );
+            // Realiza un hit test para saber qué ítem fue clickeado
+            ListViewHitTestInfo hit = listViewTiles.HitTest(e.X, e.Y);
+            if (hit.Item != null)
+            {
+                // Obtenemos la clave de la imagen (para el preview, pero no la usaremos para el drag)
+                string imageKey = hit.Item.ImageKey;
+                // En Tag se guardó la imagen completa
+                Image fullImage = hit.Item.Tag as Image;
+                if (fullImage != null)
+                {
+                    // Suponemos que el Text del ítem contiene la categoría
+                    string category = hit.Item.Text;
+
+                    // Creamos el objeto que transporta la información del tile
+                    var draggedItem = new DraggedMapItem
+                    {
+                        Image = fullImage,
+                        Category = category
+                    };
+
+                    // Configuramos el DataObject para el drag & drop
+                    DataObject dataObject = new DataObject();
+                    dataObject.SetData("DraggedMapItem", draggedItem);
+                    dataObject.SetData(DataFormats.Bitmap, fullImage);
+
+                    listViewTiles.DoDragDrop(dataObject, DragDropEffects.Copy);
+                }
+            }
         }
+
+        private void listViewTiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewTiles.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewTiles.SelectedItems[0];
+                // Asumimos que el Text del ítem contiene la categoría del tile.
+                string category = selectedItem.Text;
+
+                Image tileImage = null;
+                // Si la categoría es "imagenes generales", usamos la imagen completa que se guardó en Tag.
+                if (category.Equals("imagenes generales", StringComparison.OrdinalIgnoreCase))
+                {
+                    tileImage = selectedItem.Tag as Image;
+                }
+                else
+                {
+                    // Para un tile normal, usamos la imagen del ImageList.
+                    string imageKey = selectedItem.ImageKey;
+                    if (ilTiles.Images.ContainsKey(imageKey))
+                    {
+                        tileImage = ilTiles.Images[imageKey];
+                    }
+                }
+
+                if (tileImage != null)
+                {
+                    // Asigna la imagen (clonada) al editor para que se use al pintar.
+                    mapEditor.DrawingImage = (Image)tileImage.Clone();
+                    MessageBox.Show("Tile seleccionado (" + category + ")", "Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la imagen para el tile seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+
+
+
+
+        ///////////
     }
 }

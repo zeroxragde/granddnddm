@@ -10,5 +10,6 @@ namespace GranDnDDM.Models
     {
         public Image Image { get; set; }
         public string Category { get; set; }
+        public string FileName { get; set; }
     }
 }

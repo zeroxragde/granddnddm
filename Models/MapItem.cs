@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using System.Text.Json.Serialization;
 
 namespace GranDnDDM.Models
 {
     public class MapItem
     {
+        // Esta propiedad no se serializa; solo se usa en tiempo de ejecución
+        [JsonIgnore]
         public Image Image { get; set; }
+
+        // Nombre del archivo (o ruta relativa) que identifica la imagen en disco
+        public string FileName { get; set; }
+
         public string Category { get; set; }
         public Point? GridLocation { get; set; }
-
-        // Solo se usan para ítems libres
         public Point Location { get; set; }
-
-        // Dimensiones del ítem (para permitir redimensionar)
         public int Width { get; set; }
         public int Height { get; set; }
 

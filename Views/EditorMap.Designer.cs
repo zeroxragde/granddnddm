@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorMap));
             CmbFilter = new ComboBox();
-            dgvImages = new DataGridView();
             btnAddImage = new Button();
             imageList1 = new ImageList(components);
             cmbCategory = new ComboBox();
@@ -46,8 +45,12 @@
             btnNone = new Button();
             listViewTiles = new ListView();
             ilTiles = new ImageList(components);
-            ((System.ComponentModel.ISupportInitialize)dgvImages).BeginInit();
+            btnDeleteImg = new Button();
+            pvPreview = new PictureBox();
+            btnSaveMap = new Button();
+            btnLoadMap = new Button();
             gbMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pvPreview).BeginInit();
             SuspendLayout();
             // 
             // CmbFilter
@@ -58,17 +61,6 @@
             CmbFilter.Size = new Size(347, 23);
             CmbFilter.TabIndex = 7;
             CmbFilter.SelectedIndexChanged += CmbFilter_SelectedIndexChanged;
-            // 
-            // dgvImages
-            // 
-            dgvImages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvImages.GridColor = Color.Green;
-            dgvImages.Location = new Point(471, 472);
-            dgvImages.Name = "dgvImages";
-            dgvImages.Size = new Size(346, 335);
-            dgvImages.TabIndex = 6;
-            dgvImages.CellContentClick += dgvImages_CellContentClick;
-            dgvImages.MouseDown += dgvImages_MouseDown_1;
             // 
             // btnAddImage
             // 
@@ -153,6 +145,9 @@
             imageList2.Images.SetKeyName(1, "pencil.png");
             imageList2.Images.SetKeyName(2, "1331349.png");
             imageList2.Images.SetKeyName(3, "cursor.png");
+            imageList2.Images.SetKeyName(4, "deleteImg.png");
+            imageList2.Images.SetKeyName(5, "save.png");
+            imageList2.Images.SetKeyName(6, "6385107.png");
             // 
             // btnDraw
             // 
@@ -215,12 +210,60 @@
             ilTiles.ImageSize = new Size(64, 64);
             ilTiles.TransparentColor = Color.Transparent;
             // 
+            // btnDeleteImg
+            // 
+            btnDeleteImg.ForeColor = Color.Black;
+            btnDeleteImg.ImageIndex = 4;
+            btnDeleteImg.ImageList = imageList2;
+            btnDeleteImg.Location = new Point(315, 70);
+            btnDeleteImg.Name = "btnDeleteImg";
+            btnDeleteImg.Size = new Size(44, 41);
+            btnDeleteImg.TabIndex = 15;
+            btnDeleteImg.UseVisualStyleBackColor = true;
+            btnDeleteImg.Click += btnDeleteImg_Click;
+            // 
+            // pvPreview
+            // 
+            pvPreview.Location = new Point(893, 425);
+            pvPreview.Name = "pvPreview";
+            pvPreview.Size = new Size(100, 68);
+            pvPreview.TabIndex = 16;
+            pvPreview.TabStop = false;
+            // 
+            // btnSaveMap
+            // 
+            btnSaveMap.ForeColor = Color.Black;
+            btnSaveMap.ImageIndex = 5;
+            btnSaveMap.ImageList = imageList2;
+            btnSaveMap.Location = new Point(315, 23);
+            btnSaveMap.Name = "btnSaveMap";
+            btnSaveMap.Size = new Size(44, 41);
+            btnSaveMap.TabIndex = 17;
+            btnSaveMap.UseVisualStyleBackColor = true;
+            btnSaveMap.Click += btnSaveMap_Click;
+            // 
+            // btnLoadMap
+            // 
+            btnLoadMap.ForeColor = Color.Black;
+            btnLoadMap.ImageIndex = 6;
+            btnLoadMap.ImageList = imageList2;
+            btnLoadMap.Location = new Point(265, 23);
+            btnLoadMap.Name = "btnLoadMap";
+            btnLoadMap.Size = new Size(44, 41);
+            btnLoadMap.TabIndex = 18;
+            btnLoadMap.UseVisualStyleBackColor = true;
+            btnLoadMap.Click += btnLoadMap_Click;
+            // 
             // EditorMap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1412, 505);
+            Controls.Add(btnLoadMap);
+            Controls.Add(btnSaveMap);
+            Controls.Add(pvPreview);
+            Controls.Add(btnDeleteImg);
             Controls.Add(listViewTiles);
             Controls.Add(btnNone);
             Controls.Add(btnErase);
@@ -229,7 +272,6 @@
             Controls.Add(cmbLayers);
             Controls.Add(gbMap);
             Controls.Add(CmbFilter);
-            Controls.Add(dgvImages);
             Controls.Add(btnAddImage);
             Controls.Add(cmbCategory);
             MaximizeBox = false;
@@ -237,15 +279,14 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "EditorMap";
             Load += EditorMap_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvImages).EndInit();
             gbMap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pvPreview).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private ComboBox CmbFilter;
-        private DataGridView dgvImages;
         private Button btnAddImage;
         private ComboBox cmbCategory;
         private ImageList imageList1;
@@ -260,5 +301,9 @@
         private Button btnNone;
         private ListView listViewTiles;
         private ImageList ilTiles;
+        private Button btnDeleteImg;
+        private PictureBox pvPreview;
+        private Button btnSaveMap;
+        private Button btnLoadMap;
     }
 }

@@ -25,7 +25,7 @@ namespace GranDnDDM.Views
         private List<ListViewItem> allTilesItems = new List<ListViewItem>();
         private Mapa fullScreenForm;
         private System.Windows.Forms.Timer updateTimer;
-
+        private string mapaName = "";
 
         //private MapEditor mapEditor;
         public EditorMap()
@@ -35,6 +35,13 @@ namespace GranDnDDM.Views
 
         private void EditorMap_Load(object sender, EventArgs e)
         {
+            int wm = GlobalTools.MONITOR.Screen.Bounds.Width;
+
+            int hm = GlobalTools.MONITOR.Screen.Bounds.Height;
+            int tw = wm / 32;
+            int th = hm / 32;
+            mapEditor.Columns = tw;
+            mapEditor.Rows = th;
             // ComboBox para seleccionar la categoría
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.Items.AddRange(new string[] { "personajes", "objetos", "tiles", "imagenes generales" });
@@ -65,7 +72,7 @@ namespace GranDnDDM.Views
             if (fullScreenForm != null && mapEditor != null)
             {
                 // Capturamos el contenido actual del MapEditor
-                Bitmap bmp = GetVisibleSnapshot();//mapEditor.GetSnapshot();
+                Bitmap bmp = mapEditor.GetSnapshot();
                 // Actualizamos la imagen en el formulario full screen
                 fullScreenForm.UpdateMap(bmp);
             }
@@ -436,7 +443,28 @@ namespace GranDnDDM.Views
 
         private void btnLoadMap_Click(object sender, EventArgs e)
         {
-            mapEditor.LoadMap();
+            mapaName =  mapEditor.LoadMap();
+            Text = Text + "- Mapa: " + mapaName;
+        }
+
+        private void EditorMap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (mapaName == "")
+            {
+                string respuesta = Interaction.InputBox(
+                "Ingresa nombre de mapa:",
+                "",
+                "Guardar Mapa "
+                );
+                if (respuesta != null || respuesta != "")
+                {
+                    mapEditor.SaveMap(Path.GetFileNameWithoutExtension(respuesta));
+                }
+
+            }
+            else {
+                mapEditor.SaveMap(mapaName);
+            }
         }
 
 

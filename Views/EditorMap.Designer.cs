@@ -234,6 +234,7 @@
             // pGrid
             // 
             pGrid.AutoScroll = true;
+            pGrid.BackgroundImage = Properties.Resources.FondoEpico;
             pGrid.Controls.Add(mapEditor);
             pGrid.Location = new Point(371, 23);
             pGrid.Name = "pGrid";
@@ -244,6 +245,7 @@
             // 
             mapEditor.ActiveLayerIndex = 0;
             mapEditor.AllowDrop = true;
+            mapEditor.BackColor = Color.Transparent;
             mapEditor.Columns = 64;
             mapEditor.CurrentToolMode = Enums.ToolMode.None;
             mapEditor.DrawingImage = null;
@@ -279,6 +281,7 @@
             Name = "EditorMap";
             StartPosition = FormStartPosition.CenterParent;
             Text = "EditorMap";
+            FormClosing += EditorMap_FormClosing;
             Load += EditorMap_Load;
             ((System.ComponentModel.ISupportInitialize)pvPreview).EndInit();
             pGrid.ResumeLayout(false);

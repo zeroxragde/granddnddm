@@ -42,3 +42,5 @@ X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\refint\GranDnDDM.dll
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.pdb
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.genruntimeconfig.cache
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\ref\GranDnDDM.dll
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.MusicControl.resources
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.ListSongs.resources

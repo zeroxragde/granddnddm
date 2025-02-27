@@ -21,21 +21,22 @@ namespace GranDnDDM.Views
 
         private void Mapa_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.StartPosition = FormStartPosition.Manual;
-            this.TopMost = true;
-
+            FormBorderStyle = FormBorderStyle.None;
+            StartPosition = FormStartPosition.Manual;
+            TopMost = true;
             Screen selectedScreen = GlobalTools.MONITOR.Screen;
             if (selectedScreen != null)
             {
                 // Posicionar y ajustar el tamaño según el WorkingArea del monitor seleccionado
-                this.Location = selectedScreen.WorkingArea.Location;
-                this.Size = selectedScreen.WorkingArea.Size;
+                Location = selectedScreen.WorkingArea.Location;
+                Size = selectedScreen.WorkingArea.Size;
+                WindowState = FormWindowState.Maximized;
+
             }
             else
             {
                 // Si no se encontró, maximiza en el monitor principal
-                this.WindowState = FormWindowState.Maximized;
+                WindowState = FormWindowState.Maximized;
             }
         }
 

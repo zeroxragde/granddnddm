@@ -13,7 +13,13 @@
     <Compile Update="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ListSongs.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Mapa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\MusicControl.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

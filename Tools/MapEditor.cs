@@ -463,7 +463,7 @@ namespace GranDnDDM.Tools
             }
         }
 
-        public void LoadMap()
+        public string LoadMap()
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -472,7 +472,7 @@ namespace GranDnDDM.Tools
                 if (ofd.ShowDialog() != DialogResult.OK)
                 {
                     MessageBox.Show("No se seleccionó ningún archivo JSON.", "Carga de Mapa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    return "";
                 }
 
                 try
@@ -486,7 +486,7 @@ namespace GranDnDDM.Tools
                         if (string.IsNullOrEmpty(imagesFolder))
                         {
                             MessageBox.Show("La carpeta de imágenes no está definida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            return "";
                         }
 
                         foreach (MapLayer layer in layers)
@@ -519,6 +519,7 @@ namespace GranDnDDM.Tools
                                 else
                                 {
                                     Console.WriteLine("El FileName es nulo o vacío en un MapItem de GridItems.");
+                                    return "";
                                 }
                             }
 
@@ -551,17 +552,21 @@ namespace GranDnDDM.Tools
                                     Console.WriteLine("El FileName es nulo o vacío en un MapItem de FreeItems.");
                                 }
                             }
+                            return ofd.FileName;
                         }
 
                         Invalidate();
                         MessageBox.Show("Mapa cargado correctamente.", "Cargar Mapa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return "";
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al cargar el mapa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "";
                 }
             }
+            return "";
         }
 
         private Image SolicitarImagen(string mensaje)

@@ -34,6 +34,7 @@
             // 
             // pbFullScreen
             // 
+            pbFullScreen.BackColor = Color.Transparent;
             pbFullScreen.Dock = DockStyle.Fill;
             pbFullScreen.Location = new Point(0, 0);
             pbFullScreen.Name = "pbFullScreen";
@@ -45,6 +46,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
+            BackgroundImage = Properties.Resources.FondoEpico;
             ClientSize = new Size(998, 529);
             ControlBox = false;
             Controls.Add(pbFullScreen);

@@ -31,12 +31,18 @@ namespace GranDnDDM.Views
             principal.Close();
         }
 
-   
+
 
         private void btnMapEditor_Click(object sender, EventArgs e)
         {
             EditorMap empa = new EditorMap();
-            empa.ShowDialog();
+            empa.Show();
+        }
+
+        private void btnMusicControl_Click(object sender, EventArgs e)
+        {
+            MusicControl music = new MusicControl();
+            music.Show();
         }
     }
 }

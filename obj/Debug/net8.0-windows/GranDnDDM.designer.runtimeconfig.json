@@ -12,9 +12,9 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Ragde\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Ragde\\.nuget\\packages",
-      "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages",
+      "C:\\Users\\ecarrizales\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ecarrizales\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
       "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
     ],
     "configProperties": {

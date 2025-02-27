@@ -104,12 +104,13 @@
             // 
             mapEditor.ActiveLayerIndex = 0;
             mapEditor.AllowDrop = true;
-            mapEditor.Columns = 32;
+            mapEditor.Columns = 24;
             mapEditor.CurrentToolMode = Enums.ToolMode.None;
             mapEditor.DrawingImage = null;
+            mapEditor.DrawingItem = null;
             mapEditor.Location = new Point(6, 16);
             mapEditor.Name = "mapEditor";
-            mapEditor.Rows = 15;
+            mapEditor.Rows = 43;
             mapEditor.Size = new Size(1023, 385);
             mapEditor.TabIndex = 0;
             mapEditor.TileSize = 32;
@@ -235,7 +236,7 @@
             btnSaveMap.ForeColor = Color.Black;
             btnSaveMap.ImageIndex = 5;
             btnSaveMap.ImageList = imageList2;
-            btnSaveMap.Location = new Point(315, 23);
+            btnSaveMap.Location = new Point(1356, 454);
             btnSaveMap.Name = "btnSaveMap";
             btnSaveMap.Size = new Size(44, 41);
             btnSaveMap.TabIndex = 17;
@@ -247,7 +248,7 @@
             btnLoadMap.ForeColor = Color.Black;
             btnLoadMap.ImageIndex = 6;
             btnLoadMap.ImageList = imageList2;
-            btnLoadMap.Location = new Point(265, 23);
+            btnLoadMap.Location = new Point(1306, 454);
             btnLoadMap.Name = "btnLoadMap";
             btnLoadMap.Size = new Size(44, 41);
             btnLoadMap.TabIndex = 18;

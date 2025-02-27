@@ -23,14 +23,14 @@ namespace GranDnDDM.Views
         private string jsonDataFile = Path.Combine(Application.StartupPath, "data_img.json");
         // Variable a nivel de formulario para almacenar todos los ítems
         private List<ListViewItem> allTilesItems = new List<ListViewItem>();
-
+        private Mapa fullScreenForm;
+        private System.Windows.Forms.Timer updateTimer;
 
 
         //private MapEditor mapEditor;
         public EditorMap()
         {
             InitializeComponent();
-
         }
 
         private void EditorMap_Load(object sender, EventArgs e)
@@ -51,11 +51,25 @@ namespace GranDnDDM.Views
             }
             cmbLayers.SelectedIndex = mapEditor.ActiveLayerIndex;
 
-
-
+            fullScreenForm = new Mapa();
+            fullScreenForm.Show();
+            // Configurar un Timer para actualizar la imagen del full screen cada cierto tiempo (por ejemplo, cada 100 ms)
+            updateTimer = new System.Windows.Forms.Timer();
+            updateTimer.Interval = 100;
+            updateTimer.Tick += UpdateTimer_Tick;
+            updateTimer.Start();
 
         }
-      
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            if (fullScreenForm != null && mapEditor != null)
+            {
+                // Capturamos el contenido actual del MapEditor
+                Bitmap bmp = mapEditor.GetSnapshot();
+                // Actualizamos la imagen en el formulario full screen
+                fullScreenForm.UpdateMap(bmp);
+            }
+        }
         private void btnAddImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())

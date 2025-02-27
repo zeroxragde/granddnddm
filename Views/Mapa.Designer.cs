@@ -28,19 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            pbFullScreen = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbFullScreen).BeginInit();
             SuspendLayout();
+            // 
+            // pbFullScreen
+            // 
+            pbFullScreen.Dock = DockStyle.Fill;
+            pbFullScreen.Location = new Point(0, 0);
+            pbFullScreen.Name = "pbFullScreen";
+            pbFullScreen.Size = new Size(998, 529);
+            pbFullScreen.TabIndex = 0;
+            pbFullScreen.TabStop = false;
             // 
             // Mapa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(998, 529);
+            ControlBox = false;
+            Controls.Add(pbFullScreen);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Mapa";
             Text = "Mapa";
+            TopMost = true;
+            Load += Mapa_Load;
+            ((System.ComponentModel.ISupportInitialize)pbFullScreen).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private PictureBox pbFullScreen;
     }
 }

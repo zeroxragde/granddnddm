@@ -58,17 +58,33 @@ namespace GranDnDDM.Views
             updateTimer.Interval = 100;
             updateTimer.Tick += UpdateTimer_Tick;
             updateTimer.Start();
-
+            mapEditor.Size = new Size(mapEditor.Columns * mapEditor.TileSize, mapEditor.Rows * mapEditor.TileSize);
         }
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
             if (fullScreenForm != null && mapEditor != null)
             {
                 // Capturamos el contenido actual del MapEditor
-                Bitmap bmp = mapEditor.GetSnapshot();
+                Bitmap bmp = GetVisibleSnapshot();//mapEditor.GetSnapshot();
                 // Actualizamos la imagen en el formulario full screen
                 fullScreenForm.UpdateMap(bmp);
             }
+        }
+        public Bitmap GetVisibleSnapshot()
+        {
+            // Asumiendo que 'panelMap' es el contenedor con AutoScroll que muestra el MapEditor
+            // y que el MapEditor se encuentra dentro de ese panel.
+            Rectangle visibleRect = new Rectangle(
+                -pGrid.AutoScrollPosition.X,
+                -pGrid.AutoScrollPosition.Y,
+                pGrid.ClientSize.Width,
+                pGrid.ClientSize.Height
+            );
+
+            Bitmap bmp = new Bitmap(visibleRect.Width, visibleRect.Height);
+            // Dibuja en el bitmap únicamente la parte visible del MapEditor
+            mapEditor.DrawToBitmap(bmp, visibleRect);
+            return bmp;
         }
         private void btnAddImage_Click(object sender, EventArgs e)
         {

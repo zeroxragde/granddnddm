@@ -34,8 +34,6 @@
             btnAddImage = new Button();
             imageList1 = new ImageList(components);
             cmbCategory = new ComboBox();
-            gbMap = new GroupBox();
-            mapEditor = new Tools.MapEditor();
             cmbLayers = new ComboBox();
             btnAddLayer = new Button();
             imageList2 = new ImageList(components);
@@ -49,8 +47,10 @@
             pvPreview = new PictureBox();
             btnSaveMap = new Button();
             btnLoadMap = new Button();
-            gbMap.SuspendLayout();
+            pGrid = new Panel();
+            mapEditor = new Tools.MapEditor();
             ((System.ComponentModel.ISupportInitialize)pvPreview).BeginInit();
+            pGrid.SuspendLayout();
             SuspendLayout();
             // 
             // CmbFilter
@@ -90,30 +90,6 @@
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(149, 23);
             cmbCategory.TabIndex = 4;
-            // 
-            // gbMap
-            // 
-            gbMap.Controls.Add(mapEditor);
-            gbMap.Location = new Point(365, 12);
-            gbMap.Name = "gbMap";
-            gbMap.Size = new Size(1035, 407);
-            gbMap.TabIndex = 8;
-            gbMap.TabStop = false;
-            // 
-            // mapEditor
-            // 
-            mapEditor.ActiveLayerIndex = 0;
-            mapEditor.AllowDrop = true;
-            mapEditor.Columns = 24;
-            mapEditor.CurrentToolMode = Enums.ToolMode.None;
-            mapEditor.DrawingImage = null;
-            mapEditor.DrawingItem = null;
-            mapEditor.Location = new Point(6, 16);
-            mapEditor.Name = "mapEditor";
-            mapEditor.Rows = 43;
-            mapEditor.Size = new Size(1023, 385);
-            mapEditor.TabIndex = 0;
-            mapEditor.TileSize = 32;
             // 
             // cmbLayers
             // 
@@ -255,12 +231,37 @@
             btnLoadMap.UseVisualStyleBackColor = true;
             btnLoadMap.Click += btnLoadMap_Click;
             // 
+            // pGrid
+            // 
+            pGrid.AutoScroll = true;
+            pGrid.Controls.Add(mapEditor);
+            pGrid.Location = new Point(371, 23);
+            pGrid.Name = "pGrid";
+            pGrid.Size = new Size(1029, 396);
+            pGrid.TabIndex = 19;
+            // 
+            // mapEditor
+            // 
+            mapEditor.ActiveLayerIndex = 0;
+            mapEditor.AllowDrop = true;
+            mapEditor.Columns = 64;
+            mapEditor.CurrentToolMode = Enums.ToolMode.None;
+            mapEditor.DrawingImage = null;
+            mapEditor.DrawingItem = null;
+            mapEditor.Location = new Point(1, 4);
+            mapEditor.Name = "mapEditor";
+            mapEditor.Rows = 64;
+            mapEditor.Size = new Size(1023, 385);
+            mapEditor.TabIndex = 1;
+            mapEditor.TileSize = 32;
+            // 
             // EditorMap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1412, 505);
+            Controls.Add(pGrid);
             Controls.Add(btnLoadMap);
             Controls.Add(btnSaveMap);
             Controls.Add(pvPreview);
@@ -271,7 +272,6 @@
             Controls.Add(btnDraw);
             Controls.Add(btnAddLayer);
             Controls.Add(cmbLayers);
-            Controls.Add(gbMap);
             Controls.Add(CmbFilter);
             Controls.Add(btnAddImage);
             Controls.Add(cmbCategory);
@@ -280,8 +280,8 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "EditorMap";
             Load += EditorMap_Load;
-            gbMap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pvPreview).EndInit();
+            pGrid.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -291,8 +291,6 @@
         private Button btnAddImage;
         private ComboBox cmbCategory;
         private ImageList imageList1;
-        private GroupBox gbMap;
-        private Tools.MapEditor mapEditor;
         private ComboBox cmbLayers;
         private Button btnAddLayer;
         private ImageList imageList2;
@@ -306,5 +304,7 @@
         private PictureBox pvPreview;
         private Button btnSaveMap;
         private Button btnLoadMap;
+        private Panel pGrid;
+        private Tools.MapEditor mapEditor;
     }
 }

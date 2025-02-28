@@ -49,6 +49,7 @@
             btnLoadMap = new Button();
             pGrid = new Panel();
             mapEditor = new Tools.MapEditor();
+            btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)pvPreview).BeginInit();
             pGrid.SuspendLayout();
             SuspendLayout();
@@ -257,12 +258,25 @@
             mapEditor.TabIndex = 1;
             mapEditor.TileSize = 32;
             // 
+            // btnRefresh
+            // 
+            btnRefresh.ForeColor = Color.Black;
+            btnRefresh.ImageIndex = 3;
+            btnRefresh.ImageList = imageList2;
+            btnRefresh.Location = new Point(673, 436);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(44, 41);
+            btnRefresh.TabIndex = 20;
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // EditorMap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1412, 505);
+            Controls.Add(btnRefresh);
             Controls.Add(pGrid);
             Controls.Add(btnLoadMap);
             Controls.Add(btnSaveMap);
@@ -309,5 +323,6 @@
         private Button btnLoadMap;
         private Panel pGrid;
         private Tools.MapEditor mapEditor;
+        private Button btnRefresh;
     }
 }

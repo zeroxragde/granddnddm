@@ -64,7 +64,7 @@ namespace GranDnDDM.Views
             updateTimer = new System.Windows.Forms.Timer();
             updateTimer.Interval = 100;
             updateTimer.Tick += UpdateTimer_Tick;
-            updateTimer.Start();
+           // updateTimer.Start();
             mapEditor.Size = new Size(mapEditor.Columns * mapEditor.TileSize, mapEditor.Rows * mapEditor.TileSize);
         }
         private void UpdateTimer_Tick(object sender, EventArgs e)
@@ -443,7 +443,7 @@ namespace GranDnDDM.Views
 
         private void btnLoadMap_Click(object sender, EventArgs e)
         {
-            mapaName =  mapEditor.LoadMap();
+            mapaName = mapEditor.LoadMap();
             Text = Text + "- Mapa: " + mapaName;
         }
 
@@ -462,8 +462,20 @@ namespace GranDnDDM.Views
                 }
 
             }
-            else {
+            else
+            {
                 mapEditor.SaveMap(mapaName);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            if (fullScreenForm != null && mapEditor != null)
+            {
+                // Capturamos el contenido actual del MapEditor
+                Bitmap bmp = mapEditor.GetSnapshot();
+                // Actualizamos la imagen en el formulario full screen
+                fullScreenForm.UpdateMap(bmp);
             }
         }
 

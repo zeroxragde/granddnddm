@@ -37,10 +37,11 @@
             btnDeleteCats = new Button();
             imageList1 = new ImageList(components);
             btnAddMusic = new Button();
+            imageList2 = new ImageList(components);
             cbCatSelect = new ComboBox();
             label1 = new Label();
             label2 = new Label();
-            button2 = new Button();
+            btnDeletesong = new Button();
             ((System.ComponentModel.ISupportInitialize)dvgMusica).BeginInit();
             SuspendLayout();
             // 
@@ -57,9 +58,12 @@
             // 
             dvgMusica.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgMusica.Location = new Point(10, 51);
+            dvgMusica.MultiSelect = false;
             dvgMusica.Name = "dvgMusica";
-            dvgMusica.Size = new Size(264, 350);
+            dvgMusica.ReadOnly = true;
+            dvgMusica.Size = new Size(330, 350);
             dvgMusica.TabIndex = 1;
+            dvgMusica.CellDoubleClick += dvgMusica_CellDoubleClick;
             // 
             // txtNewCategory
             // 
@@ -70,7 +74,7 @@
             // 
             // btnAddCategory
             // 
-            btnAddCategory.Font = new Font("Zelda DX TT BRK", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAddCategory.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAddCategory.Location = new Point(227, 429);
             btnAddCategory.Name = "btnAddCategory";
             btnAddCategory.Size = new Size(27, 23);
@@ -100,19 +104,27 @@
             // 
             // btnAddMusic
             // 
-            btnAddMusic.ImageKey = "addMusic.png";
-            btnAddMusic.ImageList = imageList1;
-            btnAddMusic.Location = new Point(12, 484);
+            btnAddMusic.ImageIndex = 0;
+            btnAddMusic.ImageList = imageList2;
+            btnAddMusic.Location = new Point(10, 467);
             btnAddMusic.Name = "btnAddMusic";
-            btnAddMusic.Size = new Size(35, 31);
+            btnAddMusic.Size = new Size(64, 59);
             btnAddMusic.TabIndex = 5;
             btnAddMusic.UseVisualStyleBackColor = true;
+            btnAddMusic.Click += btnAddMusic_Click;
+            // 
+            // imageList2
+            // 
+            imageList2.ColorDepth = ColorDepth.Depth32Bit;
+            imageList2.ImageStream = (ImageListStreamer)resources.GetObject("imageList2.ImageStream");
+            imageList2.TransparentColor = Color.Transparent;
+            imageList2.Images.SetKeyName(0, "addMusic.png");
             // 
             // cbCatSelect
             // 
             cbCatSelect.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCatSelect.FormattingEnabled = true;
-            cbCatSelect.Location = new Point(55, 492);
+            cbCatSelect.Location = new Point(80, 503);
             cbCatSelect.Name = "cbCatSelect";
             cbCatSelect.Size = new Size(199, 23);
             cbCatSelect.TabIndex = 6;
@@ -120,6 +132,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Sylfaen", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.Location = new Point(10, 404);
@@ -131,35 +144,38 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Sylfaen", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(102, 467);
+            label2.Location = new Point(80, 478);
             label2.Name = "label2";
             label2.Size = new Size(73, 22);
             label2.TabIndex = 8;
             label2.Text = "Categoria";
             // 
-            // button2
+            // btnDeletesong
             // 
-            button2.ImageIndex = 1;
-            button2.ImageList = imageList1;
-            button2.Location = new Point(280, 113);
-            button2.Name = "button2";
-            button2.Size = new Size(41, 45);
-            button2.TabIndex = 9;
-            button2.UseVisualStyleBackColor = true;
+            btnDeletesong.ImageIndex = 1;
+            btnDeletesong.ImageList = imageList1;
+            btnDeletesong.Location = new Point(346, 51);
+            btnDeletesong.Name = "btnDeletesong";
+            btnDeletesong.Size = new Size(41, 45);
+            btnDeletesong.TabIndex = 9;
+            btnDeletesong.UseVisualStyleBackColor = true;
+            btnDeletesong.Click += btnDeletesong_Click;
             // 
             // ListSongs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 0);
-            ClientSize = new Size(333, 538);
-            Controls.Add(button2);
+            BackgroundImage = Properties.Resources.fondo1;
+            ClientSize = new Size(397, 538);
             Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(cbCatSelect);
+            Controls.Add(btnDeletesong);
             Controls.Add(btnAddMusic);
+            Controls.Add(label1);
             Controls.Add(btnDeleteCats);
             Controls.Add(btnAddCategory);
             Controls.Add(txtNewCategory);
@@ -187,6 +203,7 @@
         private Label label1;
         private Label label2;
         private ImageList imageList1;
-        private Button button2;
+        private Button btnDeletesong;
+        private ImageList imageList2;
     }
 }

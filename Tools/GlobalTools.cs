@@ -11,5 +11,6 @@ namespace GranDnDDM.Tools
     {
         public static MonitorItem MONITOR;
         public static string DM;
+        public static MusicRecord MusicaActual;
     }
 }

@@ -44,5 +44,11 @@ namespace GranDnDDM.Views
             MusicControl music = new MusicControl();
             music.Show();
         }
+
+        private void btnLoadPJ_Click(object sender, EventArgs e)
+        {
+            PJLoader pJLoader = new PJLoader();
+            pJLoader.Show();
+        }
     }
 }

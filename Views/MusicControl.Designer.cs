@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicControl));
             btnPlay = new Button();
             imageList1 = new ImageList(components);
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnPrevSong = new Button();
+            btnNextSong = new Button();
+            btnStop = new Button();
             btnMute = new Button();
             lblMusic = new Label();
             btnOpenList = new Button();
@@ -75,35 +75,38 @@
             imageList1.Images.SetKeyName(9, "loopOn.png");
             imageList1.Images.SetKeyName(10, "soundIcon.png");
             // 
-            // button1
+            // btnPrevSong
             // 
-            button1.ImageIndex = 4;
-            button1.ImageList = imageList1;
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(39, 39);
-            button1.TabIndex = 1;
-            button1.UseVisualStyleBackColor = true;
+            btnPrevSong.ImageIndex = 4;
+            btnPrevSong.ImageList = imageList1;
+            btnPrevSong.Location = new Point(12, 12);
+            btnPrevSong.Name = "btnPrevSong";
+            btnPrevSong.Size = new Size(39, 39);
+            btnPrevSong.TabIndex = 1;
+            btnPrevSong.UseVisualStyleBackColor = true;
+            btnPrevSong.Click += btnPrevSong_Click;
             // 
-            // button2
+            // btnNextSong
             // 
-            button2.ImageIndex = 2;
-            button2.ImageList = imageList1;
-            button2.Location = new Point(102, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(39, 39);
-            button2.TabIndex = 2;
-            button2.UseVisualStyleBackColor = true;
+            btnNextSong.ImageIndex = 2;
+            btnNextSong.ImageList = imageList1;
+            btnNextSong.Location = new Point(102, 12);
+            btnNextSong.Name = "btnNextSong";
+            btnNextSong.Size = new Size(39, 39);
+            btnNextSong.TabIndex = 2;
+            btnNextSong.UseVisualStyleBackColor = true;
+            btnNextSong.Click += btnNextSong_Click;
             // 
-            // button3
+            // btnStop
             // 
-            button3.ImageIndex = 5;
-            button3.ImageList = imageList1;
-            button3.Location = new Point(147, 12);
-            button3.Name = "button3";
-            button3.Size = new Size(39, 39);
-            button3.TabIndex = 3;
-            button3.UseVisualStyleBackColor = true;
+            btnStop.ImageIndex = 5;
+            btnStop.ImageList = imageList1;
+            btnStop.Location = new Point(147, 12);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(39, 39);
+            btnStop.TabIndex = 3;
+            btnStop.UseVisualStyleBackColor = true;
+            btnStop.Click += btnStop_Click;
             // 
             // btnMute
             // 
@@ -249,9 +252,9 @@
             Controls.Add(btnOpenList);
             Controls.Add(lblMusic);
             Controls.Add(btnMute);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnStop);
+            Controls.Add(btnNextSong);
+            Controls.Add(btnPrevSong);
             Controls.Add(btnPlay);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -267,9 +270,9 @@
 
         private Button btnPlay;
         private ImageList imageList1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnPrevSong;
+        private Button btnNextSong;
+        private Button btnStop;
         private Button btnMute;
         private Label lblMusic;
         private Button btnOpenList;

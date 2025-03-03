@@ -10,6 +10,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace GranDnDDM.Views
@@ -21,10 +23,13 @@ namespace GranDnDDM.Views
         private List<MusicRecord> musicRecords = new List<MusicRecord>();
         private string musicFolder = Path.Combine(Application.StartupPath, "Musica");
         private string musicJsonFile = Path.Combine(Application.StartupPath, "musica.json");
-
-        public ListSongs()
+        private WindowsMediaPlayer player;
+        private MusicControl formControl;
+        public ListSongs(MusicControl c)
         {
             InitializeComponent();
+            player = c.player;
+            formControl = c;
             categoriesFile = Path.Combine(Application.StartupPath, GlobalTools.DM + "_cat_music.json");
             musicJsonFile = Path.Combine(Application.StartupPath, GlobalTools.DM + "_musica.json");
         }
@@ -313,6 +318,19 @@ namespace GranDnDDM.Views
             {
                 // Asigna al objeto global
                 GlobalTools.MusicaActual = selectedRecord;
+                string filePath = Path.Combine(Application.StartupPath, "Musica", GlobalTools.MusicaActual.FileName);
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("El archivo de la canción no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (formControl.getIsPlaying()) {
+                    formControl.clickOnPlay();
+                }
+               
+                player.URL = filePath;
+                formControl.clickOnPlay();
+
 
                 // (Opcional) notifica al usuario
                 MessageBox.Show($"Se seleccionó: {selectedRecord.RealName} (Categoría: {selectedRecord.Category})",
@@ -322,6 +340,47 @@ namespace GranDnDDM.Views
             }
         }
 
+        private void btnAddToCola_Click(object sender, EventArgs e)
+        {
+            // Verificar que haya al menos una fila seleccionada
+            if (dvgMusica.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No se ha seleccionado ninguna canción.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtener la primera fila seleccionada
+            DataGridViewRow row = dvgMusica.SelectedRows[0];
+            // Convertir la fila a MusicRecord
+            MusicRecord selectedRecord = row.DataBoundItem as MusicRecord;
+            if (selectedRecord != null)
+            {
+                string filePath = Path.Combine(Application.StartupPath, "Musica", selectedRecord.FileName);
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("El archivo de la canción no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                IWMPMedia media = player.newMedia(filePath);
+
+                // Intentamos castear a IWMPMedia2 para poder modificar las propiedades
+                IWMPMedia2 media2 = media as IWMPMedia2;
+                if (media2 != null)
+                {
+                    // Cambia "Title" por el título real de la canción (sin extensión, si así lo definiste)
+                    media2.setItemInfo("Title", selectedRecord.RealName);
+                }
+
+                // Agregar el media a la playlist global
+                GlobalTools.playlist.appendItem(media2);
+                player.currentPlaylist = GlobalTools.playlist;
+                formControl.clickOnPlay();
+
+                MessageBox.Show("Canción agregada a la cola.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    
 
         ///////////////
     }

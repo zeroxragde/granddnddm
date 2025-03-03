@@ -42,6 +42,7 @@
             label1 = new Label();
             label2 = new Label();
             btnDeletesong = new Button();
+            btnAddToCola = new Button();
             ((System.ComponentModel.ISupportInitialize)dvgMusica).BeginInit();
             SuspendLayout();
             // 
@@ -101,6 +102,7 @@
             imageList1.Images.SetKeyName(0, "deleteImg.png");
             imageList1.Images.SetKeyName(1, "trash.png");
             imageList1.Images.SetKeyName(2, "addMusic.png");
+            imageList1.Images.SetKeyName(3, "btnList.png");
             // 
             // btnAddMusic
             // 
@@ -164,6 +166,17 @@
             btnDeletesong.UseVisualStyleBackColor = true;
             btnDeletesong.Click += btnDeletesong_Click;
             // 
+            // btnAddToCola
+            // 
+            btnAddToCola.ImageIndex = 3;
+            btnAddToCola.ImageList = imageList1;
+            btnAddToCola.Location = new Point(344, 102);
+            btnAddToCola.Name = "btnAddToCola";
+            btnAddToCola.Size = new Size(41, 45);
+            btnAddToCola.TabIndex = 10;
+            btnAddToCola.UseVisualStyleBackColor = true;
+            btnAddToCola.Click += btnAddToCola_Click;
+            // 
             // ListSongs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -171,6 +184,7 @@
             BackColor = Color.FromArgb(0, 64, 0);
             BackgroundImage = Properties.Resources.fondo1;
             ClientSize = new Size(397, 538);
+            Controls.Add(btnAddToCola);
             Controls.Add(label2);
             Controls.Add(cbCatSelect);
             Controls.Add(btnDeletesong);
@@ -205,5 +219,6 @@
         private ImageList imageList1;
         private Button btnDeletesong;
         private ImageList imageList2;
+        private Button btnAddToCola;
     }
 }

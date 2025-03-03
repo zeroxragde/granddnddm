@@ -14,6 +14,8 @@ namespace GranDnDDM.Views
     public partial class DMDashboard : Form
     {
         private Form1 principal;
+        private MusicControl music = new MusicControl();
+        private EditorMap empa = new EditorMap();
         public DMDashboard(Form1 f)
         {
             InitializeComponent();
@@ -35,20 +37,15 @@ namespace GranDnDDM.Views
 
         private void btnMapEditor_Click(object sender, EventArgs e)
         {
-            EditorMap empa = new EditorMap();
             empa.Show();
         }
 
         private void btnMusicControl_Click(object sender, EventArgs e)
         {
-            MusicControl music = new MusicControl();
+            
             music.Show();
         }
 
-        private void btnLoadPJ_Click(object sender, EventArgs e)
-        {
-            PJLoader pJLoader = new PJLoader();
-            pJLoader.Show();
-        }
+ 
     }
 }

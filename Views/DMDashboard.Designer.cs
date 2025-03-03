@@ -33,7 +33,6 @@
             imageList1 = new ImageList(components);
             btnMapEditor = new Button();
             btnMusicControl = new Button();
-            btnLoadPJ = new Button();
             SuspendLayout();
             // 
             // imageList1
@@ -67,27 +66,15 @@
             btnMusicControl.UseVisualStyleBackColor = true;
             btnMusicControl.Click += btnMusicControl_Click;
             // 
-            // btnLoadPJ
-            // 
-            btnLoadPJ.ImageIndex = 2;
-            btnLoadPJ.ImageList = imageList1;
-            btnLoadPJ.Location = new Point(218, 12);
-            btnLoadPJ.Name = "btnLoadPJ";
-            btnLoadPJ.Size = new Size(78, 83);
-            btnLoadPJ.TabIndex = 2;
-            btnLoadPJ.UseVisualStyleBackColor = true;
-            btnLoadPJ.Click += btnLoadPJ_Click;
-            // 
             // DMDashboard
             // 
-            AutoScaleDimensions = new SizeF(10F, 19F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1475, 107);
-            Controls.Add(btnLoadPJ);
             Controls.Add(btnMusicControl);
             Controls.Add(btnMapEditor);
-            Font = new Font("Univia Pro", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             Margin = new Padding(4);
             MaximizeBox = false;
@@ -103,6 +90,5 @@
         private ImageList imageList1;
         private Button btnMapEditor;
         private Button btnMusicControl;
-        private Button btnLoadPJ;
     }
 }

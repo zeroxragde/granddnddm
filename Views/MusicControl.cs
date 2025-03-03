@@ -1,4 +1,5 @@
-﻿using GranDnDDM.Tools;
+﻿using GranDnDDM.Models;
+using GranDnDDM.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GranDnDDM.Views
 {
     public partial class MusicControl : Form
     {
         private System.Windows.Forms.Timer checkSongTimer;
-        private WindowsMediaPlayer player;
+        public WindowsMediaPlayer player;
         private bool isPlaying = false;
         private System.Windows.Forms.Timer trackTimer;
         private bool isLooping = false;
@@ -30,6 +32,7 @@ namespace GranDnDDM.Views
             checkSongTimer.Tick += CheckSongTimer_Tick;
             checkSongTimer.Start();
             player = new WindowsMediaPlayer();
+            GlobalTools.playlist = player.playlistCollection.newPlaylist("Cola");
             player.settings.volume = 40; // volumen inicial
             trackBarVolume.Value = 40;       // valor inicial
 
@@ -79,24 +82,40 @@ namespace GranDnDDM.Views
         }
         private void CheckSongTimer_Tick(object sender, EventArgs e)
         {
-            if (GlobalTools.MusicaActual != null)
+            if (player.currentMedia != null)
+            {
+                string title = player.currentMedia.getItemInfo("Title");
+                lblMusic.Text = title;
+            }
+            else
+            {
+                lblMusic.Text = "Sin canción";
+            }
+          /*  if (GlobalTools.MusicaActual != null)
             {
                 lblMusic.Text = GlobalTools.MusicaActual.RealName;
             }
             else
             {
                 lblMusic.Text = "Sin canción seleccionada";
-            }
+            }*/
         }
+       
+        public void clickOnPlay()
+        {
+            btnPlay.PerformClick();
+        }
+        public bool getIsPlaying() { return isPlaying; }
+
         private void btnOpenList_Click(object sender, EventArgs e)
         {
-            ListSongs listSongs = new ListSongs();
+            ListSongs listSongs = new ListSongs(this);
             listSongs.Show();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            if (GlobalTools.MusicaActual == null)
+            if (GlobalTools.MusicaActual == null && GlobalTools.playlist.count ==0 )
             {
                 MessageBox.Show("No hay canción seleccionada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -104,18 +123,7 @@ namespace GranDnDDM.Views
 
             if (!isPlaying)
             {
-                // 1) Reproducir
-                string filePath = Path.Combine(Application.StartupPath, "Musica", GlobalTools.MusicaActual.FileName);
-                if (!File.Exists(filePath))
-                {
-                    MessageBox.Show("El archivo de la canción no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Configuramos la URL del reproductor y reproducimos
-                player.URL = filePath;
                 player.controls.play();
-
                 // 2) Actualizamos el estado
                 isPlaying = true;
                 // Supongamos que en tu imageList1 la posición 3 es el ícono de "Pause"
@@ -185,7 +193,7 @@ namespace GranDnDDM.Views
 
         private void btnOpenSounds_Click(object sender, EventArgs e)
         {
-           
+
             soundControl.Show();
         }
 
@@ -208,6 +216,42 @@ namespace GranDnDDM.Views
                 btnLoopToggle.ImageIndex = 8;
                 // btnLoop.ImageIndex = Y;
             }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            player.controls.stop();
+        }
+
+        private void btnNextSong_Click(object sender, EventArgs e)
+        {/*
+            int index = GlobalTools.ListaReproduccion.FindIndex(obj => obj == GlobalTools.MusicaActual);
+            try
+            {
+                MusicRecord nuevo = GlobalTools.ListaReproduccion[index + 1];
+
+            }
+            catch (Exception ex)
+            {
+                return;
+            }*/
+            player.controls.next();
+        }
+
+        private void btnPrevSong_Click(object sender, EventArgs e)
+        {/*
+            int index = GlobalTools.ListaReproduccion.FindIndex(obj => obj == GlobalTools.MusicaActual);
+            try
+            {
+                MusicRecord nuevo = GlobalTools.ListaReproduccion[index - 1];
+                player.newPlaylist()
+
+            }
+            catch (Exception ex)
+            {
+                return;
+            }*/
+            player.controls.previous();
         }
     }
 }

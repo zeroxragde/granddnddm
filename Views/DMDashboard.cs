@@ -42,10 +42,14 @@ namespace GranDnDDM.Views
 
         private void btnMusicControl_Click(object sender, EventArgs e)
         {
-            
+
             music.Show();
         }
 
- 
+        private void btnCreatures_Click(object sender, EventArgs e)
+        {
+           CreatureGen cg = new CreatureGen();
+            cg.Show();
+        }
     }
 }

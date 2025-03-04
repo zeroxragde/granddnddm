@@ -28,91 +28,132 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
+            dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            nightButton1 = new ReaLTaiizor.Controls.NightButton();
             txtDMName = new TextBox();
-            btnStasrt = new Button();
+            label2 = new Label();
+            comboBox1 = new ComboBox();
+            label1 = new Label();
+            dreamForm1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // dreamForm1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(61, 30);
-            label1.Margin = new Padding(5, 0, 5, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(262, 24);
-            label1.TabIndex = 0;
-            label1.Text = "Seleccionar Monitor de Mapa:";
+            dreamForm1.ColorA = Color.FromArgb(40, 218, 255);
+            dreamForm1.ColorB = Color.FromArgb(63, 63, 63);
+            dreamForm1.ColorC = Color.FromArgb(41, 41, 41);
+            dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
+            dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
+            dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(nightButton1);
+            dreamForm1.Controls.Add(txtDMName);
+            dreamForm1.Controls.Add(label2);
+            dreamForm1.Controls.Add(comboBox1);
+            dreamForm1.Controls.Add(label1);
+            dreamForm1.Dock = DockStyle.Fill;
+            dreamForm1.Location = new Point(0, 0);
+            dreamForm1.Name = "dreamForm1";
+            dreamForm1.Size = new Size(427, 301);
+            dreamForm1.TabIndex = 0;
+            dreamForm1.TabStop = false;
+            dreamForm1.Text = "GranDnDDM";
+            dreamForm1.TitleAlign = HorizontalAlignment.Center;
+            dreamForm1.TitleHeight = 25;
+            // 
+            // nightButton1
+            // 
+            nightButton1.BackColor = Color.Transparent;
+            nightButton1.DialogResult = DialogResult.None;
+            nightButton1.Font = new Font("Segoe UI", 10F);
+            nightButton1.ForeColor = Color.FromArgb(242, 93, 89);
+            nightButton1.HoverBackColor = Color.FromArgb(50, 242, 93, 89);
+            nightButton1.HoverForeColor = Color.White;
+            nightButton1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            nightButton1.Location = new Point(136, 214);
+            nightButton1.MinimumSize = new Size(144, 47);
+            nightButton1.Name = "nightButton1";
+            nightButton1.NormalBackColor = Color.FromArgb(242, 93, 89);
+            nightButton1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            nightButton1.PressedBackColor = Color.FromArgb(100, 242, 93, 89);
+            nightButton1.PressedForeColor = Color.White;
+            nightButton1.Radius = 20;
+            nightButton1.Size = new Size(144, 47);
+            nightButton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            nightButton1.TabIndex = 10;
+            nightButton1.Text = "Iniciar";
+            nightButton1.Click += btnStasrt_Click;
+            // 
+            // txtDMName
+            // 
+            txtDMName.Location = new Point(49, 162);
+            txtDMName.Name = "txtDMName";
+            txtDMName.Size = new Size(339, 29);
+            txtDMName.TabIndex = 8;
+            txtDMName.Text = "ED";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(136, 135);
+            label2.Margin = new Padding(5, 0, 5, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(144, 24);
+            label2.TabIndex = 7;
+            label2.Text = "Nombre del DM";
             // 
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(27, 57);
+            comboBox1.Location = new Point(49, 89);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(339, 32);
-            comboBox1.TabIndex = 1;
+            comboBox1.TabIndex = 6;
             // 
-            // label2
+            // label1
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(114, 103);
-            label2.Margin = new Padding(5, 0, 5, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(144, 24);
-            label2.TabIndex = 2;
-            label2.Text = "Nombre del DM";
-            // 
-            // txtDMName
-            // 
-            txtDMName.Location = new Point(27, 130);
-            txtDMName.Name = "txtDMName";
-            txtDMName.Size = new Size(339, 29);
-            txtDMName.TabIndex = 3;
-            txtDMName.Text = "ED";
-            // 
-            // btnStasrt
-            // 
-            btnStasrt.ForeColor = SystemColors.ActiveCaptionText;
-            btnStasrt.Location = new Point(114, 181);
-            btnStasrt.Name = "btnStasrt";
-            btnStasrt.Size = new Size(130, 49);
-            btnStasrt.TabIndex = 4;
-            btnStasrt.Text = "Iniciar";
-            btnStasrt.UseVisualStyleBackColor = true;
-            btnStasrt.Click += btnStasrt_Click;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Location = new Point(83, 62);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(262, 24);
+            label1.TabIndex = 5;
+            label1.Text = "Seleccionar Monitor de Mapa:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(17, 17, 17);
-            ClientSize = new Size(389, 250);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(427, 301);
             ControlBox = false;
-            Controls.Add(btnStasrt);
-            Controls.Add(txtDMName);
-            Controls.Add(label2);
-            Controls.Add(comboBox1);
-            Controls.Add(label1);
+            Controls.Add(dreamForm1);
             Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ButtonHighlight;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(5);
             MaximizeBox = false;
+            MaximumSize = new Size(1600, 860);
+            MinimumSize = new Size(261, 65);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GrandDnD/DM";
+            Text = "dungeonForm1";
+            TransparencyKey = Color.Fuchsia;
             Load += Form1_Load;
+            dreamForm1.ResumeLayout(false);
+            dreamForm1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private ComboBox comboBox1;
-        private Label label2;
+        private ReaLTaiizor.Forms.DreamForm dreamForm1;
         private TextBox txtDMName;
-        private Button btnStasrt;
+        private Label label2;
+        private ComboBox comboBox1;
+        private Label label1;
+        private ReaLTaiizor.Controls.NightButton nightButton1;
     }
 }

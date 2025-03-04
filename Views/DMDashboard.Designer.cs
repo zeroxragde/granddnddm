@@ -33,6 +33,7 @@
             imageList1 = new ImageList(components);
             btnMapEditor = new Button();
             btnMusicControl = new Button();
+            btnCreatures = new Button();
             SuspendLayout();
             // 
             // imageList1
@@ -66,12 +67,24 @@
             btnMusicControl.UseVisualStyleBackColor = true;
             btnMusicControl.Click += btnMusicControl_Click;
             // 
+            // btnCreatures
+            // 
+            btnCreatures.ImageIndex = 2;
+            btnCreatures.ImageList = imageList1;
+            btnCreatures.Location = new Point(229, 12);
+            btnCreatures.Name = "btnCreatures";
+            btnCreatures.Size = new Size(78, 83);
+            btnCreatures.TabIndex = 2;
+            btnCreatures.UseVisualStyleBackColor = true;
+            btnCreatures.Click += btnCreatures_Click;
+            // 
             // DMDashboard
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1475, 107);
+            Controls.Add(btnCreatures);
             Controls.Add(btnMusicControl);
             Controls.Add(btnMapEditor);
             Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -90,5 +103,6 @@
         private ImageList imageList1;
         private Button btnMapEditor;
         private Button btnMusicControl;
+        private Button btnCreatures;
     }
 }

@@ -73,7 +73,6 @@ C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\Microsoft
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.PJLoader.resources
 X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\itext.barcodes.dll
 X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\itext.bouncy-castle-connector.dll
 X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\itext.forms.dll
@@ -101,3 +100,4 @@ X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\Interop.WMPLib.dll
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.csproj.ResolveComReference.cache
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.SoundControl.resources
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.csproj.Up2Date
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureGen.resources

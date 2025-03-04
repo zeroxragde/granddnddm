@@ -16,6 +16,7 @@ namespace GranDnDDM.Views
         private Form1 principal;
         private MusicControl music = new MusicControl();
         private EditorMap empa = new EditorMap();
+        private CreatureList cl = new CreatureList();
         public DMDashboard(Form1 f)
         {
             InitializeComponent();
@@ -48,8 +49,8 @@ namespace GranDnDDM.Views
 
         private void btnCreatures_Click(object sender, EventArgs e)
         {
-           CreatureGen cg = new CreatureGen();
-            cg.Show();
+           
+           cl.Show();
         }
     }
 }

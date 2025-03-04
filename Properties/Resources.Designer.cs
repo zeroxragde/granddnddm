@@ -83,6 +83,16 @@ namespace GranDnDDM.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closewin {
+            get {
+                object obj = ResourceManager.GetObject("closewin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondo1 {
             get {
                 object obj = ResourceManager.GetObject("fondo1", resourceCulture);
@@ -106,6 +116,16 @@ namespace GranDnDDM.Properties {
         internal static System.Drawing.Bitmap pencil {
             get {
                 object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_icon {
+            get {
+                object obj = ResourceManager.GetObject("x-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

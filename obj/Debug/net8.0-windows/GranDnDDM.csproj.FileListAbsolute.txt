@@ -102,3 +102,5 @@ X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.SoundCo
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.csproj.Up2Date
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureGen.resources
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureGen.resources
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureEditor.resources
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureList.resources

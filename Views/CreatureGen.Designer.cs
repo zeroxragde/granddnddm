@@ -35,7 +35,6 @@
             lblName = new ReaLTaiizor.Controls.NightLabel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             nightLabel2 = new ReaLTaiizor.Controls.NightLabel();
-            foreverToggle1 = new ReaLTaiizor.Controls.ForeverToggle();
             hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
             nightLabel19 = new ReaLTaiizor.Controls.NightLabel();
             nightLabel18 = new ReaLTaiizor.Controls.NightLabel();
@@ -58,12 +57,14 @@
             panel3 = new Panel();
             panel2 = new Panel();
             nightLabel7 = new ReaLTaiizor.Controls.NightLabel();
+            pictureBox1 = new PictureBox();
             formTheme1.SuspendLayout();
             nightPanel1.SuspendLayout();
             pCard.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // formTheme1
@@ -101,9 +102,9 @@
             // pCard
             // 
             pCard.BackColor = Color.FromArgb(128, 64, 64);
+            pCard.Controls.Add(pictureBox1);
             pCard.Controls.Add(flowLayoutPanel1);
             pCard.Controls.Add(flowLayoutPanel2);
-            pCard.Controls.Add(foreverToggle1);
             pCard.Controls.Add(hopePictureBox1);
             pCard.Controls.Add(nightLabel19);
             pCard.Controls.Add(nightLabel18);
@@ -175,24 +176,6 @@
             nightLabel2.Size = new Size(182, 23);
             nightLabel2.TabIndex = 2;
             nightLabel2.Text = "Large fiend, unaligned";
-            // 
-            // foreverToggle1
-            // 
-            foreverToggle1.BackColor = Color.Transparent;
-            foreverToggle1.BaseColor = Color.FromArgb(64, 0, 0);
-            foreverToggle1.BaseColorRed = Color.Gray;
-            foreverToggle1.BGColor = Color.FromArgb(84, 85, 86);
-            foreverToggle1.Checked = true;
-            foreverToggle1.Font = new Font("Segoe UI", 10F);
-            foreverToggle1.Location = new Point(567, 8);
-            foreverToggle1.Name = "foreverToggle1";
-            foreverToggle1.Options = ReaLTaiizor.Controls.ForeverToggle._Options.Style1;
-            foreverToggle1.Size = new Size(76, 33);
-            foreverToggle1.TabIndex = 29;
-            foreverToggle1.Text = "foreverToggle1";
-            foreverToggle1.TextColor = Color.FromArgb(243, 243, 243);
-            foreverToggle1.ToggleColor = Color.LightGray;
-            foreverToggle1.CheckedChanged += foreverToggle1_CheckedChanged;
             // 
             // hopePictureBox1
             // 
@@ -446,6 +429,17 @@
             nightLabel7.TabIndex = 8;
             nightLabel7.Text = "30 pies";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.pencil;
+            pictureBox1.Location = new Point(604, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(42, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 28;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // CreatureGen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -472,6 +466,7 @@
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -504,9 +499,9 @@
         private Panel panel2;
         private ReaLTaiizor.Controls.NightLabel lblName;
         private ReaLTaiizor.Controls.NightLabel nightLabel7;
-        private ReaLTaiizor.Controls.ForeverToggle foreverToggle1;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
         private ReaLTaiizor.Controls.ForeverComboBox cbListType;
+        private PictureBox pictureBox1;
     }
 }

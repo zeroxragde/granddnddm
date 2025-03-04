@@ -17,7 +17,7 @@ namespace GranDnDDM.Views
         public CreatureGen()
         {
             InitializeComponent();
-          
+
         }
 
         private void btnEditName_Click(object sender, EventArgs e)
@@ -48,6 +48,12 @@ namespace GranDnDDM.Views
         private void editorOn()
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            CreatureEditor edir = new CreatureEditor();
+            edir.ShowDialog();
         }
 
 

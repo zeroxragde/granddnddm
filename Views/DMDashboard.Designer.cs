@@ -44,6 +44,7 @@
             imageList1.Images.SetKeyName(0, "add_img.png");
             imageList1.Images.SetKeyName(1, "btnMap.png");
             imageList1.Images.SetKeyName(2, "guitar.png");
+            imageList1.Images.SetKeyName(3, "iconCreature.png");
             // 
             // btnMapEditor
             // 
@@ -69,9 +70,9 @@
             // 
             // btnCreatures
             // 
-            btnCreatures.ImageIndex = 2;
+            btnCreatures.ImageIndex = 3;
             btnCreatures.ImageList = imageList1;
-            btnCreatures.Location = new Point(229, 12);
+            btnCreatures.Location = new Point(212, 12);
             btnCreatures.Name = "btnCreatures";
             btnCreatures.Size = new Size(78, 83);
             btnCreatures.TabIndex = 2;

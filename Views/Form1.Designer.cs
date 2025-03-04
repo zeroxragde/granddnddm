@@ -128,7 +128,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(427, 301);
-            ControlBox = false;
             Controls.Add(dreamForm1);
             Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ButtonHighlight;

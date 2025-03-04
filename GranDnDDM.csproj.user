@@ -4,6 +4,9 @@
     <Compile Update="Tools\MapEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\CreatureEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreatureGen.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -30,15 +30,6 @@
         {
             formTheme1 = new ReaLTaiizor.Forms.FormTheme();
             nightPanel1 = new ReaLTaiizor.Controls.NightPanel();
-            winEditor = new ReaLTaiizor.Controls.CrownSectionPanel();
-            wFormEditName = new ReaLTaiizor.Forms.SpaceForm();
-            materialMaskedTextBox1 = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
-            comboBoxAlineamiento = new ReaLTaiizor.Controls.MetroComboBox();
-            hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
-            cbSizes = new ReaLTaiizor.Controls.MetroComboBox();
-            cbListtypeM = new ReaLTaiizor.Controls.MetroComboBox();
-            btnWinEditSasve = new ReaLTaiizor.Controls.AirButton();
-            txtWinEditorNuevoVal = new ReaLTaiizor.Controls.HopeTextBox();
             pCard = new ReaLTaiizor.Controls.Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblName = new ReaLTaiizor.Controls.NightLabel();
@@ -69,8 +60,6 @@
             nightLabel7 = new ReaLTaiizor.Controls.NightLabel();
             formTheme1.SuspendLayout();
             nightPanel1.SuspendLayout();
-            winEditor.SuspendLayout();
-            wFormEditName.SuspendLayout();
             pCard.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
@@ -88,7 +77,7 @@
             formTheme1.Name = "formTheme1";
             formTheme1.Padding = new Padding(3, 28, 3, 28);
             formTheme1.Sizable = true;
-            formTheme1.Size = new Size(1147, 684);
+            formTheme1.Size = new Size(687, 529);
             formTheme1.SmartBounds = false;
             formTheme1.StartPosition = FormStartPosition.CenterScreen;
             formTheme1.TabIndex = 0;
@@ -98,7 +87,6 @@
             // 
             nightPanel1.BackgroundImage = Properties.Resources.backEpicoNormalized;
             nightPanel1.BackgroundImageLayout = ImageLayout.Stretch;
-            nightPanel1.Controls.Add(winEditor);
             nightPanel1.Controls.Add(pCard);
             nightPanel1.Dock = DockStyle.Fill;
             nightPanel1.ForeColor = Color.FromArgb(250, 250, 250);
@@ -107,234 +95,8 @@
             nightPanel1.Name = "nightPanel1";
             nightPanel1.RightSideColor = Color.FromArgb(41, 44, 61);
             nightPanel1.Side = ReaLTaiizor.Controls.NightPanel.PanelSide.Left;
-            nightPanel1.Size = new Size(1141, 628);
+            nightPanel1.Size = new Size(681, 473);
             nightPanel1.TabIndex = 0;
-            // 
-            // winEditor
-            // 
-            winEditor.BackColor = Color.FromArgb(42, 42, 42);
-            winEditor.Controls.Add(wFormEditName);
-            winEditor.Location = new Point(686, 16);
-            winEditor.MinimumSize = new Size(261, 61);
-            winEditor.Name = "winEditor";
-            winEditor.SectionHeader = null;
-            winEditor.Size = new Size(430, 416);
-            winEditor.TabIndex = 31;
-            // 
-            // wFormEditName
-            // 
-            wFormEditName.BackColor = Color.FromArgb(42, 42, 42);
-            wFormEditName.BorderStyle = FormBorderStyle.None;
-            wFormEditName.Controls.Add(materialMaskedTextBox1);
-            wFormEditName.Controls.Add(comboBoxAlineamiento);
-            wFormEditName.Controls.Add(hopeTextBox1);
-            wFormEditName.Controls.Add(cbSizes);
-            wFormEditName.Controls.Add(cbListtypeM);
-            wFormEditName.Controls.Add(btnWinEditSasve);
-            wFormEditName.Controls.Add(txtWinEditorNuevoVal);
-            wFormEditName.Customization = "Kioq/yAgIP8qKir/Kioq/xwcHP/+/v7/Kysr/xkZGf8=";
-            wFormEditName.Dock = DockStyle.Fill;
-            wFormEditName.Font = new Font("Verdana", 8F);
-            wFormEditName.Image = null;
-            wFormEditName.Location = new Point(1, 25);
-            wFormEditName.MinimumSize = new Size(200, 25);
-            wFormEditName.Movable = true;
-            wFormEditName.Name = "wFormEditName";
-            wFormEditName.NoRounding = false;
-            wFormEditName.Padding = new Padding(5, 25, 5, 5);
-            wFormEditName.Sizable = false;
-            wFormEditName.Size = new Size(428, 390);
-            wFormEditName.SmartBounds = true;
-            wFormEditName.StartPosition = FormStartPosition.CenterScreen;
-            wFormEditName.TabIndex = 0;
-            wFormEditName.Text = "Editar";
-            wFormEditName.TransparencyKey = Color.Purple;
-            wFormEditName.Transparent = false;
-            // 
-            // materialMaskedTextBox1
-            // 
-            materialMaskedTextBox1.AllowPromptAsInput = true;
-            materialMaskedTextBox1.AnimateReadOnly = false;
-            materialMaskedTextBox1.AsciiOnly = false;
-            materialMaskedTextBox1.BackgroundImageLayout = ImageLayout.None;
-            materialMaskedTextBox1.BeepOnError = false;
-            materialMaskedTextBox1.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
-            materialMaskedTextBox1.Depth = 0;
-            materialMaskedTextBox1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMaskedTextBox1.HidePromptOnLeave = false;
-            materialMaskedTextBox1.HideSelection = true;
-            materialMaskedTextBox1.InsertKeyMode = InsertKeyMode.Default;
-            materialMaskedTextBox1.LeadingIcon = null;
-            materialMaskedTextBox1.Location = new Point(8, 271);
-            materialMaskedTextBox1.Mask = "00000";
-            materialMaskedTextBox1.MaxLength = 32767;
-            materialMaskedTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialMaskedTextBox1.Name = "materialMaskedTextBox1";
-            materialMaskedTextBox1.PasswordChar = '\0';
-            materialMaskedTextBox1.PrefixSuffixText = null;
-            materialMaskedTextBox1.PromptChar = '_';
-            materialMaskedTextBox1.ReadOnly = false;
-            materialMaskedTextBox1.RejectInputOnFirstFailure = false;
-            materialMaskedTextBox1.ResetOnPrompt = true;
-            materialMaskedTextBox1.ResetOnSpace = true;
-            materialMaskedTextBox1.RightToLeft = RightToLeft.No;
-            materialMaskedTextBox1.SelectedText = "";
-            materialMaskedTextBox1.SelectionLength = 0;
-            materialMaskedTextBox1.SelectionStart = 0;
-            materialMaskedTextBox1.ShortcutsEnabled = true;
-            materialMaskedTextBox1.Size = new Size(250, 48);
-            materialMaskedTextBox1.SkipLiterals = true;
-            materialMaskedTextBox1.TabIndex = 10;
-            materialMaskedTextBox1.TabStop = false;
-            materialMaskedTextBox1.TextAlign = HorizontalAlignment.Left;
-            materialMaskedTextBox1.TextMaskFormat = MaskFormat.IncludeLiterals;
-            materialMaskedTextBox1.TrailingIcon = null;
-            materialMaskedTextBox1.UseSystemPasswordChar = false;
-            materialMaskedTextBox1.ValidatingType = null;
-            // 
-            // comboBoxAlineamiento
-            // 
-            comboBoxAlineamiento.AllowDrop = true;
-            comboBoxAlineamiento.ArrowColor = Color.FromArgb(110, 110, 110);
-            comboBoxAlineamiento.BackColor = Color.Transparent;
-            comboBoxAlineamiento.BackgroundColor = Color.FromArgb(34, 34, 34);
-            comboBoxAlineamiento.BorderColor = Color.FromArgb(110, 110, 110);
-            comboBoxAlineamiento.CausesValidation = false;
-            comboBoxAlineamiento.DisabledBackColor = Color.FromArgb(80, 80, 80);
-            comboBoxAlineamiento.DisabledBorderColor = Color.FromArgb(109, 109, 109);
-            comboBoxAlineamiento.DisabledForeColor = Color.FromArgb(109, 109, 109);
-            comboBoxAlineamiento.DrawMode = DrawMode.OwnerDrawFixed;
-            comboBoxAlineamiento.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxAlineamiento.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxAlineamiento.FormattingEnabled = true;
-            comboBoxAlineamiento.IsDerivedStyle = true;
-            comboBoxAlineamiento.ItemHeight = 20;
-            comboBoxAlineamiento.Location = new Point(8, 239);
-            comboBoxAlineamiento.Name = "comboBoxAlineamiento";
-            comboBoxAlineamiento.SelectedItemBackColor = Color.FromArgb(65, 177, 225);
-            comboBoxAlineamiento.SelectedItemForeColor = Color.White;
-            comboBoxAlineamiento.Size = new Size(286, 26);
-            comboBoxAlineamiento.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            comboBoxAlineamiento.StyleManager = null;
-            comboBoxAlineamiento.TabIndex = 8;
-            comboBoxAlineamiento.ThemeAuthor = "Taiizor";
-            comboBoxAlineamiento.ThemeName = "MetroDark";
-            // 
-            // hopeTextBox1
-            // 
-            hopeTextBox1.BackColor = Color.White;
-            hopeTextBox1.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox1.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox1.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox1.Font = new Font("Segoe UI", 12F);
-            hopeTextBox1.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox1.Hint = "Otro";
-            hopeTextBox1.Location = new Point(8, 189);
-            hopeTextBox1.MaxLength = 32767;
-            hopeTextBox1.Multiline = false;
-            hopeTextBox1.Name = "hopeTextBox1";
-            hopeTextBox1.PasswordChar = '\0';
-            hopeTextBox1.ScrollBars = ScrollBars.None;
-            hopeTextBox1.SelectedText = "";
-            hopeTextBox1.SelectionLength = 0;
-            hopeTextBox1.SelectionStart = 0;
-            hopeTextBox1.Size = new Size(285, 38);
-            hopeTextBox1.TabIndex = 7;
-            hopeTextBox1.TabStop = false;
-            hopeTextBox1.UseSystemPasswordChar = false;
-            // 
-            // cbSizes
-            // 
-            cbSizes.AllowDrop = true;
-            cbSizes.ArrowColor = Color.FromArgb(110, 110, 110);
-            cbSizes.BackColor = Color.Transparent;
-            cbSizes.BackgroundColor = Color.FromArgb(34, 34, 34);
-            cbSizes.BorderColor = Color.FromArgb(110, 110, 110);
-            cbSizes.CausesValidation = false;
-            cbSizes.DisabledBackColor = Color.FromArgb(80, 80, 80);
-            cbSizes.DisabledBorderColor = Color.FromArgb(109, 109, 109);
-            cbSizes.DisabledForeColor = Color.FromArgb(109, 109, 109);
-            cbSizes.DrawMode = DrawMode.OwnerDrawFixed;
-            cbSizes.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSizes.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbSizes.FormattingEnabled = true;
-            cbSizes.IsDerivedStyle = true;
-            cbSizes.ItemHeight = 20;
-            cbSizes.Location = new Point(8, 97);
-            cbSizes.Name = "cbSizes";
-            cbSizes.SelectedItemBackColor = Color.FromArgb(65, 177, 225);
-            cbSizes.SelectedItemForeColor = Color.White;
-            cbSizes.Size = new Size(213, 26);
-            cbSizes.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            cbSizes.StyleManager = null;
-            cbSizes.TabIndex = 6;
-            cbSizes.ThemeAuthor = "Taiizor";
-            cbSizes.ThemeName = "MetroDark";
-            // 
-            // cbListtypeM
-            // 
-            cbListtypeM.AllowDrop = true;
-            cbListtypeM.ArrowColor = Color.FromArgb(110, 110, 110);
-            cbListtypeM.BackColor = Color.Transparent;
-            cbListtypeM.BackgroundColor = Color.FromArgb(34, 34, 34);
-            cbListtypeM.BorderColor = Color.FromArgb(110, 110, 110);
-            cbListtypeM.CausesValidation = false;
-            cbListtypeM.DisabledBackColor = Color.FromArgb(80, 80, 80);
-            cbListtypeM.DisabledBorderColor = Color.FromArgb(109, 109, 109);
-            cbListtypeM.DisabledForeColor = Color.FromArgb(109, 109, 109);
-            cbListtypeM.DrawMode = DrawMode.OwnerDrawFixed;
-            cbListtypeM.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbListtypeM.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbListtypeM.FormattingEnabled = true;
-            cbListtypeM.IsDerivedStyle = true;
-            cbListtypeM.ItemHeight = 20;
-            cbListtypeM.Location = new Point(7, 145);
-            cbListtypeM.Name = "cbListtypeM";
-            cbListtypeM.SelectedItemBackColor = Color.FromArgb(65, 177, 225);
-            cbListtypeM.SelectedItemForeColor = Color.White;
-            cbListtypeM.Size = new Size(286, 26);
-            cbListtypeM.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            cbListtypeM.StyleManager = null;
-            cbListtypeM.TabIndex = 5;
-            cbListtypeM.ThemeAuthor = "Taiizor";
-            cbListtypeM.ThemeName = "MetroDark";
-            // 
-            // btnWinEditSasve
-            // 
-            btnWinEditSasve.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
-            btnWinEditSasve.Font = new Font("Segoe UI", 9F);
-            btnWinEditSasve.Image = null;
-            btnWinEditSasve.Location = new Point(320, 335);
-            btnWinEditSasve.Name = "btnWinEditSasve";
-            btnWinEditSasve.NoRounding = false;
-            btnWinEditSasve.Size = new Size(100, 45);
-            btnWinEditSasve.TabIndex = 1;
-            btnWinEditSasve.Text = "Guardar";
-            btnWinEditSasve.Transparent = false;
-            btnWinEditSasve.Click += btnWinEditSasve_Click;
-            // 
-            // txtWinEditorNuevoVal
-            // 
-            txtWinEditorNuevoVal.BackColor = Color.White;
-            txtWinEditorNuevoVal.BaseColor = Color.FromArgb(44, 55, 66);
-            txtWinEditorNuevoVal.BorderColorA = Color.FromArgb(64, 158, 255);
-            txtWinEditorNuevoVal.BorderColorB = Color.FromArgb(220, 223, 230);
-            txtWinEditorNuevoVal.Font = new Font("Segoe UI", 12F);
-            txtWinEditorNuevoVal.ForeColor = Color.FromArgb(48, 49, 51);
-            txtWinEditorNuevoVal.Hint = "Nombre";
-            txtWinEditorNuevoVal.Location = new Point(8, 43);
-            txtWinEditorNuevoVal.MaxLength = 32767;
-            txtWinEditorNuevoVal.Multiline = false;
-            txtWinEditorNuevoVal.Name = "txtWinEditorNuevoVal";
-            txtWinEditorNuevoVal.PasswordChar = '\0';
-            txtWinEditorNuevoVal.ScrollBars = ScrollBars.None;
-            txtWinEditorNuevoVal.SelectedText = "";
-            txtWinEditorNuevoVal.SelectionLength = 0;
-            txtWinEditorNuevoVal.SelectionStart = 0;
-            txtWinEditorNuevoVal.Size = new Size(285, 38);
-            txtWinEditorNuevoVal.TabIndex = 0;
-            txtWinEditorNuevoVal.TabStop = false;
-            txtWinEditorNuevoVal.UseSystemPasswordChar = false;
             // 
             // pCard
             // 
@@ -690,10 +452,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.backEpicoNormalized;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1147, 684);
+            ClientSize = new Size(687, 529);
             Controls.Add(formTheme1);
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
-            MaximumSize = new Size(1600, 860);
+            MaximumSize = new Size(1600, 2000);
             MinimumSize = new Size(126, 50);
             Name = "CreatureGen";
             ShowIcon = false;
@@ -702,8 +465,6 @@
             TransparencyKey = Color.Fuchsia;
             formTheme1.ResumeLayout(false);
             nightPanel1.ResumeLayout(false);
-            winEditor.ResumeLayout(false);
-            wFormEditName.ResumeLayout(false);
             pCard.ResumeLayout(false);
             pCard.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
@@ -746,15 +507,6 @@
         private ReaLTaiizor.Controls.ForeverToggle foreverToggle1;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
-        private ReaLTaiizor.Controls.CrownSectionPanel winEditor;
-        private ReaLTaiizor.Forms.SpaceForm wFormEditName;
-        private ReaLTaiizor.Controls.HopeTextBox txtWinEditorNuevoVal;
-        private ReaLTaiizor.Controls.AirButton btnWinEditSasve;
         private ReaLTaiizor.Controls.ForeverComboBox cbListType;
-        private ReaLTaiizor.Controls.MetroComboBox cbListtypeM;
-        private ReaLTaiizor.Controls.MetroComboBox cbSizes;
-        private ReaLTaiizor.Controls.MetroComboBox comboBoxAlineamiento;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
-        private ReaLTaiizor.Controls.MaterialMaskedTextBox materialMaskedTextBox1;
     }
 }

@@ -106,3 +106,4 @@ C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureList.resources
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureEditor.resources
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureList.resources
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\statblockdata.json

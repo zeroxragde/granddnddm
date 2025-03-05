@@ -26,6 +26,12 @@ namespace GranDnDDM.Views
         private void DMDashboard_Load(object sender, EventArgs e)
         {
             Text = "Tablero de " + GlobalTools.DM;
+            // Configura el inicio en posición manual
+            StartPosition = FormStartPosition.Manual;
+
+            // Posiciona el formulario en la esquina superior izquierda de la pantalla principal
+            Rectangle screenArea = Screen.PrimaryScreen.WorkingArea;
+            Location = new Point(screenArea.Left, screenArea.Top);
 
         }
 

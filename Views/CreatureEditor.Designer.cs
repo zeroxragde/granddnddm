@@ -32,6 +32,7 @@
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
             tabPage1 = new ReaLTaiizor.Controls.TabPage();
             tabPage2 = new TabPage();
+            cbShield = new CheckBox();
             txtOtraTipoCreatura = new ReaLTaiizor.Controls.HopeTextBox();
             pCondiciones = new FlowLayoutPanel();
             pHabilidades = new FlowLayoutPanel();
@@ -54,13 +55,12 @@
             txtDes = new ReaLTaiizor.Controls.HopeTextBox();
             lblDes = new ReaLTaiizor.Controls.BigLabel();
             txtFuerza = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox9 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox7 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox6 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox5 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox4 = new ReaLTaiizor.Controls.HopeTextBox();
+            txtVCavado = new ReaLTaiizor.Controls.HopeTextBox();
+            txtVVuelo = new ReaLTaiizor.Controls.HopeTextBox();
+            txtVNado = new ReaLTaiizor.Controls.HopeTextBox();
+            txtVEscalado = new ReaLTaiizor.Controls.HopeTextBox();
+            txtVelocidad = new ReaLTaiizor.Controls.HopeTextBox();
             txtBonus = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeCheckBox1 = new ReaLTaiizor.Controls.HopeCheckBox();
             cbArmaduras = new ReaLTaiizor.Controls.HopeComboBox();
             txtDados = new ReaLTaiizor.Controls.HopeTextBox();
             comboBoxAlineamiento = new ReaLTaiizor.Controls.HopeComboBox();
@@ -69,57 +69,58 @@
             txtNombre = new ReaLTaiizor.Controls.HopeTextBox();
             lblFuerza = new ReaLTaiizor.Controls.BigLabel();
             tabPage3 = new TabPage();
+            pIdiomasList = new FlowLayoutPanel();
+            pDasmagesList = new FlowLayoutPanel();
             bigLabel12 = new ReaLTaiizor.Controls.BigLabel();
             cbCR = new ReaLTaiizor.Controls.HopeComboBox();
-            hopeTextBox18 = new ReaLTaiizor.Controls.HopeTextBox();
+            txtVisionVerdadera = new ReaLTaiizor.Controls.HopeTextBox();
             bigLabel11 = new ReaLTaiizor.Controls.BigLabel();
-            hopeTextBox17 = new ReaLTaiizor.Controls.HopeTextBox();
+            txtSentidoSismico = new ReaLTaiizor.Controls.HopeTextBox();
             bigLabel10 = new ReaLTaiizor.Controls.BigLabel();
-            hopeTextBox16 = new ReaLTaiizor.Controls.HopeTextBox();
+            txtVistaNocturna = new ReaLTaiizor.Controls.HopeTextBox();
             bigLabel9 = new ReaLTaiizor.Controls.BigLabel();
-            hopeCheckBox2 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeTextBox19 = new ReaLTaiizor.Controls.HopeTextBox();
+            cbCiegoMasAlla = new ReaLTaiizor.Controls.HopeCheckBox();
+            txtVistaCiega = new ReaLTaiizor.Controls.HopeTextBox();
             bigLabel7 = new ReaLTaiizor.Controls.BigLabel();
-            hopeTextBox15 = new ReaLTaiizor.Controls.HopeTextBox();
-            button8 = new ReaLTaiizor.Controls.Button();
-            button9 = new ReaLTaiizor.Controls.Button();
-            crownSectionPanel5 = new ReaLTaiizor.Controls.CrownSectionPanel();
+            txtTelepatia = new ReaLTaiizor.Controls.HopeTextBox();
+            btnAddEntiende = new ReaLTaiizor.Controls.Button();
+            btnAddHabla = new ReaLTaiizor.Controls.Button();
             cbIdiomas = new ReaLTaiizor.Controls.HopeComboBox();
             btnDemageTypesInmu = new ReaLTaiizor.Controls.Button();
             btnDemageTypesRes = new ReaLTaiizor.Controls.Button();
             btnDemageTypesVul = new ReaLTaiizor.Controls.Button();
-            crownSectionPanel4 = new ReaLTaiizor.Controls.CrownSectionPanel();
             cbDamageTypes = new ReaLTaiizor.Controls.HopeComboBox();
             bigLabel8 = new ReaLTaiizor.Controls.BigLabel();
             tabPage4 = new TabPage();
-            bigLabel17 = new ReaLTaiizor.Controls.BigLabel();
-            bigLabel16 = new ReaLTaiizor.Controls.BigLabel();
-            bigLabel15 = new ReaLTaiizor.Controls.BigLabel();
-            hopeCheckBox10 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox9 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox8 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox7 = new ReaLTaiizor.Controls.HopeCheckBox();
-            bigLabel14 = new ReaLTaiizor.Controls.BigLabel();
+            btnUpdateData = new ReaLTaiizor.Controls.DreamButton();
+            txtRasgoRegional = new TextBox();
+            txtRasgoGuarida = new TextBox();
+            txtRasgoMitico = new ReaLTaiizor.Controls.ForeverTextBox();
+            cbRegional = new ReaLTaiizor.Controls.HopeCheckBox();
+            cbGuarida = new ReaLTaiizor.Controls.HopeCheckBox();
+            cbMitica = new ReaLTaiizor.Controls.HopeCheckBox();
+            cbCreaturaLegendaria = new ReaLTaiizor.Controls.HopeCheckBox();
+            lblLegendarioText = new ReaLTaiizor.Controls.BigLabel();
             bigLabel13 = new ReaLTaiizor.Controls.BigLabel();
             hopeCheckBox6 = new ReaLTaiizor.Controls.HopeCheckBox();
             hopeCheckBox5 = new ReaLTaiizor.Controls.HopeCheckBox();
             hopeCheckBox4 = new ReaLTaiizor.Controls.HopeCheckBox();
             hopeCheckBox3 = new ReaLTaiizor.Controls.HopeCheckBox();
             tabPage5 = new TabPage();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             bigLabel18 = new ReaLTaiizor.Controls.BigLabel();
-            button18 = new ReaLTaiizor.Controls.Button();
-            hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
-            crownSectionPanel6 = new ReaLTaiizor.Controls.CrownSectionPanel();
-            button17 = new ReaLTaiizor.Controls.Button();
-            button16 = new ReaLTaiizor.Controls.Button();
-            button15 = new ReaLTaiizor.Controls.Button();
-            button14 = new ReaLTaiizor.Controls.Button();
-            button13 = new ReaLTaiizor.Controls.Button();
-            button12 = new ReaLTaiizor.Controls.Button();
-            button11 = new ReaLTaiizor.Controls.Button();
-            button10 = new ReaLTaiizor.Controls.Button();
-            hopeTextBox21 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox20 = new ReaLTaiizor.Controls.HopeTextBox();
+            btnUsePresent = new ReaLTaiizor.Controls.Button();
+            cbPresents = new ReaLTaiizor.Controls.HopeComboBox();
+            btnAddGuaridaAction = new ReaLTaiizor.Controls.Button();
+            btnAddMistycAction = new ReaLTaiizor.Controls.Button();
+            btnAddLegendaryAction = new ReaLTaiizor.Controls.Button();
+            btnEfectoRegional = new ReaLTaiizor.Controls.Button();
+            btnAddReaction = new ReaLTaiizor.Controls.Button();
+            btnAddActonBonus = new ReaLTaiizor.Controls.Button();
+            btnAddAction = new ReaLTaiizor.Controls.Button();
+            btnAddAbility = new ReaLTaiizor.Controls.Button();
+            txtDesAction = new ReaLTaiizor.Controls.HopeTextBox();
+            txtNameAction = new ReaLTaiizor.Controls.HopeTextBox();
             tabPage6 = new TabPage();
             Salir = new TabPage();
             dreamForm1.SuspendLayout();
@@ -191,6 +192,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage2.Controls.Add(cbShield);
             tabPage2.Controls.Add(txtOtraTipoCreatura);
             tabPage2.Controls.Add(pCondiciones);
             tabPage2.Controls.Add(pHabilidades);
@@ -213,13 +215,12 @@
             tabPage2.Controls.Add(txtDes);
             tabPage2.Controls.Add(lblDes);
             tabPage2.Controls.Add(txtFuerza);
-            tabPage2.Controls.Add(hopeTextBox9);
-            tabPage2.Controls.Add(hopeTextBox7);
-            tabPage2.Controls.Add(hopeTextBox6);
-            tabPage2.Controls.Add(hopeTextBox5);
-            tabPage2.Controls.Add(hopeTextBox4);
+            tabPage2.Controls.Add(txtVCavado);
+            tabPage2.Controls.Add(txtVVuelo);
+            tabPage2.Controls.Add(txtVNado);
+            tabPage2.Controls.Add(txtVEscalado);
+            tabPage2.Controls.Add(txtVelocidad);
             tabPage2.Controls.Add(txtBonus);
-            tabPage2.Controls.Add(hopeCheckBox1);
             tabPage2.Controls.Add(cbArmaduras);
             tabPage2.Controls.Add(txtDados);
             tabPage2.Controls.Add(comboBoxAlineamiento);
@@ -234,6 +235,18 @@
             tabPage2.TabIndex = 0;
             tabPage2.Tag = "t1";
             tabPage2.Text = "Datos 1";
+            // 
+            // cbShield
+            // 
+            cbShield.AutoSize = true;
+            cbShield.ForeColor = Color.White;
+            cbShield.Location = new Point(146, 156);
+            cbShield.Name = "cbShield";
+            cbShield.Size = new Size(78, 25);
+            cbShield.TabIndex = 40;
+            cbShield.Text = "Escudo";
+            cbShield.UseVisualStyleBackColor = true;
+            cbShield.CheckedChanged += cbShield_CheckedChanged;
             // 
             // txtOtraTipoCreatura
             // 
@@ -608,121 +621,135 @@
             txtFuerza.KeyPress += SoloNumeros_KeyPress;
             txtFuerza.Leave += txtFuerza_Leave;
             // 
-            // hopeTextBox9
+            // txtVCavado
             // 
-            hopeTextBox9.BackColor = Color.White;
-            hopeTextBox9.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox9.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox9.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox9.Font = new Font("Segoe UI", 12F);
-            hopeTextBox9.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox9.Hint = "VELOCIDAD CAVADO";
-            hopeTextBox9.Location = new Point(216, 218);
-            hopeTextBox9.MaxLength = 32767;
-            hopeTextBox9.Multiline = false;
-            hopeTextBox9.Name = "hopeTextBox9";
-            hopeTextBox9.PasswordChar = '\0';
-            hopeTextBox9.ScrollBars = ScrollBars.None;
-            hopeTextBox9.SelectedText = "";
-            hopeTextBox9.SelectionLength = 0;
-            hopeTextBox9.SelectionStart = 0;
-            hopeTextBox9.Size = new Size(181, 38);
-            hopeTextBox9.TabIndex = 13;
-            hopeTextBox9.TabStop = false;
-            hopeTextBox9.UseSystemPasswordChar = false;
+            txtVCavado.BackColor = Color.White;
+            txtVCavado.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVCavado.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVCavado.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVCavado.Font = new Font("Segoe UI", 12F);
+            txtVCavado.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVCavado.Hint = "VELOCIDAD CAVADO";
+            txtVCavado.Location = new Point(216, 218);
+            txtVCavado.MaxLength = 32767;
+            txtVCavado.Multiline = false;
+            txtVCavado.Name = "txtVCavado";
+            txtVCavado.PasswordChar = '\0';
+            txtVCavado.ScrollBars = ScrollBars.None;
+            txtVCavado.SelectedText = "";
+            txtVCavado.SelectionLength = 0;
+            txtVCavado.SelectionStart = 0;
+            txtVCavado.Size = new Size(181, 38);
+            txtVCavado.TabIndex = 13;
+            txtVCavado.TabStop = false;
+            txtVCavado.Tag = "cavar";
+            txtVCavado.UseSystemPasswordChar = false;
+            txtVCavado.KeyPress += SoloNumeros_KeyPress;
+            txtVCavado.Leave += txtVCavado_Leave;
             // 
-            // hopeTextBox7
+            // txtVVuelo
             // 
-            hopeTextBox7.BackColor = Color.White;
-            hopeTextBox7.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox7.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox7.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox7.Font = new Font("Segoe UI", 12F);
-            hopeTextBox7.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox7.Hint = "VELOCIDAD VUELO";
-            hopeTextBox7.Location = new Point(590, 218);
-            hopeTextBox7.MaxLength = 32767;
-            hopeTextBox7.Multiline = false;
-            hopeTextBox7.Name = "hopeTextBox7";
-            hopeTextBox7.PasswordChar = '\0';
-            hopeTextBox7.ScrollBars = ScrollBars.None;
-            hopeTextBox7.SelectedText = "";
-            hopeTextBox7.SelectionLength = 0;
-            hopeTextBox7.SelectionStart = 0;
-            hopeTextBox7.Size = new Size(181, 38);
-            hopeTextBox7.TabIndex = 11;
-            hopeTextBox7.TabStop = false;
-            hopeTextBox7.UseSystemPasswordChar = false;
+            txtVVuelo.BackColor = Color.White;
+            txtVVuelo.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVVuelo.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVVuelo.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVVuelo.Font = new Font("Segoe UI", 12F);
+            txtVVuelo.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVVuelo.Hint = "VELOCIDAD VUELO";
+            txtVVuelo.Location = new Point(590, 218);
+            txtVVuelo.MaxLength = 32767;
+            txtVVuelo.Multiline = false;
+            txtVVuelo.Name = "txtVVuelo";
+            txtVVuelo.PasswordChar = '\0';
+            txtVVuelo.ScrollBars = ScrollBars.None;
+            txtVVuelo.SelectedText = "";
+            txtVVuelo.SelectionLength = 0;
+            txtVVuelo.SelectionStart = 0;
+            txtVVuelo.Size = new Size(181, 38);
+            txtVVuelo.TabIndex = 11;
+            txtVVuelo.TabStop = false;
+            txtVVuelo.Tag = "volar";
+            txtVVuelo.UseSystemPasswordChar = false;
+            txtVVuelo.KeyPress += SoloNumeros_KeyPress;
+            txtVVuelo.Leave += txtVCavado_Leave;
             // 
-            // hopeTextBox6
+            // txtVNado
             // 
-            hopeTextBox6.BackColor = Color.White;
-            hopeTextBox6.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox6.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox6.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox6.Font = new Font("Segoe UI", 12F);
-            hopeTextBox6.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox6.Hint = "VELOCIDAD NADO";
-            hopeTextBox6.Location = new Point(777, 218);
-            hopeTextBox6.MaxLength = 32767;
-            hopeTextBox6.Multiline = false;
-            hopeTextBox6.Name = "hopeTextBox6";
-            hopeTextBox6.PasswordChar = '\0';
-            hopeTextBox6.ScrollBars = ScrollBars.None;
-            hopeTextBox6.SelectedText = "";
-            hopeTextBox6.SelectionLength = 0;
-            hopeTextBox6.SelectionStart = 0;
-            hopeTextBox6.Size = new Size(181, 38);
-            hopeTextBox6.TabIndex = 10;
-            hopeTextBox6.TabStop = false;
-            hopeTextBox6.UseSystemPasswordChar = false;
+            txtVNado.BackColor = Color.White;
+            txtVNado.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVNado.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVNado.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVNado.Font = new Font("Segoe UI", 12F);
+            txtVNado.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVNado.Hint = "VELOCIDAD NADO";
+            txtVNado.Location = new Point(777, 218);
+            txtVNado.MaxLength = 32767;
+            txtVNado.Multiline = false;
+            txtVNado.Name = "txtVNado";
+            txtVNado.PasswordChar = '\0';
+            txtVNado.ScrollBars = ScrollBars.None;
+            txtVNado.SelectedText = "";
+            txtVNado.SelectionLength = 0;
+            txtVNado.SelectionStart = 0;
+            txtVNado.Size = new Size(181, 38);
+            txtVNado.TabIndex = 10;
+            txtVNado.TabStop = false;
+            txtVNado.Tag = "nadsr";
+            txtVNado.UseSystemPasswordChar = false;
+            txtVNado.KeyPress += SoloNumeros_KeyPress;
+            txtVNado.Leave += txtVCavado_Leave;
             // 
-            // hopeTextBox5
+            // txtVEscalado
             // 
-            hopeTextBox5.BackColor = Color.White;
-            hopeTextBox5.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox5.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox5.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox5.Font = new Font("Segoe UI", 12F);
-            hopeTextBox5.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox5.Hint = "VEL. ESCALADO";
-            hopeTextBox5.Location = new Point(403, 218);
-            hopeTextBox5.MaxLength = 32767;
-            hopeTextBox5.Multiline = false;
-            hopeTextBox5.Name = "hopeTextBox5";
-            hopeTextBox5.PasswordChar = '\0';
-            hopeTextBox5.ScrollBars = ScrollBars.None;
-            hopeTextBox5.SelectedText = "";
-            hopeTextBox5.SelectionLength = 0;
-            hopeTextBox5.SelectionStart = 0;
-            hopeTextBox5.Size = new Size(181, 38);
-            hopeTextBox5.TabIndex = 9;
-            hopeTextBox5.TabStop = false;
-            hopeTextBox5.UseSystemPasswordChar = false;
+            txtVEscalado.BackColor = Color.White;
+            txtVEscalado.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVEscalado.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVEscalado.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVEscalado.Font = new Font("Segoe UI", 12F);
+            txtVEscalado.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVEscalado.Hint = "VEL. ESCALADO";
+            txtVEscalado.Location = new Point(403, 218);
+            txtVEscalado.MaxLength = 32767;
+            txtVEscalado.Multiline = false;
+            txtVEscalado.Name = "txtVEscalado";
+            txtVEscalado.PasswordChar = '\0';
+            txtVEscalado.ScrollBars = ScrollBars.None;
+            txtVEscalado.SelectedText = "";
+            txtVEscalado.SelectionLength = 0;
+            txtVEscalado.SelectionStart = 0;
+            txtVEscalado.Size = new Size(181, 38);
+            txtVEscalado.TabIndex = 9;
+            txtVEscalado.TabStop = false;
+            txtVEscalado.Tag = "escalar";
+            txtVEscalado.UseSystemPasswordChar = false;
+            txtVEscalado.KeyPress += SoloNumeros_KeyPress;
+            txtVEscalado.Leave += txtVCavado_Leave;
             // 
-            // hopeTextBox4
+            // txtVelocidad
             // 
-            hopeTextBox4.BackColor = Color.White;
-            hopeTextBox4.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox4.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox4.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox4.Font = new Font("Segoe UI", 12F);
-            hopeTextBox4.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox4.Hint = "VELOCIDAD";
-            hopeTextBox4.Location = new Point(29, 218);
-            hopeTextBox4.MaxLength = 32767;
-            hopeTextBox4.Multiline = false;
-            hopeTextBox4.Name = "hopeTextBox4";
-            hopeTextBox4.PasswordChar = '\0';
-            hopeTextBox4.ScrollBars = ScrollBars.None;
-            hopeTextBox4.SelectedText = "";
-            hopeTextBox4.SelectionLength = 0;
-            hopeTextBox4.SelectionStart = 0;
-            hopeTextBox4.Size = new Size(181, 38);
-            hopeTextBox4.TabIndex = 8;
-            hopeTextBox4.TabStop = false;
-            hopeTextBox4.UseSystemPasswordChar = false;
-            hopeTextBox4.KeyPress += SoloNumeros_KeyPress;
+            txtVelocidad.BackColor = Color.White;
+            txtVelocidad.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVelocidad.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVelocidad.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVelocidad.Font = new Font("Segoe UI", 12F);
+            txtVelocidad.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVelocidad.Hint = "VELOCIDAD";
+            txtVelocidad.Location = new Point(29, 218);
+            txtVelocidad.MaxLength = 32767;
+            txtVelocidad.Multiline = false;
+            txtVelocidad.Name = "txtVelocidad";
+            txtVelocidad.PasswordChar = '\0';
+            txtVelocidad.ScrollBars = ScrollBars.None;
+            txtVelocidad.SelectedText = "";
+            txtVelocidad.SelectionLength = 0;
+            txtVelocidad.SelectionStart = 0;
+            txtVelocidad.Size = new Size(181, 38);
+            txtVelocidad.TabIndex = 8;
+            txtVelocidad.TabStop = false;
+            txtVelocidad.Tag = "caminar";
+            txtVelocidad.UseSystemPasswordChar = false;
+            txtVelocidad.KeyPress += SoloNumeros_KeyPress;
+            txtVelocidad.Leave += txtVCavado_Leave;
             // 
             // txtBonus
             // 
@@ -748,25 +775,6 @@
             txtBonus.UseSystemPasswordChar = false;
             txtBonus.Visible = false;
             txtBonus.Leave += txtBonus_Leave;
-            // 
-            // hopeCheckBox1
-            // 
-            hopeCheckBox1.AutoSize = true;
-            hopeCheckBox1.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox1.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox1.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox1.Enable = true;
-            hopeCheckBox1.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox1.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox1.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox1.Font = new Font("Segoe UI", 12F);
-            hopeCheckBox1.ForeColor = Color.White;
-            hopeCheckBox1.Location = new Point(146, 156);
-            hopeCheckBox1.Name = "hopeCheckBox1";
-            hopeCheckBox1.Size = new Size(84, 20);
-            hopeCheckBox1.TabIndex = 6;
-            hopeCheckBox1.Text = "Escudo";
-            hopeCheckBox1.UseVisualStyleBackColor = true;
             // 
             // cbArmaduras
             // 
@@ -847,6 +855,7 @@
             cbSizes.Name = "cbSizes";
             cbSizes.Size = new Size(214, 36);
             cbSizes.TabIndex = 1;
+            cbSizes.SelectedIndexChanged += cbSizes_SelectedIndexChanged;
             // 
             // txtNombre
             // 
@@ -886,26 +895,26 @@
             // tabPage3
             // 
             tabPage3.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage3.Controls.Add(pIdiomasList);
+            tabPage3.Controls.Add(pDasmagesList);
             tabPage3.Controls.Add(bigLabel12);
             tabPage3.Controls.Add(cbCR);
-            tabPage3.Controls.Add(hopeTextBox18);
+            tabPage3.Controls.Add(txtVisionVerdadera);
             tabPage3.Controls.Add(bigLabel11);
-            tabPage3.Controls.Add(hopeTextBox17);
+            tabPage3.Controls.Add(txtSentidoSismico);
             tabPage3.Controls.Add(bigLabel10);
-            tabPage3.Controls.Add(hopeTextBox16);
+            tabPage3.Controls.Add(txtVistaNocturna);
             tabPage3.Controls.Add(bigLabel9);
-            tabPage3.Controls.Add(hopeCheckBox2);
-            tabPage3.Controls.Add(hopeTextBox19);
+            tabPage3.Controls.Add(cbCiegoMasAlla);
+            tabPage3.Controls.Add(txtVistaCiega);
             tabPage3.Controls.Add(bigLabel7);
-            tabPage3.Controls.Add(hopeTextBox15);
-            tabPage3.Controls.Add(button8);
-            tabPage3.Controls.Add(button9);
-            tabPage3.Controls.Add(crownSectionPanel5);
+            tabPage3.Controls.Add(txtTelepatia);
+            tabPage3.Controls.Add(btnAddEntiende);
+            tabPage3.Controls.Add(btnAddHabla);
             tabPage3.Controls.Add(cbIdiomas);
             tabPage3.Controls.Add(btnDemageTypesInmu);
             tabPage3.Controls.Add(btnDemageTypesRes);
             tabPage3.Controls.Add(btnDemageTypesVul);
-            tabPage3.Controls.Add(crownSectionPanel4);
             tabPage3.Controls.Add(cbDamageTypes);
             tabPage3.Controls.Add(bigLabel8);
             tabPage3.Location = new Point(139, 4);
@@ -915,6 +924,22 @@
             tabPage3.TabIndex = 1;
             tabPage3.Tag = "t2";
             tabPage3.Text = "Datos 2";
+            // 
+            // pIdiomasList
+            // 
+            pIdiomasList.FlowDirection = FlowDirection.TopDown;
+            pIdiomasList.Location = new Point(455, 119);
+            pIdiomasList.Name = "pIdiomasList";
+            pIdiomasList.Size = new Size(422, 200);
+            pIdiomasList.TabIndex = 55;
+            // 
+            // pDasmagesList
+            // 
+            pDasmagesList.FlowDirection = FlowDirection.TopDown;
+            pDasmagesList.Location = new Point(27, 119);
+            pDasmagesList.Name = "pDasmagesList";
+            pDasmagesList.Size = new Size(380, 200);
+            pDasmagesList.TabIndex = 54;
             // 
             // bigLabel12
             // 
@@ -931,6 +956,7 @@
             // cbCR
             // 
             cbCR.DrawMode = DrawMode.OwnerDrawFixed;
+            cbCR.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCR.FlatStyle = FlatStyle.Flat;
             cbCR.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbCR.FormattingEnabled = true;
@@ -939,29 +965,31 @@
             cbCR.Name = "cbCR";
             cbCR.Size = new Size(254, 36);
             cbCR.TabIndex = 52;
+            cbCR.SelectedIndexChanged += cbCR_SelectedIndexChanged;
             // 
-            // hopeTextBox18
+            // txtVisionVerdadera
             // 
-            hopeTextBox18.BackColor = Color.White;
-            hopeTextBox18.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox18.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox18.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox18.Font = new Font("Segoe UI", 12F);
-            hopeTextBox18.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox18.Hint = "Vision Verdadera";
-            hopeTextBox18.Location = new Point(748, 362);
-            hopeTextBox18.MaxLength = 32767;
-            hopeTextBox18.Multiline = false;
-            hopeTextBox18.Name = "hopeTextBox18";
-            hopeTextBox18.PasswordChar = '\0';
-            hopeTextBox18.ScrollBars = ScrollBars.None;
-            hopeTextBox18.SelectedText = "";
-            hopeTextBox18.SelectionLength = 0;
-            hopeTextBox18.SelectionStart = 0;
-            hopeTextBox18.Size = new Size(149, 38);
-            hopeTextBox18.TabIndex = 50;
-            hopeTextBox18.TabStop = false;
-            hopeTextBox18.UseSystemPasswordChar = false;
+            txtVisionVerdadera.BackColor = Color.White;
+            txtVisionVerdadera.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVisionVerdadera.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVisionVerdadera.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVisionVerdadera.Font = new Font("Segoe UI", 12F);
+            txtVisionVerdadera.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVisionVerdadera.Hint = "Vision Verdadera";
+            txtVisionVerdadera.Location = new Point(748, 362);
+            txtVisionVerdadera.MaxLength = 32767;
+            txtVisionVerdadera.Multiline = false;
+            txtVisionVerdadera.Name = "txtVisionVerdadera";
+            txtVisionVerdadera.PasswordChar = '\0';
+            txtVisionVerdadera.ScrollBars = ScrollBars.None;
+            txtVisionVerdadera.SelectedText = "";
+            txtVisionVerdadera.SelectionLength = 0;
+            txtVisionVerdadera.SelectionStart = 0;
+            txtVisionVerdadera.Size = new Size(149, 38);
+            txtVisionVerdadera.TabIndex = 50;
+            txtVisionVerdadera.TabStop = false;
+            txtVisionVerdadera.UseSystemPasswordChar = false;
+            txtVisionVerdadera.Leave += txtVisionVerdadera_Leave;
             // 
             // bigLabel11
             // 
@@ -975,28 +1003,29 @@
             bigLabel11.TabIndex = 51;
             bigLabel11.Text = "Pies";
             // 
-            // hopeTextBox17
+            // txtSentidoSismico
             // 
-            hopeTextBox17.BackColor = Color.White;
-            hopeTextBox17.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox17.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox17.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox17.Font = new Font("Segoe UI", 12F);
-            hopeTextBox17.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox17.Hint = "Sentido Sismico";
-            hopeTextBox17.Location = new Point(513, 366);
-            hopeTextBox17.MaxLength = 32767;
-            hopeTextBox17.Multiline = false;
-            hopeTextBox17.Name = "hopeTextBox17";
-            hopeTextBox17.PasswordChar = '\0';
-            hopeTextBox17.ScrollBars = ScrollBars.None;
-            hopeTextBox17.SelectedText = "";
-            hopeTextBox17.SelectionLength = 0;
-            hopeTextBox17.SelectionStart = 0;
-            hopeTextBox17.Size = new Size(149, 38);
-            hopeTextBox17.TabIndex = 48;
-            hopeTextBox17.TabStop = false;
-            hopeTextBox17.UseSystemPasswordChar = false;
+            txtSentidoSismico.BackColor = Color.White;
+            txtSentidoSismico.BaseColor = Color.FromArgb(44, 55, 66);
+            txtSentidoSismico.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtSentidoSismico.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtSentidoSismico.Font = new Font("Segoe UI", 12F);
+            txtSentidoSismico.ForeColor = Color.FromArgb(48, 49, 51);
+            txtSentidoSismico.Hint = "Sentido Sismico";
+            txtSentidoSismico.Location = new Point(513, 366);
+            txtSentidoSismico.MaxLength = 32767;
+            txtSentidoSismico.Multiline = false;
+            txtSentidoSismico.Name = "txtSentidoSismico";
+            txtSentidoSismico.PasswordChar = '\0';
+            txtSentidoSismico.ScrollBars = ScrollBars.None;
+            txtSentidoSismico.SelectedText = "";
+            txtSentidoSismico.SelectionLength = 0;
+            txtSentidoSismico.SelectionStart = 0;
+            txtSentidoSismico.Size = new Size(149, 38);
+            txtSentidoSismico.TabIndex = 48;
+            txtSentidoSismico.TabStop = false;
+            txtSentidoSismico.UseSystemPasswordChar = false;
+            txtSentidoSismico.Leave += txtSentidoSismico_Leave;
             // 
             // bigLabel10
             // 
@@ -1010,28 +1039,29 @@
             bigLabel10.TabIndex = 49;
             bigLabel10.Text = "Pies";
             // 
-            // hopeTextBox16
+            // txtVistaNocturna
             // 
-            hopeTextBox16.BackColor = Color.White;
-            hopeTextBox16.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox16.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox16.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox16.Font = new Font("Segoe UI", 12F);
-            hopeTextBox16.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox16.Hint = "Viosion Nocturna";
-            hopeTextBox16.Location = new Point(283, 366);
-            hopeTextBox16.MaxLength = 32767;
-            hopeTextBox16.Multiline = false;
-            hopeTextBox16.Name = "hopeTextBox16";
-            hopeTextBox16.PasswordChar = '\0';
-            hopeTextBox16.ScrollBars = ScrollBars.None;
-            hopeTextBox16.SelectedText = "";
-            hopeTextBox16.SelectionLength = 0;
-            hopeTextBox16.SelectionStart = 0;
-            hopeTextBox16.Size = new Size(149, 38);
-            hopeTextBox16.TabIndex = 46;
-            hopeTextBox16.TabStop = false;
-            hopeTextBox16.UseSystemPasswordChar = false;
+            txtVistaNocturna.BackColor = Color.White;
+            txtVistaNocturna.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVistaNocturna.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVistaNocturna.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVistaNocturna.Font = new Font("Segoe UI", 12F);
+            txtVistaNocturna.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVistaNocturna.Hint = "Vision Nocturna";
+            txtVistaNocturna.Location = new Point(283, 366);
+            txtVistaNocturna.MaxLength = 32767;
+            txtVistaNocturna.Multiline = false;
+            txtVistaNocturna.Name = "txtVistaNocturna";
+            txtVistaNocturna.PasswordChar = '\0';
+            txtVistaNocturna.ScrollBars = ScrollBars.None;
+            txtVistaNocturna.SelectedText = "";
+            txtVistaNocturna.SelectionLength = 0;
+            txtVistaNocturna.SelectionStart = 0;
+            txtVistaNocturna.Size = new Size(149, 38);
+            txtVistaNocturna.TabIndex = 46;
+            txtVistaNocturna.TabStop = false;
+            txtVistaNocturna.UseSystemPasswordChar = false;
+            txtVistaNocturna.Leave += txtVistaNocturna_Leave;
             // 
             // bigLabel9
             // 
@@ -1045,47 +1075,48 @@
             bigLabel9.TabIndex = 47;
             bigLabel9.Text = "Pies";
             // 
-            // hopeCheckBox2
+            // cbCiegoMasAlla
             // 
-            hopeCheckBox2.AutoSize = true;
-            hopeCheckBox2.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox2.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox2.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox2.Enable = true;
-            hopeCheckBox2.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox2.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox2.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox2.Font = new Font("Segoe UI", 12F);
-            hopeCheckBox2.ForeColor = Color.White;
-            hopeCheckBox2.Location = new Point(23, 410);
-            hopeCheckBox2.Name = "hopeCheckBox2";
-            hopeCheckBox2.Size = new Size(238, 20);
-            hopeCheckBox2.TabIndex = 44;
-            hopeCheckBox2.Text = "Ciego Mas alla de este radioo";
-            hopeCheckBox2.UseVisualStyleBackColor = true;
+            cbCiegoMasAlla.AutoSize = true;
+            cbCiegoMasAlla.CheckedColor = Color.FromArgb(64, 158, 255);
+            cbCiegoMasAlla.DisabledColor = Color.FromArgb(196, 198, 202);
+            cbCiegoMasAlla.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cbCiegoMasAlla.Enable = true;
+            cbCiegoMasAlla.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cbCiegoMasAlla.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cbCiegoMasAlla.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cbCiegoMasAlla.Font = new Font("Segoe UI", 12F);
+            cbCiegoMasAlla.ForeColor = Color.White;
+            cbCiegoMasAlla.Location = new Point(23, 410);
+            cbCiegoMasAlla.Name = "cbCiegoMasAlla";
+            cbCiegoMasAlla.Size = new Size(238, 20);
+            cbCiegoMasAlla.TabIndex = 44;
+            cbCiegoMasAlla.Text = "Ciego Mas alla de este radioo";
+            cbCiegoMasAlla.UseVisualStyleBackColor = true;
             // 
-            // hopeTextBox19
+            // txtVistaCiega
             // 
-            hopeTextBox19.BackColor = Color.White;
-            hopeTextBox19.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox19.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox19.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox19.Font = new Font("Segoe UI", 12F);
-            hopeTextBox19.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox19.Hint = "Vista ciega";
-            hopeTextBox19.Location = new Point(23, 366);
-            hopeTextBox19.MaxLength = 32767;
-            hopeTextBox19.Multiline = false;
-            hopeTextBox19.Name = "hopeTextBox19";
-            hopeTextBox19.PasswordChar = '\0';
-            hopeTextBox19.ScrollBars = ScrollBars.None;
-            hopeTextBox19.SelectedText = "";
-            hopeTextBox19.SelectionLength = 0;
-            hopeTextBox19.SelectionStart = 0;
-            hopeTextBox19.Size = new Size(143, 38);
-            hopeTextBox19.TabIndex = 43;
-            hopeTextBox19.TabStop = false;
-            hopeTextBox19.UseSystemPasswordChar = false;
+            txtVistaCiega.BackColor = Color.White;
+            txtVistaCiega.BaseColor = Color.FromArgb(44, 55, 66);
+            txtVistaCiega.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtVistaCiega.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtVistaCiega.Font = new Font("Segoe UI", 12F);
+            txtVistaCiega.ForeColor = Color.FromArgb(48, 49, 51);
+            txtVistaCiega.Hint = "Vista ciega";
+            txtVistaCiega.Location = new Point(23, 366);
+            txtVistaCiega.MaxLength = 32767;
+            txtVistaCiega.Multiline = false;
+            txtVistaCiega.Name = "txtVistaCiega";
+            txtVistaCiega.PasswordChar = '\0';
+            txtVistaCiega.ScrollBars = ScrollBars.None;
+            txtVistaCiega.SelectedText = "";
+            txtVistaCiega.SelectionLength = 0;
+            txtVistaCiega.SelectionStart = 0;
+            txtVistaCiega.Size = new Size(143, 38);
+            txtVistaCiega.TabIndex = 43;
+            txtVistaCiega.TabStop = false;
+            txtVistaCiega.UseSystemPasswordChar = false;
+            txtVistaCiega.Leave += txtVistaCiega_Leave;
             // 
             // bigLabel7
             // 
@@ -1099,79 +1130,73 @@
             bigLabel7.TabIndex = 39;
             bigLabel7.Text = "Pies";
             // 
-            // hopeTextBox15
+            // txtTelepatia
             // 
-            hopeTextBox15.BackColor = Color.White;
-            hopeTextBox15.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox15.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox15.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox15.Font = new Font("Segoe UI", 12F);
-            hopeTextBox15.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox15.Hint = "Telepatia";
-            hopeTextBox15.Location = new Point(715, 21);
-            hopeTextBox15.MaxLength = 32767;
-            hopeTextBox15.Multiline = false;
-            hopeTextBox15.Name = "hopeTextBox15";
-            hopeTextBox15.PasswordChar = '\0';
-            hopeTextBox15.ScrollBars = ScrollBars.None;
-            hopeTextBox15.SelectedText = "";
-            hopeTextBox15.SelectionLength = 0;
-            hopeTextBox15.SelectionStart = 0;
-            hopeTextBox15.Size = new Size(87, 38);
-            hopeTextBox15.TabIndex = 38;
-            hopeTextBox15.TabStop = false;
-            hopeTextBox15.UseSystemPasswordChar = false;
+            txtTelepatia.BackColor = Color.White;
+            txtTelepatia.BaseColor = Color.FromArgb(44, 55, 66);
+            txtTelepatia.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtTelepatia.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtTelepatia.Font = new Font("Segoe UI", 12F);
+            txtTelepatia.ForeColor = Color.FromArgb(48, 49, 51);
+            txtTelepatia.Hint = "Telepatia";
+            txtTelepatia.Location = new Point(715, 21);
+            txtTelepatia.MaxLength = 32767;
+            txtTelepatia.Multiline = false;
+            txtTelepatia.Name = "txtTelepatia";
+            txtTelepatia.PasswordChar = '\0';
+            txtTelepatia.ScrollBars = ScrollBars.None;
+            txtTelepatia.SelectedText = "";
+            txtTelepatia.SelectionLength = 0;
+            txtTelepatia.SelectionStart = 0;
+            txtTelepatia.Size = new Size(87, 38);
+            txtTelepatia.TabIndex = 38;
+            txtTelepatia.TabStop = false;
+            txtTelepatia.UseSystemPasswordChar = false;
             // 
-            // button8
+            // btnAddEntiende
             // 
-            button8.BackColor = Color.Transparent;
-            button8.BorderColor = Color.FromArgb(32, 34, 37);
-            button8.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button8.EnteredColor = Color.FromArgb(32, 34, 37);
-            button8.Font = new Font("Microsoft Sans Serif", 12F);
-            button8.Image = null;
-            button8.ImageAlign = ContentAlignment.MiddleLeft;
-            button8.InactiveColor = Color.FromArgb(32, 34, 37);
-            button8.Location = new Point(585, 63);
-            button8.Name = "button8";
-            button8.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button8.PressedColor = Color.FromArgb(165, 37, 37);
-            button8.Size = new Size(124, 40);
-            button8.TabIndex = 37;
-            button8.Text = "ENTIENDE";
-            button8.TextAlignment = StringAlignment.Center;
+            btnAddEntiende.BackColor = Color.Transparent;
+            btnAddEntiende.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddEntiende.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddEntiende.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddEntiende.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddEntiende.Image = null;
+            btnAddEntiende.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddEntiende.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddEntiende.Location = new Point(585, 63);
+            btnAddEntiende.Name = "btnAddEntiende";
+            btnAddEntiende.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddEntiende.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddEntiende.Size = new Size(124, 40);
+            btnAddEntiende.TabIndex = 37;
+            btnAddEntiende.Text = "ENTIENDE";
+            btnAddEntiende.TextAlignment = StringAlignment.Center;
+            btnAddEntiende.Click += btnAddEntiende_Click;
             // 
-            // button9
+            // btnAddHabla
             // 
-            button9.BackColor = Color.Transparent;
-            button9.BorderColor = Color.FromArgb(32, 34, 37);
-            button9.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button9.EnteredColor = Color.FromArgb(32, 34, 37);
-            button9.Font = new Font("Microsoft Sans Serif", 12F);
-            button9.Image = null;
-            button9.ImageAlign = ContentAlignment.MiddleLeft;
-            button9.InactiveColor = Color.FromArgb(32, 34, 37);
-            button9.Location = new Point(455, 63);
-            button9.Name = "button9";
-            button9.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button9.PressedColor = Color.FromArgb(165, 37, 37);
-            button9.Size = new Size(124, 40);
-            button9.TabIndex = 36;
-            button9.Text = "HABLA";
-            button9.TextAlignment = StringAlignment.Center;
-            // 
-            // crownSectionPanel5
-            // 
-            crownSectionPanel5.AutoScroll = true;
-            crownSectionPanel5.Location = new Point(455, 119);
-            crownSectionPanel5.Name = "crownSectionPanel5";
-            crownSectionPanel5.SectionHeader = null;
-            crownSectionPanel5.Size = new Size(254, 197);
-            crownSectionPanel5.TabIndex = 35;
+            btnAddHabla.BackColor = Color.Transparent;
+            btnAddHabla.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddHabla.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddHabla.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddHabla.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddHabla.Image = null;
+            btnAddHabla.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddHabla.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddHabla.Location = new Point(455, 63);
+            btnAddHabla.Name = "btnAddHabla";
+            btnAddHabla.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddHabla.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddHabla.Size = new Size(124, 40);
+            btnAddHabla.TabIndex = 36;
+            btnAddHabla.Text = "HABLA";
+            btnAddHabla.TextAlignment = StringAlignment.Center;
+            btnAddHabla.Click += btnAddHabla_Click;
             // 
             // cbIdiomas
             // 
             cbIdiomas.DrawMode = DrawMode.OwnerDrawFixed;
+            cbIdiomas.DropDownStyle = ComboBoxStyle.DropDownList;
             cbIdiomas.FlatStyle = FlatStyle.Flat;
             cbIdiomas.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbIdiomas.FormattingEnabled = true;
@@ -1199,6 +1224,7 @@
             btnDemageTypesInmu.TabIndex = 33;
             btnDemageTypesInmu.Text = "INMUNE";
             btnDemageTypesInmu.TextAlignment = StringAlignment.Center;
+            btnDemageTypesInmu.Click += btnDemageTypesInmu_Click;
             // 
             // btnDemageTypesRes
             // 
@@ -1218,6 +1244,7 @@
             btnDemageTypesRes.TabIndex = 32;
             btnDemageTypesRes.Text = "RESISTENTE";
             btnDemageTypesRes.TextAlignment = StringAlignment.Center;
+            btnDemageTypesRes.Click += btnDemageTypesRes_Click;
             // 
             // btnDemageTypesVul
             // 
@@ -1237,19 +1264,12 @@
             btnDemageTypesVul.TabIndex = 31;
             btnDemageTypesVul.Text = "VULNERABLE";
             btnDemageTypesVul.TextAlignment = StringAlignment.Center;
-            // 
-            // crownSectionPanel4
-            // 
-            crownSectionPanel4.AutoScroll = true;
-            crownSectionPanel4.Location = new Point(23, 119);
-            crownSectionPanel4.Name = "crownSectionPanel4";
-            crownSectionPanel4.SectionHeader = null;
-            crownSectionPanel4.Size = new Size(254, 197);
-            crownSectionPanel4.TabIndex = 30;
+            btnDemageTypesVul.Click += btnDemageTypesVul_Click;
             // 
             // cbDamageTypes
             // 
             cbDamageTypes.DrawMode = DrawMode.OwnerDrawFixed;
+            cbDamageTypes.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDamageTypes.FlatStyle = FlatStyle.Flat;
             cbDamageTypes.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDamageTypes.FormattingEnabled = true;
@@ -1274,14 +1294,15 @@
             // tabPage4
             // 
             tabPage4.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage4.Controls.Add(bigLabel17);
-            tabPage4.Controls.Add(bigLabel16);
-            tabPage4.Controls.Add(bigLabel15);
-            tabPage4.Controls.Add(hopeCheckBox10);
-            tabPage4.Controls.Add(hopeCheckBox9);
-            tabPage4.Controls.Add(hopeCheckBox8);
-            tabPage4.Controls.Add(hopeCheckBox7);
-            tabPage4.Controls.Add(bigLabel14);
+            tabPage4.Controls.Add(btnUpdateData);
+            tabPage4.Controls.Add(txtRasgoRegional);
+            tabPage4.Controls.Add(txtRasgoGuarida);
+            tabPage4.Controls.Add(txtRasgoMitico);
+            tabPage4.Controls.Add(cbRegional);
+            tabPage4.Controls.Add(cbGuarida);
+            tabPage4.Controls.Add(cbMitica);
+            tabPage4.Controls.Add(cbCreaturaLegendaria);
+            tabPage4.Controls.Add(lblLegendarioText);
             tabPage4.Controls.Add(bigLabel13);
             tabPage4.Controls.Add(hopeCheckBox6);
             tabPage4.Controls.Add(hopeCheckBox5);
@@ -1294,129 +1315,157 @@
             tabPage4.Tag = "t3";
             tabPage4.Text = "Datos 3";
             // 
-            // bigLabel17
+            // btnUpdateData
             // 
-            bigLabel17.BackColor = Color.Transparent;
-            bigLabel17.BorderStyle = BorderStyle.FixedSingle;
-            bigLabel17.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigLabel17.ForeColor = Color.White;
-            bigLabel17.Location = new Point(249, 420);
-            bigLabel17.Name = "bigLabel17";
-            bigLabel17.Size = new Size(590, 179);
-            bigLabel17.TabIndex = 67;
-            bigLabel17.Text = resources.GetString("bigLabel17.Text");
+            btnUpdateData.ColorA = Color.FromArgb(31, 31, 31);
+            btnUpdateData.ColorB = Color.FromArgb(41, 41, 41);
+            btnUpdateData.ColorC = Color.FromArgb(51, 51, 51);
+            btnUpdateData.ColorD = Color.FromArgb(0, 0, 0, 0);
+            btnUpdateData.ColorE = Color.FromArgb(25, 255, 255, 255);
+            btnUpdateData.ForeColor = Color.FromArgb(40, 218, 255);
+            btnUpdateData.Location = new Point(32, 151);
+            btnUpdateData.Name = "btnUpdateData";
+            btnUpdateData.Size = new Size(135, 40);
+            btnUpdateData.TabIndex = 71;
+            btnUpdateData.Text = "Actualizar Datos";
+            btnUpdateData.UseVisualStyleBackColor = true;
+            btnUpdateData.Click += btnUpdateData_Click;
             // 
-            // bigLabel16
+            // txtRasgoRegional
             // 
-            bigLabel16.BackColor = Color.Transparent;
-            bigLabel16.BorderStyle = BorderStyle.FixedSingle;
-            bigLabel16.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigLabel16.ForeColor = Color.White;
-            bigLabel16.Location = new Point(249, 242);
-            bigLabel16.Name = "bigLabel16";
-            bigLabel16.Size = new Size(590, 157);
-            bigLabel16.TabIndex = 66;
-            bigLabel16.Text = resources.GetString("bigLabel16.Text");
+            txtRasgoRegional.BackColor = Color.FromArgb(45, 47, 49);
+            txtRasgoRegional.ForeColor = Color.White;
+            txtRasgoRegional.Location = new Point(249, 421);
+            txtRasgoRegional.Multiline = true;
+            txtRasgoRegional.Name = "txtRasgoRegional";
+            txtRasgoRegional.Size = new Size(590, 144);
+            txtRasgoRegional.TabIndex = 70;
+            txtRasgoRegional.Text = resources.GetString("txtRasgoRegional.Text");
+            txtRasgoRegional.Visible = false;
             // 
-            // bigLabel15
+            // txtRasgoGuarida
             // 
-            bigLabel15.BackColor = Color.Transparent;
-            bigLabel15.BorderStyle = BorderStyle.FixedSingle;
-            bigLabel15.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigLabel15.ForeColor = Color.White;
-            bigLabel15.Location = new Point(249, 135);
-            bigLabel15.Name = "bigLabel15";
-            bigLabel15.Size = new Size(590, 83);
-            bigLabel15.TabIndex = 65;
-            bigLabel15.Text = resources.GetString("bigLabel15.Text");
+            txtRasgoGuarida.BackColor = Color.FromArgb(45, 47, 49);
+            txtRasgoGuarida.ForeColor = Color.White;
+            txtRasgoGuarida.Location = new Point(249, 209);
+            txtRasgoGuarida.Multiline = true;
+            txtRasgoGuarida.Name = "txtRasgoGuarida";
+            txtRasgoGuarida.Size = new Size(590, 202);
+            txtRasgoGuarida.TabIndex = 69;
+            txtRasgoGuarida.Text = resources.GetString("txtRasgoGuarida.Text");
+            txtRasgoGuarida.Visible = false;
             // 
-            // hopeCheckBox10
+            // txtRasgoMitico
             // 
-            hopeCheckBox10.AutoSize = true;
-            hopeCheckBox10.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox10.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox10.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox10.Enable = true;
-            hopeCheckBox10.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox10.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox10.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox10.Font = new Font("Segoe UI", 12F);
-            hopeCheckBox10.ForeColor = Color.White;
-            hopeCheckBox10.Location = new Point(32, 114);
-            hopeCheckBox10.Name = "hopeCheckBox10";
-            hopeCheckBox10.Size = new Size(96, 20);
-            hopeCheckBox10.TabIndex = 64;
-            hopeCheckBox10.Text = "Regional";
-            hopeCheckBox10.UseVisualStyleBackColor = true;
+            txtRasgoMitico.BackColor = Color.Transparent;
+            txtRasgoMitico.BaseColor = Color.FromArgb(45, 47, 49);
+            txtRasgoMitico.BorderColor = Color.FromArgb(35, 168, 109);
+            txtRasgoMitico.FocusOnHover = false;
+            txtRasgoMitico.ForeColor = Color.FromArgb(192, 192, 192);
+            txtRasgoMitico.Location = new Point(249, 127);
+            txtRasgoMitico.MaxLength = 32767;
+            txtRasgoMitico.Multiline = true;
+            txtRasgoMitico.Name = "txtRasgoMitico";
+            txtRasgoMitico.ReadOnly = false;
+            txtRasgoMitico.Size = new Size(590, 76);
+            txtRasgoMitico.TabIndex = 68;
+            txtRasgoMitico.Text = "Si el rasgo mítico del monstruo está activo, puede usar las siguientes opciones como acciones legendarias durante 1 hora después de usar {Alguna habilidad}.";
+            txtRasgoMitico.TextAlign = HorizontalAlignment.Left;
+            txtRasgoMitico.UseSystemPasswordChar = false;
+            txtRasgoMitico.Visible = false;
             // 
-            // hopeCheckBox9
+            // cbRegional
             // 
-            hopeCheckBox9.AutoSize = true;
-            hopeCheckBox9.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox9.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox9.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox9.Enable = true;
-            hopeCheckBox9.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox9.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox9.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox9.Font = new Font("Segoe UI", 12F);
-            hopeCheckBox9.ForeColor = Color.White;
-            hopeCheckBox9.Location = new Point(32, 88);
-            hopeCheckBox9.Name = "hopeCheckBox9";
-            hopeCheckBox9.Size = new Size(90, 20);
-            hopeCheckBox9.TabIndex = 63;
-            hopeCheckBox9.Text = "Guarida";
-            hopeCheckBox9.UseVisualStyleBackColor = true;
+            cbRegional.AutoSize = true;
+            cbRegional.CheckedColor = Color.FromArgb(64, 158, 255);
+            cbRegional.DisabledColor = Color.FromArgb(196, 198, 202);
+            cbRegional.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cbRegional.Enable = true;
+            cbRegional.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cbRegional.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cbRegional.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cbRegional.Font = new Font("Segoe UI", 12F);
+            cbRegional.ForeColor = Color.White;
+            cbRegional.Location = new Point(32, 114);
+            cbRegional.Name = "cbRegional";
+            cbRegional.Size = new Size(96, 20);
+            cbRegional.TabIndex = 64;
+            cbRegional.Text = "Regional";
+            cbRegional.UseVisualStyleBackColor = true;
+            cbRegional.CheckedChanged += cbRegional_CheckedChanged;
             // 
-            // hopeCheckBox8
+            // cbGuarida
             // 
-            hopeCheckBox8.AutoSize = true;
-            hopeCheckBox8.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox8.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox8.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox8.Enable = true;
-            hopeCheckBox8.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox8.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox8.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox8.Font = new Font("Segoe UI", 12F);
-            hopeCheckBox8.ForeColor = Color.White;
-            hopeCheckBox8.Location = new Point(32, 62);
-            hopeCheckBox8.Name = "hopeCheckBox8";
-            hopeCheckBox8.Size = new Size(77, 20);
-            hopeCheckBox8.TabIndex = 62;
-            hopeCheckBox8.Text = "Mitica";
-            hopeCheckBox8.UseVisualStyleBackColor = true;
+            cbGuarida.AutoSize = true;
+            cbGuarida.CheckedColor = Color.FromArgb(64, 158, 255);
+            cbGuarida.DisabledColor = Color.FromArgb(196, 198, 202);
+            cbGuarida.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cbGuarida.Enable = true;
+            cbGuarida.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cbGuarida.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cbGuarida.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cbGuarida.Font = new Font("Segoe UI", 12F);
+            cbGuarida.ForeColor = Color.White;
+            cbGuarida.Location = new Point(32, 88);
+            cbGuarida.Name = "cbGuarida";
+            cbGuarida.Size = new Size(90, 20);
+            cbGuarida.TabIndex = 63;
+            cbGuarida.Text = "Guarida";
+            cbGuarida.UseVisualStyleBackColor = true;
+            cbGuarida.CheckedChanged += cbGuarida_CheckedChanged;
             // 
-            // hopeCheckBox7
+            // cbMitica
             // 
-            hopeCheckBox7.AutoSize = true;
-            hopeCheckBox7.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox7.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox7.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox7.Enable = true;
-            hopeCheckBox7.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox7.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox7.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox7.Font = new Font("Segoe UI", 12F);
-            hopeCheckBox7.ForeColor = Color.White;
-            hopeCheckBox7.Location = new Point(32, 23);
-            hopeCheckBox7.Name = "hopeCheckBox7";
-            hopeCheckBox7.Size = new Size(112, 20);
-            hopeCheckBox7.TabIndex = 61;
-            hopeCheckBox7.Text = "Legendaria";
-            hopeCheckBox7.UseVisualStyleBackColor = true;
+            cbMitica.AutoSize = true;
+            cbMitica.CheckedColor = Color.FromArgb(64, 158, 255);
+            cbMitica.DisabledColor = Color.FromArgb(196, 198, 202);
+            cbMitica.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cbMitica.Enable = true;
+            cbMitica.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cbMitica.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cbMitica.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cbMitica.Font = new Font("Segoe UI", 12F);
+            cbMitica.ForeColor = Color.White;
+            cbMitica.Location = new Point(32, 62);
+            cbMitica.Name = "cbMitica";
+            cbMitica.Size = new Size(77, 20);
+            cbMitica.TabIndex = 62;
+            cbMitica.Text = "Mitica";
+            cbMitica.UseVisualStyleBackColor = true;
+            cbMitica.CheckedChanged += cbMitica_CheckedChanged;
             // 
-            // bigLabel14
+            // cbCreaturaLegendaria
             // 
-            bigLabel14.BackColor = Color.Transparent;
-            bigLabel14.BorderStyle = BorderStyle.FixedSingle;
-            bigLabel14.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigLabel14.ForeColor = Color.White;
-            bigLabel14.Location = new Point(249, 25);
-            bigLabel14.Name = "bigLabel14";
-            bigLabel14.Size = new Size(590, 83);
-            bigLabel14.TabIndex = 60;
-            bigLabel14.Text = resources.GetString("bigLabel14.Text");
+            cbCreaturaLegendaria.AutoSize = true;
+            cbCreaturaLegendaria.CheckedColor = Color.FromArgb(64, 158, 255);
+            cbCreaturaLegendaria.DisabledColor = Color.FromArgb(196, 198, 202);
+            cbCreaturaLegendaria.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cbCreaturaLegendaria.Enable = true;
+            cbCreaturaLegendaria.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cbCreaturaLegendaria.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cbCreaturaLegendaria.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cbCreaturaLegendaria.Font = new Font("Segoe UI", 12F);
+            cbCreaturaLegendaria.ForeColor = Color.White;
+            cbCreaturaLegendaria.Location = new Point(32, 23);
+            cbCreaturaLegendaria.Name = "cbCreaturaLegendaria";
+            cbCreaturaLegendaria.Size = new Size(112, 20);
+            cbCreaturaLegendaria.TabIndex = 61;
+            cbCreaturaLegendaria.Text = "Legendaria";
+            cbCreaturaLegendaria.UseVisualStyleBackColor = true;
+            cbCreaturaLegendaria.CheckedChanged += cbCreaturaLegendaria_CheckedChanged;
+            // 
+            // lblLegendarioText
+            // 
+            lblLegendarioText.BackColor = Color.Transparent;
+            lblLegendarioText.BorderStyle = BorderStyle.FixedSingle;
+            lblLegendarioText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLegendarioText.ForeColor = Color.White;
+            lblLegendarioText.Location = new Point(249, 25);
+            lblLegendarioText.Name = "lblLegendarioText";
+            lblLegendarioText.Size = new Size(590, 83);
+            lblLegendarioText.TabIndex = 60;
+            lblLegendarioText.Text = resources.GetString("lblLegendarioText.Text");
+            lblLegendarioText.Visible = false;
             // 
             // bigLabel13
             // 
@@ -1509,26 +1558,34 @@
             // tabPage5
             // 
             tabPage5.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage5.Controls.Add(flowLayoutPanel1);
             tabPage5.Controls.Add(bigLabel18);
-            tabPage5.Controls.Add(button18);
-            tabPage5.Controls.Add(hopeComboBox1);
-            tabPage5.Controls.Add(crownSectionPanel6);
-            tabPage5.Controls.Add(button17);
-            tabPage5.Controls.Add(button16);
-            tabPage5.Controls.Add(button15);
-            tabPage5.Controls.Add(button14);
-            tabPage5.Controls.Add(button13);
-            tabPage5.Controls.Add(button12);
-            tabPage5.Controls.Add(button11);
-            tabPage5.Controls.Add(button10);
-            tabPage5.Controls.Add(hopeTextBox21);
-            tabPage5.Controls.Add(hopeTextBox20);
+            tabPage5.Controls.Add(btnUsePresent);
+            tabPage5.Controls.Add(cbPresents);
+            tabPage5.Controls.Add(btnAddGuaridaAction);
+            tabPage5.Controls.Add(btnAddMistycAction);
+            tabPage5.Controls.Add(btnAddLegendaryAction);
+            tabPage5.Controls.Add(btnEfectoRegional);
+            tabPage5.Controls.Add(btnAddReaction);
+            tabPage5.Controls.Add(btnAddActonBonus);
+            tabPage5.Controls.Add(btnAddAction);
+            tabPage5.Controls.Add(btnAddAbility);
+            tabPage5.Controls.Add(txtDesAction);
+            tabPage5.Controls.Add(txtNameAction);
             tabPage5.Location = new Point(139, 4);
             tabPage5.Name = "tabPage5";
             tabPage5.Size = new Size(1076, 628);
             tabPage5.TabIndex = 3;
             tabPage5.Tag = "t4";
             tabPage5.Text = "Acciones";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(31, 370);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(553, 253);
+            flowLayoutPanel1.TabIndex = 67;
             // 
             // bigLabel18
             // 
@@ -1542,243 +1599,238 @@
             bigLabel18.TabIndex = 66;
             bigLabel18.Text = resources.GetString("bigLabel18.Text");
             // 
-            // button18
+            // btnUsePresent
             // 
-            button18.BackColor = Color.Transparent;
-            button18.BorderColor = Color.FromArgb(32, 34, 37);
-            button18.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button18.EnteredColor = Color.FromArgb(32, 34, 37);
-            button18.Font = new Font("Microsoft Sans Serif", 12F);
-            button18.Image = null;
-            button18.ImageAlign = ContentAlignment.MiddleLeft;
-            button18.InactiveColor = Color.FromArgb(32, 34, 37);
-            button18.Location = new Point(890, 316);
-            button18.Name = "button18";
-            button18.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button18.PressedColor = Color.FromArgb(165, 37, 37);
-            button18.Size = new Size(124, 40);
-            button18.TabIndex = 59;
-            button18.Text = "USAR PRED";
-            button18.TextAlignment = StringAlignment.Center;
+            btnUsePresent.BackColor = Color.Transparent;
+            btnUsePresent.BorderColor = Color.FromArgb(32, 34, 37);
+            btnUsePresent.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnUsePresent.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnUsePresent.Font = new Font("Microsoft Sans Serif", 12F);
+            btnUsePresent.Image = null;
+            btnUsePresent.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUsePresent.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnUsePresent.Location = new Point(890, 316);
+            btnUsePresent.Name = "btnUsePresent";
+            btnUsePresent.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnUsePresent.PressedColor = Color.FromArgb(165, 37, 37);
+            btnUsePresent.Size = new Size(124, 40);
+            btnUsePresent.TabIndex = 59;
+            btnUsePresent.Text = "USAR PRED";
+            btnUsePresent.TextAlignment = StringAlignment.Center;
+            btnUsePresent.Click += btnUsePresent_Click;
             // 
-            // hopeComboBox1
+            // cbPresents
             // 
-            hopeComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            hopeComboBox1.FlatStyle = FlatStyle.Flat;
-            hopeComboBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            hopeComboBox1.FormattingEnabled = true;
-            hopeComboBox1.ItemHeight = 30;
-            hopeComboBox1.Location = new Point(619, 318);
-            hopeComboBox1.Name = "hopeComboBox1";
-            hopeComboBox1.Size = new Size(254, 36);
-            hopeComboBox1.TabIndex = 58;
+            cbPresents.DrawMode = DrawMode.OwnerDrawFixed;
+            cbPresents.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPresents.FlatStyle = FlatStyle.Flat;
+            cbPresents.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbPresents.FormattingEnabled = true;
+            cbPresents.ItemHeight = 30;
+            cbPresents.Location = new Point(619, 318);
+            cbPresents.Name = "cbPresents";
+            cbPresents.Size = new Size(254, 36);
+            cbPresents.TabIndex = 58;
+            cbPresents.SelectedIndexChanged += cbPresents_SelectedIndexChanged;
             // 
-            // crownSectionPanel6
+            // btnAddGuaridaAction
             // 
-            crownSectionPanel6.AutoScroll = true;
-            crownSectionPanel6.Location = new Point(31, 360);
-            crownSectionPanel6.Name = "crownSectionPanel6";
-            crownSectionPanel6.SectionHeader = null;
-            crownSectionPanel6.Size = new Size(553, 263);
-            crownSectionPanel6.TabIndex = 57;
+            btnAddGuaridaAction.BackColor = Color.Transparent;
+            btnAddGuaridaAction.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddGuaridaAction.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddGuaridaAction.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddGuaridaAction.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddGuaridaAction.Image = null;
+            btnAddGuaridaAction.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddGuaridaAction.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddGuaridaAction.Location = new Point(810, 154);
+            btnAddGuaridaAction.Name = "btnAddGuaridaAction";
+            btnAddGuaridaAction.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddGuaridaAction.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddGuaridaAction.Size = new Size(185, 40);
+            btnAddGuaridaAction.TabIndex = 56;
+            btnAddGuaridaAction.Text = "ACCION GUARIDA";
+            btnAddGuaridaAction.TextAlignment = StringAlignment.Center;
             // 
-            // button17
+            // btnAddMistycAction
             // 
-            button17.BackColor = Color.Transparent;
-            button17.BorderColor = Color.FromArgb(32, 34, 37);
-            button17.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button17.EnteredColor = Color.FromArgb(32, 34, 37);
-            button17.Font = new Font("Microsoft Sans Serif", 12F);
-            button17.Image = null;
-            button17.ImageAlign = ContentAlignment.MiddleLeft;
-            button17.InactiveColor = Color.FromArgb(32, 34, 37);
-            button17.Location = new Point(810, 154);
-            button17.Name = "button17";
-            button17.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button17.PressedColor = Color.FromArgb(165, 37, 37);
-            button17.Size = new Size(185, 40);
-            button17.TabIndex = 56;
-            button17.Text = "ACCION GUARIDA";
-            button17.TextAlignment = StringAlignment.Center;
+            btnAddMistycAction.BackColor = Color.Transparent;
+            btnAddMistycAction.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddMistycAction.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddMistycAction.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddMistycAction.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddMistycAction.Image = null;
+            btnAddMistycAction.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddMistycAction.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddMistycAction.Location = new Point(810, 90);
+            btnAddMistycAction.Name = "btnAddMistycAction";
+            btnAddMistycAction.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddMistycAction.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddMistycAction.Size = new Size(185, 40);
+            btnAddMistycAction.TabIndex = 55;
+            btnAddMistycAction.Text = "ACCION MISTICA";
+            btnAddMistycAction.TextAlignment = StringAlignment.Center;
             // 
-            // button16
+            // btnAddLegendaryAction
             // 
-            button16.BackColor = Color.Transparent;
-            button16.BorderColor = Color.FromArgb(32, 34, 37);
-            button16.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button16.EnteredColor = Color.FromArgb(32, 34, 37);
-            button16.Font = new Font("Microsoft Sans Serif", 12F);
-            button16.Image = null;
-            button16.ImageAlign = ContentAlignment.MiddleLeft;
-            button16.InactiveColor = Color.FromArgb(32, 34, 37);
-            button16.Location = new Point(810, 90);
-            button16.Name = "button16";
-            button16.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button16.PressedColor = Color.FromArgb(165, 37, 37);
-            button16.Size = new Size(185, 40);
-            button16.TabIndex = 55;
-            button16.Text = "ACCION MISTICA";
-            button16.TextAlignment = StringAlignment.Center;
+            btnAddLegendaryAction.BackColor = Color.Transparent;
+            btnAddLegendaryAction.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddLegendaryAction.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddLegendaryAction.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddLegendaryAction.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddLegendaryAction.Image = null;
+            btnAddLegendaryAction.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddLegendaryAction.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddLegendaryAction.Location = new Point(810, 31);
+            btnAddLegendaryAction.Name = "btnAddLegendaryAction";
+            btnAddLegendaryAction.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddLegendaryAction.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddLegendaryAction.Size = new Size(185, 40);
+            btnAddLegendaryAction.TabIndex = 54;
+            btnAddLegendaryAction.Text = "ACCION LEGENDARIA";
+            btnAddLegendaryAction.TextAlignment = StringAlignment.Center;
             // 
-            // button15
+            // btnEfectoRegional
             // 
-            button15.BackColor = Color.Transparent;
-            button15.BorderColor = Color.FromArgb(32, 34, 37);
-            button15.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button15.EnteredColor = Color.FromArgb(32, 34, 37);
-            button15.Font = new Font("Microsoft Sans Serif", 12F);
-            button15.Image = null;
-            button15.ImageAlign = ContentAlignment.MiddleLeft;
-            button15.InactiveColor = Color.FromArgb(32, 34, 37);
-            button15.Location = new Point(810, 31);
-            button15.Name = "button15";
-            button15.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button15.PressedColor = Color.FromArgb(165, 37, 37);
-            button15.Size = new Size(185, 40);
-            button15.TabIndex = 54;
-            button15.Text = "ACCION LEGENDARIA";
-            button15.TextAlignment = StringAlignment.Center;
+            btnEfectoRegional.BackColor = Color.Transparent;
+            btnEfectoRegional.BorderColor = Color.FromArgb(32, 34, 37);
+            btnEfectoRegional.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnEfectoRegional.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnEfectoRegional.Font = new Font("Microsoft Sans Serif", 12F);
+            btnEfectoRegional.Image = null;
+            btnEfectoRegional.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEfectoRegional.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnEfectoRegional.Location = new Point(810, 211);
+            btnEfectoRegional.Name = "btnEfectoRegional";
+            btnEfectoRegional.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnEfectoRegional.PressedColor = Color.FromArgb(165, 37, 37);
+            btnEfectoRegional.Size = new Size(185, 40);
+            btnEfectoRegional.TabIndex = 53;
+            btnEfectoRegional.Text = "EFECTO REGIONAL";
+            btnEfectoRegional.TextAlignment = StringAlignment.Center;
             // 
-            // button14
+            // btnAddReaction
             // 
-            button14.BackColor = Color.Transparent;
-            button14.BorderColor = Color.FromArgb(32, 34, 37);
-            button14.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button14.EnteredColor = Color.FromArgb(32, 34, 37);
-            button14.Font = new Font("Microsoft Sans Serif", 12F);
-            button14.Image = null;
-            button14.ImageAlign = ContentAlignment.MiddleLeft;
-            button14.InactiveColor = Color.FromArgb(32, 34, 37);
-            button14.Location = new Point(810, 211);
-            button14.Name = "button14";
-            button14.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button14.PressedColor = Color.FromArgb(165, 37, 37);
-            button14.Size = new Size(185, 40);
-            button14.TabIndex = 53;
-            button14.Text = "EFECTO REGIONAL";
-            button14.TextAlignment = StringAlignment.Center;
+            btnAddReaction.BackColor = Color.Transparent;
+            btnAddReaction.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddReaction.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddReaction.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddReaction.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddReaction.Image = null;
+            btnAddReaction.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddReaction.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddReaction.Location = new Point(619, 154);
+            btnAddReaction.Name = "btnAddReaction";
+            btnAddReaction.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddReaction.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddReaction.Size = new Size(124, 40);
+            btnAddReaction.TabIndex = 52;
+            btnAddReaction.Text = "REACCION";
+            btnAddReaction.TextAlignment = StringAlignment.Center;
             // 
-            // button13
+            // btnAddActonBonus
             // 
-            button13.BackColor = Color.Transparent;
-            button13.BorderColor = Color.FromArgb(32, 34, 37);
-            button13.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button13.EnteredColor = Color.FromArgb(32, 34, 37);
-            button13.Font = new Font("Microsoft Sans Serif", 12F);
-            button13.Image = null;
-            button13.ImageAlign = ContentAlignment.MiddleLeft;
-            button13.InactiveColor = Color.FromArgb(32, 34, 37);
-            button13.Location = new Point(619, 154);
-            button13.Name = "button13";
-            button13.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button13.PressedColor = Color.FromArgb(165, 37, 37);
-            button13.Size = new Size(124, 40);
-            button13.TabIndex = 52;
-            button13.Text = "REACCION";
-            button13.TextAlignment = StringAlignment.Center;
+            btnAddActonBonus.BackColor = Color.Transparent;
+            btnAddActonBonus.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddActonBonus.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddActonBonus.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddActonBonus.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddActonBonus.Image = null;
+            btnAddActonBonus.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddActonBonus.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddActonBonus.Location = new Point(619, 211);
+            btnAddActonBonus.Name = "btnAddActonBonus";
+            btnAddActonBonus.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddActonBonus.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddActonBonus.Size = new Size(144, 40);
+            btnAddActonBonus.TabIndex = 51;
+            btnAddActonBonus.Text = "ACCION BONUS";
+            btnAddActonBonus.TextAlignment = StringAlignment.Center;
             // 
-            // button12
+            // btnAddAction
             // 
-            button12.BackColor = Color.Transparent;
-            button12.BorderColor = Color.FromArgb(32, 34, 37);
-            button12.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button12.EnteredColor = Color.FromArgb(32, 34, 37);
-            button12.Font = new Font("Microsoft Sans Serif", 12F);
-            button12.Image = null;
-            button12.ImageAlign = ContentAlignment.MiddleLeft;
-            button12.InactiveColor = Color.FromArgb(32, 34, 37);
-            button12.Location = new Point(619, 211);
-            button12.Name = "button12";
-            button12.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button12.PressedColor = Color.FromArgb(165, 37, 37);
-            button12.Size = new Size(144, 40);
-            button12.TabIndex = 51;
-            button12.Text = "ACCION BONUS";
-            button12.TextAlignment = StringAlignment.Center;
+            btnAddAction.BackColor = Color.Transparent;
+            btnAddAction.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddAction.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddAction.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddAction.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddAction.Image = null;
+            btnAddAction.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddAction.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddAction.Location = new Point(619, 90);
+            btnAddAction.Name = "btnAddAction";
+            btnAddAction.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddAction.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddAction.Size = new Size(124, 40);
+            btnAddAction.TabIndex = 50;
+            btnAddAction.Text = "ACCION";
+            btnAddAction.TextAlignment = StringAlignment.Center;
             // 
-            // button11
+            // btnAddAbility
             // 
-            button11.BackColor = Color.Transparent;
-            button11.BorderColor = Color.FromArgb(32, 34, 37);
-            button11.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button11.EnteredColor = Color.FromArgb(32, 34, 37);
-            button11.Font = new Font("Microsoft Sans Serif", 12F);
-            button11.Image = null;
-            button11.ImageAlign = ContentAlignment.MiddleLeft;
-            button11.InactiveColor = Color.FromArgb(32, 34, 37);
-            button11.Location = new Point(619, 90);
-            button11.Name = "button11";
-            button11.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button11.PressedColor = Color.FromArgb(165, 37, 37);
-            button11.Size = new Size(124, 40);
-            button11.TabIndex = 50;
-            button11.Text = "ACCION";
-            button11.TextAlignment = StringAlignment.Center;
+            btnAddAbility.BackColor = Color.Transparent;
+            btnAddAbility.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddAbility.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddAbility.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddAbility.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddAbility.Image = null;
+            btnAddAbility.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddAbility.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddAbility.Location = new Point(619, 31);
+            btnAddAbility.Name = "btnAddAbility";
+            btnAddAbility.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddAbility.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddAbility.Size = new Size(124, 40);
+            btnAddAbility.TabIndex = 49;
+            btnAddAbility.Text = "HABILIDAD";
+            btnAddAbility.TextAlignment = StringAlignment.Center;
+            btnAddAbility.Click += btnAddAbility_Click;
             // 
-            // button10
+            // txtDesAction
             // 
-            button10.BackColor = Color.Transparent;
-            button10.BorderColor = Color.FromArgb(32, 34, 37);
-            button10.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button10.EnteredColor = Color.FromArgb(32, 34, 37);
-            button10.Font = new Font("Microsoft Sans Serif", 12F);
-            button10.Image = null;
-            button10.ImageAlign = ContentAlignment.MiddleLeft;
-            button10.InactiveColor = Color.FromArgb(32, 34, 37);
-            button10.Location = new Point(619, 31);
-            button10.Name = "button10";
-            button10.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button10.PressedColor = Color.FromArgb(165, 37, 37);
-            button10.Size = new Size(124, 40);
-            button10.TabIndex = 49;
-            button10.Text = "HABILIDAD";
-            button10.TextAlignment = StringAlignment.Center;
+            txtDesAction.BackColor = Color.White;
+            txtDesAction.BaseColor = Color.FromArgb(44, 55, 66);
+            txtDesAction.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtDesAction.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtDesAction.Font = new Font("Segoe UI", 12F);
+            txtDesAction.ForeColor = Color.FromArgb(48, 49, 51);
+            txtDesAction.Hint = "Nombre de Accion";
+            txtDesAction.Location = new Point(31, 100);
+            txtDesAction.MaxLength = 32767;
+            txtDesAction.Multiline = true;
+            txtDesAction.Name = "txtDesAction";
+            txtDesAction.PasswordChar = '\0';
+            txtDesAction.ScrollBars = ScrollBars.None;
+            txtDesAction.SelectedText = "";
+            txtDesAction.SelectionLength = 0;
+            txtDesAction.SelectionStart = 0;
+            txtDesAction.Size = new Size(553, 254);
+            txtDesAction.TabIndex = 48;
+            txtDesAction.TabStop = false;
+            txtDesAction.UseSystemPasswordChar = false;
             // 
-            // hopeTextBox21
+            // txtNameAction
             // 
-            hopeTextBox21.BackColor = Color.White;
-            hopeTextBox21.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox21.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox21.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox21.Font = new Font("Segoe UI", 12F);
-            hopeTextBox21.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox21.Hint = "Nombre de Accion";
-            hopeTextBox21.Location = new Point(31, 100);
-            hopeTextBox21.MaxLength = 32767;
-            hopeTextBox21.Multiline = true;
-            hopeTextBox21.Name = "hopeTextBox21";
-            hopeTextBox21.PasswordChar = '\0';
-            hopeTextBox21.ScrollBars = ScrollBars.None;
-            hopeTextBox21.SelectedText = "";
-            hopeTextBox21.SelectionLength = 0;
-            hopeTextBox21.SelectionStart = 0;
-            hopeTextBox21.Size = new Size(553, 254);
-            hopeTextBox21.TabIndex = 48;
-            hopeTextBox21.TabStop = false;
-            hopeTextBox21.UseSystemPasswordChar = false;
-            // 
-            // hopeTextBox20
-            // 
-            hopeTextBox20.BackColor = Color.White;
-            hopeTextBox20.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox20.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox20.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox20.Font = new Font("Segoe UI", 12F);
-            hopeTextBox20.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox20.Hint = "Nombre de Accion";
-            hopeTextBox20.Location = new Point(31, 31);
-            hopeTextBox20.MaxLength = 32767;
-            hopeTextBox20.Multiline = false;
-            hopeTextBox20.Name = "hopeTextBox20";
-            hopeTextBox20.PasswordChar = '\0';
-            hopeTextBox20.ScrollBars = ScrollBars.None;
-            hopeTextBox20.SelectedText = "";
-            hopeTextBox20.SelectionLength = 0;
-            hopeTextBox20.SelectionStart = 0;
-            hopeTextBox20.Size = new Size(553, 38);
-            hopeTextBox20.TabIndex = 47;
-            hopeTextBox20.TabStop = false;
-            hopeTextBox20.UseSystemPasswordChar = false;
+            txtNameAction.BackColor = Color.White;
+            txtNameAction.BaseColor = Color.FromArgb(44, 55, 66);
+            txtNameAction.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtNameAction.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtNameAction.Font = new Font("Segoe UI", 12F);
+            txtNameAction.ForeColor = Color.FromArgb(48, 49, 51);
+            txtNameAction.Hint = "Nombre de Accion";
+            txtNameAction.Location = new Point(31, 31);
+            txtNameAction.MaxLength = 32767;
+            txtNameAction.Multiline = false;
+            txtNameAction.Name = "txtNameAction";
+            txtNameAction.PasswordChar = '\0';
+            txtNameAction.ScrollBars = ScrollBars.None;
+            txtNameAction.SelectedText = "";
+            txtNameAction.SelectionLength = 0;
+            txtNameAction.SelectionStart = 0;
+            txtNameAction.Size = new Size(553, 38);
+            txtNameAction.TabIndex = 47;
+            txtNameAction.TabStop = false;
+            txtNameAction.UseSystemPasswordChar = false;
             // 
             // tabPage6
             // 
@@ -1836,12 +1888,12 @@
         private ReaLTaiizor.Controls.HopeTextBox txtDados;
         private ReaLTaiizor.Controls.HopeComboBox cbArmaduras;
         private ReaLTaiizor.Controls.HopeTextBox txtBonus;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox1;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox9;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox7;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox6;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox5;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox4;
+        private ReaLTaiizor.Controls.HopeCheckBox cbEscudo;
+        private ReaLTaiizor.Controls.HopeTextBox txtVCavado;
+        private ReaLTaiizor.Controls.HopeTextBox txtVVuelo;
+        private ReaLTaiizor.Controls.HopeTextBox txtVNado;
+        private ReaLTaiizor.Controls.HopeTextBox txtVEscalado;
+        private ReaLTaiizor.Controls.HopeTextBox txtVelocidad;
         private ReaLTaiizor.Controls.HopeTextBox txtSab;
         private ReaLTaiizor.Controls.BigLabel lblSab;
         private ReaLTaiizor.Controls.HopeTextBox txtInt;
@@ -1861,25 +1913,23 @@
         private ReaLTaiizor.Controls.HopeComboBox cbHabilidades;
         private ReaLTaiizor.Controls.Button btnAddCondiciones;
         private ReaLTaiizor.Controls.HopeComboBox cbCondiciones;
-        private ReaLTaiizor.Controls.Button button8;
-        private ReaLTaiizor.Controls.Button button9;
-        private ReaLTaiizor.Controls.CrownSectionPanel crownSectionPanel5;
+        private ReaLTaiizor.Controls.Button btnAddEntiende;
+        private ReaLTaiizor.Controls.Button btnAddHabla;
         private ReaLTaiizor.Controls.HopeComboBox cbIdiomas;
         private ReaLTaiizor.Controls.Button btnDemageTypesInmu;
         private ReaLTaiizor.Controls.Button btnDemageTypesRes;
         private ReaLTaiizor.Controls.Button btnDemageTypesVul;
-        private ReaLTaiizor.Controls.CrownSectionPanel crownSectionPanel4;
         private ReaLTaiizor.Controls.HopeComboBox cbDamageTypes;
         private ReaLTaiizor.Controls.BigLabel bigLabel7;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox15;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox2;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox19;
+        private ReaLTaiizor.Controls.HopeTextBox txtTelepatia;
+        private ReaLTaiizor.Controls.HopeCheckBox cbCiegoMasAlla;
+        private ReaLTaiizor.Controls.HopeTextBox txtVistaCiega;
         private ReaLTaiizor.Controls.BigLabel bigLabel8;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox18;
+        private ReaLTaiizor.Controls.HopeTextBox txtVisionVerdadera;
         private ReaLTaiizor.Controls.BigLabel bigLabel11;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox17;
+        private ReaLTaiizor.Controls.HopeTextBox txtSentidoSismico;
         private ReaLTaiizor.Controls.BigLabel bigLabel10;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox16;
+        private ReaLTaiizor.Controls.HopeTextBox txtVistaNocturna;
         private ReaLTaiizor.Controls.BigLabel bigLabel9;
         private ReaLTaiizor.Controls.BigLabel bigLabel12;
         private ReaLTaiizor.Controls.HopeComboBox cbCR;
@@ -1889,34 +1939,40 @@
         private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox4;
         private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox3;
         private ReaLTaiizor.Controls.BigLabel bigLabel17;
-        private ReaLTaiizor.Controls.BigLabel bigLabel16;
-        private ReaLTaiizor.Controls.BigLabel bigLabel15;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox10;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox9;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox8;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox7;
-        private ReaLTaiizor.Controls.BigLabel bigLabel14;
+        private ReaLTaiizor.Controls.HopeCheckBox cbRegional;
+        private ReaLTaiizor.Controls.HopeCheckBox cbGuarida;
+        private ReaLTaiizor.Controls.HopeCheckBox cbMitica;
+        private ReaLTaiizor.Controls.HopeCheckBox cbCreaturaLegendaria;
+        private ReaLTaiizor.Controls.BigLabel lblLegendarioText;
         private ReaLTaiizor.Controls.BigLabel bigLabel13;
         private TabPage tabPage5;
-        private ReaLTaiizor.Controls.CrownSectionPanel crownSectionPanel6;
-        private ReaLTaiizor.Controls.Button button17;
-        private ReaLTaiizor.Controls.Button button16;
-        private ReaLTaiizor.Controls.Button button15;
-        private ReaLTaiizor.Controls.Button button14;
-        private ReaLTaiizor.Controls.Button button13;
-        private ReaLTaiizor.Controls.Button button12;
-        private ReaLTaiizor.Controls.Button button11;
-        private ReaLTaiizor.Controls.Button button10;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox21;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox20;
+        private ReaLTaiizor.Controls.Button btnAddGuaridaAction;
+        private ReaLTaiizor.Controls.Button btnAddMistycAction;
+        private ReaLTaiizor.Controls.Button btnAddLegendaryAction;
+        private ReaLTaiizor.Controls.Button btnEfectoRegional;
+        private ReaLTaiizor.Controls.Button btnAddReaction;
+        private ReaLTaiizor.Controls.Button btnAddActonBonus;
+        private ReaLTaiizor.Controls.Button btnAddAction;
+        private ReaLTaiizor.Controls.Button btnAddAbility;
+        private ReaLTaiizor.Controls.HopeTextBox txtDesAction;
+        private ReaLTaiizor.Controls.HopeTextBox txtNameAction;
         private ReaLTaiizor.Controls.BigLabel bigLabel18;
-        private ReaLTaiizor.Controls.Button button18;
-        private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
+        private ReaLTaiizor.Controls.Button btnUsePresent;
+        private ReaLTaiizor.Controls.HopeComboBox cbPresents;
         private FlowLayoutPanel pTiradasSav;
         private TabPage Salir;
         private FlowLayoutPanel pHabilidades;
         private FlowLayoutPanel pCondiciones;
         private TabPage tabPage6;
         private ReaLTaiizor.Controls.HopeTextBox txtOtraTipoCreatura;
+        private FlowLayoutPanel pDasmagesList;
+        private FlowLayoutPanel pIdiomasList;
+        private CheckBox cbShield;
+        private ReaLTaiizor.Controls.ForeverTextBox foreverTextBox1;
+        private TextBox txtRasgoGuarida;
+        private TextBox txtRasgoRegional;
+        private ReaLTaiizor.Controls.ForeverTextBox txtRasgoMitico;
+        private ReaLTaiizor.Controls.DreamButton btnUpdateData;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

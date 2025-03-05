@@ -17,7 +17,7 @@ namespace GranDnDDM.Models.Creatura
         public string Alineamiento { get; set; }    // Ej: "Caótico Malvado", "Neutral Bueno"
 
         // --- Clase de Armadura, Puntos de Golpe y Velocidades ---
-        public int ClaseArmadura { get; set; }      // Ej: 15
+        public int ClaseArmadura { get; set; } = 10;      // Ej: 15
         public string DescripcionArmadura { get; set; } // Ej: "Cuero tachonado", "Natural"
         public int PuntosGolpe { get; set; }        // Ej: 45
         public string DadosGolpe { get; set; }      // Ej: "6d8 + 12"
@@ -26,6 +26,8 @@ namespace GranDnDDM.Models.Creatura
         public int VelocidadCaminar { get; set; }   // Ej: 30 (pies)
         public int VelocidadVolar { get; set; }     // Ej: 60 (pies), 0 si no vuela
         public int VelocidadNadar { get; set; }     // Ej: 0 si no nada
+        public int VelocidadCavar { get; set; }     // Ej: 0 si no nada
+        public int VelocidadEscalado { get; set; }     // Ej: 0 si no nada
 
         // --- Características de habilidad (Ability Scores) ---
         public int Fuerza { get; set; }
@@ -55,10 +57,10 @@ namespace GranDnDDM.Models.Creatura
         public List<string> InmunidadesCondicion { get; set; } = new List<string>();
 
         // --- Sentidos (ej: visión en la oscuridad, vista ciega, etc.) ---
-        public string Sentidos { get; set; } // Ej: "Visión en la Oscuridad 60 ft., Percepción pasiva 14"
+        public List<string> Sentidos { get; set; } = new List<string>();// Ej: "Visión en la Oscuridad 60 ft., Percepción pasiva 14"
 
         // --- Idiomas ---
-        public string Idiomas { get; set; }  // Ej: "Común, Dracónico"
+        public Dictionary<string, string> Idiomas { get; set; } = new Dictionary<string, string>();  // Ej: "Común, Dracónico"
 
         // --- Challenge Rating (CR) y experiencia ---
         public string CR { get; set; }       // Ej: "5"

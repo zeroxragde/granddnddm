@@ -1,4 +1,6 @@
 ﻿using GranDnDDM.Models.Creatura;
+using Newtonsoft.Json;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +30,19 @@ namespace GranDnDDM.Views
         private void init_app()
         {
             InitializeComponent();
+
+            // Supongamos que tienes el JSON en un archivo "abilities.json" 
+            string json = File.ReadAllText("statblockdata.json");
+
+            // Deserializa al objeto Root
+            StatBlockData root = JsonConvert.DeserializeObject<StatBlockData>(json);
+            // Asigna la lista como DataSource del ComboBox
+            cbPresents.DataSource = root.CommonAbilities;
+            cbPresents.DisplayMember = "Name";
+            if (cbPresents.Items.Count > 0)
+            {
+                cbPresents.SelectedIndex = 0;
+            }
             // Agregar los ítems en español
             cbSizes.Items.Add("Seleccionar Tamaño");     // Tiny
             cbSizes.Items.Add("Diminuto");     // Tiny
@@ -332,7 +347,7 @@ namespace GranDnDDM.Views
         private void cbArmaduras_SelectedValueChanged(object sender, EventArgs e)
         {
             string selectedValue = cbArmaduras.SelectedItem.ToString();
-            if (selectedValue == "Armadura Natural")
+            if (selectedValue == "Armadura Natural" || selectedValue == "Otra")
             {
                 txtBonus.Visible = true;
             }
@@ -647,7 +662,7 @@ namespace GranDnDDM.Views
 
                     case "Armadura de Mago":
                         // Acción para "Armadura de Mago" (mage armor)
-                        creatura.DescripcionArmadura = "13 "+armaduraSeleccionada;
+                        creatura.DescripcionArmadura = "13 " + armaduraSeleccionada;
                         break;
                     case "Acolchada":
                     case "Cuero":
@@ -664,7 +679,7 @@ namespace GranDnDDM.Views
                         creatura.ClaseArmadura = 13;
                         break;
                     case "Armadura de Escamas":
-                        // Acción para "Armadura de Escamas" (scale mail)
+                    // Acción para "Armadura de Escamas" (scale mail)
                     case "Coraza":
                         // Acción para "Coraza" (breastplate)
                         creatura.ClaseArmadura = 14;
@@ -705,18 +720,548 @@ namespace GranDnDDM.Views
             if (cbArmaduras.SelectedItem != null)
             {
                 string armaduraSeleccionada = cbArmaduras.SelectedItem.ToString();
-                if(armaduraSeleccionada == "Armadura Natural")
+                if (armaduraSeleccionada == "Armadura Natural")
                 {
                     creatura.ClaseArmadura = 10 + int.Parse(txtBonus.Text);
                 }
-                if(armaduraSeleccionada == "Otra")
+                if (armaduraSeleccionada == "Otra")
                 {
                     creatura.ClaseArmadura = -1;
                     creatura.DescripcionArmadura = txtBonus.Text;
                 }
             }
-               
+
         }
+
+
+
+        private void txtVCavado_Leave(object sender, EventArgs e)
+        {
+            if (sender is Control ctrl)
+            {
+                string texto = ctrl.Text;  // si la propiedad Text está sobreescrita
+                switch (ctrl.Tag.ToString())
+                {
+                    case "caminar":
+                        creatura.VelocidadCaminar = int.Parse(txtVelocidad.Text);
+                        break;
+                    case "escalar":
+                        creatura.VelocidadEscalado = int.Parse(txtVEscalado.Text);
+                        break;
+                    case "cavar":
+                        creatura.VelocidadCavar = int.Parse(txtVCavado.Text);
+                        break;
+                    case "volar":
+                        creatura.VelocidadVolar = int.Parse(txtVVuelo.Text);
+                        break;
+                    case "nadar":
+                        creatura.VelocidadNadar = int.Parse(txtVNado.Text);
+                        break;
+                }
+
+            }
+        }
+
+        private void cbSizes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSizes.SelectedItem != null)
+            {
+                string sizeSeleccionada = cbSizes.SelectedItem.ToString();
+                creatura.Tamanio = sizeSeleccionada;
+
+            }
+        }
+
+        private void btnDemageTypesVul_Click(object sender, EventArgs e)
+        {
+            int id = cbDamageTypes.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbDamageTypes.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            if (creatura.VulnerabilidadesDano != null)
+            {
+                if (creatura.VulnerabilidadesDano.Contains(textoSeleccionado))
+                {
+                    return;
+                }
+            }
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = textoSeleccionado
+            };
+
+            // Creamos el Label con el texto
+            Label lbl = new Label
+            {
+                Text = textoSeleccionado + "(Vulnerable)",
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                BackColor = Color.DarkRed
+            };
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(32, 32),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pDasmagesList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.VulnerabilidadesDano.RemoveAll(s => s == contenedor.Tag);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            contenedor.Controls.Add(lbl);
+            contenedor.Controls.Add(picRemove);
+            creatura.VulnerabilidadesDano.Add(textoSeleccionado);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pDasmagesList.Controls.Add(contenedor);
+        }
+
+        private void btnDemageTypesRes_Click(object sender, EventArgs e)
+        {
+            int id = cbDamageTypes.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbDamageTypes.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            if (creatura.ResistenciasDano != null)
+            {
+                if (creatura.ResistenciasDano.Contains(textoSeleccionado))
+                {
+                    return;
+                }
+            }
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = textoSeleccionado
+            };
+
+            // Creamos el Label con el texto
+            Label lbl = new Label
+            {
+                Text = textoSeleccionado + "(Resistente)",
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                BackColor = Color.DarkOrange
+            };
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(32, 32),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pDasmagesList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.ResistenciasDano.RemoveAll(s => s == contenedor.Tag);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            contenedor.Controls.Add(lbl);
+            contenedor.Controls.Add(picRemove);
+            creatura.ResistenciasDano.Add(textoSeleccionado);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pDasmagesList.Controls.Add(contenedor);
+        }
+
+        private void btnDemageTypesInmu_Click(object sender, EventArgs e)
+        {
+            int id = cbDamageTypes.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbDamageTypes.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            if (creatura.InmunidadesDano != null)
+            {
+                if (creatura.InmunidadesDano.Contains(textoSeleccionado))
+                {
+                    return;
+                }
+            }
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = textoSeleccionado
+            };
+
+            // Creamos el Label con el texto
+            Label lbl = new Label
+            {
+                Text = textoSeleccionado + "(Inmune)",
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                BackColor = Color.DarkViolet
+            };
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(32, 32),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pDasmagesList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.InmunidadesDano.RemoveAll(s => s == contenedor.Tag);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            contenedor.Controls.Add(lbl);
+            contenedor.Controls.Add(picRemove);
+            creatura.InmunidadesDano.Add(textoSeleccionado);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pDasmagesList.Controls.Add(contenedor);
+        }
+
+        private void btnAddHabla_Click(object sender, EventArgs e)
+        {
+            string telepatia = txtTelepatia.Text != "" ? " Telepatia en " + txtTelepatia.Text : "";
+            addIdioma("Habla" + telepatia);
+        }
+        private void btnAddEntiende_Click(object sender, EventArgs e)
+        {
+            string telepatia = txtTelepatia.Text != "" ? " Telepatia en " + txtTelepatia.Text : "";
+            addIdioma("Entiende" + telepatia);
+        }
+
+        private void addIdioma(string tipo)
+        {
+            int id = cbIdiomas.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbIdiomas.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            if (creatura.Idiomas != null)
+            {
+                if (creatura.Idiomas.ContainsKey(textoSeleccionado))
+                {
+                    return;
+                }
+            }
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = textoSeleccionado
+            };
+
+            // Creamos el Label con el texto
+            Label lbl = new Label
+            {
+                Text = textoSeleccionado + " (" + tipo + ")",
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                BackColor = Color.DarkViolet
+            };
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(32, 32),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.Idiomas.Remove(textoSeleccionado);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            contenedor.Controls.Add(lbl);
+            contenedor.Controls.Add(picRemove);
+            creatura.Idiomas.Add(textoSeleccionado, tipo);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pIdiomasList.Controls.Add(contenedor);
+        }
+
+        private void cbShield_CheckedChanged(object sender, EventArgs e)
+        {
+            var combo = (System.Windows.Forms.CheckBox)sender;
+
+            if (combo != null)
+            {
+                // Aquí puedes verificar el nuevo estado
+                if (!combo.Checked)
+                {
+                    creatura.ClaseArmadura += 2;
+                }
+                else
+                {
+                    creatura.ClaseArmadura -= 2;
+                }
+            }
+        }
+
+        private void txtVistaCiega_Leave(object sender, EventArgs e)
+        {
+            string masalla = cbCiegoMasAlla.Checked ? "Ciego mas alla de " : "Ciego en ";
+            creatura.Sentidos.Add(masalla + txtVistaCiega.Text + " pies");
+        }
+
+        private void txtVistaNocturna_Leave(object sender, EventArgs e)
+        {
+            creatura.Sentidos.Add("Vision nocturna en " + txtVistaNocturna.Text + " pies");
+        }
+
+        private void txtSentidoSismico_Leave(object sender, EventArgs e)
+        {
+            creatura.Sentidos.Add("Sntido sismico en " + txtSentidoSismico.Text + " pies");
+        }
+
+        private void txtVisionVerdadera_Leave(object sender, EventArgs e)
+        {
+            creatura.Sentidos.Add("Vision verdadera en " + txtVisionVerdadera.Text + " pies");
+        }
+
+        private void cbCR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = cbCR.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbCR.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            creatura.CR = textoSeleccionado;
+        }
+
+        private void cbCreaturaLegendaria_CheckedChanged(object sender, EventArgs e)
+        {
+            // Aquí puedes verificar el nuevo estado
+            if (cbCreaturaLegendaria.Checked)
+            {
+                creatura.EsLegendaria = true;
+                lblLegendarioText.Visible = true;
+                if (txtNombre.Text != "")
+                {
+                    lblLegendarioText.Text = lblLegendarioText.Text.Replace("[MON]", txtNombre.Text);
+                }
+            }
+            else
+            {
+                creatura.EsLegendaria = false;
+                lblLegendarioText.Visible = false;
+            }
+
+        }
+
+        private void cbMitica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMitica.Checked)
+            {
+                creatura.EsMitica = true;
+                txtRasgoMitico.Visible = true;
+                if (txtNombre.Text != "")
+                {
+                    txtRasgoMitico.Text = txtRasgoMitico.Text.Replace("[MON]", txtNombre.Text);
+                }
+            }
+            else
+            {
+                creatura.EsLegendaria = false;
+                txtRasgoMitico.Visible = false;
+
+            }
+        }
+
+        private void cbGuarida_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbGuarida.Checked)
+            {
+                creatura.TieneGuarida = true;
+                txtRasgoGuarida.Visible = true;
+                if (txtNombre.Text != "")
+                {
+                    txtRasgoGuarida.Text = txtRasgoGuarida.Text.Replace("[MON]", txtNombre.Text);
+                }
+            }
+            else
+            {
+                creatura.TieneGuarida = false;
+                txtRasgoGuarida.Visible = false;
+
+            }
+        }
+
+        private void cbRegional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbRegional.Checked)
+            {
+                creatura.TieneEfectosRegionales = true;
+                txtRasgoRegional.Visible = true;
+                if (txtNombre.Text != "")
+                {
+                    txtRasgoRegional.Text = txtRasgoRegional.Text.Replace("[MON]", txtNombre.Text);
+                }
+            }
+            else
+            {
+                creatura.TieneEfectosRegionales = false;
+                txtRasgoRegional.Visible = false;
+
+            }
+        }
+
+        private void btnUpdateData_Click(object sender, EventArgs e)
+        {
+            creatura.DescripcionMitica = txtRasgoMitico.Text;
+            creatura.DescripcionRegional = txtRasgoRegional.Text;
+            creatura.DescripcionGuarida = txtRasgoGuarida.Text;
+        }
+
+        private void cbPresents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUsePresent_Click(object sender, EventArgs e)
+        {
+            int id = cbPresents.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            CommonAbility itemSeleccionado = cbPresents.SelectedItem as CommonAbility;
+            txtDesAction.Text = itemSeleccionado.Desc;
+            txtNameAction.Text = itemSeleccionado.Name;
+        }
+        private string descriptionFilter(string des)
+        {
+            string res = "";
+
+            if (txtNombre.Text != "")
+            {
+                res = res.Replace("[MON]", txtNombre.Text);
+            }
+            if (txtCar.Text != "")
+            {
+                res = res.Replace("[CHA]", txtCar.Text);
+            }
+            if (txtFuerza.Text != "")
+            {
+                res = res.Replace("[FUE]", txtFuerza.Text);
+            }
+            if (txtDes.Text != "")
+            {
+                res = res.Replace("[DES]", txtDes.Text);
+            }
+            if (txtCons.Text != "")
+            {
+                res = res.Replace("[CON]", txtCons.Text);
+            }
+            if (txtSab.Text != "")
+            {
+                res = res.Replace("[SAB]", txtSab.Text);
+            }
+            if (txtInt.Text != "")
+            {
+                res = res.Replace("[INT]", txtInt.Text);
+            }
+
+            return res;
+        }
+
+        private void btnAddAbility_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = txtDesAction.Text;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Creamos el Label con el texto
+            Label lbl = new Label
+            {
+                Text = actionName + "\\r\\n"+ description,
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                BackColor = Color.DarkViolet
+            };
+
+        }
+        
+
 
 
 

@@ -31,10 +31,10 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatureList));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             btnNueva = new ReaLTaiizor.Controls.DreamButton();
             crownListView1 = new ReaLTaiizor.Controls.CrownListView();
             imageList1 = new ImageList(components);
-            dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             dreamForm1.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,6 +58,22 @@
             dreamForm1.Text = "dreamForm1";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // dreamButton1
+            // 
+            dreamButton1.ColorA = Color.FromArgb(31, 31, 31);
+            dreamButton1.ColorB = Color.FromArgb(41, 41, 41);
+            dreamButton1.ColorC = Color.FromArgb(51, 51, 51);
+            dreamButton1.ColorD = Color.FromArgb(0, 0, 0, 0);
+            dreamButton1.ColorE = Color.FromArgb(25, 255, 255, 255);
+            dreamButton1.ForeColor = Color.Red;
+            dreamButton1.Location = new Point(253, 562);
+            dreamButton1.Name = "dreamButton1";
+            dreamButton1.Size = new Size(120, 40);
+            dreamButton1.TabIndex = 2;
+            dreamButton1.Text = "Salir";
+            dreamButton1.UseVisualStyleBackColor = true;
+            dreamButton1.Click += dreamButton1_Click;
             // 
             // btnNueva
             // 
@@ -90,22 +106,6 @@
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "closewin.png");
             // 
-            // dreamButton1
-            // 
-            dreamButton1.ColorA = Color.FromArgb(31, 31, 31);
-            dreamButton1.ColorB = Color.FromArgb(41, 41, 41);
-            dreamButton1.ColorC = Color.FromArgb(51, 51, 51);
-            dreamButton1.ColorD = Color.FromArgb(0, 0, 0, 0);
-            dreamButton1.ColorE = Color.FromArgb(25, 255, 255, 255);
-            dreamButton1.ForeColor = Color.Red;
-            dreamButton1.Location = new Point(253, 562);
-            dreamButton1.Name = "dreamButton1";
-            dreamButton1.Size = new Size(120, 40);
-            dreamButton1.TabIndex = 2;
-            dreamButton1.Text = "Salir";
-            dreamButton1.UseVisualStyleBackColor = true;
-            dreamButton1.Click += dreamButton1_Click;
-            // 
             // CreatureList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -114,6 +114,7 @@
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CreatureList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CreatureList";
             dreamForm1.ResumeLayout(false);
             ResumeLayout(false);

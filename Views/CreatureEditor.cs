@@ -115,7 +115,9 @@ namespace GranDnDDM.Views
             cbHabilidades.Items.Add("Juego de Manos");
             cbHabilidades.Items.Add("Sigilo");
             cbHabilidades.Items.Add("Supervivencia");
+
             // Agregar ítems solo en español
+            cbCondiciones.Items.Add("Seleccionar Estado");         // Blinded
             cbCondiciones.Items.Add("Cegado");         // Blinded
             cbCondiciones.Items.Add("Hechizado");      // Charmed
             cbCondiciones.Items.Add("Ensordecido");    // Deafened
@@ -174,9 +176,9 @@ namespace GranDnDDM.Views
             cbIdiomas.Items.Add("Telúrico");
             cbIdiomas.Items.Add("Subcomún");
             cbIdiomas.Items.Add("Otro");
+
             // Agrega la opción "CR Personalizado"
             cbCR.Items.Add("CR Personalizado");
-
             // Agregar las opciones de CR con XP hasta 30
             cbCR.Items.Add("0 (10 XP)");
             cbCR.Items.Add("1/8 (25 XP)");
@@ -257,38 +259,74 @@ namespace GranDnDDM.Views
 
         private void txtFuerza_Leave(object sender, EventArgs e)
         {
+            if (txtFuerza.Text == "")
+            {
+                return;
+            }
             string bonificador = CalcularBonificador(int.Parse(txtFuerza.Text));
             lblFuerza.Text = bonificador;
+            creatura.Fuerza = int.Parse(txtFuerza.Text);
+            creatura.BonificadorFuerza = int.Parse(bonificador);
         }
 
         private void txtDes_Leave(object sender, EventArgs e)
         {
+            if (txtDes.Text == "")
+            {
+                return;
+            }
             string bonificador = CalcularBonificador(int.Parse(txtDes.Text));
             lblDes.Text = bonificador;
+            creatura.Destreza = int.Parse(txtDes.Text);
+            creatura.BonificadorDestreza = int.Parse(bonificador);
         }
 
         private void ttCons_Leave(object sender, EventArgs e)
         {
+            if (txtCons.Text == "")
+            {
+                return;
+            }
             string bonificador = CalcularBonificador(int.Parse(txtCons.Text));
             lblCon.Text = bonificador;
+            creatura.Constitucion = int.Parse(txtCons.Text);
+            creatura.BonificadorConstitucion = int.Parse(bonificador);
         }
 
         private void txtInt_Leave(object sender, EventArgs e)
         {
+            if (txtInt.Text == "")
+            {
+                return;
+            }
             string bonificador = CalcularBonificador(int.Parse(txtInt.Text));
             lblInt.Text = bonificador;
+            creatura.Inteligencia = int.Parse(txtInt.Text);
+            creatura.BonificadorInteligencia = int.Parse(bonificador);
         }
 
         private void txtSab_Leave(object sender, EventArgs e)
         {
+            if (txtSab.Text == "")
+            {
+                return;
+            }
             string bonificador = CalcularBonificador(int.Parse(txtSab.Text));
             lblSab.Text = bonificador;
+            creatura.Sabiduria = int.Parse(txtSab.Text);
+            creatura.BonificadorSabiduria = int.Parse(bonificador);
         }
 
         private void txtCar_Leave(object sender, EventArgs e)
         {
+            if (txtCar.Text == "")
+            {
+                return;
+            }
             string bonificador = CalcularBonificador(int.Parse(txtCar.Text));
             lblCar.Text = bonificador;
+            creatura.Carisma = int.Parse(txtCar.Text);
+            creatura.BonificadorCarisma = int.Parse(bonificador);
         }
 
         private void cbArmaduras_SelectedValueChanged(object sender, EventArgs e)
@@ -308,8 +346,13 @@ namespace GranDnDDM.Views
         {
             // Obtenemos el texto seleccionado en el ComboBox
             string textoSeleccionado = cbSavingThrows.SelectedItem?.ToString();
+            int id = cbSavingThrows.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
-           if(creatura.Salvacion != null)
+            if (creatura.Salvacion != null)
             {
                 if (creatura.Salvacion.Contains(textoSeleccionado))
                 {
@@ -366,13 +409,322 @@ namespace GranDnDDM.Views
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void tabPage1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TabPage t = (TabPage)sender;
-            Console.WriteLine(t.Tag);
-            Close();
+            int selectedIndex = tabPage1.SelectedIndex;
+            if (selectedIndex == 4)
+            {
+                tabPage1.SelectedIndex = 0;
+                return;
+            }
+            if (selectedIndex == 5)
+            {
+                Hide();
+            }
 
         }
+
+        private void btnAddAbilityCom_Click(object sender, EventArgs e)
+        {
+            addAbility("COMPETENTE");
+        }
+        private void btnAddHabilidadExperto_Click(object sender, EventArgs e)
+        {
+            addAbility("EXPERTO");
+        }
+        private void addAbility(string tipo)
+        {
+            int id = cbHabilidades.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbHabilidades.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            if (creatura.Habilidades != null)
+            {
+                if (creatura.Habilidades.ContainsKey(textoSeleccionado))
+                {
+                    return;
+                }
+            }
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = textoSeleccionado
+            };
+
+            // Creamos el Label con el texto
+            Label lbl = new Label
+            {
+                Text = textoSeleccionado + " (" + tipo + ")",
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                BackColor = Color.DarkGreen
+            };
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(32, 32),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pHabilidades.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.Habilidades.Remove(textoSeleccionado);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            contenedor.Controls.Add(lbl);
+            contenedor.Controls.Add(picRemove);
+            creatura.Habilidades.Add(textoSeleccionado, tipo);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pHabilidades.Controls.Add(contenedor);
+        }
+
+        private void btnAddCondiciones_Click(object sender, EventArgs e)
+        {
+            int id = cbCondiciones.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbCondiciones.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            if (creatura.InmunidadesCondicion != null)
+            {
+                if (creatura.InmunidadesCondicion.Contains(textoSeleccionado))
+                {
+                    return;
+                }
+            }
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = textoSeleccionado
+            };
+
+            // Creamos el Label con el texto
+            Label lbl = new Label
+            {
+                Text = textoSeleccionado,
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                BackColor = Color.DarkGreen
+            };
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(32, 32),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pCondiciones.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.InmunidadesCondicion.RemoveAll(s => s == contenedor.Tag);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            contenedor.Controls.Add(lbl);
+            contenedor.Controls.Add(picRemove);
+            creatura.InmunidadesCondicion.Add(textoSeleccionado);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pCondiciones.Controls.Add(contenedor);
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            creatura.Nombre = txtNombre.Text;
+        }
+
+        private void cbListtypeM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = cbListtypeM.SelectedIndex;
+            if (id == 0)
+            {
+                return;
+            }
+            // Obtenemos el texto seleccionado en el ComboBox
+            string textoSeleccionado = cbListtypeM.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(textoSeleccionado)) return;
+            if (textoSeleccionado == "Otro")
+            {
+                txtOtraTipoCreatura.Text = "";
+                txtOtraTipoCreatura.Visible = true;
+            }
+            else
+            {
+                txtOtraTipoCreatura.Visible = false;
+                creatura.Tipo = textoSeleccionado;
+
+            }
+        }
+
+        private void txtOtraTipoCreatura_Leave(object sender, EventArgs e)
+        {
+            creatura.Tipo = txtOtraTipoCreatura.Text;
+        }
+
+        private void txtDados_Leave(object sender, EventArgs e)
+        {
+            if (cbSizes.SelectedItem != null)
+            {
+                string sizeSeleccionado = cbSizes.SelectedItem.ToString();
+                creatura.Tamanio = sizeSeleccionado;
+
+                switch (sizeSeleccionado)
+                {
+                    case "Diminuto":
+                        // Acción para "Diminuto" (valor 4)
+                        creatura.DadosGolpe = "(" + txtDados.Text + "d4)";
+                        break;
+                    case "Pequeño":
+                        // Acción para "Pequeño" (valor 6)
+                        creatura.DadosGolpe = "(" + txtDados.Text + "d6)";
+                        break;
+                    case "Mediano":
+                        // Acción para "Mediano" (valor 8)
+                        creatura.DadosGolpe = "(" + txtDados.Text + "d8)";
+                        break;
+                    case "Grande":
+                        // Acción para "Grande" (valor 10)
+                        creatura.DadosGolpe = "(" + txtDados.Text + "d10)";
+                        break;
+                    case "Enorme":
+                        // Acción para "Enorme" (valor 12)
+                        creatura.DadosGolpe = "(" + txtDados.Text + "d12)";
+                        break;
+                    case "Gargantuesco":
+                        // Acción para "Gargantuesco" (valor 20)
+                        creatura.DadosGolpe = "(" + txtDados.Text + "d20)";
+                        break;
+                }
+            }
+
+        }
+
+        private void cbArmaduras_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbArmaduras.SelectedItem != null)
+            {
+                string armaduraSeleccionada = cbArmaduras.SelectedItem.ToString();
+                creatura.ClaseArmadura = 10;
+                creatura.DescripcionArmadura = armaduraSeleccionada;
+                switch (armaduraSeleccionada)
+                {
+
+                    case "Armadura de Mago":
+                        // Acción para "Armadura de Mago" (mage armor)
+                        creatura.DescripcionArmadura = "13 "+armaduraSeleccionada;
+                        break;
+                    case "Acolchada":
+                    case "Cuero":
+                        // Acción para "Cuero" (leather)
+                        creatura.ClaseArmadura = 11;
+                        break;
+                    case "Cuero Tachonado":
+                    case "Oculta":
+                        // Acción para "Oculta" (hide)
+                        creatura.ClaseArmadura = 12;
+                        break;
+                    case "Camisa de Malla":
+                        // Acción para "Camisa de Malla" (chain shirt)
+                        creatura.ClaseArmadura = 13;
+                        break;
+                    case "Armadura de Escamas":
+                        // Acción para "Armadura de Escamas" (scale mail)
+                    case "Coraza":
+                        // Acción para "Coraza" (breastplate)
+                        creatura.ClaseArmadura = 14;
+                        break;
+                    case "Media Armadura":
+                        // Acción para "Media Armadura" (half plate)
+                        creatura.ClaseArmadura = 15;
+                        break;
+                    case "Armadura de Anillos":
+                        // Acción para "Armadura de Anillos" (ring mail)
+                        creatura.ClaseArmadura = 14;
+                        break;
+                    case "Cota de Malla":
+                        // Acción para "Cota de Malla" (chain mail)
+                        creatura.ClaseArmadura = 16;
+                        break;
+                    case "Armadura Laminada":
+                        // Acción para "Armadura Laminada" (splint)
+                        creatura.ClaseArmadura = 17;
+                        break;
+                    case "Armadura Completa":
+                        // Acción para "Armadura Completa" (plate)
+                        creatura.ClaseArmadura = 18;
+                        break;
+                    case "Otra":
+                        // Acción para "Otra" (other)
+                        Console.WriteLine("Se ha seleccionado 'Otra' (other)");
+                        break;
+                    default:
+                        Console.WriteLine("Opción no reconocida");
+                        break;
+                }
+            }
+        }
+
+        private void txtBonus_Leave(object sender, EventArgs e)
+        {
+            if (cbArmaduras.SelectedItem != null)
+            {
+                string armaduraSeleccionada = cbArmaduras.SelectedItem.ToString();
+                if(armaduraSeleccionada == "Armadura Natural")
+                {
+                    creatura.ClaseArmadura = 10 + int.Parse(txtBonus.Text);
+                }
+                if(armaduraSeleccionada == "Otra")
+                {
+                    creatura.ClaseArmadura = -1;
+                    creatura.DescripcionArmadura = txtBonus.Text;
+                }
+            }
+               
+        }
+
+
+
+
+
+
+
+
 
 
 

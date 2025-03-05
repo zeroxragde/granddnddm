@@ -34,13 +34,19 @@ namespace GranDnDDM.Models.Creatura
         public int Inteligencia { get; set; }
         public int Sabiduria { get; set; }
         public int Carisma { get; set; }
+        public int BonificadorFuerza { get; set; }
+        public int BonificadorDestreza { get; set; }
+        public int BonificadorConstitucion { get; set; }
+        public int BonificadorInteligencia { get; set; }
+        public int BonificadorSabiduria { get; set; }
+        public int BonificadorCarisma { get; set; }
 
         // Guardar tiradas de salvación si la criatura las tiene definidas
         public List<string> Salvacion { get; set; } = new List<string>();
 
 
         // Habilidades opcionales (ej: sigilo, percepción, etc.)
-        public Dictionary<string, int> Habilidades { get; set; } = new Dictionary<string, int>();
+        public Dictionary<string, string> Habilidades { get; set; } = new Dictionary<string, string>();
 
         // --- Vulnerabilidades, resistencias, inmunidades ---
         public List<string> VulnerabilidadesDano { get; set; } = new List<string>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GranDnDDM.Models.Creatura;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,19 @@ namespace GranDnDDM.Views
 {
     public partial class CreatureEditor : Form
     {
+        private Creatura creatura;
+
+        public CreatureEditor(Creatura c)
+        {
+            creatura = c;
+            init_app();
+        }
         public CreatureEditor()
+        {
+            creatura = new Creatura();
+            init_app();
+        }
+        private void init_app()
         {
             InitializeComponent();
             // Agregar los ítems en español
@@ -296,13 +309,21 @@ namespace GranDnDDM.Views
             // Obtenemos el texto seleccionado en el ComboBox
             string textoSeleccionado = cbSavingThrows.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
+           if(creatura.Salvacion != null)
+            {
+                if (creatura.Salvacion.Contains(textoSeleccionado))
+                {
+                    return;
+                }
+            }
 
             // Creamos un contenedor (Panel) para el Label y el PictureBox
             FlowLayoutPanel contenedor = new FlowLayoutPanel
             {
                 AutoSize = true,
                 BorderStyle = BorderStyle.FixedSingle,
-                Margin = new Padding(3)
+                Margin = new Padding(3),
+                Tag = textoSeleccionado
             };
 
             // Creamos el Label con el texto
@@ -332,19 +353,23 @@ namespace GranDnDDM.Views
                 // Quitamos el contenedor del panel principal
                 pTiradasSav.Controls.Remove(contenedor);
                 // Liberamos recursos
+                creatura.Salvacion.RemoveAll(s => s == contenedor.Tag);
                 contenedor.Dispose();
             };
 
             // Agregamos el Label y el PictureBox al contenedor
             contenedor.Controls.Add(lbl);
             contenedor.Controls.Add(picRemove);
-
+            creatura.Salvacion.Add(textoSeleccionado);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pTiradasSav.Controls.Add(contenedor);
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
+            TabPage t = (TabPage)sender;
+            Console.WriteLine(t.Tag);
             Close();
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GranDnDDM.Models.Creatura
 {
-    internal class Accion
+    public class Accion
     {
         public string Nombre { get; set; }  // Ej: "Multiataque", "Garras", "Aliento de Fuego"
         public string Descripcion { get; set; }

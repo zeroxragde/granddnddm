@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GranDnDDM.Models.Creatura
 {
-    internal class AccionLegendaria:Accion
+    public class AccionLegendaria:Accion
     {
         public int CostoAccion { get; set; }
     }

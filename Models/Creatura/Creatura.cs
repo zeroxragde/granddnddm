@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GranDnDDM.Models.Creatura
 {
-    internal class Creatura
+    public class Creatura
     {
         // --- Identificación básica ---
         public string Nombre { get; set; }          // Ej: "Goblin", "Dragón Rojo Adulto"
@@ -36,12 +36,8 @@ namespace GranDnDDM.Models.Creatura
         public int Carisma { get; set; }
 
         // Guardar tiradas de salvación si la criatura las tiene definidas
-        public int? SalvacionFuerza { get; set; }
-        public int? SalvacionDestreza { get; set; }
-        public int? SalvacionConstitucion { get; set; }
-        public int? SalvacionInteligencia { get; set; }
-        public int? SalvacionSabiduria { get; set; }
-        public int? SalvacionCarisma { get; set; }
+        public List<string> Salvacion { get; set; } = new List<string>();
+
 
         // Habilidades opcionales (ej: sigilo, percepción, etc.)
         public Dictionary<string, int> Habilidades { get; set; } = new Dictionary<string, int>();

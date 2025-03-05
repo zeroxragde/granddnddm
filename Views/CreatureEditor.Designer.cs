@@ -185,7 +185,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage2.BackColor = Color.FromArgb(50, 63, 74);
             tabPage2.Controls.Add(pTiradasSav);
             tabPage2.Controls.Add(button4);
             tabPage2.Controls.Add(cbCondiciones);
@@ -224,6 +224,7 @@
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1076, 628);
             tabPage2.TabIndex = 0;
+            tabPage2.Tag = "t1";
             tabPage2.Text = "Datos 1";
             // 
             // pTiradasSav
@@ -825,7 +826,7 @@
             // 
             // tabPage3
             // 
-            tabPage3.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage3.BackColor = Color.FromArgb(50, 63, 74);
             tabPage3.Controls.Add(bigLabel12);
             tabPage3.Controls.Add(cbCR);
             tabPage3.Controls.Add(hopeTextBox18);
@@ -853,6 +854,7 @@
             tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(1076, 628);
             tabPage3.TabIndex = 1;
+            tabPage3.Tag = "t2";
             tabPage3.Text = "Datos 2";
             // 
             // bigLabel12
@@ -1212,7 +1214,7 @@
             // 
             // tabPage4
             // 
-            tabPage4.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage4.BackColor = Color.FromArgb(50, 63, 74);
             tabPage4.Controls.Add(bigLabel17);
             tabPage4.Controls.Add(bigLabel16);
             tabPage4.Controls.Add(bigLabel15);
@@ -1230,6 +1232,7 @@
             tabPage4.Name = "tabPage4";
             tabPage4.Size = new Size(1076, 628);
             tabPage4.TabIndex = 2;
+            tabPage4.Tag = "t3";
             tabPage4.Text = "Datos 3";
             // 
             // bigLabel17
@@ -1446,7 +1449,7 @@
             // 
             // tabPage5
             // 
-            tabPage5.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage5.BackColor = Color.FromArgb(50, 63, 74);
             tabPage5.Controls.Add(bigLabel18);
             tabPage5.Controls.Add(button18);
             tabPage5.Controls.Add(hopeComboBox1);
@@ -1465,6 +1468,7 @@
             tabPage5.Name = "tabPage5";
             tabPage5.Size = new Size(1076, 628);
             tabPage5.TabIndex = 3;
+            tabPage5.Tag = "t4";
             tabPage5.Text = "Acciones";
             // 
             // bigLabel18
@@ -1719,11 +1723,12 @@
             // 
             // Salir
             // 
-            Salir.BackColor = Color.FromArgb(41, 50, 63);
+            Salir.BackColor = Color.FromArgb(50, 63, 74);
             Salir.Location = new Point(139, 4);
             Salir.Name = "Salir";
             Salir.Size = new Size(1076, 628);
             Salir.TabIndex = 4;
+            Salir.Tag = "t5";
             Salir.Text = "Salir";
             // 
             // CreatureEditor

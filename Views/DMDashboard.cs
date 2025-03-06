@@ -25,7 +25,7 @@ namespace GranDnDDM.Views
 
         private void DMDashboard_Load(object sender, EventArgs e)
         {
-            Text = "Tablero de " + GlobalTools.DM;
+            foreverForm1.Text = "Tablero de " + GlobalTools.DM;
             // Configura el inicio en posición manual
             StartPosition = FormStartPosition.Manual;
 
@@ -55,8 +55,15 @@ namespace GranDnDDM.Views
 
         private void btnCreatures_Click(object sender, EventArgs e)
         {
-           
-           cl.Show();
+            if (cl.IsDisposed) {
+                cl = new CreatureList();
+            }
+            cl.Show();
+        }
+
+        private void poisonButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

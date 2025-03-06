@@ -1,4 +1,5 @@
-﻿using GranDnDDM.Models.Creatura;
+﻿using GranDnDDM.Models;
+using GranDnDDM.Models.Creatura;
 using GranDnDDM.Tools;
 using Newtonsoft.Json;
 using ReaLTaiizor.Controls;
@@ -432,6 +433,29 @@ namespace GranDnDDM.Views
             if (selectedIndex == 4)
             {
                 tabPage1.SelectedIndex = 0;
+                //GUARDAR EN .cre
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Archivos CREA|*.crea|Todos los archivos|*.*";
+                sfd.Title = "Guardar archivo de criatura";
+                sfd.FileName = "mi_creatura.crea"; // Nombre sugerido
+                sfd.OverwritePrompt = false;
+
+                // Si el usuario selecciona un archivo...
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    // Serializa la criatura a JSON
+                    string json = JsonConvert.SerializeObject(creatura, Formatting.Indented);
+                    // Guarda el JSON en el archivo elegido
+                    File.WriteAllText(sfd.FileName, json);
+                    MessageBox.Show("Archivo guardado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                ActualizarRegistroCreatura(sfd.FileName);
+                CreatureGen creatureGen = new CreatureGen(creatura);
+                creatureGen.Show();
+
+
                 return;
             }
             if (selectedIndex == 5)
@@ -440,7 +464,36 @@ namespace GranDnDDM.Views
             }
 
         }
+        private void ActualizarRegistroCreatura(string savedFilePath)
+        {
+            // Definir la ruta del archivo de registros
+            string creaturasJsonFile = Path.Combine(Application.StartupPath, "Creaturas.json");
+            List<CreaturaRecord> registros;
 
+            // Si el archivo existe, lo deserializamos; de lo contrario, creamos una nueva lista
+            if (File.Exists(creaturasJsonFile))
+            {
+                string jsonExistente = File.ReadAllText(creaturasJsonFile);
+                registros = JsonConvert.DeserializeObject<List<CreaturaRecord>>(jsonExistente) ?? new List<CreaturaRecord>();
+            }
+            else
+            {
+                registros = new List<CreaturaRecord>();
+            }
+
+            // Creamos un nuevo registro usando el nombre del archivo (sin la ruta completa) y la propiedad Nombre
+            var nuevoRegistro = new CreaturaRecord
+            {
+                FileName = Path.GetFileName(savedFilePath),
+                Nombre = creatura.Nombre
+            };
+
+            registros.Add(nuevoRegistro);
+
+            // Serializamos la lista actualizada y la escribimos en Creaturas.json
+            string nuevoJson = JsonConvert.SerializeObject(registros, Formatting.Indented);
+            File.WriteAllText(creaturasJsonFile, nuevoJson);
+        }
         private void btnAddAbilityCom_Click(object sender, EventArgs e)
         {
             addAbility("COMPETENTE");
@@ -740,7 +793,6 @@ namespace GranDnDDM.Views
             }
 
         }
-
 
 
         private void txtVCavado_Leave(object sender, EventArgs e)
@@ -1075,22 +1127,26 @@ namespace GranDnDDM.Views
 
         private void txtVistaCiega_Leave(object sender, EventArgs e)
         {
+            if(txtVistaCiega.Text == "") { return; }
             string masalla = cbCiegoMasAlla.Checked ? "Ciego mas alla de " : "Ciego en ";
             creatura.Sentidos.Add(masalla + txtVistaCiega.Text + " pies");
         }
 
         private void txtVistaNocturna_Leave(object sender, EventArgs e)
         {
+            if (txtVistaNocturna.Text == "") { return; }
             creatura.Sentidos.Add("Vision nocturna en " + txtVistaNocturna.Text + " pies");
         }
 
         private void txtSentidoSismico_Leave(object sender, EventArgs e)
         {
+            if (txtSentidoSismico.Text == "") { return; }
             creatura.Sentidos.Add("Sntido sismico en " + txtSentidoSismico.Text + " pies");
         }
 
         private void txtVisionVerdadera_Leave(object sender, EventArgs e)
         {
+            if (txtVisionVerdadera.Text == "") { return; }
             creatura.Sentidos.Add("Vision verdadera en " + txtVisionVerdadera.Text + " pies");
         }
 
@@ -1104,7 +1160,19 @@ namespace GranDnDDM.Views
             // Obtenemos el texto seleccionado en el ComboBox
             string textoSeleccionado = cbCR.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
-            creatura.CR = textoSeleccionado;
+            // Se espera el formato: "CR (XP XP)"
+            // Ejemplo: "1/4 (50 XP)" o "0 (10 XP)"
+            var regex = new System.Text.RegularExpressions.Regex(@"^(.+?)\s*\((\d+)\s*XP\)$");
+            var match = regex.Match(textoSeleccionado);
+            if (match.Success)
+            {
+                string cr = match.Groups[1].Value.Trim();
+                int xp = int.Parse(match.Groups[2].Value.Trim());
+                creatura.CR = cr;
+                creatura.XP = xp;
+            }
+
+
         }
 
         private void cbCreaturaLegendaria_CheckedChanged(object sender, EventArgs e)
@@ -1118,11 +1186,13 @@ namespace GranDnDDM.Views
                 {
                     lblLegendarioText.Text = lblLegendarioText.Text.Replace("[MON]", txtNombre.Text);
                 }
+                btnAddLegendaryAction.Visible = true;
             }
             else
             {
                 creatura.EsLegendaria = false;
                 lblLegendarioText.Visible = false;
+                btnAddLegendaryAction.Visible = false;
             }
 
         }
@@ -1137,11 +1207,13 @@ namespace GranDnDDM.Views
                 {
                     txtRasgoMitico.Text = txtRasgoMitico.Text.Replace("[MON]", txtNombre.Text);
                 }
+                btnAddMistycAction.Visible = true;
             }
             else
             {
                 creatura.EsLegendaria = false;
                 txtRasgoMitico.Visible = false;
+                btnAddMistycAction.Visible = false;
 
             }
         }
@@ -1156,11 +1228,13 @@ namespace GranDnDDM.Views
                 {
                     txtRasgoGuarida.Text = txtRasgoGuarida.Text.Replace("[MON]", txtNombre.Text);
                 }
+                btnAddGuaridaAction.Visible = true;
             }
             else
             {
                 creatura.TieneGuarida = false;
                 txtRasgoGuarida.Visible = false;
+                btnAddGuaridaAction.Visible = false;
 
             }
         }
@@ -1175,11 +1249,13 @@ namespace GranDnDDM.Views
                 {
                     txtRasgoRegional.Text = txtRasgoRegional.Text.Replace("[MON]", txtNombre.Text);
                 }
+                btnEfectoRegional.Visible = true;
             }
             else
             {
                 creatura.TieneEfectosRegionales = false;
                 txtRasgoRegional.Visible = false;
+                btnEfectoRegional.Visible = false;
 
             }
         }
@@ -1241,14 +1317,75 @@ namespace GranDnDDM.Views
                 res = res.Replace("[INT]", txtInt.Text);
             }
             string dados = ExtractDicePattern(res);
-            int tirada = GlobalTools.RollDice(dados);
+            if (dados != "") {
+                int tirada = GlobalTools.RollDice(dados);
+                res = Regex.Replace(res, @"\[\d+[dD]\d+\]", tirada + $"({dados})");
+            }
+        
+           
             int saving = CalculateSavingThrow(res);
-            res = Regex.Replace(res, @"\[\d+[dD]\d+\]", tirada + $"({dados})");
+            if (saving != 0)
+            {
+                res = Regex.Replace(res, @"\[[A-Za-z]+\s+[A-Za-z]+\]", saving.ToString());
+            }
 
-            res = Regex.Replace(res, @"\[[A-Z]+\s+SAVE\]", saving.ToString());
+
+            Regex regex = new Regex(@"\[\w+\s+\d+D\d+\]", RegexOptions.IgnoreCase);
+            if (regex.IsMatch(res)) {
+                var result = ExtraerStatYDado(res);
+                if (result.HasValue)
+                {
+                    string stat = result.Value.stat;
+                    string dado = result.Value.dado;
+                    int tirada = GlobalTools.RollDice(dado);
+                    switch (stat.ToUpper())
+                    {
+                        case "FUE":
+                            stat = txtFuerza.Text;
+                            break;
+                        case "DES":
+                            stat = txtDes.Text;
+                            break;
+                        case "INT":
+                            stat = txtInt.Text;
+                            break;
+                        case "CAR":
+                            stat = txtCar.Text;
+                            break;
+                        case "SAB":
+                            stat = txtSab.Text;
+                            break;
+                        case "CON":
+                            stat = txtCons.Text;
+                            break;
+                        default:
+                            Console.WriteLine("Otro stat detectado.");
+                            break;
+                    }
+                    string final = stat + "+" + tirada + $"({dado})";
+                    res = Regex.Replace(res, @"\[\w+\s+\d+D\d+\]", final);
+                }
+
+            }
+
 
             res = res.Replace("[", "").Replace("]", "");
             return res;
+        }
+        private (string stat, string dado)? ExtraerStatYDado(string input)
+        {
+            // Expresión regular para detectar el patrón [STAT XDY]
+            Regex regex = new Regex(@"\[(\w+)\s+(\d+D\d+)\]", RegexOptions.IgnoreCase);
+            Match match = regex.Match(input);
+
+            if (match.Success)
+            {
+                string stat = match.Groups[1].Value.ToUpper(); // FUE, DEX, etc.
+                string dado = match.Groups[2].Value.ToUpper(); // 1D8, 2D6, etc.
+                return (stat, dado);
+            }
+
+            return null; // Retorna null si no coincide el formato
         }
         public string ExtractDicePattern(string input)
         {
@@ -1277,27 +1414,32 @@ namespace GranDnDDM.Views
                 case "FUE":
                 case "FUERZA":
                     abilityScore = creatura.Fuerza;
-                    esCompetente = creatura.Salvacion.Contains("Fuerza")?true:false;
+                    esCompetente = creatura.Salvacion.Contains("Fuerza") ? true : false;
                     break;
                 case "DES":
                 case "DESTREZA":
                     abilityScore = creatura.Destreza;
+                    esCompetente = creatura.Salvacion.Contains("Destreza") ? true : false;
                     break;
                 case "CON":
                 case "CONSTITUCION":
                     abilityScore = creatura.Constitucion;
+                    esCompetente = creatura.Salvacion.Contains("Constitucion") ? true : false;
                     break;
                 case "INT":
                 case "INTELIGENCIA":
                     abilityScore = creatura.Inteligencia;
+                    esCompetente = creatura.Salvacion.Contains("Inteligencia") ? true : false;
                     break;
                 case "SAB":
                 case "SABIDURIA":
                     abilityScore = creatura.Sabiduria;
+                    esCompetente = creatura.Salvacion.Contains("Sabiduria") ? true : false;
                     break;
                 case "CHA":
                 case "CARISMA":
                     abilityScore = creatura.Carisma;
+                    esCompetente = creatura.Salvacion.Contains("Carisma") ? true : false;
                     break;
                 default:
                     abilityScore = 0;break;
@@ -1316,6 +1458,7 @@ namespace GranDnDDM.Views
         /// <returns>El bono de competencia correspondiente.</returns>
         public int CalculateProficiencyBonus(string crItem)
         {
+            if (crItem == "") { return 0; }
             // Extrae la parte del CR, asumiendo que es la primera parte antes del espacio.
             string crPart = crItem.Split(' ')[0]; // Ejemplo: "1/4"
             double crValue = ParseCR(crPart);
@@ -1364,7 +1507,7 @@ namespace GranDnDDM.Views
             }
             else
             {
-                throw new ArgumentException("CR fuera de rango.");
+                return 0;
             }
         }
 

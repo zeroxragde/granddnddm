@@ -1664,6 +1664,7 @@
             btnAddGuaridaAction.TabIndex = 56;
             btnAddGuaridaAction.Text = "ACCION GUARIDA";
             btnAddGuaridaAction.TextAlignment = StringAlignment.Center;
+            btnAddGuaridaAction.Visible = false;
             btnAddGuaridaAction.Click += btnAddGuaridaAction_Click;
             // 
             // btnAddMistycAction
@@ -1684,6 +1685,7 @@
             btnAddMistycAction.TabIndex = 55;
             btnAddMistycAction.Text = "ACCION MISTICA";
             btnAddMistycAction.TextAlignment = StringAlignment.Center;
+            btnAddMistycAction.Visible = false;
             btnAddMistycAction.Click += btnAddMistycAction_Click;
             // 
             // btnAddLegendaryAction
@@ -1704,6 +1706,7 @@
             btnAddLegendaryAction.TabIndex = 54;
             btnAddLegendaryAction.Text = "ACCION LEGENDARIA";
             btnAddLegendaryAction.TextAlignment = StringAlignment.Center;
+            btnAddLegendaryAction.Visible = false;
             btnAddLegendaryAction.Click += btnAddLegendaryAction_Click;
             // 
             // btnEfectoRegional
@@ -1724,6 +1727,7 @@
             btnEfectoRegional.TabIndex = 53;
             btnEfectoRegional.Text = "EFECTO REGIONAL";
             btnEfectoRegional.TextAlignment = StringAlignment.Center;
+            btnEfectoRegional.Visible = false;
             btnEfectoRegional.Click += btnEfectoRegional_Click;
             // 
             // btnAddReaction
@@ -1859,7 +1863,7 @@
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(1076, 628);
             tabPage6.TabIndex = 5;
-            tabPage6.Text = "Actualizar";
+            tabPage6.Text = "GUARDAR";
             // 
             // Salir
             // 

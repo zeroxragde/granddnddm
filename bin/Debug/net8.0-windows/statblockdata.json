@@ -8,62 +8,62 @@
     {
       "name": "Ataque de arma cuerpo a cuerpo (fue)",
       "realname": "",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance ??? pies, un objetivo. Impacto: [fue ???D???] ??? de daño."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance ??? pies, un objetivo. Impacto: [fue ???D???] ??? de daño."
     },
     {
       "name": "Ataque de arma cuerpo a cuerpo (des)",
       "realname": "",
-      "desc": "Ataque de arma cuerpo a cuerpo: [des ATK] para impactar, alcance ??? pies, un objetivo. Impacto: [des ???D???] ??? de daño."
+      "desc": "Ataque de arma cuerpo a cuerpo: Destreza para impactar, alcance ??? pies, un objetivo. Impacto: [des ???D???] ??? de daño."
     },
     {
       "name": "Ataque de conjuro cuerpo a cuerpo (INT)",
       "realname": "",
-      "desc": "Ataque de conjuro cuerpo a cuerpo: [INT ATK] para impactar, alcance ??? pies, un objetivo. Impacto: [INT ???D???] ??? de daño."
+      "desc": "Ataque de conjuro cuerpo a cuerpo: Inteligencia para impactar, alcance ??? pies, un objetivo. Impacto: [INT ???D???] ??? de daño."
     },
     {
       "name": "Ataque de conjuro cuerpo a cuerpo (sab)",
       "realname": "",
-      "desc": "Ataque de conjuro cuerpo a cuerpo: [sab ATK] para impactar, alcance ??? pies, un objetivo. Impacto: [sab ???D???] ??? de daño."
+      "desc": "Ataque de conjuro cuerpo a cuerpo: Sabiduria para impactar, alcance ??? pies, un objetivo. Impacto: [sab ???D???] ??? de daño."
     },
     {
       "name": "Ataque de conjuro cuerpo a cuerpo (car)",
       "realname": "",
-      "desc": "Ataque de conjuro cuerpo a cuerpo: [car ATK] para impactar, alcance ??? pies, un objetivo. Impacto: [car ???D???] ??? de daño."
+      "desc": "Ataque de conjuro cuerpo a cuerpo: Carisma para impactar, alcance ??? pies, un objetivo. Impacto: [car ???D???] ??? de daño."
     },
     {
       "name": "Ataque de arma a distancia (fue)",
       "realname": "",
-      "desc": "Ataque de arma a distancia: [fue ATK] para impactar, alcance ???/??? pies, un objetivo. Impacto: [fue ???D???] ??? de daño."
+      "desc": "Ataque de arma a distancia: Fuerza para impactar, alcance ???/??? pies, un objetivo. Impacto: [fue ???D???] ??? de daño."
     },
     {
       "name": "Ataque de arma a distancia (des)",
       "realname": "",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance ???/??? pies, un objetivo. Impacto: [des ???D???] ??? de daño."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance ???/??? pies, un objetivo. Impacto: [des ???D???] ??? de daño."
     },
     {
       "name": "Ataque de conjuro a distancia (INT)",
       "realname": "",
-      "desc": "Ataque de conjuro a distancia: [INT ATK] para impactar, alcance ???/??? pies, un objetivo. Impacto: [INT ???D???] ??? de daño."
+      "desc": "Ataque de conjuro a distancia: Inteligencia para impactar, alcance ???/??? pies, un objetivo. Impacto: [INT ???D???] ??? de daño."
     },
     {
       "name": "Ataque de conjuro a distancia (sab)",
       "realname": "",
-      "desc": "Ataque de conjuro a distancia: [sab ATK] para impactar, alcance ???/??? pies, un objetivo. Impacto: [sab ???D???] ??? de daño."
+      "desc": "Ataque de conjuro a distancia: Sabiduria para impactar, alcance ???/??? pies, un objetivo. Impacto: [sab ???D???] ??? de daño."
     },
     {
       "name": "Ataque de conjuro a distancia (car)",
       "realname": "",
-      "desc": "Ataque de conjuro a distancia: [car ATK] para impactar, alcance ???/??? pies, un objetivo. Impacto: [car ???D???] ??? de daño."
+      "desc": "Ataque de conjuro a distancia: Carisma para impactar, alcance ???/??? pies, un objetivo. Impacto: [car ???D???] ??? de daño."
     },
     {
       "name": "Ataque de arma cuerpo a cuerpo o a distancia (fue)",
       "realname": "",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [fue ATK] para impactar, alcance ??? pies o rango ???/??? pies, un objetivo. Impacto: [fue ???D???] ??? de daño."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Fuerza para impactar, alcance ??? pies o rango ???/??? pies, un objetivo. Impacto: [fue ???D???] ??? de daño."
     },
     {
       "name": "Ataque de arma cuerpo a cuerpo o a distancia (des)",
       "realname": "",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [des ATK] para impactar, alcance ??? pies o rango ???/??? pies, un objetivo. Impacto: [des ???D???] ??? de daño."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Destreza para impactar, alcance ??? pies o rango ???/??? pies, un objetivo. Impacto: [des ???D???] ??? de daño."
     },
     {
       "name": "",
@@ -82,32 +82,32 @@
     {
       "name": "Lanzamiento de Conjuros (INT)",
       "realname": "Spellcasting",
-      "desc": "El [MON] es un conjurador de nivel ???. Su habilidad para lanzar conjuros es Inteligencia (CD de salvación de conjuro [INT SAVE], [INT ATK] para impactar con ataques de conjuro). El [MON] tiene los siguientes conjuros preparados:\n\n> Trucos (a voluntad): spell, spell, spell, spell\n> 1er nivel (4 espacios): spell, spell, spell\n> 2do nivel (3 espacios): spell, spell, spell\n> 3er nivel (2 espacios): spell, spell"
+      "desc": "El [MON] es un conjurador de nivel ???. Su habilidad para lanzar conjuros es Inteligencia (CD de salvación de conjuro [INT SAVE], Inteligencia para impactar con ataques de conjuro). El [MON] tiene los siguientes conjuros preparados:\n\n> Trucos (a voluntad): spell, spell, spell, spell\n> 1er nivel (4 espacios): spell, spell, spell\n> 2do nivel (3 espacios): spell, spell, spell\n> 3er nivel (2 espacios): spell, spell"
     },
     {
       "name": "Lanzamiento de Conjuros (sab)",
       "realname": "Spellcasting",
-      "desc": "El [MON] es un conjurador de nivel ???. Su habilidad para lanzar conjuros es Sabiduría (CD de salvación de conjuro [sab SAVE], [sab ATK] para impactar con ataques de conjuro). El [MON] tiene los siguientes conjuros preparados:\n\n> Trucos (a voluntad): spell, spell, spell, spell\n> 1er nivel (4 espacios): spell, spell, spell\n> 2do nivel (3 espacios): spell, spell, spell\n> 3er nivel (2 espacios): spell, spell"
+      "desc": "El [MON] es un conjurador de nivel ???. Su habilidad para lanzar conjuros es Sabiduría (CD de salvación de conjuro [sab SAVE], Sabiduria para impactar con ataques de conjuro). El [MON] tiene los siguientes conjuros preparados:\n\n> Trucos (a voluntad): spell, spell, spell, spell\n> 1er nivel (4 espacios): spell, spell, spell\n> 2do nivel (3 espacios): spell, spell, spell\n> 3er nivel (2 espacios): spell, spell"
     },
     {
       "name": "Lanzamiento de Conjuros (car)",
       "realname": "Spellcasting",
-      "desc": "El [MON] es un conjurador de nivel ???. Su habilidad para lanzar conjuros es Carisma (CD de salvación de conjuro [car SAVE], [car ATK] para impactar con ataques de conjuro). El [MON] tiene los siguientes conjuros preparados:\n\n> Trucos (a voluntad): spell, spell, spell, spell\n> 1er nivel (4 espacios): spell, spell, spell\n> 2do nivel (3 espacios): spell, spell, spell\n> 3er nivel (2 espacios): spell, spell"
+      "desc": "El [MON] es un conjurador de nivel ???. Su habilidad para lanzar conjuros es Carisma (CD de salvación de conjuro [car SAVE], Carisma para impactar con ataques de conjuro). El [MON] tiene los siguientes conjuros preparados:\n\n> Trucos (a voluntad): spell, spell, spell, spell\n> 1er nivel (4 espacios): spell, spell, spell\n> 2do nivel (3 espacios): spell, spell, spell\n> 3er nivel (2 espacios): spell, spell"
     },
     {
       "name": "Lanzamiento Innato de Conjuros (INT)",
       "realname": "Innate Spellcasting",
-      "desc": "La habilidad innata para lanzar conjuros del [MON] es la Inteligencia (CD de salvación de conjuro [INT SAVE], [INT ATK] para impactar con ataques de conjuro). Puede lanzar innatamente los siguientes conjuros, sin requerir componentes materiales:\n\n> A voluntad: spell, spell, spell\n> 3/día cada uno: spell, spell, spell\n> 1/día cada uno: spell, spell"
+      "desc": "La habilidad innata para lanzar conjuros del [MON] es la Inteligencia (CD de salvación de conjuro [INT SAVE], Inteligencia para impactar con ataques de conjuro). Puede lanzar innatamente los siguientes conjuros, sin requerir componentes materiales:\n\n> A voluntad: spell, spell, spell\n> 3/día cada uno: spell, spell, spell\n> 1/día cada uno: spell, spell"
     },
     {
       "name": "Lanzamiento Innato de Conjuros (sab)",
       "realname": "Innate Spellcasting",
-      "desc": "La habilidad innata para lanzar conjuros del [MON] es la Sabiduría (CD de salvación de conjuro [sab SAVE], [sab ATK] para impactar con ataques de conjuro). Puede lanzar innatamente los siguientes conjuros, sin requerir componentes materiales:\n\n> A voluntad: spell, spell, spell\n> 3/día cada uno: spell, spell, spell\n> 1/día cada uno: spell, spell"
+      "desc": "La habilidad innata para lanzar conjuros del [MON] es la Sabiduría (CD de salvación de conjuro [sab SAVE], Sabiduria para impactar con ataques de conjuro). Puede lanzar innatamente los siguientes conjuros, sin requerir componentes materiales:\n\n> A voluntad: spell, spell, spell\n> 3/día cada uno: spell, spell, spell\n> 1/día cada uno: spell, spell"
     },
     {
       "name": "Lanzamiento Innato de Conjuros (car)",
       "realname": "Innate Spellcasting",
-      "desc": "La habilidad innata para lanzar conjuros del [MON] es el Carisma (CD de salvación de conjuro [car SAVE], [car ATK] para impactar con ataques de conjuro). Puede lanzar innatamente los siguientes conjuros, sin requerir componentes materiales:\n\n> A voluntad: spell, spell, spell\n> 3/día cada uno: spell, spell, spell\n> 1/día cada uno: spell, spell"
+      "desc": "La habilidad innata para lanzar conjuros del [MON] es el Carisma (CD de salvación de conjuro [car SAVE], Carisma para impactar con ataques de conjuro). Puede lanzar innatamente los siguientes conjuros, sin requerir componentes materiales:\n\n> A voluntad: spell, spell, spell\n> 3/día cada uno: spell, spell, spell\n> 1/día cada uno: spell, spell"
     },
     {
       "name": "",
@@ -217,7 +217,7 @@
     {
       "name": "Confueicción (Acción)",
       "realname": "Confueict",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, una criatura. Impacto: [fue ???D???] de daño contundente, y el objetivo es agarrado (CD de escape ???). Hasta que termine este agarre, la criatura está refueingida, y el [MON] no puede agarrar a otro objetivo."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, una criatura. Impacto: [fue ???D???] de daño contundente, y el objetivo es agarrado (CD de escape ???). Hasta que termine este agarre, la criatura está refueingida, y el [MON] no puede agarrar a otro objetivo."
     },
     {
       "name": "Corroer Metal",
@@ -654,195 +654,195 @@
     },
     {
       "name": "Hacar de Batalla",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño cortante, o [fue 1D10] de daño cortante si se usa a dos manos."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño cortante, o [fue 1D10] de daño cortante si se usa a dos manos."
     },
     {
       "name": "Pistola de Soplido",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 25/100 pies, un objetivo. Impacto: [des 1] de daño perforante."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 25/100 pies, un objetivo. Impacto: [des 1] de daño perforante."
     },
     {
       "name": "Clava",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D4] de daño contundente."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D4] de daño contundente."
     },
     {
       "name": "Daga (fue)",
       "realname": "Dagger",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [fue ATK] para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D4] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Fuerza para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D4] de daño perforante."
     },
     {
       "name": "Daga (des)",
       "realname": "Dagger",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [des ATK] para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [des 1D4] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Destreza para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [des 1D4] de daño perforante."
     },
     {
       "name": "Dardo (fue)",
       "realname": "Dart",
-      "desc": "Ataque de arma a distancia: [fue ATK] para impactar, alcance 20/60 pies, un objetivo. Impacto: [fue 1D4] de daño perforante."
+      "desc": "Ataque de arma a distancia: Fuerza para impactar, alcance 20/60 pies, un objetivo. Impacto: [fue 1D4] de daño perforante."
     },
     {
       "name": "Dardo (des)",
       "realname": "Dart",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 20/60 pies, un objetivo. Impacto: [des 1D4] de daño perforante."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 20/60 pies, un objetivo. Impacto: [des 1D4] de daño perforante."
     },
     {
       "name": "Maza de Cadena",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño contundente."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño contundente."
     },
     {
       "name": "Guja",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D10] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D10] de daño cortante."
     },
     {
       "name": "Hacar Grande",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D12] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D12] de daño cortante."
     },
     {
       "name": "Gran Garrote",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño contundente."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño contundente."
     },
     {
       "name": "Espada Ancar",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 2D6] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 2D6] de daño cortante."
     },
     {
       "name": "Alabarda",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D10] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D10] de daño cortante."
     },
     {
       "name": "Hacar de Mano",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [fue ATK] para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D6] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Fuerza para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D6] de daño cortante."
     },
     {
       "name": "Ballesta de Mano",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 30/120 pies, un objetivo. Impacto: [des 1D6] de daño perforante."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 30/120 pies, un objetivo. Impacto: [des 1D6] de daño perforante."
     },
     {
       "name": "Ballesta Pesada",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 100/400 pies, un objetivo. Impacto: [des 1D10] de daño perforante."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 100/400 pies, un objetivo. Impacto: [des 1D10] de daño perforante."
     },
     {
       "name": "Jabalina",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [fue ATK] para impactar, alcance 5 pies o rango 30/120 pies, un objetivo. Impacto: [fue 1D6] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Fuerza para impactar, alcance 5 pies o rango 30/120 pies, un objetivo. Impacto: [fue 1D6] de daño perforante."
     },
     {
       "name": "Lanza",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D12] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D12] de daño perforante."
     },
     {
       "name": "Ballesta Ligera",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 80/320 pies, un objetivo. Impacto: [des 1D8] de daño perforante."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 80/320 pies, un objetivo. Impacto: [des 1D8] de daño perforante."
     },
     {
       "name": "Martillo Ligero",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [fue ATK] para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D4] de daño contundente."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Fuerza para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D4] de daño contundente."
     },
     {
       "name": "Arco Largo",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 150/600 pies, un objetivo. Impacto: [des 1D8] de daño perforante."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 150/600 pies, un objetivo. Impacto: [des 1D8] de daño perforante."
     },
     {
       "name": "Espada Larga",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño cortante, o [fue 1D10] de daño cortante si se usa a dos manos."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño cortante, o [fue 1D10] de daño cortante si se usa a dos manos."
     },
     {
       "name": "Maza",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño contundente."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño contundente."
     },
     {
       "name": "Gran Pico",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
     },
     {
       "name": "Garrote",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 2D6] de daño contundente."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 2D6] de daño contundente."
     },
     {
       "name": "Efueella de la Mañana",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
     },
     {
       "name": "Red",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 5/15 pies, una criatura Grande o más pequeña. Impacto: El objetivo queda refueingido. Una criatura puede usar su acción para hacer una prueba de Fuerza con CD 10 para liberarse a sí misma o a otra criatura de una red, terminando el efecto con éxito. Infligir 5 de daño cortante a la red (CA 10) libera al objetivo sin dañarlo y defueuye la red."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 5/15 pies, una criatura Grande o más pequeña. Impacto: El objetivo queda refueingido. Una criatura puede usar su acción para hacer una prueba de Fuerza con CD 10 para liberarse a sí misma o a otra criatura de una red, terminando el efecto con éxito. Infligir 5 de daño cortante a la red (CA 10) libera al objetivo sin dañarlo y defueuye la red."
     },
     {
       "name": "Pica",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D10] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D10] de daño perforante."
     },
     {
       "name": "Bastón",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño contundente, o [fue 1D8] de daño contundente si se usa a dos manos."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño contundente, o [fue 1D8] de daño contundente si se usa a dos manos."
     },
     {
       "name": "Estoque (fue)",
       "realname": "Rapier",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
     },
     {
       "name": "Estoque (des)",
       "realname": "Rapier",
-      "desc": "Ataque de arma cuerpo a cuerpo: [des ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [des 1D8] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Destreza para impactar, alcance 5 pies, un objetivo. Impacto: [des 1D8] de daño perforante."
     },
     {
       "name": "Cimitarra (fue)",
       "realname": "Scimitar",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño cortante."
     },
     {
       "name": "Cimitarra (des)",
       "realname": "Scimitar",
-      "desc": "Ataque de arma cuerpo a cuerpo: [des ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [des 1D6] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Destreza para impactar, alcance 5 pies, un objetivo. Impacto: [des 1D6] de daño cortante."
     },
     {
       "name": "Arco Corto",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 80/320 pies, un objetivo. Impacto: [des 1D6] de daño perforante."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 80/320 pies, un objetivo. Impacto: [des 1D6] de daño perforante."
     },
     {
       "name": "Espada Corta (fue)",
       "realname": "Shortsword",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D6] de daño perforante."
     },
     {
       "name": "Espada Corta (des)",
       "realname": "Shortsword",
-      "desc": "Ataque de arma cuerpo a cuerpo: [des ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [des 1D6] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Destreza para impactar, alcance 5 pies, un objetivo. Impacto: [des 1D6] de daño perforante."
     },
     {
       "name": "Hoz",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D4] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D4] de daño cortante."
     },
     {
       "name": "Honda",
-      "desc": "Ataque de arma a distancia: [des ATK] para impactar, alcance 30/120 pies, un objetivo. Impacto: [des 1D4] de daño contundente."
+      "desc": "Ataque de arma a distancia: Destreza para impactar, alcance 30/120 pies, un objetivo. Impacto: [des 1D4] de daño contundente."
     },
     {
       "name": "Lanza",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [fue ATK] para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D6] de daño perforante, o [fue 1D8] de daño perforante si se usa a dos manos para un ataque cuerpo a cuerpo."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Fuerza para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D6] de daño perforante, o [fue 1D8] de daño perforante si se usa a dos manos para un ataque cuerpo a cuerpo."
     },
     {
       "name": "Tridente",
-      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: [fue ATK] para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D6] de daño perforante, o [fue 1D8] de daño perforante si se usa a dos manos para un ataque cuerpo a cuerpo."
+      "desc": "Ataque de arma cuerpo a cuerpo o a distancia: Fuerza para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: [fue 1D6] de daño perforante, o [fue 1D8] de daño perforante si se usa a dos manos para un ataque cuerpo a cuerpo."
     },
     {
       "name": "Golpe Desarmado",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1] de daño contundente."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1] de daño contundente."
     },
     {
       "name": "Martillo de Guerra",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño contundente, o [fue 1D10] de daño contundente si se usa a dos manos."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño contundente, o [fue 1D10] de daño contundente si se usa a dos manos."
     },
     {
       "name": "Picota",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 5 pies, un objetivo. Impacto: [fue 1D8] de daño perforante."
     },
     {
       "name": "Látigo (fue)",
       "realname": "Whip",
-      "desc": "Ataque de arma cuerpo a cuerpo: [fue ATK] para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D4] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Fuerza para impactar, alcance 10 pies, un objetivo. Impacto: [fue 1D4] de daño cortante."
     },
     {
       "name": "Látigo (des)",
       "realname": "Whip",
-      "desc": "Ataque de arma cuerpo a cuerpo: [des ATK] para impactar, alcance 10 pies, un objetivo. Impacto: [des 1D4] de daño cortante."
+      "desc": "Ataque de arma cuerpo a cuerpo: Destreza para impactar, alcance 10 pies, un objetivo. Impacto: [des 1D4] de daño cortante."
     }
   ]
 }

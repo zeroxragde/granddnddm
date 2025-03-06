@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor.Controls;
+﻿using GranDnDDM.Models.Creatura;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,17 @@ namespace GranDnDDM.Views
 {
     public partial class CreatureGen : Form
     {
+        private Creatura datos;
         private NightLabel lblActual;
         public CreatureGen()
         {
             InitializeComponent();
 
+        } 
+        public CreatureGen(Creatura c)
+        {
+            InitializeComponent();
+            datos = c;
         }
 
         private void btnEditName_Click(object sender, EventArgs e)

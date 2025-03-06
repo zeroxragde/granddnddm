@@ -121,6 +121,9 @@
   <data name="backEpicoNormalized" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\backEpicoNormalized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="closewin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resData\closewin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fondo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\fondo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="x-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\x-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="closewin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resData\closewin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconCreature" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resData\iconCreature.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

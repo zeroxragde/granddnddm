@@ -1,4 +1,5 @@
 ﻿using GranDnDDM.Models.Creatura;
+using GranDnDDM.Tools;
 using Newtonsoft.Json;
 using ReaLTaiizor.Controls;
 using System;
@@ -8,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -624,26 +626,32 @@ namespace GranDnDDM.Views
                     case "Diminuto":
                         // Acción para "Diminuto" (valor 4)
                         creatura.DadosGolpe = "(" + txtDados.Text + "d4)";
+                        creatura.PuntosGolpe = GlobalTools.RollDice($"[{txtDados.Text}d4]");
                         break;
                     case "Pequeño":
                         // Acción para "Pequeño" (valor 6)
                         creatura.DadosGolpe = "(" + txtDados.Text + "d6)";
+                        creatura.PuntosGolpe = GlobalTools.RollDice($"[{txtDados.Text}d6]");
                         break;
                     case "Mediano":
                         // Acción para "Mediano" (valor 8)
                         creatura.DadosGolpe = "(" + txtDados.Text + "d8)";
+                        creatura.PuntosGolpe = GlobalTools.RollDice($"[{txtDados.Text}d8]");
                         break;
                     case "Grande":
                         // Acción para "Grande" (valor 10)
                         creatura.DadosGolpe = "(" + txtDados.Text + "d10)";
+                        creatura.PuntosGolpe = GlobalTools.RollDice($"[{txtDados.Text}d10]");
                         break;
                     case "Enorme":
                         // Acción para "Enorme" (valor 12)
                         creatura.DadosGolpe = "(" + txtDados.Text + "d12)";
+                        creatura.PuntosGolpe = GlobalTools.RollDice($"[{txtDados.Text}d12]");
                         break;
                     case "Gargantuesco":
                         // Acción para "Gargantuesco" (valor 20)
                         creatura.DadosGolpe = "(" + txtDados.Text + "d20)";
+                        creatura.PuntosGolpe = GlobalTools.RollDice($"[{txtDados.Text}d20]");
                         break;
                 }
             }
@@ -1202,7 +1210,7 @@ namespace GranDnDDM.Views
         }
         private string descriptionFilter(string des)
         {
-            string res = "";
+            string res = des;
 
             if (txtNombre.Text != "")
             {
@@ -1232,14 +1240,168 @@ namespace GranDnDDM.Views
             {
                 res = res.Replace("[INT]", txtInt.Text);
             }
+            string dados = ExtractDicePattern(res);
+            int tirada = GlobalTools.RollDice(dados);
+            int saving = CalculateSavingThrow(res);
+            res = Regex.Replace(res, @"\[\d+[dD]\d+\]", tirada + $"({dados})");
 
+            res = Regex.Replace(res, @"\[[A-Z]+\s+SAVE\]", saving.ToString());
+
+            res = res.Replace("[", "").Replace("]", "");
             return res;
         }
+        public string ExtractDicePattern(string input)
+        {
+            // Patrón que busca [nDk], donde n y k son números
+            var match = Regex.Match(input, @"\[\d+[dD]\d+\]");
+            return match.Success ? match.Value : string.Empty;
+        }
+        // Método que calcula la tirada de salvación para una habilidad dada.
+        public int CalculateSavingThrow(string input)
+        {
+            Regex regex = new Regex(@"\[[A-Z]+\s+SAVE\]", RegexOptions.IgnoreCase);
+            Match match = regex.Match(input);
+            // Extraemos la abreviatura de la habilidad del string
+            // Ejemplo: "[INT SAVE]" se convierte en "INT"
+            string modSave = match.Value; // Ejemplo: "[INT SAVE]"
 
+            string ability = modSave.Replace("[", "")
+                                    .Replace("]", "")
+                                    .ToUpper()
+                                    .Replace(" SAVE", "")
+                                    .Trim();
+            int abilityScore = 0;
+            bool esCompetente = false;
+            switch (ability)
+            {
+                case "FUE":
+                case "FUERZA":
+                    abilityScore = creatura.Fuerza;
+                    esCompetente = creatura.Salvacion.Contains("Fuerza")?true:false;
+                    break;
+                case "DES":
+                case "DESTREZA":
+                    abilityScore = creatura.Destreza;
+                    break;
+                case "CON":
+                case "CONSTITUCION":
+                    abilityScore = creatura.Constitucion;
+                    break;
+                case "INT":
+                case "INTELIGENCIA":
+                    abilityScore = creatura.Inteligencia;
+                    break;
+                case "SAB":
+                case "SABIDURIA":
+                    abilityScore = creatura.Sabiduria;
+                    break;
+                case "CHA":
+                case "CARISMA":
+                    abilityScore = creatura.Carisma;
+                    break;
+                default:
+                    abilityScore = 0;break;
+            }
+            
+            int abilityModifier = (abilityScore - 10) / 2;
+            
+            int savingThrowBonus = abilityModifier + (esCompetente ? CalculateProficiencyBonus(creatura.CR) : 0);
+            return abilityModifier;
+        }
+
+        /// <summary>
+        /// Calcula el bono de competencia a partir de un string del CR.
+        /// </summary>
+        /// <param name="crItem">El string con el formato "CR (XP)", por ejemplo: "1/4 (50 XP)"</param>
+        /// <returns>El bono de competencia correspondiente.</returns>
+        public int CalculateProficiencyBonus(string crItem)
+        {
+            // Extrae la parte del CR, asumiendo que es la primera parte antes del espacio.
+            string crPart = crItem.Split(' ')[0]; // Ejemplo: "1/4"
+            double crValue = ParseCR(crPart);
+
+            // Según el Manual de Monstruos:
+            // CR 0 hasta 4 (incluyendo fracciones menores a 1) = +2
+            // CR 5 a 8 = +3
+            // CR 9 a 12 = +4
+            // CR 13 a 16 = +5
+            // CR 17 a 20 = +6
+            // CR 21 a 24 = +7
+            // CR 25 a 28 = +8
+            // CR 29 a 30 = +9
+
+            if (crValue < 5)
+            {
+                return 2;
+            }
+            else if (crValue >= 5 && crValue <= 8)
+            {
+                return 3;
+            }
+            else if (crValue >= 9 && crValue <= 12)
+            {
+                return 4;
+            }
+            else if (crValue >= 13 && crValue <= 16)
+            {
+                return 5;
+            }
+            else if (crValue >= 17 && crValue <= 20)
+            {
+                return 6;
+            }
+            else if (crValue >= 21 && crValue <= 24)
+            {
+                return 7;
+            }
+            else if (crValue >= 25 && crValue <= 28)
+            {
+                return 8;
+            }
+            else if (crValue >= 29 && crValue <= 30)
+            {
+                return 9;
+            }
+            else
+            {
+                throw new ArgumentException("CR fuera de rango.");
+            }
+        }
+
+        /// <summary>
+        /// Convierte una cadena que representa un CR a un valor double.
+        /// Soporta formatos fraccionales (ej. "1/4") y enteros.
+        /// </summary>
+        private double ParseCR(string crString)
+        {
+            if (crString.Contains("/"))
+            {
+                // Si es fraccional, por ejemplo "1/4"
+                string[] parts = crString.Split('/');
+                if (parts.Length == 2 &&
+                    double.TryParse(parts[0], out double numerator) &&
+                    double.TryParse(parts[1], out double denominator) &&
+                    denominator != 0)
+                {
+                    return numerator / denominator;
+                }
+            }
+            else
+            {
+                if (double.TryParse(crString, out double value))
+                {
+                    return value;
+                }
+            }
+            return -1;
+        }
         private void btnAddAbility_Click(object sender, EventArgs e)
         {
             string actionName = txtNameAction.Text;
-            string description = txtDesAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
 
             // Creamos un contenedor (Panel) para el Label y el PictureBox
             FlowLayoutPanel contenedor = new FlowLayoutPanel
@@ -1249,18 +1411,552 @@ namespace GranDnDDM.Views
                 Margin = new Padding(3),
                 Tag = actionName
             };
-            // Creamos el Label con el texto
-            Label lbl = new Label
+            // Label para actionName en negrita
+            Label lblAction = new Label
             {
-                Text = actionName + "\\r\\n"+ description,
                 AutoSize = true,
                 Margin = new Padding(3),
                 ForeColor = Color.White,
-                BackColor = Color.DarkViolet
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Habilidad): "
             };
 
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.AccionesHabilidad.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.AccionesHabilidad.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+
         }
-        
+
+        private void btnAddAction_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Accion): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.Acciones.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.Acciones.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
+
+        private void btnAddReaction_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Reaccion): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.Reacciones.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.Reacciones.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
+
+        private void btnAddActonBonus_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Accion Bonus): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.AccionesAdicionales.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.AccionesAdicionales.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
+
+        private void btnAddLegendaryAction_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            AccionLegendaria accion = new AccionLegendaria();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+            accion.CostoAccion = 0;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Accion Legendaria): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.AccionesLegendarias.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.AccionesLegendarias.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
+
+        private void btnAddMistycAction_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Accion Mitica): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.AccionesMiticas.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.AccionesMiticas.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
+
+        private void btnAddGuaridaAction_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Accion Guarida): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.AccionesGuarida.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.AccionesGuarida.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
+
+        private void btnEfectoRegional_Click(object sender, EventArgs e)
+        {
+            string actionName = txtNameAction.Text;
+            string description = descriptionFilter(txtDesAction.Text);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Accion Region): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.EfectosRegionales.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            creatura.EfectosRegionales.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
+
 
 
 

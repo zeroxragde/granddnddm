@@ -107,7 +107,7 @@
             hopeCheckBox4 = new ReaLTaiizor.Controls.HopeCheckBox();
             hopeCheckBox3 = new ReaLTaiizor.Controls.HopeCheckBox();
             tabPage5 = new TabPage();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            pAcciones = new FlowLayoutPanel();
             bigLabel18 = new ReaLTaiizor.Controls.BigLabel();
             btnUsePresent = new ReaLTaiizor.Controls.Button();
             cbPresents = new ReaLTaiizor.Controls.HopeComboBox();
@@ -275,27 +275,33 @@
             // 
             // pCondiciones
             // 
+            pCondiciones.AutoScroll = true;
             pCondiciones.FlowDirection = FlowDirection.TopDown;
             pCondiciones.Location = new Point(771, 417);
             pCondiciones.Name = "pCondiciones";
             pCondiciones.Size = new Size(290, 200);
             pCondiciones.TabIndex = 38;
+            pCondiciones.WrapContents = false;
             // 
             // pHabilidades
             // 
+            pHabilidades.AutoScroll = true;
             pHabilidades.FlowDirection = FlowDirection.TopDown;
             pHabilidades.Location = new Point(339, 417);
             pHabilidades.Name = "pHabilidades";
             pHabilidades.Size = new Size(290, 200);
             pHabilidades.TabIndex = 37;
+            pHabilidades.WrapContents = false;
             // 
             // pTiradasSav
             // 
+            pTiradasSav.AutoScroll = true;
             pTiradasSav.FlowDirection = FlowDirection.TopDown;
             pTiradasSav.Location = new Point(30, 417);
             pTiradasSav.Name = "pTiradasSav";
             pTiradasSav.Size = new Size(290, 200);
             pTiradasSav.TabIndex = 36;
+            pTiradasSav.WrapContents = false;
             // 
             // btnAddCondiciones
             // 
@@ -927,19 +933,23 @@
             // 
             // pIdiomasList
             // 
+            pIdiomasList.AutoScroll = true;
             pIdiomasList.FlowDirection = FlowDirection.TopDown;
             pIdiomasList.Location = new Point(455, 119);
             pIdiomasList.Name = "pIdiomasList";
             pIdiomasList.Size = new Size(422, 200);
             pIdiomasList.TabIndex = 55;
+            pIdiomasList.WrapContents = false;
             // 
             // pDasmagesList
             // 
+            pDasmagesList.AutoScroll = true;
             pDasmagesList.FlowDirection = FlowDirection.TopDown;
             pDasmagesList.Location = new Point(27, 119);
             pDasmagesList.Name = "pDasmagesList";
             pDasmagesList.Size = new Size(380, 200);
             pDasmagesList.TabIndex = 54;
+            pDasmagesList.WrapContents = false;
             // 
             // bigLabel12
             // 
@@ -1558,7 +1568,7 @@
             // tabPage5
             // 
             tabPage5.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage5.Controls.Add(flowLayoutPanel1);
+            tabPage5.Controls.Add(pAcciones);
             tabPage5.Controls.Add(bigLabel18);
             tabPage5.Controls.Add(btnUsePresent);
             tabPage5.Controls.Add(cbPresents);
@@ -1579,13 +1589,16 @@
             tabPage5.Tag = "t4";
             tabPage5.Text = "Acciones";
             // 
-            // flowLayoutPanel1
+            // pAcciones
             // 
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(31, 370);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(553, 253);
-            flowLayoutPanel1.TabIndex = 67;
+            pAcciones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            pAcciones.AutoScroll = true;
+            pAcciones.FlowDirection = FlowDirection.TopDown;
+            pAcciones.Location = new Point(31, 370);
+            pAcciones.Name = "pAcciones";
+            pAcciones.Size = new Size(759, 253);
+            pAcciones.TabIndex = 67;
+            pAcciones.WrapContents = false;
             // 
             // bigLabel18
             // 
@@ -1593,11 +1606,11 @@
             bigLabel18.BorderStyle = BorderStyle.FixedSingle;
             bigLabel18.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bigLabel18.ForeColor = Color.White;
-            bigLabel18.Location = new Point(597, 397);
+            bigLabel18.Location = new Point(796, 370);
             bigLabel18.Name = "bigLabel18";
-            bigLabel18.Size = new Size(474, 229);
+            bigLabel18.Size = new Size(275, 229);
             bigLabel18.TabIndex = 66;
-            bigLabel18.Text = resources.GetString("bigLabel18.Text");
+            bigLabel18.Text = "[MON]: Muestra el nombre del monstruo.\r\n[MODIFICADOR]: Muestra el modificador de carisma del monstruo.\r\n[NDN]: Calcula los dados indicados.";
             // 
             // btnUsePresent
             // 
@@ -1651,6 +1664,7 @@
             btnAddGuaridaAction.TabIndex = 56;
             btnAddGuaridaAction.Text = "ACCION GUARIDA";
             btnAddGuaridaAction.TextAlignment = StringAlignment.Center;
+            btnAddGuaridaAction.Click += btnAddGuaridaAction_Click;
             // 
             // btnAddMistycAction
             // 
@@ -1670,6 +1684,7 @@
             btnAddMistycAction.TabIndex = 55;
             btnAddMistycAction.Text = "ACCION MISTICA";
             btnAddMistycAction.TextAlignment = StringAlignment.Center;
+            btnAddMistycAction.Click += btnAddMistycAction_Click;
             // 
             // btnAddLegendaryAction
             // 
@@ -1689,6 +1704,7 @@
             btnAddLegendaryAction.TabIndex = 54;
             btnAddLegendaryAction.Text = "ACCION LEGENDARIA";
             btnAddLegendaryAction.TextAlignment = StringAlignment.Center;
+            btnAddLegendaryAction.Click += btnAddLegendaryAction_Click;
             // 
             // btnEfectoRegional
             // 
@@ -1708,6 +1724,7 @@
             btnEfectoRegional.TabIndex = 53;
             btnEfectoRegional.Text = "EFECTO REGIONAL";
             btnEfectoRegional.TextAlignment = StringAlignment.Center;
+            btnEfectoRegional.Click += btnEfectoRegional_Click;
             // 
             // btnAddReaction
             // 
@@ -1727,6 +1744,7 @@
             btnAddReaction.TabIndex = 52;
             btnAddReaction.Text = "REACCION";
             btnAddReaction.TextAlignment = StringAlignment.Center;
+            btnAddReaction.Click += btnAddReaction_Click;
             // 
             // btnAddActonBonus
             // 
@@ -1746,6 +1764,7 @@
             btnAddActonBonus.TabIndex = 51;
             btnAddActonBonus.Text = "ACCION BONUS";
             btnAddActonBonus.TextAlignment = StringAlignment.Center;
+            btnAddActonBonus.Click += btnAddActonBonus_Click;
             // 
             // btnAddAction
             // 
@@ -1765,6 +1784,7 @@
             btnAddAction.TabIndex = 50;
             btnAddAction.Text = "ACCION";
             btnAddAction.TextAlignment = StringAlignment.Center;
+            btnAddAction.Click += btnAddAction_Click;
             // 
             // btnAddAbility
             // 
@@ -1973,6 +1993,6 @@
         private TextBox txtRasgoRegional;
         private ReaLTaiizor.Controls.ForeverTextBox txtRasgoMitico;
         private ReaLTaiizor.Controls.DreamButton btnUpdateData;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel pAcciones;
     }
 }

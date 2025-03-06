@@ -133,13 +133,4 @@ El monstruo no puede repetir un efecto hasta que todos hayan sido utilizados, y 
   <data name="lblLegendarioText.Text" xml:space="preserve">
     <value>El [MON] puede realizar 3 acciones legendarias, a elegir entre las opciones que aparecen a continuación. Solo se puede usar una opción de acción legendaria a la vez y solo al final del turno de otra criatura. El monstruo recupera las acciones legendarias gastadas al comienzo de su turno.</value>
   </data>
-  <data name="bigLabel18.Text" xml:space="preserve">
-    <value>[MON]: Muestra el nombre del monstruo.
-[CHA]: Muestra el modificador de carisma del monstruo.
-[3D6]: Calcula 3d6.
-[STR ATK]: Calcula el modificador de la tirada de ataque del monstruo para un ataque basado en fuerza.
-[DEX 2D8]: Calcula la tirada de daño para un ataque basado en destreza con 2d8 dados de daño.
-[WIS SAVE]: Calcula la CD de la tirada de salvación contra la sabiduría del monstruo.
-[3D6 + 1], [STR ATK - 2], [WIS SAVE + 3]: Añade un modificador a los valores dados.</value>
-  </data>
 </root>

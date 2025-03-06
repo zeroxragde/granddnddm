@@ -68,6 +68,7 @@ namespace GranDnDDM.Models.Creatura
 
         // --- Acciones (básicas, bonus, reacciones) ---
         public List<Accion> Acciones { get; set; } = new List<Accion>();
+        public List<Accion> AccionesHabilidad { get; set; } = new List<Accion>();
         public List<Accion> AccionesAdicionales { get; set; } = new List<Accion>(); // Bonus Actions
         public List<Accion> Reacciones { get; set; } = new List<Accion>();
 
@@ -87,12 +88,12 @@ namespace GranDnDDM.Models.Creatura
 
         // --- Guarida ---
         public bool TieneGuarida { get; set; }              // Si la criatura tiene acciones de guarida
-        public List<string> AccionesGuarida { get; set; } = new List<string>();
+        public List<Accion> AccionesGuarida { get; set; } = new List<Accion>();
         public string DescripcionGuarida { get; set; }
 
         // --- Efectos Regionales ---
         public bool TieneEfectosRegionales { get; set; }
-        public List<string> EfectosRegionales { get; set; } = new List<string>();
+        public List<Accion> EfectosRegionales { get; set; } = new List<Accion>();
         public string DescripcionRegional { get; set; }
 
         // --- Cualquier campo adicional que quieras ---

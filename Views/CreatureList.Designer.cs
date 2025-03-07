@@ -31,11 +31,11 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatureList));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            btnDelete = new ReaLTaiizor.Controls.ParrotPictureBox();
             listCreature = new DataGridView();
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             btnNueva = new ReaLTaiizor.Controls.DreamButton();
             imageList1 = new ImageList(components);
-            btnDelete = new ReaLTaiizor.Controls.ParrotPictureBox();
             dreamForm1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listCreature).BeginInit();
             SuspendLayout();
@@ -63,11 +63,41 @@
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
             // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.Transparent;
+            btnDelete.BackgroundImage = Properties.Resources.deleteImg;
+            btnDelete.BackgroundImageLayout = ImageLayout.Stretch;
+            btnDelete.ColorLeft = Color.DodgerBlue;
+            btnDelete.ColorRight = Color.DodgerBlue;
+            btnDelete.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnDelete.FilterAlpha = 200;
+            btnDelete.FilterEnabled = true;
+            btnDelete.Image = null;
+            btnDelete.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnDelete.IsElipse = false;
+            btnDelete.IsParallax = false;
+            btnDelete.Location = new Point(334, 45);
+            btnDelete.Name = "btnDelete";
+            btnDelete.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnDelete.Size = new Size(48, 47);
+            btnDelete.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnDelete.TabIndex = 16;
+            btnDelete.Text = "btnClose";
+            btnDelete.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // listCreature
             // 
             listCreature.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            listCreature.EditMode = DataGridViewEditMode.EditProgrammatically;
             listCreature.Location = new Point(21, 45);
+            listCreature.MultiSelect = false;
             listCreature.Name = "listCreature";
+            listCreature.ReadOnly = true;
+            listCreature.ScrollBars = ScrollBars.Vertical;
+            listCreature.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            listCreature.ShowCellErrors = false;
             listCreature.Size = new Size(310, 496);
             listCreature.TabIndex = 3;
             listCreature.CellMouseDoubleClick += listCreature_CellMouseDoubleClick;
@@ -110,30 +140,6 @@
             imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "closewin.png");
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.Transparent;
-            btnDelete.BackgroundImage = Properties.Resources.deleteImg;
-            btnDelete.BackgroundImageLayout = ImageLayout.Stretch;
-            btnDelete.ColorLeft = Color.DodgerBlue;
-            btnDelete.ColorRight = Color.DodgerBlue;
-            btnDelete.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            btnDelete.FilterAlpha = 200;
-            btnDelete.FilterEnabled = true;
-            btnDelete.Image = null;
-            btnDelete.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            btnDelete.IsElipse = false;
-            btnDelete.IsParallax = false;
-            btnDelete.Location = new Point(334, 45);
-            btnDelete.Name = "btnDelete";
-            btnDelete.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            btnDelete.Size = new Size(48, 47);
-            btnDelete.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            btnDelete.TabIndex = 16;
-            btnDelete.Text = "btnClose";
-            btnDelete.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            btnDelete.Click += btnDelete_Click;
             // 
             // CreatureList
             // 

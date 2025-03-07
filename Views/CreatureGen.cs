@@ -1,4 +1,5 @@
 ﻿using GranDnDDM.Models.Creatura;
+using GranDnDDM.Tools;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,8 @@ namespace GranDnDDM.Views
 
 
             // --- Habilidades, resistencias, inmunidades ---
-            AddTextLabels("Salvaciones", string.Join(", ", creatura.Salvacion));
+            lblTiradasSalvacion.Text = string.Join(", ", creatura.Salvacion);
+            lblSkills.Text = GlobalTools.ConvertDictionaryToString(creatura.Habilidades);
             AddTextLabels("Resistencias al daño", string.Join(", ", creatura.ResistenciasDano));
             AddTextLabels("Inmunidades al daño", string.Join(", ", creatura.InmunidadesDano));
             AddTextLabels("Inmunidades a condiciones", string.Join(", ", creatura.InmunidadesCondicion));

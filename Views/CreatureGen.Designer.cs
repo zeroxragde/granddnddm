@@ -32,6 +32,8 @@
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             nightPanel1 = new ReaLTaiizor.Controls.NightPanel();
             pCard = new ReaLTaiizor.Controls.Panel();
+            lblTiradasSalvacion = new ReaLTaiizor.Controls.NightLabel();
+            nightLabel1 = new ReaLTaiizor.Controls.NightLabel();
             pictureBox1 = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblName = new ReaLTaiizor.Controls.NightLabel();
@@ -58,7 +60,8 @@
             panel3 = new Panel();
             panel2 = new Panel();
             lblVelocidades = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel1 = new ReaLTaiizor.Controls.NightLabel();
+            nightLabel2 = new ReaLTaiizor.Controls.NightLabel();
+            lblSkills = new ReaLTaiizor.Controls.NightLabel();
             formTheme1.SuspendLayout();
             nightPanel1.SuspendLayout();
             pCard.SuspendLayout();
@@ -79,7 +82,7 @@
             formTheme1.Name = "formTheme1";
             formTheme1.Padding = new Padding(3, 28, 3, 28);
             formTheme1.Sizable = true;
-            formTheme1.Size = new Size(687, 529);
+            formTheme1.Size = new Size(687, 756);
             formTheme1.SmartBounds = false;
             formTheme1.StartPosition = FormStartPosition.CenterScreen;
             formTheme1.TabIndex = 0;
@@ -121,12 +124,15 @@
             nightPanel1.Name = "nightPanel1";
             nightPanel1.RightSideColor = Color.FromArgb(41, 44, 61);
             nightPanel1.Side = ReaLTaiizor.Controls.NightPanel.PanelSide.Left;
-            nightPanel1.Size = new Size(681, 473);
+            nightPanel1.Size = new Size(681, 700);
             nightPanel1.TabIndex = 0;
             // 
             // pCard
             // 
             pCard.BackColor = Color.FromArgb(128, 64, 64);
+            pCard.Controls.Add(lblSkills);
+            pCard.Controls.Add(nightLabel2);
+            pCard.Controls.Add(lblTiradasSalvacion);
             pCard.Controls.Add(nightLabel1);
             pCard.Controls.Add(pictureBox1);
             pCard.Controls.Add(flowLayoutPanel1);
@@ -156,10 +162,34 @@
             pCard.Location = new Point(15, 16);
             pCard.Name = "pCard";
             pCard.Padding = new Padding(5);
-            pCard.Size = new Size(654, 416);
+            pCard.Size = new Size(654, 444);
             pCard.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pCard.TabIndex = 4;
             pCard.Text = "panel1";
+            // 
+            // lblTiradasSalvacion
+            // 
+            lblTiradasSalvacion.AutoSize = true;
+            lblTiradasSalvacion.BackColor = Color.Transparent;
+            lblTiradasSalvacion.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTiradasSalvacion.ForeColor = Color.FromArgb(255, 192, 128);
+            lblTiradasSalvacion.Location = new Point(180, 351);
+            lblTiradasSalvacion.Name = "lblTiradasSalvacion";
+            lblTiradasSalvacion.Size = new Size(35, 20);
+            lblTiradasSalvacion.TabIndex = 30;
+            lblTiradasSalvacion.Text = "Des";
+            // 
+            // nightLabel1
+            // 
+            nightLabel1.AutoSize = true;
+            nightLabel1.BackColor = Color.Transparent;
+            nightLabel1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nightLabel1.ForeColor = Color.FromArgb(255, 192, 128);
+            nightLabel1.Location = new Point(18, 349);
+            nightLabel1.Name = "nightLabel1";
+            nightLabel1.Size = new Size(169, 23);
+            nightLabel1.TabIndex = 29;
+            nightLabel1.Text = "Tiradas de Salvacion";
             // 
             // pictureBox1
             // 
@@ -453,17 +483,29 @@
             lblVelocidades.TabIndex = 8;
             lblVelocidades.Text = "30 pies";
             // 
-            // nightLabel1
+            // nightLabel2
             // 
-            nightLabel1.AutoSize = true;
-            nightLabel1.BackColor = Color.Transparent;
-            nightLabel1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nightLabel1.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel1.Location = new Point(18, 349);
-            nightLabel1.Name = "nightLabel1";
-            nightLabel1.Size = new Size(42, 23);
-            nightLabel1.TabIndex = 29;
-            nightLabel1.Text = "FUE";
+            nightLabel2.AutoSize = true;
+            nightLabel2.BackColor = Color.Transparent;
+            nightLabel2.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nightLabel2.ForeColor = Color.FromArgb(255, 192, 128);
+            nightLabel2.Location = new Point(18, 372);
+            nightLabel2.Name = "nightLabel2";
+            nightLabel2.Size = new Size(97, 23);
+            nightLabel2.TabIndex = 31;
+            nightLabel2.Text = "Habilidades";
+            // 
+            // lblSkills
+            // 
+            lblSkills.AutoSize = true;
+            lblSkills.BackColor = Color.Transparent;
+            lblSkills.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSkills.ForeColor = Color.FromArgb(255, 192, 128);
+            lblSkills.Location = new Point(108, 374);
+            lblSkills.Name = "lblSkills";
+            lblSkills.Size = new Size(35, 20);
+            lblSkills.TabIndex = 32;
+            lblSkills.Text = "Des";
             // 
             // CreatureGen
             // 
@@ -471,7 +513,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.backEpicoNormalized;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(687, 529);
+            ClientSize = new Size(687, 756);
             Controls.Add(formTheme1);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
@@ -528,5 +570,8 @@
         private PictureBox pictureBox1;
         private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
         private ReaLTaiizor.Controls.NightLabel nightLabel1;
+        private ReaLTaiizor.Controls.NightLabel lblTiradasSalvacion;
+        private ReaLTaiizor.Controls.NightLabel lblSkills;
+        private ReaLTaiizor.Controls.NightLabel nightLabel2;
     }
 }

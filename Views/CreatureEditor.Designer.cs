@@ -69,6 +69,8 @@
             txtNombre = new ReaLTaiizor.Controls.HopeTextBox();
             lblFuerza = new ReaLTaiizor.Controls.BigLabel();
             tabPage3 = new TabPage();
+            picFotoCreatura = new ReaLTaiizor.Controls.ParrotPictureBox();
+            btnUploadFoto = new ReaLTaiizor.Controls.DreamButton();
             pIdiomasList = new FlowLayoutPanel();
             pDasmagesList = new FlowLayoutPanel();
             bigLabel12 = new ReaLTaiizor.Controls.BigLabel();
@@ -901,6 +903,8 @@
             // tabPage3
             // 
             tabPage3.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage3.Controls.Add(picFotoCreatura);
+            tabPage3.Controls.Add(btnUploadFoto);
             tabPage3.Controls.Add(pIdiomasList);
             tabPage3.Controls.Add(pDasmagesList);
             tabPage3.Controls.Add(bigLabel12);
@@ -930,6 +934,43 @@
             tabPage3.TabIndex = 1;
             tabPage3.Tag = "t2";
             tabPage3.Text = "Datos 2";
+            // 
+            // picFotoCreatura
+            // 
+            picFotoCreatura.BackColor = Color.Transparent;
+            picFotoCreatura.ColorLeft = Color.DodgerBlue;
+            picFotoCreatura.ColorRight = Color.DodgerBlue;
+            picFotoCreatura.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            picFotoCreatura.FilterAlpha = 200;
+            picFotoCreatura.FilterEnabled = true;
+            picFotoCreatura.Image = null;
+            picFotoCreatura.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            picFotoCreatura.IsElipse = false;
+            picFotoCreatura.IsParallax = false;
+            picFotoCreatura.Location = new Point(881, 419);
+            picFotoCreatura.Name = "picFotoCreatura";
+            picFotoCreatura.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            picFotoCreatura.Size = new Size(148, 151);
+            picFotoCreatura.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            picFotoCreatura.TabIndex = 57;
+            picFotoCreatura.Text = "pFoto";
+            picFotoCreatura.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            // 
+            // btnUploadFoto
+            // 
+            btnUploadFoto.ColorA = Color.FromArgb(31, 31, 31);
+            btnUploadFoto.ColorB = Color.FromArgb(41, 41, 41);
+            btnUploadFoto.ColorC = Color.FromArgb(51, 51, 51);
+            btnUploadFoto.ColorD = Color.FromArgb(0, 0, 0, 0);
+            btnUploadFoto.ColorE = Color.FromArgb(25, 255, 255, 255);
+            btnUploadFoto.ForeColor = Color.FromArgb(40, 218, 255);
+            btnUploadFoto.Location = new Point(881, 576);
+            btnUploadFoto.Name = "btnUploadFoto";
+            btnUploadFoto.Size = new Size(148, 40);
+            btnUploadFoto.TabIndex = 56;
+            btnUploadFoto.Text = " SUBIR fOTO";
+            btnUploadFoto.UseVisualStyleBackColor = true;
+            btnUploadFoto.Click += btnUploadFoto_Click;
             // 
             // pIdiomasList
             // 
@@ -1882,10 +1923,11 @@
             ClientSize = new Size(1225, 664);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
+            MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(126, 0);
             Name = "CreatureEditor";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "formTheme1";
+            Text = "dungeonForm1";
             TransparencyKey = Color.Fuchsia;
             dreamForm1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
@@ -1998,5 +2040,7 @@
         private ReaLTaiizor.Controls.ForeverTextBox txtRasgoMitico;
         private ReaLTaiizor.Controls.DreamButton btnUpdateData;
         private FlowLayoutPanel pAcciones;
+        private ReaLTaiizor.Controls.ParrotPictureBox picFotoCreatura;
+        private ReaLTaiizor.Controls.DreamButton btnUploadFoto;
     }
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -1137,7 +1138,7 @@ namespace GranDnDDM.Views
 
         private void txtVistaCiega_Leave(object sender, EventArgs e)
         {
-            if(txtVistaCiega.Text == "") { return; }
+            if (txtVistaCiega.Text == "") { return; }
             string masalla = cbCiegoMasAlla.Checked ? "Ciego mas alla de " : "Ciego en ";
             creatura.Sentidos.Add(masalla + txtVistaCiega.Text + " pies");
         }
@@ -1327,12 +1328,13 @@ namespace GranDnDDM.Views
                 res = res.Replace("[INT]", txtInt.Text);
             }
             string dados = ExtractDicePattern(res);
-            if (dados != "") {
+            if (dados != "")
+            {
                 int tirada = GlobalTools.RollDice(dados);
                 res = Regex.Replace(res, @"\[\d+[dD]\d+\]", tirada + $"({dados})");
             }
-        
-           
+
+
             int saving = CalculateSavingThrow(res);
             if (saving != 0)
             {
@@ -1341,7 +1343,8 @@ namespace GranDnDDM.Views
 
 
             Regex regex = new Regex(@"\[\w+\s+\d+D\d+\]", RegexOptions.IgnoreCase);
-            if (regex.IsMatch(res)) {
+            if (regex.IsMatch(res))
+            {
                 var result = ExtraerStatYDado(res);
                 if (result.HasValue)
                 {
@@ -1452,11 +1455,11 @@ namespace GranDnDDM.Views
                     esCompetente = creatura.Salvacion.Contains("Carisma") ? true : false;
                     break;
                 default:
-                    abilityScore = 0;break;
+                    abilityScore = 0; break;
             }
-            
+
             int abilityModifier = (abilityScore - 10) / 2;
-            
+
             int savingThrowBonus = abilityModifier + (esCompetente ? CalculateProficiencyBonus(creatura.CR) : 0);
             return abilityModifier;
         }
@@ -2110,6 +2113,16 @@ namespace GranDnDDM.Views
             pAcciones.Controls.Add(contenedor);
         }
 
+        private void btnUploadFoto_Click(object sender, EventArgs e)
+        {
+
+            string base64Image = GlobalTools.ConvertImageToBase64();
+            creatura.Ìmagen = base64Image;
+            if (!string.IsNullOrEmpty(base64Image))
+            {
+                picFotoCreatura.Image = GlobalTools.ConvertBase64ToImage(base64Image);
+            }
+        }
 
 
 

@@ -1,6 +1,7 @@
 ﻿using GranDnDDM.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,51 @@ namespace GranDnDDM.Tools
         //public static List<MusicRecord> ListaReproduccion = new List<MusicRecord>();
         public static IWMPPlaylist playlist;
 
+        public static string ConvertDictionaryToString(Dictionary<string, string> dict)
+        {
+            if (dict == null || dict.Count == 0)
+                return string.Empty;
+
+            return string.Join(" ", dict.Select(kv => $"{kv.Key}({kv.Value})"));
+        }
+
+        public static string ConvertImageToBase64()
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Imágenes|*.png;*.jpg;*.jpeg;*.bmp;*.gif";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    using (Image img = Image.FromFile(ofd.FileName))
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            // Guardar como PNG comprimido en memoria
+                            img.Save(ms, ImageFormat.Png);
+                            byte[] imageBytes = ms.ToArray();
+                            return Convert.ToBase64String(imageBytes);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        public static Image ConvertBase64ToImage(string base64String)
+        {
+            try
+            {
+                byte[] imageBytes = Convert.FromBase64String(base64String);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al convertir la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
         public static int RollDice(string diceNotation)
         {
             // Elimina espacios y los corchetes, si están presentes

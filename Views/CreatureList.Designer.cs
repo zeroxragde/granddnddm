@@ -36,6 +36,7 @@
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             btnNueva = new ReaLTaiizor.Controls.DreamButton();
             imageList1 = new ImageList(components);
+            btnEditar = new ReaLTaiizor.Controls.ParrotPictureBox();
             dreamForm1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listCreature).BeginInit();
             SuspendLayout();
@@ -48,6 +49,7 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(btnEditar);
             dreamForm1.Controls.Add(btnDelete);
             dreamForm1.Controls.Add(listCreature);
             dreamForm1.Controls.Add(dreamButton1);
@@ -141,6 +143,30 @@
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "closewin.png");
             // 
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.Transparent;
+            btnEditar.BackgroundImage = Properties.Resources.pencil1;
+            btnEditar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnEditar.ColorLeft = Color.DodgerBlue;
+            btnEditar.ColorRight = Color.DodgerBlue;
+            btnEditar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnEditar.FilterAlpha = 200;
+            btnEditar.FilterEnabled = true;
+            btnEditar.Image = null;
+            btnEditar.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnEditar.IsElipse = false;
+            btnEditar.IsParallax = false;
+            btnEditar.Location = new Point(337, 98);
+            btnEditar.Name = "btnEditar";
+            btnEditar.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnEditar.Size = new Size(39, 38);
+            btnEditar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnEditar.TabIndex = 17;
+            btnEditar.Text = "btnClose";
+            btnEditar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnEditar.Click += btnEditar_Click;
+            // 
             // CreatureList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -165,5 +191,6 @@
         private ReaLTaiizor.Controls.DreamButton dreamButton1;
         private DataGridView listCreature;
         private ReaLTaiizor.Controls.ParrotPictureBox btnDelete;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnEditar;
     }
 }

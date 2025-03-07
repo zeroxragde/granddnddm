@@ -21,11 +21,47 @@ namespace GranDnDDM.Views
         {
             InitializeComponent();
 
+
         }
         public CreatureGen(Creatura c)
         {
             InitializeComponent();
             creatura = c;
+            tabAGuarida.Visible = false;
+            tabALegends.Visible = false;
+            tabAMitica.Visible = false;
+            var tabAMiticaHide = tabPagesCreatura.TabPages["tabAMitica"];
+            if (tabAMiticaHide != null && !creatura.EsMitica)
+            {
+                tabPagesCreatura.TabPages.Remove(tabAMiticaHide);
+            }
+            
+            var tabALegendsHide = tabPagesCreatura.TabPages["tabALegends"];
+            if (tabALegendsHide != null && !creatura.EsLegendaria)
+            {
+                tabPagesCreatura.TabPages.Remove(tabALegendsHide);
+            }
+            
+            var tabAGuaridaHide = tabPagesCreatura.TabPages["tabAGuarida"];
+            if (tabAGuaridaHide != null && !creatura.TieneGuarida)
+            {
+                tabPagesCreatura.TabPages.Remove(tabAGuaridaHide);
+            }
+            
+            var tabEfectoRegional = tabPagesCreatura.TabPages["tabERegional"];
+            if (tabEfectoRegional != null && !creatura.TieneEfectosRegionales)
+            {
+                tabPagesCreatura.TabPages.Remove(tabEfectoRegional);
+            }
+
+            if(creatura.Imagen != null)
+            {
+                if (creatura.Imagen.Length > 0)
+                {
+                    imgCreatura.Image = GlobalTools.ConvertBase64ToImage(creatura.Imagen);
+                }
+            }
+
 
             if (creatura == null) return;
 
@@ -54,83 +90,86 @@ namespace GranDnDDM.Views
 
 
             // --- Habilidades, resistencias, inmunidades ---
-            lblTiradasSalvacion.Text = string.Join(", ", creatura.Salvacion);
-            lblSkills.Text = GlobalTools.ConvertDictionaryToString(creatura.Habilidades);
-            AddTextLabels("Resistencias al daño", string.Join(", ", creatura.ResistenciasDano));
-            AddTextLabels("Inmunidades al daño", string.Join(", ", creatura.InmunidadesDano));
-            AddTextLabels("Inmunidades a condiciones", string.Join(", ", creatura.InmunidadesCondicion));
-            AddTextLabels("Idiomas", string.Join(", ", creatura.Idiomas.Keys));
-
-            // --- Acciones ---
-            AddActionsLabels("Acciones", creatura.Acciones);
-            AddActionsLabels("Acciones Adicionales", creatura.AccionesAdicionales);
-            AddActionsLabels("Reacciones", creatura.Reacciones);
-            AddActionsLabels("Acciones Legendarias", creatura.AccionesLegendarias
-    .Select(a => new Accion { Nombre = a.Nombre, Descripcion = a.Descripcion })
-    .ToList());
-        }
-
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            CreatureEditor edir = new CreatureEditor();
-            edir.ShowDialog();
-        }
-
-
-        private void AddTextLabels(string title, string content)
-        {
-            if (string.IsNullOrWhiteSpace(content)) return;
-
-            var titleLabel = new Label
+            if (creatura.Salvacion.Count == 0)
             {
-                Text = title,
-                Font = new Font("Comic Sans MS", 12F, FontStyle.Bold),
-                ForeColor = Color.FromArgb(255, 192, 128),
-                AutoSize = true
-            };
-
-            var contentLabel = new Label
+                flpSaveT.Visible = false;
+            }
+            else
             {
-                Text = content,
-                Font = new Font("Comic Sans MS", 11F),
-                ForeColor = Color.White,
-                AutoSize = true,
-                MaximumSize = new Size(pCard.Width - 20, 0)
-            };
-
-            flowLayoutPanel1.Controls.Add(titleLabel);
-            flowLayoutPanel1.Controls.Add(contentLabel);
-        }
-
-        private void AddActionsLabels(string title, List<Accion> actions)
-        {
-            if (actions == null || actions.Count == 0) return;
-
-            var titleLabel = new Label
+                flpSaveT.Visible = true;
+                lblTiradasSalvacion.Text = creatura.Salvacion.Count > 0 ? string.Join(", ", creatura.Salvacion) : "Ninguna";
+            }
+            string skills = GlobalTools.ConvertDictionaryToString(creatura.Habilidades);
+            if (skills == "")
             {
-                Text = title,
-                Font = new Font("Comic Sans MS", 12F, FontStyle.Bold),
-                ForeColor = Color.FromArgb(255, 192, 128),
-                AutoSize = true
-            };
-
-            flowLayoutPanel1.Controls.Add(titleLabel);
-
-            foreach (var action in actions)
+                flpSkills.Visible = false;
+            }
+            else
             {
-                var actionLabel = new Label
+                flpSkills.Visible = true;
+                lblSkills.Text = skills != "" ? skills : "Ninguna";
+            }
+
+            if (creatura.ResistenciasDano.Count == 0)
+            {
+                flpInmuDa.Visible = false;
+            }
+            else
+            {
+                flpInmuDa.Visible = true;
+                lblInmudamge.Text = creatura.ResistenciasDano.Count > 0 ? string.Join(", ", creatura.ResistenciasDano) : "Ninguno";
+            }
+
+
+            if (creatura.Sentidos.Count > 0)
+            {
+                flpSentidos.Visible = false;
+            }
+            else
+            {
+                flpSentidos.Visible = true;
+                lblSentidos.Text = creatura.Sentidos.Count > 0 ? string.Join(", ", creatura.Sentidos) : "Ninguno";
+            }
+
+            if (creatura.Idiomas.Count == 0)
+            {
+                flpIdiomas.Visible = false;
+            }
+            else
+            {
+                flpIdiomas.Visible = true;
+                lblIdiomas.Text = creatura.Idiomas.Count > 0 ? GlobalTools.ConvertDictionaryToString(creatura.Idiomas) : "Ninguno";
+            }
+
+            if (creatura.InmunidadesCondicion.Count == 0)
+            {
+                flpCondiciones.Visible = false;
+            }
+            else
+            {
+                flpCondiciones.Visible = true;
+                lblCondiciones.Text = creatura.InmunidadesCondicion.Count > 0 ? string.Join(", ", creatura.InmunidadesCondicion) : "Ninguno";
+            }
+
+            lblNivelDesafio.Text = creatura.CR + "/" + creatura.XP;
+            if (creatura.Acciones.Count > 0)
+            {
+                pAcciones.Visible = true;
+                foreach (var action in creatura.Acciones)
                 {
-                    Text = $"{action.Nombre}: {action.Descripcion}",
-                    Font = new Font("Comic Sans MS", 11F),
-                    ForeColor = Color.White,
-                    AutoSize = true,
-                    MaximumSize = new Size(pCard.Width - 20, 0)
-                };
-                flowLayoutPanel1.Controls.Add(actionLabel);
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pAcciones.Controls.Add(actionLabel);
+                }
             }
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {

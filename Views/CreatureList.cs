@@ -212,6 +212,43 @@ namespace GranDnDDM.Views
             }
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (listCreature.SelectedRows.Count > 0)
+            {
+                // Obtiene el FileName de la fila seleccionada (columna oculta)
+                string fileName = listCreature.SelectedRows[0].Cells[0].Value.ToString();
+
+                // Construye la ruta completa
+                string filePath = Path.Combine(Application.StartupPath, fileName);
+
+                // Verifica que el archivo existe antes de intentar abrirlo
+                if (File.Exists(filePath))
+                {
+                    string jsonContent = File.ReadAllText(filePath);
+
+                    // Deserializa el JSON en la clase Creatura
+                    Creatura creatura = JsonConvert.DeserializeObject<Creatura>(jsonContent);
+
+                    if (creatura != null)
+                    {
+                        CreatureEditor editor = new CreatureEditor(creatura);
+                        editor.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo cargar la criatura desde el JSON.", "Error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El archivo no existe: " + filePath, "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         //////////////////////////////////////////
     }
 }

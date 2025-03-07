@@ -64,7 +64,7 @@
             myForm.MinimumSize = new Size(100, 42);
             myForm.Name = "myForm";
             myForm.Padding = new Padding(0, 31, 0, 0);
-            myForm.Size = new Size(1475, 100);
+            myForm.Size = new Size(897, 100);
             myForm.TabIndex = 0;
             myForm.Text = "nightForm1";
             myForm.TextAlignment = ReaLTaiizor.Forms.NightForm.Alignment.Left;
@@ -78,7 +78,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 31);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1475, 69);
+            flowLayoutPanel1.Size = new Size(897, 69);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // btnCreatures
@@ -126,7 +126,7 @@
             btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             btnClose.IsElipse = false;
             btnClose.IsParallax = false;
-            btnClose.Location = new Point(1443, 4);
+            btnClose.Location = new Point(865, 4);
             btnClose.Name = "btnClose";
             btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             btnClose.Size = new Size(27, 26);
@@ -141,7 +141,7 @@
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
-            ClientSize = new Size(1475, 100);
+            ClientSize = new Size(897, 100);
             Controls.Add(myForm);
             Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;

@@ -23,8 +23,10 @@ namespace GranDnDDM.Views
 
         public CreatureEditor(Creatura c)
         {
-            creatura = c;
+            creatura = new Creatura();
             init_app();
+            creatura = c;
+            CargarDatosCreaturaEnFormulario();
         }
         public CreatureEditor()
         {
@@ -452,7 +454,7 @@ namespace GranDnDDM.Views
                     ActualizarRegistroCreatura(sfd.FileName);
                     CreatureGen creatureGen = new CreatureGen(creatura);
                     creatureGen.Show();
-                    Hide();
+                   // Hide();
 
                     MessageBox.Show("Archivo guardado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1173,12 +1175,12 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             // Se espera el formato: "CR (XP XP)"
             // Ejemplo: "1/4 (50 XP)" o "0 (10 XP)"
-            var regex = new System.Text.RegularExpressions.Regex(@"^(.+?)\s*\((\d+)\s*XP\)$");
+            var regex = new Regex(@"^([\d/]+)\s*\(\s*([\d,]+)\s*XP\)$");
             var match = regex.Match(textoSeleccionado);
             if (match.Success)
             {
                 string cr = match.Groups[1].Value.Trim();
-                int xp = int.Parse(match.Groups[2].Value.Trim());
+                int xp = int.Parse(match.Groups[2].Value.Replace(",", "").Trim());
                 creatura.CR = cr;
                 creatura.XP = xp;
             }
@@ -2117,7 +2119,7 @@ namespace GranDnDDM.Views
         {
 
             string base64Image = GlobalTools.ConvertImageToBase64();
-            creatura.Ìmagen = base64Image;
+            creatura.Imagen = base64Image;
             if (!string.IsNullOrEmpty(base64Image))
             {
                 picFotoCreatura.Image = GlobalTools.ConvertBase64ToImage(base64Image);
@@ -2125,6 +2127,196 @@ namespace GranDnDDM.Views
         }
 
 
+        public void CargarDatosCreaturaEnFormulario()
+        {
+            Creatura c = creatura;
+            // --- Datos básicos ---
+            txtNombre.Text = c.Nombre;
+            txtOtraTipoCreatura.Text = c.Tipo;
+            comboBoxAlineamiento.SelectedItem = c.Alineamiento;
+            cbListtypeM.SelectedItem = c.Tipo;
+            cbSizes.SelectedItem = c.Tamanio;
+
+            // --- Imagen ---
+            if (!string.IsNullOrEmpty(c.Imagen))
+            {
+                picFotoCreatura.Image = GlobalTools.ConvertBase64ToImage(c.Imagen);
+            }
+
+            // --- Armadura ---
+            cbArmaduras.SelectedItem = c.DescripcionArmadura;
+            txtBonus.Text = (c.DescripcionArmadura == "Armadura Natural" || c.DescripcionArmadura == "Otra")
+                             ? c.ClaseArmadura.ToString() : "";
+
+            // --- Puntos de golpe y dados de golpe ---
+            var regex = new Regex(@"\d+"); // Busca el primer número en la cadena
+            var match = regex.Match(c.DadosGolpe);
+            if (match.Success)
+            {
+                int firstNumber = int.Parse(match.Value);
+                txtDados.Text = firstNumber.ToString();
+            }
+               
+
+            // --- Velocidades ---
+            txtVelocidad.Text = c.VelocidadCaminar.ToString();
+            txtVVuelo.Text = c.VelocidadVolar.ToString();
+            txtVNado.Text = c.VelocidadNadar.ToString();
+            txtVCavado.Text = c.VelocidadCavar.ToString();
+            txtVEscalado.Text = c.VelocidadEscalado.ToString();
+
+            // --- Habilidades y Stats ---
+            txtFuerza.Text = c.Fuerza.ToString();
+            txtDes.Text = c.Destreza.ToString();
+            txtCons.Text = c.Constitucion.ToString();
+            txtInt.Text = c.Inteligencia.ToString();
+            txtSab.Text = c.Sabiduria.ToString();
+            txtCar.Text = c.Carisma.ToString();
+
+            // --- CR y Experiencia ---
+            cbCR.SelectedItem = $"{c.CR} ({c.XP} XP)";
+
+            // --- Salvaciones ---
+            pTiradasSav.Controls.Clear();
+            foreach (var salv in c.Salvacion)
+            {
+                cbSavingThrows.SelectedItem = salv;
+                btnAddTiradaSave_Click(null, null);
+            }
+
+            // --- Habilidades ---
+            pHabilidades.Controls.Clear();
+            foreach (var hab in c.Habilidades)
+            {
+                cbHabilidades.SelectedItem = hab.Key;
+                if (hab.Value == "COMPETENTE") btnAddAbilityCom_Click(null, null);
+                else if (hab.Value == "EXPERTO") btnAddHabilidadExperto_Click(null, null);
+            }
+
+            // --- Resistencias, Inmunidades y Vulnerabilidades ---
+            pDasmagesList.Controls.Clear();
+            foreach (var vul in c.VulnerabilidadesDano)
+            {
+                cbDamageTypes.SelectedItem = vul;
+                btnDemageTypesVul_Click(null, null);
+            }
+            foreach (var res in c.ResistenciasDano)
+            {
+                cbDamageTypes.SelectedItem = res;
+                btnDemageTypesRes_Click(null, null);
+            }
+            foreach (var inm in c.InmunidadesDano)
+            {
+                cbDamageTypes.SelectedItem = inm;
+                btnDemageTypesInmu_Click(null, null);
+            }
+
+            // --- Inmunidades a Condiciones ---
+            pCondiciones.Controls.Clear();
+            foreach (var cond in c.InmunidadesCondicion)
+            {
+                cbCondiciones.SelectedItem = cond;
+                btnAddCondiciones_Click(null, null);
+            }
+
+            // --- Sentidos ---
+            foreach (var sentido in c.Sentidos)
+            {
+                if (sentido.Contains("Vision nocturna")) txtVistaNocturna.Text = ExtraerNumero(sentido).ToString();
+                if (sentido.Contains("Vista ciega"))
+                {
+                    txtVistaCiega.Text = ExtraerNumero(sentido).ToString();
+                    cbCiegoMasAlla.Checked = sentido.Contains("mas alla");
+                }
+                if (sentido.Contains("Sentido sismico")) txtSentidoSismico.Text = ExtraerNumero(sentido).ToString();
+                if (sentido.Contains("Vision verdadera")) txtVisionVerdadera.Text = ExtraerNumero(sentido).ToString();
+            }
+
+            // --- Idiomas ---
+            pIdiomasList.Controls.Clear();
+            foreach (var idioma in c.Idiomas)
+            {
+                cbIdiomas.SelectedItem = idioma.Key;
+                if (idioma.Value.Contains("Habla")) btnAddHabla_Click(null, null);
+                else if (idioma.Value.Contains("Entiende")) btnAddEntiende_Click(null, null);
+            }
+
+            // --- Acciones ---
+            pAcciones.Controls.Clear();
+            foreach (var acc in c.Acciones.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnAddAction_Click(null, null);
+            }
+            foreach (var acc in c.AccionesHabilidad.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnAddAbility_Click(null, null);
+            }
+            foreach (var acc in c.AccionesAdicionales.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnAddActonBonus_Click(null, null);
+            }
+            foreach (var acc in c.Reacciones.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnAddReaction_Click(null, null);
+            }
+
+            // --- Acciones Legendarias ---
+            cbCreaturaLegendaria.Checked = c.EsLegendaria;
+            pAcciones.Controls.Clear();
+            foreach (var acc in c.AccionesLegendarias.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnAddLegendaryAction_Click(null, null);
+            }
+
+            // --- Acciones Míticas ---
+            cbMitica.Checked = c.EsMitica;
+            txtRasgoMitico.Text = c.DescripcionMitica;
+            foreach (var acc in c.AccionesMiticas.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnAddMistycAction_Click(null, null);
+            }
+
+            // --- Acciones de Guarida ---
+            cbGuarida.Checked = c.TieneGuarida;
+            txtRasgoGuarida.Text = c.DescripcionGuarida;
+            foreach (var acc in c.AccionesGuarida.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnAddGuaridaAction_Click(null, null);
+            }
+
+            // --- Efectos Regionales ---
+            cbRegional.Checked = c.TieneEfectosRegionales;
+            txtRasgoRegional.Text = c.DescripcionRegional;
+            foreach (var acc in c.EfectosRegionales.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                btnEfectoRegional_Click(null, null);
+            }
+        }
+
+        /// <summary>
+        /// Extrae el primer número entero de una cadena.
+        /// </summary>
+        private int ExtraerNumero(string texto)
+        {
+            var match = System.Text.RegularExpressions.Regex.Match(texto, @"\d+");
+            return match.Success ? int.Parse(match.Value) : 0;
+        }
 
 
 

@@ -1,4 +1,5 @@
 ﻿using GranDnDDM.Tools;
+using ReaLTaiizor.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,13 +26,19 @@ namespace GranDnDDM.Views
 
         private void DMDashboard_Load(object sender, EventArgs e)
         {
-            foreverForm1.Text = "Tablero de " + GlobalTools.DM;
+            myForm.Text = "Tablero de " + GlobalTools.DM;
             // Configura el inicio en posición manual
             StartPosition = FormStartPosition.Manual;
+            TopMost = true;
 
-            // Posiciona el formulario en la esquina superior izquierda de la pantalla principal
+            // Obtiene el área de trabajo de la pantalla principal
             Rectangle screenArea = Screen.PrimaryScreen.WorkingArea;
-            Location = new Point(screenArea.Left, screenArea.Top);
+
+            // Calcula la posición X centrada
+            int centerX = screenArea.Left + (screenArea.Width - Width) / 2;
+
+            // Establece la ubicación en el centro arriba
+            Location = new Point(centerX, screenArea.Top);
 
         }
 
@@ -55,15 +62,16 @@ namespace GranDnDDM.Views
 
         private void btnCreatures_Click(object sender, EventArgs e)
         {
-            if (cl.IsDisposed) {
+            if (cl.IsDisposed)
+            {
                 cl = new CreatureList();
             }
             cl.Show();
         }
 
-        private void poisonButton1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

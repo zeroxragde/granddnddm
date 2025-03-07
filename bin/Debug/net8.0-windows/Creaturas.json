@@ -1,10 +1,12 @@
 [
   {
     "FileName": "dragon.crea",
-    "Nombre": "Dragon"
+    "Nombre": "Dragon",
+    "CR": "2"
   },
   {
-    "FileName": "mi_creatura.crea",
-    "Nombre": null
+    "FileName": "elfomalo.crea",
+    "Nombre": "elfo malo",
+    "CR": "3"
   }
 ]

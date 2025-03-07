@@ -31,11 +31,14 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DMDashboard));
             imageList1 = new ImageList(components);
-            foreverForm1 = new ReaLTaiizor.Forms.ForeverForm();
+            myForm = new ReaLTaiizor.Forms.NightForm();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             btnCreatures = new Button();
             btnMusicControl = new Button();
             btnMapEditor = new Button();
-            foreverForm1.SuspendLayout();
+            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
+            myForm.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // imageList1
@@ -48,40 +51,44 @@
             imageList1.Images.SetKeyName(2, "guitar.png");
             imageList1.Images.SetKeyName(3, "iconCreature.png");
             // 
-            // foreverForm1
+            // myForm
             // 
-            foreverForm1.BackColor = Color.White;
-            foreverForm1.BaseColor = Color.FromArgb(60, 70, 73);
-            foreverForm1.BorderColor = Color.DodgerBlue;
-            foreverForm1.Controls.Add(btnCreatures);
-            foreverForm1.Controls.Add(btnMusicControl);
-            foreverForm1.Controls.Add(btnMapEditor);
-            foreverForm1.Dock = DockStyle.Fill;
-            foreverForm1.Font = new Font("Segoe UI", 12F);
-            foreverForm1.ForeverColor = Color.FromArgb(35, 168, 109);
-            foreverForm1.HeaderColor = Color.FromArgb(45, 47, 49);
-            foreverForm1.HeaderMaximize = false;
-            foreverForm1.HeaderTextFont = new Font("Segoe UI", 12F);
-            foreverForm1.Image = null;
-            foreverForm1.Location = new Point(0, 0);
-            foreverForm1.MinimumSize = new Size(210, 50);
-            foreverForm1.Name = "foreverForm1";
-            foreverForm1.Padding = new Padding(1, 51, 1, 1);
-            foreverForm1.Sizable = true;
-            foreverForm1.Size = new Size(1475, 150);
-            foreverForm1.TabIndex = 0;
-            foreverForm1.Text = "Dashboard";
-            foreverForm1.TextColor = Color.FromArgb(234, 234, 234);
-            foreverForm1.TextLight = Color.SeaGreen;
+            myForm.BackColor = Color.FromArgb(40, 48, 51);
+            myForm.Controls.Add(flowLayoutPanel1);
+            myForm.Controls.Add(btnClose);
+            myForm.Dock = DockStyle.Fill;
+            myForm.DrawIcon = false;
+            myForm.Font = new Font("Segoe UI", 9F);
+            myForm.HeadColor = Color.FromArgb(50, 58, 61);
+            myForm.Location = new Point(0, 0);
+            myForm.MinimumSize = new Size(100, 42);
+            myForm.Name = "myForm";
+            myForm.Padding = new Padding(0, 31, 0, 0);
+            myForm.Size = new Size(1475, 100);
+            myForm.TabIndex = 0;
+            myForm.Text = "nightForm1";
+            myForm.TextAlignment = ReaLTaiizor.Forms.NightForm.Alignment.Left;
+            myForm.TitleBarTextColor = Color.Gainsboro;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(btnCreatures);
+            flowLayoutPanel1.Controls.Add(btnMusicControl);
+            flowLayoutPanel1.Controls.Add(btnMapEditor);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 31);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1475, 69);
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // btnCreatures
             // 
             btnCreatures.ImageIndex = 3;
             btnCreatures.ImageList = imageList1;
-            btnCreatures.Location = new Point(211, 55);
+            btnCreatures.Location = new Point(3, 3);
             btnCreatures.Name = "btnCreatures";
-            btnCreatures.Size = new Size(78, 83);
-            btnCreatures.TabIndex = 8;
+            btnCreatures.Size = new Size(59, 54);
+            btnCreatures.TabIndex = 14;
             btnCreatures.UseVisualStyleBackColor = true;
             btnCreatures.Click += btnCreatures_Click;
             // 
@@ -89,51 +96,78 @@
             // 
             btnMusicControl.ImageIndex = 2;
             btnMusicControl.ImageList = imageList1;
-            btnMusicControl.Location = new Point(114, 54);
+            btnMusicControl.Location = new Point(68, 3);
             btnMusicControl.Name = "btnMusicControl";
-            btnMusicControl.Size = new Size(78, 83);
-            btnMusicControl.TabIndex = 7;
+            btnMusicControl.Size = new Size(60, 54);
+            btnMusicControl.TabIndex = 13;
             btnMusicControl.UseVisualStyleBackColor = true;
             // 
             // btnMapEditor
             // 
             btnMapEditor.ImageIndex = 1;
             btnMapEditor.ImageList = imageList1;
-            btnMapEditor.Location = new Point(12, 54);
+            btnMapEditor.Location = new Point(134, 3);
             btnMapEditor.Name = "btnMapEditor";
-            btnMapEditor.Size = new Size(78, 83);
-            btnMapEditor.TabIndex = 6;
+            btnMapEditor.Size = new Size(58, 54);
+            btnMapEditor.TabIndex = 12;
             btnMapEditor.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Transparent;
+            btnClose.BackgroundImage = Properties.Resources.closewin;
+            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
+            btnClose.ColorLeft = Color.DodgerBlue;
+            btnClose.ColorRight = Color.DodgerBlue;
+            btnClose.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnClose.FilterAlpha = 200;
+            btnClose.FilterEnabled = true;
+            btnClose.Image = null;
+            btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnClose.IsElipse = false;
+            btnClose.IsParallax = false;
+            btnClose.Location = new Point(1443, 4);
+            btnClose.Name = "btnClose";
+            btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnClose.Size = new Size(27, 26);
+            btnClose.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnClose.TabIndex = 15;
+            btnClose.Text = "btnClose";
+            btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnClose.Click += btnClose_Click;
             // 
             // DMDashboard
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(244, 241, 243);
-            ClientSize = new Size(1475, 150);
-            Controls.Add(foreverForm1);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(1475, 100);
+            Controls.Add(myForm);
             Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             MaximizeBox = false;
-            MaximumSize = new Size(1920, 1040);
-            MinimumSize = new Size(261, 65);
+            MaximumSize = new Size(1600, 860);
+            MinimumSize = new Size(261, 61);
             Name = "DMDashboard";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "dungeonForm1";
+            Text = "themeForm1";
             TransparencyKey = Color.Fuchsia;
             FormClosed += DMDashboard_FormClosed;
             Load += DMDashboard_Load;
-            foreverForm1.ResumeLayout(false);
+            myForm.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private ImageList imageList1;
-        private ReaLTaiizor.Forms.ForeverForm foreverForm1;
+        private ReaLTaiizor.Forms.NightForm myForm;
+        private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCreatures;
         private Button btnMusicControl;
         private Button btnMapEditor;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
     }
 }

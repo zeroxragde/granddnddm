@@ -1,0 +1,79 @@
+{
+  "Nombre": "elfo malo",
+  "Tamanio": "Grande",
+  "Tipo": "Feérico",
+  "Subtipo": null,
+  "Alineamiento": null,
+  "ClaseArmadura": 20,
+  "DescripcionArmadura": "Armadura Natural",
+  "PuntosGolpe": 10,
+  "DadosGolpe": "(2d10)",
+  "VelocidadCaminar": 30,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 8,
+  "Destreza": 15,
+  "Constitucion": 10,
+  "Inteligencia": 15,
+  "Sabiduria": 15,
+  "Carisma": 10,
+  "BonificadorFuerza": -1,
+  "BonificadorDestreza": 2,
+  "BonificadorConstitucion": 0,
+  "BonificadorInteligencia": 2,
+  "BonificadorSabiduria": 2,
+  "BonificadorCarisma": 0,
+  "Salvacion": [
+    "Destreza"
+  ],
+  "Habilidades": {
+    "Sigilo": "COMPETENTE"
+  },
+  "VulnerabilidadesDano": [
+    "Veneno"
+  ],
+  "ResistenciasDano": [],
+  "InmunidadesDano": [],
+  "InmunidadesCondicion": [
+    "Cegado"
+  ],
+  "Sentidos": [
+    "Vision nocturna en 30 pies",
+    "Vision verdadera en 11 pies"
+  ],
+  "Idiomas": {
+    "Élfico": "Habla",
+    "Común": "Habla"
+  },
+  "CR": "3",
+  "XP": 700,
+  "Acciones": [
+    {
+      "Nombre": "Multiattack (Acción)",
+      "Descripcion": "El elfo malo realiza dos ataques."
+    },
+    {
+      "Nombre": "Daga (des)",
+      "Descripcion": "Ataque de arma cuerpo a cuerpo o a distancia: Destreza para impactar, alcance 5 pies o rango 20/60 pies, un objetivo. Impacto: 15+2(1D4) de daño perforante."
+    }
+  ],
+  "AccionesHabilidad": [],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": null,
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": null
+}

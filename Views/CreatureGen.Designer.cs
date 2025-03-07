@@ -29,26 +29,27 @@
         private void InitializeComponent()
         {
             formTheme1 = new ReaLTaiizor.Forms.FormTheme();
+            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             nightPanel1 = new ReaLTaiizor.Controls.NightPanel();
             pCard = new ReaLTaiizor.Controls.Panel();
+            pictureBox1 = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblName = new ReaLTaiizor.Controls.NightLabel();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            nightLabel2 = new ReaLTaiizor.Controls.NightLabel();
-            hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
-            nightLabel19 = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel18 = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel17 = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel16 = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel15 = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel20 = new ReaLTaiizor.Controls.NightLabel();
+            lblOtrosDatos = new ReaLTaiizor.Controls.NightLabel();
+            lblInteligencia = new ReaLTaiizor.Controls.NightLabel();
+            lblCarisma = new ReaLTaiizor.Controls.NightLabel();
+            lblConstitucion = new ReaLTaiizor.Controls.NightLabel();
+            lblDestreza = new ReaLTaiizor.Controls.NightLabel();
+            lblFuerza = new ReaLTaiizor.Controls.NightLabel();
+            lblSabiduria = new ReaLTaiizor.Controls.NightLabel();
             nightLabel14 = new ReaLTaiizor.Controls.NightLabel();
             nightLabel13 = new ReaLTaiizor.Controls.NightLabel();
             nightLabel12 = new ReaLTaiizor.Controls.NightLabel();
             nightLabel10 = new ReaLTaiizor.Controls.NightLabel();
             nightLabel11 = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel9 = new ReaLTaiizor.Controls.NightLabel();
-            nightLabel8 = new ReaLTaiizor.Controls.NightLabel();
+            lblCA = new ReaLTaiizor.Controls.NightLabel();
+            lblPubtosGolpe = new ReaLTaiizor.Controls.NightLabel();
             nightLabel6 = new ReaLTaiizor.Controls.NightLabel();
             nightLabel5 = new ReaLTaiizor.Controls.NightLabel();
             nightLabel4 = new ReaLTaiizor.Controls.NightLabel();
@@ -56,20 +57,20 @@
             panel4 = new Panel();
             panel3 = new Panel();
             panel2 = new Panel();
-            nightLabel7 = new ReaLTaiizor.Controls.NightLabel();
-            pictureBox1 = new PictureBox();
+            lblVelocidades = new ReaLTaiizor.Controls.NightLabel();
+            nightLabel1 = new ReaLTaiizor.Controls.NightLabel();
             formTheme1.SuspendLayout();
             nightPanel1.SuspendLayout();
             pCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // formTheme1
             // 
             formTheme1.BackColor = Color.FromArgb(32, 41, 50);
+            formTheme1.Controls.Add(btnClose);
             formTheme1.Controls.Add(nightPanel1);
             formTheme1.Dock = DockStyle.Fill;
             formTheme1.Font = new Font("Segoe UI", 8F);
@@ -83,6 +84,30 @@
             formTheme1.StartPosition = FormStartPosition.CenterScreen;
             formTheme1.TabIndex = 0;
             formTheme1.Text = "CreatureGenView";
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Transparent;
+            btnClose.BackgroundImage = Properties.Resources.closewin;
+            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
+            btnClose.ColorLeft = Color.DodgerBlue;
+            btnClose.ColorRight = Color.DodgerBlue;
+            btnClose.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnClose.FilterAlpha = 200;
+            btnClose.FilterEnabled = true;
+            btnClose.Image = null;
+            btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnClose.IsElipse = false;
+            btnClose.IsParallax = false;
+            btnClose.Location = new Point(648, 0);
+            btnClose.Name = "btnClose";
+            btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnClose.Size = new Size(27, 26);
+            btnClose.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnClose.TabIndex = 16;
+            btnClose.Text = "btnClose";
+            btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnClose.Click += btnClose_Click;
             // 
             // nightPanel1
             // 
@@ -102,23 +127,23 @@
             // pCard
             // 
             pCard.BackColor = Color.FromArgb(128, 64, 64);
+            pCard.Controls.Add(nightLabel1);
             pCard.Controls.Add(pictureBox1);
             pCard.Controls.Add(flowLayoutPanel1);
             pCard.Controls.Add(flowLayoutPanel2);
-            pCard.Controls.Add(hopePictureBox1);
-            pCard.Controls.Add(nightLabel19);
-            pCard.Controls.Add(nightLabel18);
-            pCard.Controls.Add(nightLabel17);
-            pCard.Controls.Add(nightLabel16);
-            pCard.Controls.Add(nightLabel15);
-            pCard.Controls.Add(nightLabel20);
+            pCard.Controls.Add(lblInteligencia);
+            pCard.Controls.Add(lblCarisma);
+            pCard.Controls.Add(lblConstitucion);
+            pCard.Controls.Add(lblDestreza);
+            pCard.Controls.Add(lblFuerza);
+            pCard.Controls.Add(lblSabiduria);
             pCard.Controls.Add(nightLabel14);
             pCard.Controls.Add(nightLabel13);
             pCard.Controls.Add(nightLabel12);
             pCard.Controls.Add(nightLabel10);
             pCard.Controls.Add(nightLabel11);
-            pCard.Controls.Add(nightLabel9);
-            pCard.Controls.Add(nightLabel8);
+            pCard.Controls.Add(lblCA);
+            pCard.Controls.Add(lblPubtosGolpe);
             pCard.Controls.Add(nightLabel6);
             pCard.Controls.Add(nightLabel5);
             pCard.Controls.Add(nightLabel4);
@@ -126,7 +151,7 @@
             pCard.Controls.Add(panel4);
             pCard.Controls.Add(panel3);
             pCard.Controls.Add(panel2);
-            pCard.Controls.Add(nightLabel7);
+            pCard.Controls.Add(lblVelocidades);
             pCard.EdgeColor = Color.FromArgb(32, 41, 50);
             pCard.Location = new Point(15, 16);
             pCard.Name = "pCard";
@@ -135,6 +160,17 @@
             pCard.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pCard.TabIndex = 4;
             pCard.Text = "panel1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.pencil;
+            pictureBox1.Location = new Point(604, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(42, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 28;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -158,108 +194,96 @@
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Controls.Add(nightLabel2);
+            flowLayoutPanel2.Controls.Add(lblOtrosDatos);
             flowLayoutPanel2.Location = new Point(15, 54);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(539, 32);
             flowLayoutPanel2.TabIndex = 6;
             // 
-            // nightLabel2
+            // lblOtrosDatos
             // 
-            nightLabel2.AutoSize = true;
-            nightLabel2.BackColor = Color.Transparent;
-            nightLabel2.Font = new Font("Candara", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            nightLabel2.ForeColor = Color.FromArgb(224, 224, 224);
-            nightLabel2.Location = new Point(3, 4);
-            nightLabel2.Margin = new Padding(3, 4, 3, 0);
-            nightLabel2.Name = "nightLabel2";
-            nightLabel2.Size = new Size(182, 23);
-            nightLabel2.TabIndex = 2;
-            nightLabel2.Text = "Large fiend, unaligned";
+            lblOtrosDatos.AutoSize = true;
+            lblOtrosDatos.BackColor = Color.Transparent;
+            lblOtrosDatos.Font = new Font("Candara", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblOtrosDatos.ForeColor = Color.FromArgb(224, 224, 224);
+            lblOtrosDatos.Location = new Point(3, 4);
+            lblOtrosDatos.Margin = new Padding(3, 4, 3, 0);
+            lblOtrosDatos.Name = "lblOtrosDatos";
+            lblOtrosDatos.Size = new Size(182, 23);
+            lblOtrosDatos.TabIndex = 2;
+            lblOtrosDatos.Text = "Large fiend, unaligned";
             // 
-            // hopePictureBox1
+            // lblInteligencia
             // 
-            hopePictureBox1.BackColor = Color.FromArgb(192, 196, 204);
-            hopePictureBox1.Location = new Point(440, 229);
-            hopePictureBox1.Name = "hopePictureBox1";
-            hopePictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            hopePictureBox1.Size = new Size(203, 176);
-            hopePictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            hopePictureBox1.TabIndex = 1;
-            hopePictureBox1.TabStop = false;
-            hopePictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            lblInteligencia.AutoSize = true;
+            lblInteligencia.BackColor = Color.Transparent;
+            lblInteligencia.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblInteligencia.ForeColor = Color.FromArgb(255, 192, 128);
+            lblInteligencia.Location = new Point(219, 231);
+            lblInteligencia.Name = "lblInteligencia";
+            lblInteligencia.Size = new Size(57, 20);
+            lblInteligencia.TabIndex = 27;
+            lblInteligencia.Text = "10 (+0)";
             // 
-            // nightLabel19
+            // lblCarisma
             // 
-            nightLabel19.AutoSize = true;
-            nightLabel19.BackColor = Color.Transparent;
-            nightLabel19.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel19.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel19.Location = new Point(219, 231);
-            nightLabel19.Name = "nightLabel19";
-            nightLabel19.Size = new Size(57, 20);
-            nightLabel19.TabIndex = 27;
-            nightLabel19.Text = "10 (+0)";
+            lblCarisma.AutoSize = true;
+            lblCarisma.BackColor = Color.Transparent;
+            lblCarisma.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCarisma.ForeColor = Color.FromArgb(255, 192, 128);
+            lblCarisma.Location = new Point(219, 291);
+            lblCarisma.Name = "lblCarisma";
+            lblCarisma.Size = new Size(57, 20);
+            lblCarisma.TabIndex = 26;
+            lblCarisma.Text = "10 (+0)";
             // 
-            // nightLabel18
+            // lblConstitucion
             // 
-            nightLabel18.AutoSize = true;
-            nightLabel18.BackColor = Color.Transparent;
-            nightLabel18.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel18.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel18.Location = new Point(219, 291);
-            nightLabel18.Name = "nightLabel18";
-            nightLabel18.Size = new Size(57, 20);
-            nightLabel18.TabIndex = 26;
-            nightLabel18.Text = "10 (+0)";
+            lblConstitucion.AutoSize = true;
+            lblConstitucion.BackColor = Color.Transparent;
+            lblConstitucion.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblConstitucion.ForeColor = Color.FromArgb(255, 192, 128);
+            lblConstitucion.Location = new Point(51, 289);
+            lblConstitucion.Name = "lblConstitucion";
+            lblConstitucion.Size = new Size(57, 20);
+            lblConstitucion.TabIndex = 25;
+            lblConstitucion.Text = "10 (+0)";
             // 
-            // nightLabel17
+            // lblDestreza
             // 
-            nightLabel17.AutoSize = true;
-            nightLabel17.BackColor = Color.Transparent;
-            nightLabel17.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel17.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel17.Location = new Point(51, 289);
-            nightLabel17.Name = "nightLabel17";
-            nightLabel17.Size = new Size(57, 20);
-            nightLabel17.TabIndex = 25;
-            nightLabel17.Text = "10 (+0)";
+            lblDestreza.AutoSize = true;
+            lblDestreza.BackColor = Color.Transparent;
+            lblDestreza.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDestreza.ForeColor = Color.FromArgb(255, 192, 128);
+            lblDestreza.Location = new Point(51, 261);
+            lblDestreza.Name = "lblDestreza";
+            lblDestreza.Size = new Size(57, 20);
+            lblDestreza.TabIndex = 24;
+            lblDestreza.Text = "10 (+0)";
             // 
-            // nightLabel16
+            // lblFuerza
             // 
-            nightLabel16.AutoSize = true;
-            nightLabel16.BackColor = Color.Transparent;
-            nightLabel16.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel16.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel16.Location = new Point(51, 261);
-            nightLabel16.Name = "nightLabel16";
-            nightLabel16.Size = new Size(57, 20);
-            nightLabel16.TabIndex = 24;
-            nightLabel16.Text = "10 (+0)";
+            lblFuerza.AutoSize = true;
+            lblFuerza.BackColor = Color.Transparent;
+            lblFuerza.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFuerza.ForeColor = Color.FromArgb(255, 192, 128);
+            lblFuerza.Location = new Point(51, 231);
+            lblFuerza.Name = "lblFuerza";
+            lblFuerza.Size = new Size(57, 20);
+            lblFuerza.TabIndex = 23;
+            lblFuerza.Text = "10 (+0)";
             // 
-            // nightLabel15
+            // lblSabiduria
             // 
-            nightLabel15.AutoSize = true;
-            nightLabel15.BackColor = Color.Transparent;
-            nightLabel15.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel15.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel15.Location = new Point(51, 231);
-            nightLabel15.Name = "nightLabel15";
-            nightLabel15.Size = new Size(57, 20);
-            nightLabel15.TabIndex = 23;
-            nightLabel15.Text = "10 (+0)";
-            // 
-            // nightLabel20
-            // 
-            nightLabel20.AutoSize = true;
-            nightLabel20.BackColor = Color.Transparent;
-            nightLabel20.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel20.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel20.Location = new Point(219, 264);
-            nightLabel20.Name = "nightLabel20";
-            nightLabel20.Size = new Size(57, 20);
-            nightLabel20.TabIndex = 22;
-            nightLabel20.Text = "10 (+0)";
+            lblSabiduria.AutoSize = true;
+            lblSabiduria.BackColor = Color.Transparent;
+            lblSabiduria.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSabiduria.ForeColor = Color.FromArgb(255, 192, 128);
+            lblSabiduria.Location = new Point(219, 264);
+            lblSabiduria.Name = "lblSabiduria";
+            lblSabiduria.Size = new Size(57, 20);
+            lblSabiduria.TabIndex = 22;
+            lblSabiduria.Text = "10 (+0)";
             // 
             // nightLabel14
             // 
@@ -321,29 +345,29 @@
             nightLabel11.TabIndex = 12;
             nightLabel11.Text = "DES";
             // 
-            // nightLabel9
+            // lblCA
             // 
-            nightLabel9.AutoSize = true;
-            nightLabel9.BackColor = Color.Transparent;
-            nightLabel9.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel9.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel9.Location = new Point(180, 109);
-            nightLabel9.Name = "nightLabel9";
-            nightLabel9.Size = new Size(27, 23);
-            nightLabel9.TabIndex = 10;
-            nightLabel9.Text = "12";
+            lblCA.AutoSize = true;
+            lblCA.BackColor = Color.Transparent;
+            lblCA.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCA.ForeColor = Color.FromArgb(255, 192, 128);
+            lblCA.Location = new Point(180, 109);
+            lblCA.Name = "lblCA";
+            lblCA.Size = new Size(27, 23);
+            lblCA.TabIndex = 10;
+            lblCA.Text = "12";
             // 
-            // nightLabel8
+            // lblPubtosGolpe
             // 
-            nightLabel8.AutoSize = true;
-            nightLabel8.BackColor = Color.Transparent;
-            nightLabel8.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel8.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel8.Location = new Point(170, 141);
-            nightLabel8.Name = "nightLabel8";
-            nightLabel8.Size = new Size(118, 23);
-            nightLabel8.TabIndex = 9;
-            nightLabel8.Text = "60 (8d10 + 16)";
+            lblPubtosGolpe.AutoSize = true;
+            lblPubtosGolpe.BackColor = Color.Transparent;
+            lblPubtosGolpe.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPubtosGolpe.ForeColor = Color.FromArgb(255, 192, 128);
+            lblPubtosGolpe.Location = new Point(170, 141);
+            lblPubtosGolpe.Name = "lblPubtosGolpe";
+            lblPubtosGolpe.Size = new Size(118, 23);
+            lblPubtosGolpe.TabIndex = 9;
+            lblPubtosGolpe.Text = "60 (8d10 + 16)";
             // 
             // nightLabel6
             // 
@@ -398,7 +422,7 @@
             panel4.BackColor = Color.FromArgb(255, 192, 128);
             panel4.Location = new Point(12, 321);
             panel4.Name = "panel4";
-            panel4.Size = new Size(422, 10);
+            panel4.Size = new Size(631, 14);
             panel4.TabIndex = 3;
             // 
             // panel3
@@ -417,28 +441,29 @@
             panel2.Size = new Size(635, 10);
             panel2.TabIndex = 1;
             // 
-            // nightLabel7
+            // lblVelocidades
             // 
-            nightLabel7.AutoSize = true;
-            nightLabel7.BackColor = Color.Transparent;
-            nightLabel7.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightLabel7.ForeColor = Color.FromArgb(255, 192, 128);
-            nightLabel7.Location = new Point(117, 170);
-            nightLabel7.Name = "nightLabel7";
-            nightLabel7.Size = new Size(64, 23);
-            nightLabel7.TabIndex = 8;
-            nightLabel7.Text = "30 pies";
+            lblVelocidades.AutoSize = true;
+            lblVelocidades.BackColor = Color.Transparent;
+            lblVelocidades.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblVelocidades.ForeColor = Color.FromArgb(255, 192, 128);
+            lblVelocidades.Location = new Point(117, 170);
+            lblVelocidades.Name = "lblVelocidades";
+            lblVelocidades.Size = new Size(64, 23);
+            lblVelocidades.TabIndex = 8;
+            lblVelocidades.Text = "30 pies";
             // 
-            // pictureBox1
+            // nightLabel1
             // 
-            pictureBox1.Image = Properties.Resources.pencil;
-            pictureBox1.Location = new Point(604, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(42, 42);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 28;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            nightLabel1.AutoSize = true;
+            nightLabel1.BackColor = Color.Transparent;
+            nightLabel1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nightLabel1.ForeColor = Color.FromArgb(255, 192, 128);
+            nightLabel1.Location = new Point(18, 349);
+            nightLabel1.Name = "nightLabel1";
+            nightLabel1.Size = new Size(42, 23);
+            nightLabel1.TabIndex = 29;
+            nightLabel1.Text = "FUE";
             // 
             // CreatureGen
             // 
@@ -461,12 +486,11 @@
             nightPanel1.ResumeLayout(false);
             pCard.ResumeLayout(false);
             pCard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)hopePictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -475,33 +499,34 @@
         private ReaLTaiizor.Forms.FormTheme formTheme1;
         private ReaLTaiizor.Controls.NightPanel nightPanel1;
         private ReaLTaiizor.Controls.Panel pCard;
-        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox1;
-        private ReaLTaiizor.Controls.NightLabel nightLabel19;
-        private ReaLTaiizor.Controls.NightLabel nightLabel18;
-        private ReaLTaiizor.Controls.NightLabel nightLabel17;
-        private ReaLTaiizor.Controls.NightLabel nightLabel16;
-        private ReaLTaiizor.Controls.NightLabel nightLabel15;
-        private ReaLTaiizor.Controls.NightLabel nightLabel20;
+        private ReaLTaiizor.Controls.NightLabel lblInteligencia;
+        private ReaLTaiizor.Controls.NightLabel lblCarisma;
+        private ReaLTaiizor.Controls.NightLabel lblConstitucion;
+        private ReaLTaiizor.Controls.NightLabel lblDestreza;
+        private ReaLTaiizor.Controls.NightLabel lblFuerza;
+        private ReaLTaiizor.Controls.NightLabel lblSabiduria;
         private ReaLTaiizor.Controls.NightLabel nightLabel14;
         private ReaLTaiizor.Controls.NightLabel nightLabel13;
         private ReaLTaiizor.Controls.NightLabel nightLabel12;
         private ReaLTaiizor.Controls.NightLabel nightLabel10;
         private ReaLTaiizor.Controls.NightLabel nightLabel11;
-        private ReaLTaiizor.Controls.NightLabel nightLabel9;
-        private ReaLTaiizor.Controls.NightLabel nightLabel8;
+        private ReaLTaiizor.Controls.NightLabel lblCA;
+        private ReaLTaiizor.Controls.NightLabel lblPubtosGolpe;
         private ReaLTaiizor.Controls.NightLabel nightLabel6;
         private ReaLTaiizor.Controls.NightLabel nightLabel5;
         private ReaLTaiizor.Controls.NightLabel nightLabel4;
         private ReaLTaiizor.Controls.NightLabel nightLabel3;
         private Panel panel4;
         private Panel panel3;
-        private ReaLTaiizor.Controls.NightLabel nightLabel2;
+        private ReaLTaiizor.Controls.NightLabel lblOtrosDatos;
         private Panel panel2;
         private ReaLTaiizor.Controls.NightLabel lblName;
-        private ReaLTaiizor.Controls.NightLabel nightLabel7;
+        private ReaLTaiizor.Controls.NightLabel lblVelocidades;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
         private ReaLTaiizor.Controls.ForeverComboBox cbListType;
         private PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
+        private ReaLTaiizor.Controls.NightLabel nightLabel1;
     }
 }

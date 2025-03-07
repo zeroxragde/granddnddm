@@ -10,5 +10,6 @@ namespace GranDnDDM.Models
     {
         public string FileName { get; set; }  // Nombre del archivo (por ejemplo, "mi_creatura.json")
         public string Nombre { get; set; }    // El nombre de la criatura (propiedad Nombre de tu objeto Creatura)
+        public string CR { get; set; }    // El nombre de la criatura (propiedad Nombre de tu objeto Creatura)
     }
 }

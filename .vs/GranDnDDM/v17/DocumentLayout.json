@@ -1,18 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\",
+  "WorkspaceRootPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\creatureeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creatureeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\dmdashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\dmdashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\creaturegen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creaturegen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,41 +38,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DMDashboard.Designer.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.Designer.cs",
-              "RelativeDocumentMoniker": "Views\\DMDashboard.Designer.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.Designer.cs",
-              "RelativeToolTip": "Views\\DMDashboard.Designer.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAADwv2kAAAA4AAAA",
+              "DocumentIndex": 0,
+              "Title": "CreatureEditor.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureEditor.cs",
+              "RelativeDocumentMoniker": "Views\\CreatureEditor.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureEditor.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\CreatureEditor.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T05:40:43.958Z",
+              "WhenOpened": "2025-03-07T00:07:25.545Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DMDashboard.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\DMDashboard.cs",
+              "RelativeDocumentMoniker": "Views\\DMDashboard.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\DMDashboard.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\DMDashboard.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T23:57:43.332Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreatureGen.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.Designer.cs",
+              "RelativeDocumentMoniker": "Views\\CreatureGen.Designer.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.Designer.cs",
+              "RelativeToolTip": "Views\\CreatureGen.Designer.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwAUCAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T23:36:14.601Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DMDashboard.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
-              "RelativeDocumentMoniker": "Views\\DMDashboard.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
-              "RelativeToolTip": "Views\\DMDashboard.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAArwDoAAAASAAAA",
+              "Title": "CreatureGen.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.cs",
+              "RelativeDocumentMoniker": "Views\\CreatureGen.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\CreatureGen.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T05:39:49.03Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T23:36:09.76Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DMDashboard.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
-              "RelativeDocumentMoniker": "Views\\DMDashboard.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\DMDashboard.cs [Dise\u00F1o]",
+              "DocumentIndex": 2,
+              "Title": "CreatureGen.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.cs",
+              "RelativeDocumentMoniker": "Views\\CreatureGen.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.cs",
+              "RelativeToolTip": "Views\\CreatureGen.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAwDMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T05:38:36.859Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-03-06T23:36:06.876Z",
+              "EditorCaption": ""
             }
           ]
         }

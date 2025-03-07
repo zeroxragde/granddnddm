@@ -34,6 +34,7 @@
             label2 = new Label();
             comboBox1 = new ComboBox();
             label1 = new Label();
+            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             dreamForm1.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(btnClose);
             dreamForm1.Controls.Add(nightButton1);
             dreamForm1.Controls.Add(txtDMName);
             dreamForm1.Controls.Add(label2);
@@ -122,6 +124,30 @@
             label1.TabIndex = 5;
             label1.Text = "Seleccionar Monitor de Mapa:";
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Transparent;
+            btnClose.BackgroundImage = Properties.Resources.closewin;
+            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
+            btnClose.ColorLeft = Color.DodgerBlue;
+            btnClose.ColorRight = Color.DodgerBlue;
+            btnClose.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnClose.FilterAlpha = 200;
+            btnClose.FilterEnabled = true;
+            btnClose.Image = null;
+            btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnClose.IsElipse = false;
+            btnClose.IsParallax = false;
+            btnClose.Location = new Point(396, 1);
+            btnClose.Name = "btnClose";
+            btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnClose.Size = new Size(27, 26);
+            btnClose.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnClose.TabIndex = 11;
+            btnClose.Text = "parrotPictureBox1";
+            btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnClose.Click += btnClose_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
@@ -154,5 +180,6 @@
         private ComboBox comboBox1;
         private Label label1;
         private ReaLTaiizor.Controls.NightButton nightButton1;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
     }
 }

@@ -447,13 +447,17 @@ namespace GranDnDDM.Views
                     string json = JsonConvert.SerializeObject(creatura, Formatting.Indented);
                     // Guarda el JSON en el archivo elegido
                     File.WriteAllText(sfd.FileName, json);
+
+                    ActualizarRegistroCreatura(sfd.FileName);
+                    CreatureGen creatureGen = new CreatureGen(creatura);
+                    creatureGen.Show();
+                    Hide();
+
                     MessageBox.Show("Archivo guardado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 }
-                ActualizarRegistroCreatura(sfd.FileName);
-                CreatureGen creatureGen = new CreatureGen(creatura);
-                creatureGen.Show();
+
 
 
                 return;
@@ -485,7 +489,8 @@ namespace GranDnDDM.Views
             var nuevoRegistro = new CreaturaRecord
             {
                 FileName = Path.GetFileName(savedFilePath),
-                Nombre = creatura.Nombre
+                Nombre = creatura.Nombre,
+                CR = creatura.CR
             };
 
             registros.Add(nuevoRegistro);
@@ -803,19 +808,24 @@ namespace GranDnDDM.Views
                 switch (ctrl.Tag.ToString())
                 {
                     case "caminar":
-                        creatura.VelocidadCaminar = int.Parse(txtVelocidad.Text);
+                        if (!string.IsNullOrEmpty(txtVelocidad.Text))
+                            creatura.VelocidadCaminar = int.Parse(txtVelocidad.Text);
                         break;
                     case "escalar":
-                        creatura.VelocidadEscalado = int.Parse(txtVEscalado.Text);
+                        if (!string.IsNullOrEmpty(txtVEscalado.Text))
+                            creatura.VelocidadEscalado = int.Parse(txtVEscalado.Text);
                         break;
                     case "cavar":
-                        creatura.VelocidadCavar = int.Parse(txtVCavado.Text);
+                        if (!string.IsNullOrEmpty(txtVCavado.Text))
+                            creatura.VelocidadCavar = int.Parse(txtVCavado.Text);
                         break;
                     case "volar":
-                        creatura.VelocidadVolar = int.Parse(txtVVuelo.Text);
+                        if (!string.IsNullOrEmpty(txtVVuelo.Text))
+                            creatura.VelocidadVolar = int.Parse(txtVVuelo.Text);
                         break;
                     case "nadar":
-                        creatura.VelocidadNadar = int.Parse(txtVNado.Text);
+                        if (!string.IsNullOrEmpty(txtVNado.Text))
+                            creatura.VelocidadNadar = int.Parse(txtVNado.Text);
                         break;
                 }
 

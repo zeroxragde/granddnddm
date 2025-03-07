@@ -31,11 +31,13 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatureList));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            listCreature = new DataGridView();
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             btnNueva = new ReaLTaiizor.Controls.DreamButton();
-            crownListView1 = new ReaLTaiizor.Controls.CrownListView();
             imageList1 = new ImageList(components);
+            btnDelete = new ReaLTaiizor.Controls.ParrotPictureBox();
             dreamForm1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)listCreature).BeginInit();
             SuspendLayout();
             // 
             // dreamForm1
@@ -46,18 +48,29 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(btnDelete);
+            dreamForm1.Controls.Add(listCreature);
             dreamForm1.Controls.Add(dreamButton1);
             dreamForm1.Controls.Add(btnNueva);
-            dreamForm1.Controls.Add(crownListView1);
             dreamForm1.Dock = DockStyle.Fill;
+            dreamForm1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dreamForm1.Location = new Point(0, 0);
             dreamForm1.Name = "dreamForm1";
-            dreamForm1.Size = new Size(385, 634);
+            dreamForm1.Size = new Size(385, 603);
             dreamForm1.TabIndex = 0;
             dreamForm1.TabStop = false;
-            dreamForm1.Text = "dreamForm1";
+            dreamForm1.Text = "Lista de Creturas";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // listCreature
+            // 
+            listCreature.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            listCreature.Location = new Point(21, 45);
+            listCreature.Name = "listCreature";
+            listCreature.Size = new Size(310, 496);
+            listCreature.TabIndex = 3;
+            listCreature.CellMouseDoubleClick += listCreature_CellMouseDoubleClick;
             // 
             // dreamButton1
             // 
@@ -67,7 +80,7 @@
             dreamButton1.ColorD = Color.FromArgb(0, 0, 0, 0);
             dreamButton1.ColorE = Color.FromArgb(25, 255, 255, 255);
             dreamButton1.ForeColor = Color.Red;
-            dreamButton1.Location = new Point(253, 562);
+            dreamButton1.Location = new Point(233, 547);
             dreamButton1.Name = "dreamButton1";
             dreamButton1.Size = new Size(120, 40);
             dreamButton1.TabIndex = 2;
@@ -83,21 +96,13 @@
             btnNueva.ColorD = Color.FromArgb(0, 0, 0, 0);
             btnNueva.ColorE = Color.FromArgb(25, 255, 255, 255);
             btnNueva.ForeColor = Color.FromArgb(40, 218, 255);
-            btnNueva.Location = new Point(6, 562);
+            btnNueva.Location = new Point(21, 547);
             btnNueva.Name = "btnNueva";
-            btnNueva.Size = new Size(120, 40);
+            btnNueva.Size = new Size(127, 40);
             btnNueva.TabIndex = 1;
             btnNueva.Text = "Nueva Creatura";
             btnNueva.UseVisualStyleBackColor = true;
             btnNueva.Click += btnNueva_Click;
-            // 
-            // crownListView1
-            // 
-            crownListView1.Location = new Point(21, 40);
-            crownListView1.Name = "crownListView1";
-            crownListView1.Size = new Size(332, 501);
-            crownListView1.TabIndex = 0;
-            crownListView1.Text = "crownListView1";
             // 
             // imageList1
             // 
@@ -106,17 +111,43 @@
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "closewin.png");
             // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.Transparent;
+            btnDelete.BackgroundImage = Properties.Resources.deleteImg;
+            btnDelete.BackgroundImageLayout = ImageLayout.Stretch;
+            btnDelete.ColorLeft = Color.DodgerBlue;
+            btnDelete.ColorRight = Color.DodgerBlue;
+            btnDelete.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnDelete.FilterAlpha = 200;
+            btnDelete.FilterEnabled = true;
+            btnDelete.Image = null;
+            btnDelete.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnDelete.IsElipse = false;
+            btnDelete.IsParallax = false;
+            btnDelete.Location = new Point(334, 45);
+            btnDelete.Name = "btnDelete";
+            btnDelete.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnDelete.Size = new Size(48, 47);
+            btnDelete.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnDelete.TabIndex = 16;
+            btnDelete.Text = "btnClose";
+            btnDelete.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // CreatureList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(385, 634);
+            ClientSize = new Size(385, 603);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CreatureList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreatureList";
+            Load += CreatureList_Load;
             dreamForm1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)listCreature).EndInit();
             ResumeLayout(false);
         }
 
@@ -124,8 +155,9 @@
 
         private ReaLTaiizor.Forms.DreamForm dreamForm1;
         private ReaLTaiizor.Controls.DreamButton btnNueva;
-        private ReaLTaiizor.Controls.CrownListView crownListView1;
         private ImageList imageList1;
         private ReaLTaiizor.Controls.DreamButton dreamButton1;
+        private DataGridView listCreature;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnDelete;
     }
 }

@@ -168,6 +168,91 @@ namespace GranDnDDM.Views
                     pAcciones.Controls.Add(actionLabel);
                 }
             }
+            if (creatura.AccionesAdicionales.Count > 0)
+            {
+                pAcciones.Visible = true;
+                foreach (var action in creatura.AccionesAdicionales)
+                {
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pAccionAdicional.Controls.Add(actionLabel);
+                }
+            }
+            if (creatura.AccionesLegendarias.Count > 0)
+            {
+                pAcciones.Visible = true;
+                foreach (var action in creatura.AccionesLegendarias)
+                {
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pAccionLegendaria.Controls.Add(actionLabel);
+                }
+            }
+            if (creatura.AccionesGuarida.Count > 0)
+            {
+                pAcciones.Visible = true;
+                foreach (var action in creatura.AccionesGuarida)
+                {
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pAccionGuarida.Controls.Add(actionLabel);
+                }
+            }
+            if (creatura.AccionesMiticas.Count > 0)
+            {
+                pAcciones.Visible = true;
+                foreach (var action in creatura.AccionesMiticas)
+                {
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pAccionMitica.Controls.Add(actionLabel);
+                }
+            }
+            if (creatura.EfectosRegionales.Count > 0)
+            {
+                pAcciones.Visible = true;
+                foreach (var action in creatura.EfectosRegionales)
+                {
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pEfectoRegio.Controls.Add(actionLabel);
+                }
+            }
         }
 
 

@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>resData\icon-removebg-preview.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +25,10 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="resData\icon-removebg-preview.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +52,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="items.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="statblockdata.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

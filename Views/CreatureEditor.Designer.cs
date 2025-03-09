@@ -836,6 +836,7 @@
             comboBoxAlineamiento.Name = "comboBoxAlineamiento";
             comboBoxAlineamiento.Size = new Size(211, 36);
             comboBoxAlineamiento.TabIndex = 3;
+            comboBoxAlineamiento.SelectedIndexChanged += comboBoxAlineamiento_SelectedIndexChanged;
             // 
             // cbListtypeM
             // 
@@ -942,7 +943,7 @@
             picFotoCreatura.ColorRight = Color.DodgerBlue;
             picFotoCreatura.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             picFotoCreatura.FilterAlpha = 200;
-            picFotoCreatura.FilterEnabled = true;
+            picFotoCreatura.FilterEnabled = false;
             picFotoCreatura.Image = null;
             picFotoCreatura.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             picFotoCreatura.IsElipse = false;
@@ -1923,6 +1924,7 @@
             ClientSize = new Size(1225, 664);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(126, 0);
             Name = "CreatureEditor";

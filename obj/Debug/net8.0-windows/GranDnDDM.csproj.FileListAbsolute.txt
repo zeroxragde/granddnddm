@@ -108,3 +108,6 @@ X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.Creatur
 X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.CreatureList.resources
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\statblockdata.json
 X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\statblockdata.json
+X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.ShopCreeator.resources
+X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\items.json
+X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.FormDetalleItem.resources

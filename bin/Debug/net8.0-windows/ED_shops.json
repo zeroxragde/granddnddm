@@ -1,0 +1,86 @@
+[
+  {
+    "NombreTienda": "Tiendia ojo virlo",
+    "Items": [
+      {
+        "nombre": "Camisote de malla",
+        "imagen_url": "https://s3-eu-west-2.amazonaws.com/dungeon20/images/2048/small-bc7818eef85036dc35281fd76a53ed38d4ba9525.png?1637235788",
+        "dado": "Desconocido",
+        "tipo_dano": "Desconocido",
+        "propiedades": [],
+        "costo": "50 po",
+        "precio": "50 po",
+        "peso": "20 lb",
+        "descripcion": "Un camisote de malla está hecho de anillos de metal enganchados y se lleva entre capas de tela o cuero para que el sonido de los anillos rozándose entre sí quede amortiguado. Esta armadura ofrece una protección modesta a la parte superior del cuerpo.",
+        "origen": "Reglas básicas",
+        "tipo_objeto": "Armaduras",
+        "categoria": "Armadura intermedia",
+        "Imagen": "System.Drawing.Bitmap"
+      },
+      {
+        "nombre": "Paquete de sacerdote",
+        "imagen_url": "https://s3-eu-west-2.amazonaws.com/dungeon20/images/1912/small-d84011fd7eab50553b266ef1bd5923090e1c8bf5.png?1637235295",
+        "dado": "Desconocido",
+        "tipo_dano": "Desconocido",
+        "propiedades": [],
+        "costo": "19 po",
+        "precio": "19 po",
+        "peso": "",
+        "descripcion": "Incluye una mochila, una manta, 10 velas, un yesquero, una caja para limosnas, 2 barras de incienso, un incensario, vestiduras, raciones para 2 días y una cantimplora.",
+        "origen": "Reglas básicas",
+        "tipo_objeto": "Equipo de aventuras",
+        "categoria": "Paquetes de equipo",
+        "Imagen": "System.Drawing.Bitmap"
+      },
+      {
+        "nombre": "Alabarda",
+        "imagen_url": "https://s3-eu-west-2.amazonaws.com/dungeon20/images/1370/small-e420aaba46eb9e497317df8e59614806ea9b7a6d.PNG?1637065454",
+        "dado": "1d10",
+        "tipo_dano": "cortante",
+        "propiedades": [
+          "Alcance",
+          "Dos manos",
+          "Pesada"
+        ],
+        "costo": "20 po",
+        "precio": "20 po",
+        "peso": "6 lb",
+        "descripcion": "Origen:Reglas básicas",
+        "origen": "No disponible",
+        "tipo_objeto": "Armas",
+        "categoria": "Armas marciales",
+        "Imagen": "System.Drawing.Bitmap"
+      },
+      {
+        "nombre": "Pieles",
+        "imagen_url": "https://s3-eu-west-2.amazonaws.com/dungeon20/images/1928/small-a9c1aed99a6afb43f330d6cbc2fca1050b32988f.png?1637235389",
+        "dado": "Desconocido",
+        "tipo_dano": "Desconocido",
+        "propiedades": [],
+        "costo": "10 po",
+        "precio": "10 po",
+        "peso": "12 lb",
+        "descripcion": "Esta tosca armadura está compuesta por varias capas de pelaje y piel. Normalmente la llevan las tribus bárbaras, los humanoides malignos y otros pueblos que no tienen acceso a las herramientas y a los materiales necesarios para crear una armadura mejor.",
+        "origen": "Reglas básicas",
+        "tipo_objeto": "Armaduras",
+        "categoria": "Armadura intermedia",
+        "Imagen": "System.Drawing.Bitmap"
+      },
+      {
+        "nombre": "Kit de falsificación",
+        "imagen_url": "No disponible",
+        "dado": "Desconocido",
+        "tipo_dano": "Desconocido",
+        "propiedades": [],
+        "costo": "15 po",
+        "precio": "15 po",
+        "peso": "5 lb",
+        "descripcion": "Esta cajita contiene varios papeles y pergaminos, plumas y tintas, sellos y lacres, láminas de oro y metal, y otros suministros necesarios para crear copias convincentes de documentos. Tener competencia con este kit te permite añadir tu bonificador por competencia a cualquier prueba de característica que hagas para falsificar un documento.",
+        "origen": "Reglas básicas",
+        "tipo_objeto": "Equipo de aventuras",
+        "categoria": "Herramientas",
+        "Imagen": null
+      }
+    ]
+  }
+]

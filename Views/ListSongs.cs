@@ -324,10 +324,11 @@ namespace GranDnDDM.Views
                     MessageBox.Show("El archivo de la canción no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (formControl.getIsPlaying()) {
+                if (formControl.getIsPlaying())
+                {
                     formControl.clickOnPlay();
                 }
-               
+
                 player.URL = filePath;
                 formControl.clickOnPlay();
 
@@ -380,7 +381,34 @@ namespace GranDnDDM.Views
                 MessageBox.Show("Canción agregada a la cola.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-    
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void cbCatFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string selectedCategory = cbCatFilter.SelectedItem.ToString();
+
+            // Si selecciona "Todos", mostrar toda la música
+            if (selectedCategory == "Todos")
+            {
+                UpdateMusicGrid();
+                return;
+            }
+
+            // Filtrar por categoría
+            List<MusicRecord> filteredMusic = musicRecords
+                .Where(m => m.Category.Equals(selectedCategory, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            // Actualizar DataGridView con los datos filtrados
+            dvgMusica.DataSource = null;
+            dvgMusica.DataSource = filteredMusic;
+        }
+
 
         ///////////////
     }

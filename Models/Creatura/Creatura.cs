@@ -14,7 +14,6 @@ namespace GranDnDDM.Models.Creatura
         public string Imagen { get; set; }          // Ej: "Goblin", "Dragón Rojo Adulto"
         public string Tamanio { get; set; }         // Ej: "Pequeño", "Mediano", "Grande"
         public string Tipo { get; set; }            // Ej: "Humanoide", "Dragón", "No muerto"
-        public string Subtipo { get; set; }         // Opcional
         public string Alineamiento { get; set; }    // Ej: "Caótico Malvado", "Neutral Bueno"
 
         // --- Clase de Armadura, Puntos de Golpe y Velocidades ---

@@ -18,6 +18,8 @@ namespace GranDnDDM.Views
         private MusicControl music = new MusicControl();
         private EditorMap empa = new EditorMap();
         private CreatureList cl = new CreatureList();
+        private ShopCreeator sh = new ShopCreeator();
+        
         public DMDashboard(Form1 f)
         {
             InitializeComponent();
@@ -51,12 +53,19 @@ namespace GranDnDDM.Views
 
         private void btnMapEditor_Click(object sender, EventArgs e)
         {
+            if (empa.IsDisposed)
+            {
+                empa = new EditorMap();
+            }
             empa.Show();
         }
 
         private void btnMusicControl_Click(object sender, EventArgs e)
         {
-
+            if (music.IsDisposed)
+            {
+                music = new MusicControl();
+            }
             music.Show();
         }
 
@@ -72,6 +81,15 @@ namespace GranDnDDM.Views
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnOpenShop_Click(object sender, EventArgs e)
+        {
+            if (sh.IsDisposed)
+            {
+                sh = new ShopCreeator();
+            }
+            sh.Show();
         }
     }
 }

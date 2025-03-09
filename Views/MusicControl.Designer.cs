@@ -257,11 +257,13 @@
             Controls.Add(btnPrevSong);
             Controls.Add(btnPlay);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MusicControl";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MusicControl";
+            FormClosing += MusicControl_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

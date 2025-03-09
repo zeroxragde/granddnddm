@@ -91,16 +91,16 @@ namespace GranDnDDM.Views
             {
                 lblMusic.Text = "Sin canción";
             }
-          /*  if (GlobalTools.MusicaActual != null)
-            {
-                lblMusic.Text = GlobalTools.MusicaActual.RealName;
-            }
-            else
-            {
-                lblMusic.Text = "Sin canción seleccionada";
-            }*/
+            /*  if (GlobalTools.MusicaActual != null)
+              {
+                  lblMusic.Text = GlobalTools.MusicaActual.RealName;
+              }
+              else
+              {
+                  lblMusic.Text = "Sin canción seleccionada";
+              }*/
         }
-       
+
         public void clickOnPlay()
         {
             btnPlay.PerformClick();
@@ -115,7 +115,7 @@ namespace GranDnDDM.Views
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            if (GlobalTools.MusicaActual == null && GlobalTools.playlist.count ==0 )
+            if (GlobalTools.MusicaActual == null && GlobalTools.playlist.count == 0)
             {
                 MessageBox.Show("No hay canción seleccionada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -193,7 +193,6 @@ namespace GranDnDDM.Views
 
         private void btnOpenSounds_Click(object sender, EventArgs e)
         {
-
             soundControl.Show();
         }
 
@@ -252,6 +251,11 @@ namespace GranDnDDM.Views
                 return;
             }*/
             player.controls.previous();
+        }
+
+        private void MusicControl_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            soundControl.Close();
         }
     }
 }

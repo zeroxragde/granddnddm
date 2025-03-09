@@ -20,10 +20,14 @@ namespace GranDnDDM.Views
     public partial class CreatureEditor : Form
     {
         private Creatura creatura;
+        private bool isEditing =  false;
+        private string filename = "mi_creatura.crea";
 
-        public CreatureEditor(Creatura c)
+        public CreatureEditor(Creatura c, string f)
         {
+            filename = f;
             creatura = new Creatura();
+            isEditing = true;
             init_app();
             creatura = c;
             CargarDatosCreaturaEnFormulario();
@@ -375,7 +379,7 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             if (creatura.Salvacion != null)
             {
-                if (creatura.Salvacion.Contains(textoSeleccionado))
+                if (creatura.Salvacion.Contains(textoSeleccionado) && !isEditing)
                 {
                     return;
                 }
@@ -440,7 +444,7 @@ namespace GranDnDDM.Views
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "Archivos CREA|*.crea|Todos los archivos|*.*";
                 sfd.Title = "Guardar archivo de criatura";
-                sfd.FileName = "mi_creatura.crea"; // Nombre sugerido
+                sfd.FileName = filename; // Nombre sugerido
                 sfd.OverwritePrompt = false;
 
                 // Si el usuario selecciona un archivo...
@@ -454,7 +458,7 @@ namespace GranDnDDM.Views
                     ActualizarRegistroCreatura(sfd.FileName);
                     CreatureGen creatureGen = new CreatureGen(creatura);
                     creatureGen.Show();
-                   // Hide();
+                    // Hide();
 
                     MessageBox.Show("Archivo guardado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -522,7 +526,7 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             if (creatura.Habilidades != null)
             {
-                if (creatura.Habilidades.ContainsKey(textoSeleccionado))
+                if (creatura.Habilidades.ContainsKey(textoSeleccionado) && !isEditing)
                 {
                     return;
                 }
@@ -571,7 +575,7 @@ namespace GranDnDDM.Views
             // Agregamos el Label y el PictureBox al contenedor
             contenedor.Controls.Add(lbl);
             contenedor.Controls.Add(picRemove);
-            creatura.Habilidades.Add(textoSeleccionado, tipo);
+            if(!isEditing)creatura.Habilidades.Add(textoSeleccionado, tipo);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pHabilidades.Controls.Add(contenedor);
         }
@@ -588,7 +592,7 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             if (creatura.InmunidadesCondicion != null)
             {
-                if (creatura.InmunidadesCondicion.Contains(textoSeleccionado))
+                if (creatura.InmunidadesCondicion.Contains(textoSeleccionado) && !isEditing)
                 {
                     return;
                 }
@@ -857,7 +861,7 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             if (creatura.VulnerabilidadesDano != null)
             {
-                if (creatura.VulnerabilidadesDano.Contains(textoSeleccionado))
+                if (creatura.VulnerabilidadesDano.Contains(textoSeleccionado) && !isEditing)
                 {
                     return;
                 }
@@ -923,7 +927,7 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             if (creatura.ResistenciasDano != null)
             {
-                if (creatura.ResistenciasDano.Contains(textoSeleccionado))
+                if (creatura.ResistenciasDano.Contains(textoSeleccionado) && !isEditing)
                 {
                     return;
                 }
@@ -989,7 +993,7 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             if (creatura.InmunidadesDano != null)
             {
-                if (creatura.InmunidadesDano.Contains(textoSeleccionado))
+                if (creatura.InmunidadesDano.Contains(textoSeleccionado) && !isEditing)
                 {
                     return;
                 }
@@ -1066,7 +1070,7 @@ namespace GranDnDDM.Views
             if (string.IsNullOrEmpty(textoSeleccionado)) return;
             if (creatura.Idiomas != null)
             {
-                if (creatura.Idiomas.ContainsKey(textoSeleccionado))
+                if (creatura.Idiomas.ContainsKey(textoSeleccionado) && !isEditing)
                 {
                     return;
                 }
@@ -1115,7 +1119,7 @@ namespace GranDnDDM.Views
             // Agregamos el Label y el PictureBox al contenedor
             contenedor.Controls.Add(lbl);
             contenedor.Controls.Add(picRemove);
-            creatura.Idiomas.Add(textoSeleccionado, tipo);
+            if (!isEditing)creatura.Idiomas.Add(textoSeleccionado, tipo);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pIdiomasList.Controls.Add(contenedor);
         }
@@ -2156,7 +2160,7 @@ namespace GranDnDDM.Views
                 int firstNumber = int.Parse(match.Value);
                 txtDados.Text = firstNumber.ToString();
             }
-               
+
 
             // --- Velocidades ---
             txtVelocidad.Text = c.VelocidadCaminar.ToString();
@@ -2167,18 +2171,24 @@ namespace GranDnDDM.Views
 
             // --- Habilidades y Stats ---
             txtFuerza.Text = c.Fuerza.ToString();
+            txtFuerza_Leave(null,null);
             txtDes.Text = c.Destreza.ToString();
+            txtDes_Leave(null, null);
             txtCons.Text = c.Constitucion.ToString();
+            ttCons_Leave(null, null);
             txtInt.Text = c.Inteligencia.ToString();
+            txtInt_Leave(null, null);
             txtSab.Text = c.Sabiduria.ToString();
+            txtSab_Leave(null, null);
             txtCar.Text = c.Carisma.ToString();
+            txtCar_Leave(null, null);
 
             // --- CR y Experiencia ---
             cbCR.SelectedItem = $"{c.CR} ({c.XP} XP)";
 
             // --- Salvaciones ---
             pTiradasSav.Controls.Clear();
-            foreach (var salv in c.Salvacion)
+            foreach (var salv in c.Salvacion.ToList())
             {
                 cbSavingThrows.SelectedItem = salv;
                 btnAddTiradaSave_Click(null, null);
@@ -2195,17 +2205,17 @@ namespace GranDnDDM.Views
 
             // --- Resistencias, Inmunidades y Vulnerabilidades ---
             pDasmagesList.Controls.Clear();
-            foreach (var vul in c.VulnerabilidadesDano)
+            foreach (var vul in c.VulnerabilidadesDano.ToList())
             {
                 cbDamageTypes.SelectedItem = vul;
                 btnDemageTypesVul_Click(null, null);
             }
-            foreach (var res in c.ResistenciasDano)
+            foreach (var res in c.ResistenciasDano.ToList())
             {
                 cbDamageTypes.SelectedItem = res;
                 btnDemageTypesRes_Click(null, null);
             }
-            foreach (var inm in c.InmunidadesDano)
+            foreach (var inm in c.InmunidadesDano.ToList())
             {
                 cbDamageTypes.SelectedItem = inm;
                 btnDemageTypesInmu_Click(null, null);
@@ -2213,14 +2223,14 @@ namespace GranDnDDM.Views
 
             // --- Inmunidades a Condiciones ---
             pCondiciones.Controls.Clear();
-            foreach (var cond in c.InmunidadesCondicion)
+            foreach (var cond in c.InmunidadesCondicion.ToList())
             {
                 cbCondiciones.SelectedItem = cond;
                 btnAddCondiciones_Click(null, null);
             }
 
             // --- Sentidos ---
-            foreach (var sentido in c.Sentidos)
+            foreach (var sentido in c.Sentidos.ToList())
             {
                 if (sentido.Contains("Vision nocturna")) txtVistaNocturna.Text = ExtraerNumero(sentido).ToString();
                 if (sentido.Contains("Vista ciega"))
@@ -2233,12 +2243,31 @@ namespace GranDnDDM.Views
             }
 
             // --- Idiomas ---
-            pIdiomasList.Controls.Clear();
-            foreach (var idioma in c.Idiomas)
+            foreach (var idioma in c.Idiomas.ToList())
             {
-                cbIdiomas.SelectedItem = idioma.Key;
-                if (idioma.Value.Contains("Habla")) btnAddHabla_Click(null, null);
-                else if (idioma.Value.Contains("Entiende")) btnAddEntiende_Click(null, null);
+                string idiomaNombre = idioma.Key;
+                string idiomaTipo = idioma.Value;
+
+                // Extraer telepatía si está presente
+                string telepatiaValor = ExtraerTelepatia(idiomaTipo);
+
+                if (!string.IsNullOrEmpty(telepatiaValor))
+                {
+                    txtTelepatia.Text = telepatiaValor; // Guardamos el rango de telepatía
+                }
+
+                // Asignamos el idioma actual antes de simular el click
+                cbIdiomas.SelectedItem = idiomaNombre;
+
+                // Simular el click en los botones
+                if (idiomaTipo.Contains("Habla"))
+                {
+                    btnAddHabla_Click(btnAddHabla, EventArgs.Empty); // Simula el click real
+                }
+                else if (idiomaTipo.Contains("Entiende"))
+                {
+                    btnAddEntiende_Click(btnAddEntiende, EventArgs.Empty); // Simula el click real
+                }
             }
 
             // --- Acciones ---
@@ -2318,7 +2347,29 @@ namespace GranDnDDM.Views
             return match.Success ? int.Parse(match.Value) : 0;
         }
 
+        private void comboBoxAlineamiento_SelectedIndexChanged(object sender, EventArgs e)
+        {  
+            if (comboBoxAlineamiento.SelectedItem != null)
+            {
+                string alineamientoSeleccionado = comboBoxAlineamiento.SelectedItem.ToString();
+                creatura.Alineamiento = alineamientoSeleccionado;
+            }
+            
+        }
 
+        private string ExtraerTelepatia(string texto)
+        {
+            if (texto.Contains("Telepatia en"))
+            {
+                // Extraemos el número después de "Telepatia en"
+                string[] partes = texto.Split(new string[] { " Telepatia en " }, StringSplitOptions.None);
+                if (partes.Length > 1)
+                {
+                    return partes[1]; // Devuelve solo el valor de telepatía
+                }
+            }
+            return "";
+        }
 
 
 

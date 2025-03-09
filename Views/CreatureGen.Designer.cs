@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatureGen));
             formTheme1 = new ReaLTaiizor.Forms.FormTheme();
             tabPagesCreatura = new ReaLTaiizor.Controls.AirTabPage();
             tabGeneral = new TabPage();
@@ -90,14 +91,30 @@
             lblIdiomas = new ReaLTaiizor.Controls.NightLabel();
             tabAcciones = new TabPage();
             panel8 = new ReaLTaiizor.Controls.Panel();
-            flowLayoutPanel3 = new FlowLayoutPanel();
+            pAccionAdicional = new FlowLayoutPanel();
             panel11 = new Panel();
             bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             pAcciones = new FlowLayoutPanel();
             tabALegends = new TabPage();
+            panel13 = new ReaLTaiizor.Controls.Panel();
+            panel14 = new Panel();
+            bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
+            pAccionLegendaria = new FlowLayoutPanel();
             tabAGuarida = new TabPage();
+            panel15 = new ReaLTaiizor.Controls.Panel();
+            panel16 = new Panel();
+            bigLabel3 = new ReaLTaiizor.Controls.BigLabel();
+            pAccionGuarida = new FlowLayoutPanel();
             tabAMitica = new TabPage();
+            panel17 = new ReaLTaiizor.Controls.Panel();
+            panel18 = new Panel();
+            bigLabel4 = new ReaLTaiizor.Controls.BigLabel();
+            pAccionMitica = new FlowLayoutPanel();
             tabERegional = new TabPage();
+            panel19 = new ReaLTaiizor.Controls.Panel();
+            panel20 = new Panel();
+            bigLabel5 = new ReaLTaiizor.Controls.BigLabel();
+            pEfectoRegio = new FlowLayoutPanel();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             formTheme1.SuspendLayout();
             tabPagesCreatura.SuspendLayout();
@@ -124,6 +141,14 @@
             panel9.SuspendLayout();
             tabAcciones.SuspendLayout();
             panel8.SuspendLayout();
+            tabALegends.SuspendLayout();
+            panel13.SuspendLayout();
+            tabAGuarida.SuspendLayout();
+            panel15.SuspendLayout();
+            tabAMitica.SuspendLayout();
+            panel17.SuspendLayout();
+            tabERegional.SuspendLayout();
+            panel19.SuspendLayout();
             SuspendLayout();
             // 
             // formTheme1
@@ -862,7 +887,7 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(128, 64, 64);
-            panel8.Controls.Add(flowLayoutPanel3);
+            panel8.Controls.Add(pAccionAdicional);
             panel8.Controls.Add(panel11);
             panel8.Controls.Add(bigLabel1);
             panel8.Controls.Add(pAcciones);
@@ -875,15 +900,15 @@
             panel8.TabIndex = 7;
             panel8.Text = "panel1";
             // 
-            // flowLayoutPanel3
+            // pAccionAdicional
             // 
-            flowLayoutPanel3.AutoScroll = true;
-            flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel3.Location = new Point(21, 338);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(714, 208);
-            flowLayoutPanel3.TabIndex = 1;
-            flowLayoutPanel3.WrapContents = false;
+            pAccionAdicional.AutoScroll = true;
+            pAccionAdicional.FlowDirection = FlowDirection.TopDown;
+            pAccionAdicional.Location = new Point(21, 338);
+            pAccionAdicional.Name = "pAccionAdicional";
+            pAccionAdicional.Size = new Size(714, 208);
+            pAccionAdicional.TabIndex = 1;
+            pAccionAdicional.WrapContents = false;
             // 
             // panel11
             // 
@@ -920,44 +945,230 @@
             tabALegends.BackColor = Color.White;
             tabALegends.BackgroundImage = Properties.Resources.backEpicoNormalized;
             tabALegends.BackgroundImageLayout = ImageLayout.Stretch;
+            tabALegends.Controls.Add(panel13);
             tabALegends.Location = new Point(119, 4);
             tabALegends.Name = "tabALegends";
             tabALegends.Size = new Size(823, 597);
             tabALegends.TabIndex = 3;
             tabALegends.Text = "A. Legendarias";
             // 
+            // panel13
+            // 
+            panel13.BackColor = Color.FromArgb(128, 64, 64);
+            panel13.Controls.Add(panel14);
+            panel13.Controls.Add(bigLabel2);
+            panel13.Controls.Add(pAccionLegendaria);
+            panel13.EdgeColor = Color.FromArgb(32, 41, 50);
+            panel13.Location = new Point(38, 21);
+            panel13.Name = "panel13";
+            panel13.Padding = new Padding(5);
+            panel13.Size = new Size(747, 554);
+            panel13.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panel13.TabIndex = 8;
+            panel13.Text = "panel1";
+            // 
+            // panel14
+            // 
+            panel14.BackColor = Color.DarkRed;
+            panel14.Location = new Point(15, 54);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(714, 10);
+            panel14.TabIndex = 2;
+            // 
+            // bigLabel2
+            // 
+            bigLabel2.AutoSize = true;
+            bigLabel2.BackColor = Color.Transparent;
+            bigLabel2.Font = new Font("Segoe UI", 25F);
+            bigLabel2.ForeColor = Color.FromArgb(255, 128, 0);
+            bigLabel2.Location = new Point(8, 5);
+            bigLabel2.Name = "bigLabel2";
+            bigLabel2.Size = new Size(295, 46);
+            bigLabel2.TabIndex = 1;
+            bigLabel2.Text = "Accion Legendaria";
+            // 
+            // pAccionLegendaria
+            // 
+            pAccionLegendaria.AutoScroll = true;
+            pAccionLegendaria.FlowDirection = FlowDirection.TopDown;
+            pAccionLegendaria.Location = new Point(18, 70);
+            pAccionLegendaria.Margin = new Padding(10);
+            pAccionLegendaria.Name = "pAccionLegendaria";
+            pAccionLegendaria.Size = new Size(719, 476);
+            pAccionLegendaria.TabIndex = 0;
+            pAccionLegendaria.WrapContents = false;
+            // 
             // tabAGuarida
             // 
             tabAGuarida.BackColor = Color.White;
             tabAGuarida.BackgroundImage = Properties.Resources.backEpicoNormalized;
             tabAGuarida.BackgroundImageLayout = ImageLayout.Stretch;
+            tabAGuarida.Controls.Add(panel15);
             tabAGuarida.Location = new Point(119, 4);
             tabAGuarida.Name = "tabAGuarida";
             tabAGuarida.Size = new Size(823, 597);
             tabAGuarida.TabIndex = 4;
             tabAGuarida.Text = "Acciones Guarida";
             // 
+            // panel15
+            // 
+            panel15.BackColor = Color.FromArgb(128, 64, 64);
+            panel15.Controls.Add(panel16);
+            panel15.Controls.Add(bigLabel3);
+            panel15.Controls.Add(pAccionGuarida);
+            panel15.EdgeColor = Color.FromArgb(32, 41, 50);
+            panel15.Location = new Point(38, 21);
+            panel15.Name = "panel15";
+            panel15.Padding = new Padding(5);
+            panel15.Size = new Size(747, 554);
+            panel15.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panel15.TabIndex = 9;
+            panel15.Text = "panel1";
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.DarkRed;
+            panel16.Location = new Point(15, 54);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(714, 10);
+            panel16.TabIndex = 2;
+            // 
+            // bigLabel3
+            // 
+            bigLabel3.AutoSize = true;
+            bigLabel3.BackColor = Color.Transparent;
+            bigLabel3.Font = new Font("Segoe UI", 25F);
+            bigLabel3.ForeColor = Color.FromArgb(255, 128, 0);
+            bigLabel3.Location = new Point(8, 5);
+            bigLabel3.Name = "bigLabel3";
+            bigLabel3.Size = new Size(246, 46);
+            bigLabel3.TabIndex = 1;
+            bigLabel3.Text = "Accion Guarida";
+            // 
+            // pAccionGuarida
+            // 
+            pAccionGuarida.AutoScroll = true;
+            pAccionGuarida.FlowDirection = FlowDirection.TopDown;
+            pAccionGuarida.Location = new Point(18, 70);
+            pAccionGuarida.Name = "pAccionGuarida";
+            pAccionGuarida.Size = new Size(719, 476);
+            pAccionGuarida.TabIndex = 0;
+            pAccionGuarida.WrapContents = false;
+            // 
             // tabAMitica
             // 
             tabAMitica.BackColor = Color.White;
             tabAMitica.BackgroundImage = Properties.Resources.backEpicoNormalized;
             tabAMitica.BackgroundImageLayout = ImageLayout.Stretch;
+            tabAMitica.Controls.Add(panel17);
             tabAMitica.Location = new Point(119, 4);
             tabAMitica.Name = "tabAMitica";
             tabAMitica.Size = new Size(823, 597);
             tabAMitica.TabIndex = 5;
             tabAMitica.Text = "Acciones Miticas";
             // 
+            // panel17
+            // 
+            panel17.BackColor = Color.FromArgb(128, 64, 64);
+            panel17.Controls.Add(panel18);
+            panel17.Controls.Add(bigLabel4);
+            panel17.Controls.Add(pAccionMitica);
+            panel17.EdgeColor = Color.FromArgb(32, 41, 50);
+            panel17.Location = new Point(38, 21);
+            panel17.Name = "panel17";
+            panel17.Padding = new Padding(5);
+            panel17.Size = new Size(747, 554);
+            panel17.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panel17.TabIndex = 10;
+            panel17.Text = "panel1";
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.DarkRed;
+            panel18.Location = new Point(15, 54);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(714, 10);
+            panel18.TabIndex = 2;
+            // 
+            // bigLabel4
+            // 
+            bigLabel4.AutoSize = true;
+            bigLabel4.BackColor = Color.Transparent;
+            bigLabel4.Font = new Font("Segoe UI", 25F);
+            bigLabel4.ForeColor = Color.FromArgb(255, 128, 0);
+            bigLabel4.Location = new Point(8, 5);
+            bigLabel4.Name = "bigLabel4";
+            bigLabel4.Size = new Size(222, 46);
+            bigLabel4.TabIndex = 1;
+            bigLabel4.Text = "Accion Mitica";
+            // 
+            // pAccionMitica
+            // 
+            pAccionMitica.AutoScroll = true;
+            pAccionMitica.FlowDirection = FlowDirection.TopDown;
+            pAccionMitica.Location = new Point(18, 70);
+            pAccionMitica.Name = "pAccionMitica";
+            pAccionMitica.Size = new Size(719, 476);
+            pAccionMitica.TabIndex = 0;
+            pAccionMitica.WrapContents = false;
+            // 
             // tabERegional
             // 
             tabERegional.BackColor = Color.White;
             tabERegional.BackgroundImage = Properties.Resources.backEpicoNormalized;
             tabERegional.BackgroundImageLayout = ImageLayout.Stretch;
+            tabERegional.Controls.Add(panel19);
             tabERegional.Location = new Point(119, 4);
             tabERegional.Name = "tabERegional";
             tabERegional.Size = new Size(823, 597);
             tabERegional.TabIndex = 6;
             tabERegional.Text = "Efecto Regional";
+            // 
+            // panel19
+            // 
+            panel19.BackColor = Color.FromArgb(128, 64, 64);
+            panel19.Controls.Add(panel20);
+            panel19.Controls.Add(bigLabel5);
+            panel19.Controls.Add(pEfectoRegio);
+            panel19.EdgeColor = Color.FromArgb(32, 41, 50);
+            panel19.Location = new Point(38, 21);
+            panel19.Name = "panel19";
+            panel19.Padding = new Padding(5);
+            panel19.Size = new Size(747, 554);
+            panel19.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panel19.TabIndex = 11;
+            panel19.Text = "panel1";
+            // 
+            // panel20
+            // 
+            panel20.BackColor = Color.DarkRed;
+            panel20.Location = new Point(15, 54);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(714, 10);
+            panel20.TabIndex = 2;
+            // 
+            // bigLabel5
+            // 
+            bigLabel5.AutoSize = true;
+            bigLabel5.BackColor = Color.Transparent;
+            bigLabel5.Font = new Font("Segoe UI", 25F);
+            bigLabel5.ForeColor = Color.FromArgb(255, 128, 0);
+            bigLabel5.Location = new Point(8, 5);
+            bigLabel5.Name = "bigLabel5";
+            bigLabel5.Size = new Size(252, 46);
+            bigLabel5.TabIndex = 1;
+            bigLabel5.Text = "Efecto Regional";
+            // 
+            // pEfectoRegio
+            // 
+            pEfectoRegio.AutoScroll = true;
+            pEfectoRegio.FlowDirection = FlowDirection.TopDown;
+            pEfectoRegio.Location = new Point(18, 70);
+            pEfectoRegio.Margin = new Padding(10);
+            pEfectoRegio.Name = "pEfectoRegio";
+            pEfectoRegio.Size = new Size(719, 476);
+            pEfectoRegio.TabIndex = 0;
+            pEfectoRegio.WrapContents = false;
             // 
             // btnClose
             // 
@@ -992,6 +1203,7 @@
             Controls.Add(formTheme1);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(126, 50);
             Name = "CreatureGen";
             ShowIcon = false;
@@ -1040,6 +1252,18 @@
             tabAcciones.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            tabALegends.ResumeLayout(false);
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            tabAGuarida.ResumeLayout(false);
+            panel15.ResumeLayout(false);
+            panel15.PerformLayout();
+            tabAMitica.ResumeLayout(false);
+            panel17.ResumeLayout(false);
+            panel17.PerformLayout();
+            tabERegional.ResumeLayout(false);
+            panel19.ResumeLayout(false);
+            panel19.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1111,11 +1335,27 @@
         private TabPage tabAGuarida;
         private TabPage tabAMitica;
         private TabPage tabERegional;
-        private FlowLayoutPanel flowLayoutPanel3;
+        private FlowLayoutPanel pAccionAdicional;
         private FlowLayoutPanel flpCondiciones;
         private ReaLTaiizor.Controls.NightLabel nightLabel9;
         private Panel panel12;
         private ReaLTaiizor.Controls.NightLabel lblCondiciones;
         private PictureBox imgCreatura;
+        private ReaLTaiizor.Controls.Panel panel13;
+        private Panel panel14;
+        private ReaLTaiizor.Controls.BigLabel bigLabel2;
+        private FlowLayoutPanel pAccionLegendaria;
+        private ReaLTaiizor.Controls.Panel panel15;
+        private Panel panel16;
+        private ReaLTaiizor.Controls.BigLabel bigLabel3;
+        private FlowLayoutPanel pAccionGuarida;
+        private ReaLTaiizor.Controls.Panel panel17;
+        private Panel panel18;
+        private ReaLTaiizor.Controls.BigLabel bigLabel4;
+        private FlowLayoutPanel pAccionMitica;
+        private ReaLTaiizor.Controls.Panel panel19;
+        private Panel panel20;
+        private ReaLTaiizor.Controls.BigLabel bigLabel5;
+        private FlowLayoutPanel pEfectoRegio;
     }
 }

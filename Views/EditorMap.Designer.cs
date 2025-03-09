@@ -30,50 +30,32 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorMap));
+            imageList1 = new ImageList(components);
+            imageList2 = new ImageList(components);
+            ilCursores = new ImageList(components);
+            ilTiles = new ImageList(components);
+            dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
+            btnRefresh = new Button();
+            pGrid = new Panel();
+            mapEditor = new GranDnDDM.Tools.MapEditor();
+            btnLoadMap = new Button();
+            btnSaveMap = new Button();
+            pvPreview = new PictureBox();
+            btnDeleteImg = new Button();
+            listViewTiles = new ListView();
+            btnNone = new Button();
+            btnErase = new Button();
+            btnDraw = new Button();
+            btnAddLayer = new Button();
+            cmbLayers = new ComboBox();
             CmbFilter = new ComboBox();
             btnAddImage = new Button();
-            imageList1 = new ImageList(components);
             cmbCategory = new ComboBox();
-            cmbLayers = new ComboBox();
-            btnAddLayer = new Button();
-            imageList2 = new ImageList(components);
-            btnDraw = new Button();
-            btnErase = new Button();
-            ilCursores = new ImageList(components);
-            btnNone = new Button();
-            listViewTiles = new ListView();
-            ilTiles = new ImageList(components);
-            btnDeleteImg = new Button();
-            pvPreview = new PictureBox();
-            btnSaveMap = new Button();
-            btnLoadMap = new Button();
-            pGrid = new Panel();
-            mapEditor = new Tools.MapEditor();
-            btnRefresh = new Button();
-            ((System.ComponentModel.ISupportInitialize)pvPreview).BeginInit();
+            dreamForm1.SuspendLayout();
             pGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pvPreview).BeginInit();
             SuspendLayout();
-            // 
-            // CmbFilter
-            // 
-            CmbFilter.FormattingEnabled = true;
-            CmbFilter.Location = new Point(12, 463);
-            CmbFilter.Name = "CmbFilter";
-            CmbFilter.Size = new Size(347, 23);
-            CmbFilter.TabIndex = 7;
-            CmbFilter.SelectedIndexChanged += CmbFilter_SelectedIndexChanged;
-            // 
-            // btnAddImage
-            // 
-            btnAddImage.ForeColor = Color.Black;
-            btnAddImage.ImageIndex = 0;
-            btnAddImage.ImageList = imageList1;
-            btnAddImage.Location = new Point(12, 12);
-            btnAddImage.Name = "btnAddImage";
-            btnAddImage.Size = new Size(78, 69);
-            btnAddImage.TabIndex = 5;
-            btnAddImage.UseVisualStyleBackColor = true;
-            btnAddImage.Click += btnAddImage_Click;
             // 
             // imageList1
             // 
@@ -82,37 +64,6 @@
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "add_img.png");
             imageList1.Images.SetKeyName(1, "add_layer.png");
-            // 
-            // cmbCategory
-            // 
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(13, 88);
-            cmbCategory.Margin = new Padding(4);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(149, 23);
-            cmbCategory.TabIndex = 4;
-            // 
-            // cmbLayers
-            // 
-            cmbLayers.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbLayers.FormattingEnabled = true;
-            cmbLayers.Location = new Point(1017, 425);
-            cmbLayers.Name = "cmbLayers";
-            cmbLayers.Size = new Size(383, 23);
-            cmbLayers.TabIndex = 9;
-            cmbLayers.SelectedIndexChanged += cmbLayers_SelectedIndexChanged;
-            // 
-            // btnAddLayer
-            // 
-            btnAddLayer.ForeColor = Color.Black;
-            btnAddLayer.ImageIndex = 0;
-            btnAddLayer.ImageList = imageList2;
-            btnAddLayer.Location = new Point(371, 425);
-            btnAddLayer.Name = "btnAddLayer";
-            btnAddLayer.Size = new Size(44, 41);
-            btnAddLayer.TabIndex = 10;
-            btnAddLayer.UseVisualStyleBackColor = true;
-            btnAddLayer.Click += btnAddLayer_Click;
             // 
             // imageList2
             // 
@@ -126,30 +77,7 @@
             imageList2.Images.SetKeyName(4, "deleteImg.png");
             imageList2.Images.SetKeyName(5, "save.png");
             imageList2.Images.SetKeyName(6, "6385107.png");
-            // 
-            // btnDraw
-            // 
-            btnDraw.ForeColor = Color.Black;
-            btnDraw.ImageIndex = 1;
-            btnDraw.ImageList = imageList2;
-            btnDraw.Location = new Point(421, 425);
-            btnDraw.Name = "btnDraw";
-            btnDraw.Size = new Size(44, 41);
-            btnDraw.TabIndex = 11;
-            btnDraw.UseVisualStyleBackColor = true;
-            btnDraw.Click += btnDraw_Click;
-            // 
-            // btnErase
-            // 
-            btnErase.ForeColor = Color.Black;
-            btnErase.ImageIndex = 2;
-            btnErase.ImageList = imageList2;
-            btnErase.Location = new Point(471, 425);
-            btnErase.Name = "btnErase";
-            btnErase.Size = new Size(44, 41);
-            btnErase.TabIndex = 12;
-            btnErase.UseVisualStyleBackColor = true;
-            btnErase.Click += btnErase_Click;
+            imageList2.Images.SetKeyName(7, "refresh_map.png");
             // 
             // ilCursores
             // 
@@ -158,89 +86,94 @@
             ilCursores.TransparentColor = Color.Transparent;
             ilCursores.Images.SetKeyName(0, "penMouse.ico");
             // 
-            // btnNone
-            // 
-            btnNone.ForeColor = Color.Black;
-            btnNone.ImageIndex = 3;
-            btnNone.ImageList = imageList2;
-            btnNone.Location = new Point(521, 425);
-            btnNone.Name = "btnNone";
-            btnNone.Size = new Size(44, 41);
-            btnNone.TabIndex = 13;
-            btnNone.UseVisualStyleBackColor = true;
-            btnNone.Click += btnNone_Click;
-            // 
-            // listViewTiles
-            // 
-            listViewTiles.CheckBoxes = true;
-            listViewTiles.LargeImageList = ilTiles;
-            listViewTiles.Location = new Point(13, 118);
-            listViewTiles.Name = "listViewTiles";
-            listViewTiles.Size = new Size(346, 339);
-            listViewTiles.TabIndex = 14;
-            listViewTiles.UseCompatibleStateImageBehavior = false;
-            listViewTiles.SelectedIndexChanged += listViewTiles_SelectedIndexChanged;
-            listViewTiles.MouseDown += listViewTiles_MouseDown;
-            // 
             // ilTiles
             // 
             ilTiles.ColorDepth = ColorDepth.Depth32Bit;
             ilTiles.ImageSize = new Size(64, 64);
             ilTiles.TransparentColor = Color.Transparent;
             // 
-            // btnDeleteImg
+            // dreamForm1
             // 
-            btnDeleteImg.ForeColor = Color.Black;
-            btnDeleteImg.ImageIndex = 4;
-            btnDeleteImg.ImageList = imageList2;
-            btnDeleteImg.Location = new Point(315, 70);
-            btnDeleteImg.Name = "btnDeleteImg";
-            btnDeleteImg.Size = new Size(44, 41);
-            btnDeleteImg.TabIndex = 15;
-            btnDeleteImg.UseVisualStyleBackColor = true;
-            btnDeleteImg.Click += btnDeleteImg_Click;
+            dreamForm1.ColorA = Color.FromArgb(40, 218, 255);
+            dreamForm1.ColorB = Color.FromArgb(63, 63, 63);
+            dreamForm1.ColorC = Color.FromArgb(41, 41, 41);
+            dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
+            dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
+            dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(btnClose);
+            dreamForm1.Controls.Add(btnRefresh);
+            dreamForm1.Controls.Add(pGrid);
+            dreamForm1.Controls.Add(btnLoadMap);
+            dreamForm1.Controls.Add(btnSaveMap);
+            dreamForm1.Controls.Add(pvPreview);
+            dreamForm1.Controls.Add(btnDeleteImg);
+            dreamForm1.Controls.Add(listViewTiles);
+            dreamForm1.Controls.Add(btnNone);
+            dreamForm1.Controls.Add(btnErase);
+            dreamForm1.Controls.Add(btnDraw);
+            dreamForm1.Controls.Add(btnAddLayer);
+            dreamForm1.Controls.Add(cmbLayers);
+            dreamForm1.Controls.Add(CmbFilter);
+            dreamForm1.Controls.Add(btnAddImage);
+            dreamForm1.Controls.Add(cmbCategory);
+            dreamForm1.Dock = DockStyle.Fill;
+            dreamForm1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dreamForm1.Location = new Point(0, 0);
+            dreamForm1.Margin = new Padding(2);
+            dreamForm1.Name = "dreamForm1";
+            dreamForm1.Size = new Size(1412, 505);
+            dreamForm1.TabIndex = 0;
+            dreamForm1.TabStop = false;
+            dreamForm1.Text = "Map Editor";
+            dreamForm1.TitleAlign = HorizontalAlignment.Center;
+            dreamForm1.TitleHeight = 20;
             // 
-            // pvPreview
+            // btnClose
             // 
-            pvPreview.Location = new Point(893, 425);
-            pvPreview.Name = "pvPreview";
-            pvPreview.Size = new Size(100, 68);
-            pvPreview.TabIndex = 16;
-            pvPreview.TabStop = false;
+            btnClose.BackColor = Color.Transparent;
+            btnClose.BackgroundImage = Properties.Resources.closewin;
+            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
+            btnClose.ColorLeft = Color.DodgerBlue;
+            btnClose.ColorRight = Color.DodgerBlue;
+            btnClose.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnClose.FilterAlpha = 200;
+            btnClose.FilterEnabled = true;
+            btnClose.Image = null;
+            btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnClose.IsElipse = false;
+            btnClose.IsParallax = false;
+            btnClose.Location = new Point(1370, 1);
+            btnClose.Name = "btnClose";
+            btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnClose.Size = new Size(27, 26);
+            btnClose.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnClose.TabIndex = 36;
+            btnClose.Text = "btnClose";
+            btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnClose.Click += btnClose_Click;
             // 
-            // btnSaveMap
+            // btnRefresh
             // 
-            btnSaveMap.ForeColor = Color.Black;
-            btnSaveMap.ImageIndex = 5;
-            btnSaveMap.ImageList = imageList2;
-            btnSaveMap.Location = new Point(1356, 454);
-            btnSaveMap.Name = "btnSaveMap";
-            btnSaveMap.Size = new Size(44, 41);
-            btnSaveMap.TabIndex = 17;
-            btnSaveMap.UseVisualStyleBackColor = true;
-            btnSaveMap.Click += btnSaveMap_Click;
-            // 
-            // btnLoadMap
-            // 
-            btnLoadMap.ForeColor = Color.Black;
-            btnLoadMap.ImageIndex = 6;
-            btnLoadMap.ImageList = imageList2;
-            btnLoadMap.Location = new Point(1306, 454);
-            btnLoadMap.Name = "btnLoadMap";
-            btnLoadMap.Size = new Size(44, 41);
-            btnLoadMap.TabIndex = 18;
-            btnLoadMap.UseVisualStyleBackColor = true;
-            btnLoadMap.Click += btnLoadMap_Click;
+            btnRefresh.ForeColor = Color.Black;
+            btnRefresh.ImageIndex = 7;
+            btnRefresh.ImageList = imageList2;
+            btnRefresh.Location = new Point(1256, 466);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(44, 41);
+            btnRefresh.TabIndex = 35;
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // pGrid
             // 
             pGrid.AutoScroll = true;
-            pGrid.BackgroundImage = Properties.Resources.FondoEpico;
+            pGrid.BackgroundImage = Properties.Resources.backEpicoNormalized;
+            pGrid.BackgroundImageLayout = ImageLayout.Stretch;
             pGrid.Controls.Add(mapEditor);
-            pGrid.Location = new Point(371, 23);
+            pGrid.Location = new Point(371, 35);
             pGrid.Name = "pGrid";
             pGrid.Size = new Size(1029, 396);
-            pGrid.TabIndex = 19;
+            pGrid.TabIndex = 34;
             // 
             // mapEditor
             // 
@@ -258,17 +191,149 @@
             mapEditor.TabIndex = 1;
             mapEditor.TileSize = 32;
             // 
-            // btnRefresh
+            // btnLoadMap
             // 
-            btnRefresh.ForeColor = Color.Black;
-            btnRefresh.ImageIndex = 3;
-            btnRefresh.ImageList = imageList2;
-            btnRefresh.Location = new Point(673, 436);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(44, 41);
-            btnRefresh.TabIndex = 20;
-            btnRefresh.UseVisualStyleBackColor = true;
-            btnRefresh.Click += btnRefresh_Click;
+            btnLoadMap.ForeColor = Color.Black;
+            btnLoadMap.ImageIndex = 6;
+            btnLoadMap.ImageList = imageList2;
+            btnLoadMap.Location = new Point(1306, 466);
+            btnLoadMap.Name = "btnLoadMap";
+            btnLoadMap.Size = new Size(44, 41);
+            btnLoadMap.TabIndex = 33;
+            btnLoadMap.UseVisualStyleBackColor = true;
+            btnLoadMap.Click += btnLoadMap_Click;
+            // 
+            // btnSaveMap
+            // 
+            btnSaveMap.ForeColor = Color.Black;
+            btnSaveMap.ImageIndex = 5;
+            btnSaveMap.ImageList = imageList2;
+            btnSaveMap.Location = new Point(1356, 466);
+            btnSaveMap.Name = "btnSaveMap";
+            btnSaveMap.Size = new Size(44, 41);
+            btnSaveMap.TabIndex = 32;
+            btnSaveMap.UseVisualStyleBackColor = true;
+            btnSaveMap.Click += btnSaveMap_Click;
+            // 
+            // pvPreview
+            // 
+            pvPreview.Location = new Point(893, 437);
+            pvPreview.Name = "pvPreview";
+            pvPreview.Size = new Size(100, 68);
+            pvPreview.TabIndex = 31;
+            pvPreview.TabStop = false;
+            // 
+            // btnDeleteImg
+            // 
+            btnDeleteImg.ForeColor = Color.Black;
+            btnDeleteImg.ImageIndex = 4;
+            btnDeleteImg.ImageList = imageList2;
+            btnDeleteImg.Location = new Point(315, 82);
+            btnDeleteImg.Name = "btnDeleteImg";
+            btnDeleteImg.Size = new Size(44, 41);
+            btnDeleteImg.TabIndex = 30;
+            btnDeleteImg.UseVisualStyleBackColor = true;
+            btnDeleteImg.Click += btnDeleteImg_Click;
+            // 
+            // listViewTiles
+            // 
+            listViewTiles.CheckBoxes = true;
+            listViewTiles.LargeImageList = ilTiles;
+            listViewTiles.Location = new Point(13, 130);
+            listViewTiles.Name = "listViewTiles";
+            listViewTiles.Size = new Size(346, 339);
+            listViewTiles.TabIndex = 29;
+            listViewTiles.UseCompatibleStateImageBehavior = false;
+            listViewTiles.SelectedIndexChanged += listViewTiles_SelectedIndexChanged;
+            listViewTiles.MouseDown += listViewTiles_MouseDown;
+            // 
+            // btnNone
+            // 
+            btnNone.ForeColor = Color.Black;
+            btnNone.ImageIndex = 3;
+            btnNone.ImageList = imageList2;
+            btnNone.Location = new Point(521, 437);
+            btnNone.Name = "btnNone";
+            btnNone.Size = new Size(44, 41);
+            btnNone.TabIndex = 28;
+            btnNone.UseVisualStyleBackColor = true;
+            btnNone.Click += btnNone_Click;
+            // 
+            // btnErase
+            // 
+            btnErase.ForeColor = Color.Black;
+            btnErase.ImageIndex = 2;
+            btnErase.ImageList = imageList2;
+            btnErase.Location = new Point(471, 437);
+            btnErase.Name = "btnErase";
+            btnErase.Size = new Size(44, 41);
+            btnErase.TabIndex = 27;
+            btnErase.UseVisualStyleBackColor = true;
+            btnErase.Click += btnErase_Click;
+            // 
+            // btnDraw
+            // 
+            btnDraw.ForeColor = Color.Black;
+            btnDraw.ImageIndex = 1;
+            btnDraw.ImageList = imageList2;
+            btnDraw.Location = new Point(421, 437);
+            btnDraw.Name = "btnDraw";
+            btnDraw.Size = new Size(44, 41);
+            btnDraw.TabIndex = 26;
+            btnDraw.UseVisualStyleBackColor = true;
+            btnDraw.Click += btnDraw_Click;
+            // 
+            // btnAddLayer
+            // 
+            btnAddLayer.ForeColor = Color.Black;
+            btnAddLayer.ImageIndex = 0;
+            btnAddLayer.ImageList = imageList2;
+            btnAddLayer.Location = new Point(371, 437);
+            btnAddLayer.Name = "btnAddLayer";
+            btnAddLayer.Size = new Size(44, 41);
+            btnAddLayer.TabIndex = 25;
+            btnAddLayer.UseVisualStyleBackColor = true;
+            btnAddLayer.Click += btnAddLayer_Click;
+            // 
+            // cmbLayers
+            // 
+            cmbLayers.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbLayers.FormattingEnabled = true;
+            cmbLayers.Location = new Point(1017, 437);
+            cmbLayers.Name = "cmbLayers";
+            cmbLayers.Size = new Size(383, 23);
+            cmbLayers.TabIndex = 24;
+            cmbLayers.SelectedIndexChanged += cmbLayers_SelectedIndexChanged;
+            // 
+            // CmbFilter
+            // 
+            CmbFilter.FormattingEnabled = true;
+            CmbFilter.Location = new Point(12, 475);
+            CmbFilter.Name = "CmbFilter";
+            CmbFilter.Size = new Size(347, 23);
+            CmbFilter.TabIndex = 23;
+            CmbFilter.SelectedIndexChanged += CmbFilter_SelectedIndexChanged;
+            // 
+            // btnAddImage
+            // 
+            btnAddImage.ForeColor = Color.Black;
+            btnAddImage.ImageIndex = 0;
+            btnAddImage.ImageList = imageList1;
+            btnAddImage.Location = new Point(12, 24);
+            btnAddImage.Name = "btnAddImage";
+            btnAddImage.Size = new Size(78, 69);
+            btnAddImage.TabIndex = 22;
+            btnAddImage.UseVisualStyleBackColor = true;
+            btnAddImage.Click += btnAddImage_Click;
+            // 
+            // cmbCategory
+            // 
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(13, 100);
+            cmbCategory.Margin = new Padding(4);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(149, 23);
+            cmbCategory.TabIndex = 21;
             // 
             // EditorMap
             // 
@@ -276,53 +341,43 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1412, 505);
-            Controls.Add(btnRefresh);
-            Controls.Add(pGrid);
-            Controls.Add(btnLoadMap);
-            Controls.Add(btnSaveMap);
-            Controls.Add(pvPreview);
-            Controls.Add(btnDeleteImg);
-            Controls.Add(listViewTiles);
-            Controls.Add(btnNone);
-            Controls.Add(btnErase);
-            Controls.Add(btnDraw);
-            Controls.Add(btnAddLayer);
-            Controls.Add(cmbLayers);
-            Controls.Add(CmbFilter);
-            Controls.Add(btnAddImage);
-            Controls.Add(cmbCategory);
+            Controls.Add(dreamForm1);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "EditorMap";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EditorMap";
             FormClosing += EditorMap_FormClosing;
             Load += EditorMap_Load;
-            ((System.ComponentModel.ISupportInitialize)pvPreview).EndInit();
+            dreamForm1.ResumeLayout(false);
             pGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pvPreview).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
+        private ImageList imageList1;
+        private ImageList imageList2;
+        private ImageList ilCursores;
+        private ImageList ilTiles;
+        private ReaLTaiizor.Forms.DreamForm dreamForm1;
+        private Button btnRefresh;
+        private Panel pGrid;
+        private Tools.MapEditor mapEditor;
+        private Button btnLoadMap;
+        private Button btnSaveMap;
+        private PictureBox pvPreview;
+        private Button btnDeleteImg;
+        private ListView listViewTiles;
+        private Button btnNone;
+        private Button btnErase;
+        private Button btnDraw;
+        private Button btnAddLayer;
+        private ComboBox cmbLayers;
         private ComboBox CmbFilter;
         private Button btnAddImage;
         private ComboBox cmbCategory;
-        private ImageList imageList1;
-        private ComboBox cmbLayers;
-        private Button btnAddLayer;
-        private ImageList imageList2;
-        private Button btnDraw;
-        private Button btnErase;
-        private ImageList ilCursores;
-        private Button btnNone;
-        private ListView listViewTiles;
-        private ImageList ilTiles;
-        private Button btnDeleteImg;
-        private PictureBox pvPreview;
-        private Button btnSaveMap;
-        private Button btnLoadMap;
-        private Panel pGrid;
-        private Tools.MapEditor mapEditor;
-        private Button btnRefresh;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
     }
 }

@@ -36,6 +36,7 @@
             btnCreatures = new Button();
             btnMusicControl = new Button();
             btnMapEditor = new Button();
+            btnOpenShop = new Button();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             myForm.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -50,6 +51,7 @@
             imageList1.Images.SetKeyName(1, "btnMap.png");
             imageList1.Images.SetKeyName(2, "guitar.png");
             imageList1.Images.SetKeyName(3, "iconCreature.png");
+            imageList1.Images.SetKeyName(4, "shopgen.png");
             // 
             // myForm
             // 
@@ -75,6 +77,7 @@
             flowLayoutPanel1.Controls.Add(btnCreatures);
             flowLayoutPanel1.Controls.Add(btnMusicControl);
             flowLayoutPanel1.Controls.Add(btnMapEditor);
+            flowLayoutPanel1.Controls.Add(btnOpenShop);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 31);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -101,6 +104,7 @@
             btnMusicControl.Size = new Size(60, 54);
             btnMusicControl.TabIndex = 13;
             btnMusicControl.UseVisualStyleBackColor = true;
+            btnMusicControl.Click += btnMusicControl_Click;
             // 
             // btnMapEditor
             // 
@@ -111,6 +115,18 @@
             btnMapEditor.Size = new Size(58, 54);
             btnMapEditor.TabIndex = 12;
             btnMapEditor.UseVisualStyleBackColor = true;
+            btnMapEditor.Click += btnMapEditor_Click;
+            // 
+            // btnOpenShop
+            // 
+            btnOpenShop.ImageIndex = 4;
+            btnOpenShop.ImageList = imageList1;
+            btnOpenShop.Location = new Point(198, 3);
+            btnOpenShop.Name = "btnOpenShop";
+            btnOpenShop.Size = new Size(58, 54);
+            btnOpenShop.TabIndex = 15;
+            btnOpenShop.UseVisualStyleBackColor = true;
+            btnOpenShop.Click += btnOpenShop_Click;
             // 
             // btnClose
             // 
@@ -146,6 +162,7 @@
             Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximizeBox = false;
             MaximumSize = new Size(1600, 860);
@@ -169,5 +186,6 @@
         private Button btnMusicControl;
         private Button btnMapEditor;
         private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
+        private Button btnOpenShop;
     }
 }

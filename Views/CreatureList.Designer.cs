@@ -31,12 +31,12 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatureList));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            btnEditar = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnDelete = new ReaLTaiizor.Controls.ParrotPictureBox();
             listCreature = new DataGridView();
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             btnNueva = new ReaLTaiizor.Controls.DreamButton();
             imageList1 = new ImageList(components);
-            btnEditar = new ReaLTaiizor.Controls.ParrotPictureBox();
             dreamForm1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listCreature).BeginInit();
             SuspendLayout();
@@ -61,9 +61,33 @@
             dreamForm1.Size = new Size(385, 603);
             dreamForm1.TabIndex = 0;
             dreamForm1.TabStop = false;
-            dreamForm1.Text = "Lista de Creturas";
+            dreamForm1.Text = "Lista de Creaturas";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.Transparent;
+            btnEditar.BackgroundImage = Properties.Resources.pencil1;
+            btnEditar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnEditar.ColorLeft = Color.DodgerBlue;
+            btnEditar.ColorRight = Color.DodgerBlue;
+            btnEditar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnEditar.FilterAlpha = 200;
+            btnEditar.FilterEnabled = true;
+            btnEditar.Image = null;
+            btnEditar.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnEditar.IsElipse = false;
+            btnEditar.IsParallax = false;
+            btnEditar.Location = new Point(337, 98);
+            btnEditar.Name = "btnEditar";
+            btnEditar.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnEditar.Size = new Size(39, 38);
+            btnEditar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnEditar.TabIndex = 17;
+            btnEditar.Text = "btnClose";
+            btnEditar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnDelete
             // 
@@ -142,30 +166,6 @@
             imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "closewin.png");
-            // 
-            // btnEditar
-            // 
-            btnEditar.BackColor = Color.Transparent;
-            btnEditar.BackgroundImage = Properties.Resources.pencil1;
-            btnEditar.BackgroundImageLayout = ImageLayout.Stretch;
-            btnEditar.ColorLeft = Color.DodgerBlue;
-            btnEditar.ColorRight = Color.DodgerBlue;
-            btnEditar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            btnEditar.FilterAlpha = 200;
-            btnEditar.FilterEnabled = true;
-            btnEditar.Image = null;
-            btnEditar.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            btnEditar.IsElipse = false;
-            btnEditar.IsParallax = false;
-            btnEditar.Location = new Point(337, 98);
-            btnEditar.Name = "btnEditar";
-            btnEditar.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            btnEditar.Size = new Size(39, 38);
-            btnEditar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            btnEditar.TabIndex = 17;
-            btnEditar.Text = "btnClose";
-            btnEditar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            btnEditar.Click += btnEditar_Click;
             // 
             // CreatureList
             // 

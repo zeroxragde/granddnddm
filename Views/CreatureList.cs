@@ -232,7 +232,7 @@ namespace GranDnDDM.Views
 
                     if (creatura != null)
                     {
-                        CreatureEditor editor = new CreatureEditor(creatura);
+                        CreatureEditor editor = new CreatureEditor(creatura, fileName);
                         editor.Show();
                     }
                     else

@@ -278,5 +278,10 @@ namespace GranDnDDM.Views
 
             MessageBox.Show("Sonido eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
     }
 }

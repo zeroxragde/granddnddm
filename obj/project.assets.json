@@ -4647,25 +4647,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ecarrizales\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\Ragde\\.nuget\\packages\\": {},
+    "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
+      "projectUniqueName": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
       "projectName": "GranDnDDM",
-      "projectPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
-      "packagesPath": "C:\\Users\\ecarrizales\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\obj\\",
+      "projectPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
+      "packagesPath": "C:\\Users\\Ragde\\.nuget\\packages\\",
+      "outputPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ecarrizales\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ragde\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"

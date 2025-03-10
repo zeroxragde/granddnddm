@@ -32,9 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="itext" Version="9.1.0" />
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.1" />
+    <PackageReference Include="SoundTouchSharp" Version="2.3.2" />
   </ItemGroup>
 
   <ItemGroup>

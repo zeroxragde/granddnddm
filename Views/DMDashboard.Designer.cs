@@ -40,6 +40,7 @@
             btnMicroToggle = new Button();
             trackPitch = new TrackBar();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
+            btnModVoice = new Button();
             myForm.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackPitch).BeginInit();
@@ -85,6 +86,7 @@
             flowLayoutPanel1.Controls.Add(btnOpenShop);
             flowLayoutPanel1.Controls.Add(btnMicroToggle);
             flowLayoutPanel1.Controls.Add(trackPitch);
+            flowLayoutPanel1.Controls.Add(btnModVoice);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 31);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -179,6 +181,17 @@
             btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             btnClose.Click += btnClose_Click;
             // 
+            // btnModVoice
+            // 
+            btnModVoice.ImageIndex = 4;
+            btnModVoice.ImageList = imageList1;
+            btnModVoice.Location = new Point(424, 3);
+            btnModVoice.Name = "btnModVoice";
+            btnModVoice.Size = new Size(58, 54);
+            btnModVoice.TabIndex = 18;
+            btnModVoice.UseVisualStyleBackColor = true;
+            btnModVoice.Click += btnModVoice_Click;
+            // 
             // DMDashboard
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -218,5 +231,6 @@
         private Button btnOpenShop;
         private Button btnMicroToggle;
         private TrackBar trackPitch;
+        private Button btnModVoice;
     }
 }

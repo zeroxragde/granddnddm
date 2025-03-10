@@ -33,7 +33,7 @@ namespace GranDnDDM.Views
         private bool isListening = false;
         private SmbPitchShifter pitchShifter;
         private float pitchFactor = 1.0f;
-  
+
         public DMDashboard(Form1 f)
         {
             InitializeComponent();
@@ -183,7 +183,7 @@ namespace GranDnDDM.Views
 
         private void trackPitch_Scroll(object sender, EventArgs e)
         {
-           // pitchFactor = (float)Math.Pow(2, trackPitch.Value / 12.0);
+            // pitchFactor = (float)Math.Pow(2, trackPitch.Value / 12.0);
         }
         private float[] ConvertToFloatBuffer(byte[] byteBuffer, int bytesRecorded)
         {
@@ -204,6 +204,12 @@ namespace GranDnDDM.Views
                 BitConverter.GetBytes(intSample).CopyTo(byteBuffer, i * 2);
             }
             return byteBuffer;
+        }
+
+        private void btnModVoice_Click(object sender, EventArgs e)
+        {
+            ModVoice modVoice = new ModVoice();
+            modVoice.Show();
         }
     }
 }

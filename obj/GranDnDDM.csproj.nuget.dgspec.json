@@ -53,6 +53,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
             "ReaLTaiizor": {
               "target": "Package",
               "version": "[3.8.1.1, )"

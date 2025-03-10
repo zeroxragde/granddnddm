@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="itext" Version="9.1.0" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.1" />
   </ItemGroup>
 

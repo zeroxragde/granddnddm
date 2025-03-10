@@ -3,60 +3,16 @@
   "WorkspaceRootPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\formdetalleitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\formdetalleitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\musiccontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\musiccontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\listsongs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\listsongs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\creatureeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creatureeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\soundcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\soundcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\grandnddm.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:grandnddm.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\editormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|X:\\DESARROLLO\\CSharp\\granddnddm\\views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\tools\\smbpitchshifter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:tools\\smbpitchshifter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,182 +22,52 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MusicControl.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\MusicControl.cs",
-              "RelativeDocumentMoniker": "Views\\MusicControl.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\MusicControl.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\MusicControl.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:28:11.001Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ListSongs.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ListSongs.cs",
-              "RelativeDocumentMoniker": "Views\\ListSongs.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ListSongs.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\ListSongs.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:27:56.898Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CreatureGen.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureGen.cs",
-              "RelativeDocumentMoniker": "Views\\CreatureGen.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureGen.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\CreatureGen.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:27:38.155Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreatureEditor.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureEditor.cs",
-              "RelativeDocumentMoniker": "Views\\CreatureEditor.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureEditor.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\CreatureEditor.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:27:28.143Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormDetalleItem.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\FormDetalleItem.cs",
-              "RelativeDocumentMoniker": "Views\\FormDetalleItem.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\FormDetalleItem.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\FormDetalleItem.cs [Dise\u00F1o]",
+              "Title": "DMDashboard.cs [Design]",
+              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
+              "RelativeDocumentMoniker": "Views\\DMDashboard.cs",
+              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs [Design]",
+              "RelativeToolTip": "Views\\DMDashboard.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:27:22.778Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-03-09T05:37:54.975Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SoundControl.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\SoundControl.cs",
-              "RelativeDocumentMoniker": "Views\\SoundControl.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\SoundControl.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\SoundControl.cs [Dise\u00F1o]",
+              "DocumentIndex": 2,
+              "Title": "SmbPitchShifter.cs",
+              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Tools\\SmbPitchShifter.cs",
+              "RelativeDocumentMoniker": "Tools\\SmbPitchShifter.cs",
+              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Tools\\SmbPitchShifter.cs",
+              "RelativeToolTip": "Tools\\SmbPitchShifter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:26:48.82Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\Form1.cs",
-              "RelativeDocumentMoniker": "Views\\Form1.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:24:55.123Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GranDnDDM",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
-              "RelativeDocumentMoniker": "GranDnDDM.csproj",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
-              "RelativeToolTip": "GranDnDDM.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-09T01:23:59.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "EditorMap.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\EditorMap.cs",
-              "RelativeDocumentMoniker": "Views\\EditorMap.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\EditorMap.cs",
-              "RelativeToolTip": "Views\\EditorMap.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAgwPMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:17:51.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T05:35:53.324Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EditorMap.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\EditorMap.cs",
-              "RelativeDocumentMoniker": "Views\\EditorMap.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\EditorMap.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\EditorMap.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:16:56.576Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "DMDashboard.cs",
               "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
               "RelativeDocumentMoniker": "Views\\DMDashboard.cs",
               "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
               "RelativeToolTip": "Views\\DMDashboard.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAmwC8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:07:30.219Z",
+              "WhenOpened": "2025-03-09T05:10:11.648Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ShopCreeator.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ShopCreeator.cs",
-              "RelativeDocumentMoniker": "Views\\ShopCreeator.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ShopCreeator.cs",
-              "RelativeToolTip": "Views\\ShopCreeator.cs",
-              "ViewState": "AgIAAFQBAAAAAAAAAAAcwGIBAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:06:52.075Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DMDashboard.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
-              "RelativeDocumentMoniker": "Views\\DMDashboard.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\DMDashboard.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:06:40.79Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ShopCreeator.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ShopCreeator.cs",
-              "RelativeDocumentMoniker": "Views\\ShopCreeator.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ShopCreeator.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\ShopCreeator.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:05:34.383Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

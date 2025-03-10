@@ -37,9 +37,12 @@
             btnMusicControl = new Button();
             btnMapEditor = new Button();
             btnOpenShop = new Button();
+            btnMicroToggle = new Button();
+            trackPitch = new TrackBar();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             myForm.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)trackPitch).BeginInit();
             SuspendLayout();
             // 
             // imageList1
@@ -52,6 +55,8 @@
             imageList1.Images.SetKeyName(2, "guitar.png");
             imageList1.Images.SetKeyName(3, "iconCreature.png");
             imageList1.Images.SetKeyName(4, "shopgen.png");
+            imageList1.Images.SetKeyName(5, "microOn.png");
+            imageList1.Images.SetKeyName(6, "microOff.png");
             // 
             // myForm
             // 
@@ -78,6 +83,8 @@
             flowLayoutPanel1.Controls.Add(btnMusicControl);
             flowLayoutPanel1.Controls.Add(btnMapEditor);
             flowLayoutPanel1.Controls.Add(btnOpenShop);
+            flowLayoutPanel1.Controls.Add(btnMicroToggle);
+            flowLayoutPanel1.Controls.Add(trackPitch);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 31);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -128,6 +135,26 @@
             btnOpenShop.UseVisualStyleBackColor = true;
             btnOpenShop.Click += btnOpenShop_Click;
             // 
+            // btnMicroToggle
+            // 
+            btnMicroToggle.ImageIndex = 6;
+            btnMicroToggle.ImageList = imageList1;
+            btnMicroToggle.Location = new Point(262, 3);
+            btnMicroToggle.Name = "btnMicroToggle";
+            btnMicroToggle.Size = new Size(46, 54);
+            btnMicroToggle.TabIndex = 16;
+            btnMicroToggle.UseVisualStyleBackColor = true;
+            btnMicroToggle.Click += btnMicroToggle_Click;
+            // 
+            // trackPitch
+            // 
+            trackPitch.Location = new Point(314, 3);
+            trackPitch.Name = "trackPitch";
+            trackPitch.Size = new Size(104, 45);
+            trackPitch.TabIndex = 17;
+            trackPitch.Visible = false;
+            trackPitch.Scroll += trackPitch_Scroll;
+            // 
             // btnClose
             // 
             btnClose.BackColor = Color.Transparent;
@@ -175,6 +202,8 @@
             Load += DMDashboard_Load;
             myForm.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)trackPitch).EndInit();
             ResumeLayout(false);
         }
 
@@ -187,5 +216,7 @@
         private Button btnMapEditor;
         private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
         private Button btnOpenShop;
+        private Button btnMicroToggle;
+        private TrackBar trackPitch;
     }
 }

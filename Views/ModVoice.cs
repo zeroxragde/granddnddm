@@ -8,6 +8,9 @@ namespace GranDnDDM.Views
 {
     public partial class ModVoice : Form
     {
+
+
+    
         private WaveInEvent waveIn;
         private WaveOutEvent waveOut;
         private BufferedWaveProvider bufferedWaveProvider;
@@ -19,7 +22,13 @@ namespace GranDnDDM.Views
         public ModVoice()
         {
             InitializeComponent();
+            soundTouchProcessor = new SoundTouch(); // Inicializar SoundTouch aquí
+            soundTouchProcessor.PitchSemiTones = 5;  // Configurar SoundTouch
+            soundTouchProcessor.Tempo = 1.0f;
+
         }
+
+
 
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -43,7 +52,7 @@ namespace GranDnDDM.Views
 
                 waveIn = new WaveInEvent
                 {
-                    WaveFormat = new WaveFormat(44100, 1) // 44.1 kHz, Mono
+                    WaveFormat = new WaveFormat(44100, 16,1), // 44.1 kHz, Mono
                 };
 
                 bufferedWaveProvider = new BufferedWaveProvider(waveIn.WaveFormat);
@@ -59,7 +68,9 @@ namespace GranDnDDM.Views
                     // Aplicar cambio de tono
                     pitchShifter.PitchShift(pitchFactor, floatBuffer.Length, floatBuffer, outBuffer);
 
-                    byte[] byteBuffer = WaveIn_DataAvailable(ConvertToByteBuffer(outBuffer));//ConvertToByteBuffer(outBuffer);
+                    byte[] byteBuffer = ProcessAudio(ConvertToByteBuffer(outBuffer));//ConvertToByteBuffer(outBuffer);
+
+                    byte[] byteBuffer2 = ConvertToByteBuffer(outBuffer);
                         bufferedWaveProvider.AddSamples(byteBuffer, 0, byteBuffer.Length);
                    // WaveIn_DataAvailable(s, a);
                 };
@@ -116,36 +127,52 @@ namespace GranDnDDM.Views
             }
             return byteBuffer;
         }
-        private byte[] WaveIn_DataAvailable(byte[] buffer)
+        private byte[] ProcessAudio(byte[] buffer)
         {
-            //byte[] buffer = e.Buffer;
+            int numSamples = buffer.Length / 2;  // 2 bytes por muestra (16 bits)
+            float[] floatBuffer = new float[numSamples];
 
-            // Crear una muestra flotante de los datos de audio capturados
-            float[] floatBuffer = new float[buffer.Length / 2];
-            for (int i = 0; i < floatBuffer.Length; i++)
-            {
-                short sample = BitConverter.ToInt16(buffer, i * 2);  // Convertir bytes a 16 bits
-                floatBuffer[i] = sample / 32768f; // Convertir a punto flotante en el rango [-1, 1]
-            }
-
-            // Aplicar pitch shifting y time stretching usando SoundTouchSharp
-            soundTouchProcessor.PutSamples(floatBuffer, (uint)floatBuffer.Length); // Procesar el audio
-            float[] outputBuffer = new float[floatBuffer.Length];  // Buffer de salida
-            uint u = Convert.ToUInt32(outputBuffer.Length);
-            int numSamples = (int)soundTouchProcessor.ReceiveSamples(outputBuffer, u);  // Obtener muestras procesadas
-
-            // Convertir de vuelta a bytes para reproducción
-            byte[] byteOutput = new byte[numSamples * 2]; // Dos bytes por muestra
+            // Convertir los datos de 16-bit a 32-bit flotante
             for (int i = 0; i < numSamples; i++)
             {
-                short sample = (short)(outputBuffer[i] * 32768); // Convertir a 16-bit
-                byteOutput[i * 2] = (byte)(sample & 0xff);      // Parte baja
-                byteOutput[i * 2 + 1] = (byte)((sample >> 8) & 0xff);  // Parte alta
+                short sample = BitConverter.ToInt16(buffer, i * 2);  // Convertir 2 bytes a 16 bits
+                floatBuffer[i] = sample / 32768f;  // Convertir a float en el rango [-1, 1]
             }
 
-            // Agregar el audio procesado al BufferedWaveProvider para que se pueda reproducir
-            // bufferedWaveProvider.AddSamples(byteOutput, 0, byteOutput.Length);
+            // Inicializar SoundTouchProcessor
+            SoundTouch soundTouchProcessor = new SoundTouch();
+            soundTouchProcessor.PitchSemiTones = 5;  // Cambiar el tono en 5 semitonos
+            soundTouchProcessor.Tempo = 1.0f;    // Mantener la misma velocidad (1.0f para mantener)
+
+            float[] outputBuffer = new float[numSamples];
+
+            // Enviar todas las muestras a SoundTouch de una sola vez
+            soundTouchProcessor.PutSamples(floatBuffer, (uint)numSamples);
+            soundTouchProcessor.Flush();  // Asegúrate de que las muestras sean procesadas
+
+            // Recibir las muestras procesadas
+            int numProcessed = (int)soundTouchProcessor.ReceiveSamples(outputBuffer, (uint)outputBuffer.Length);
+            Console.WriteLine($"Número de muestras procesadas: {numProcessed}");
+
+            if (numProcessed == 0)
+            {
+                Console.WriteLine("No se procesaron muestras.");
+                return new byte[0];
+            }
+
+            // Convertir las muestras procesadas de float[] a byte[]
+            byte[] byteOutput = new byte[numProcessed * 2]; // 2 bytes por muestra (16 bits)
+            for (int j = 0; j < numProcessed; j++)
+            {
+                short sample = (short)(outputBuffer[j] * 32768);  // Convertir a 16-bit
+                byteOutput[j * 2] = (byte)(sample & 0xff);      // Parte baja
+                byteOutput[j * 2 + 1] = (byte)((sample >> 8) & 0xff);  // Parte alta
+            }
+
+            // Devolver el audio procesado
             return byteOutput;
+
+
         }
 
 

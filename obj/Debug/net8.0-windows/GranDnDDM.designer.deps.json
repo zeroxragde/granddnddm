@@ -130,22 +130,10 @@
           }
         }
       },
-      "SoundTouchSharp/2.3.2": {
+      "SoundTouch.Net/2.3.2": {
         "runtime": {
-          "lib/netstandard2.1/SoundTouchSharp.dll": {
-            "assemblyVersion": "2.3.2.0",
-            "fileVersion": "2.3.2.0"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win-x64/native/SoundTouch.dll": {
-            "rid": "win-x64",
-            "assetType": "native",
-            "fileVersion": "2.3.2.0"
-          },
-          "runtimes/win-x86/native/SoundTouch.dll": {
-            "rid": "win-x86",
-            "assetType": "native",
+          "lib/netcoreapp2.1/SoundTouch.Net.dll": {
+            "assemblyVersion": "2.3.0.0",
             "fileVersion": "2.3.2.0"
           }
         }
@@ -272,12 +260,12 @@
       "path": "realtaiizor/3.8.1.1",
       "hashPath": "realtaiizor.3.8.1.1.nupkg.sha512"
     },
-    "SoundTouchSharp/2.3.2": {
+    "SoundTouch.Net/2.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MJoySsmwk5wI0b7hROC/5cGF0HGQLgIzjpvb3xLnFnueZe8FupxMC80P4tWtEYA/OEAVGHu4Ijos4bxwBQr3ow==",
-      "path": "soundtouchsharp/2.3.2",
-      "hashPath": "soundtouchsharp.2.3.2.nupkg.sha512"
+      "sha512": "sha512-5A29Pll/n4kEEPvCD5DFot3MJG+VgiaRG6LbNQVkF94VerC1b5iZtJKfdLQXZPFrl3LiVbKm3txKBe5/pbv5rw==",
+      "path": "soundtouch.net/2.3.2",
+      "hashPath": "soundtouch.net.2.3.2.nupkg.sha512"
     },
     "System.Security.AccessControl/4.7.0": {
       "type": "package",

@@ -186,22 +186,16 @@
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
       },
-      "SoundTouchSharp/2.3.2": {
+      "SoundTouch.Net/2.3.2": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/SoundTouchSharp.dll": {}
+          "lib/netcoreapp2.1/SoundTouch.Net.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/SoundTouchSharp.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/win-x64/native/SoundTouch.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x86/native/SoundTouch.dll": {
-            "assetType": "native",
-            "rid": "win-x86"
+          "lib/netcoreapp2.1/SoundTouch.Net.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -486,18 +480,35 @@
         "realtaiizor.nuspec"
       ]
     },
-    "SoundTouchSharp/2.3.2": {
-      "sha512": "MJoySsmwk5wI0b7hROC/5cGF0HGQLgIzjpvb3xLnFnueZe8FupxMC80P4tWtEYA/OEAVGHu4Ijos4bxwBQr3ow==",
+    "SoundTouch.Net/2.3.2": {
+      "sha512": "5A29Pll/n4kEEPvCD5DFot3MJG+VgiaRG6LbNQVkF94VerC1b5iZtJKfdLQXZPFrl3LiVbKm3txKBe5/pbv5rw==",
       "type": "package",
-      "path": "soundtouchsharp/2.3.2",
+      "path": "soundtouch.net/2.3.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.1/SoundTouchSharp.dll",
-        "runtimes/win-x64/native/SoundTouch.dll",
-        "runtimes/win-x86/native/SoundTouch.dll",
-        "soundtouchsharp.2.3.2.nupkg.sha512",
-        "soundtouchsharp.nuspec"
+        "LICENSE/LICENSE",
+        "lib/net45/SoundTouch.Net.dll",
+        "lib/net45/SoundTouch.Net.pdb",
+        "lib/net45/SoundTouch.Net.xml",
+        "lib/net461/SoundTouch.Net.dll",
+        "lib/net461/SoundTouch.Net.pdb",
+        "lib/net461/SoundTouch.Net.xml",
+        "lib/netcoreapp2.1/SoundTouch.Net.dll",
+        "lib/netcoreapp2.1/SoundTouch.Net.pdb",
+        "lib/netcoreapp2.1/SoundTouch.Net.xml",
+        "lib/netstandard1.1/SoundTouch.Net.dll",
+        "lib/netstandard1.1/SoundTouch.Net.pdb",
+        "lib/netstandard1.1/SoundTouch.Net.xml",
+        "lib/netstandard2.0/SoundTouch.Net.dll",
+        "lib/netstandard2.0/SoundTouch.Net.pdb",
+        "lib/netstandard2.0/SoundTouch.Net.xml",
+        "lib/netstandard2.1/SoundTouch.Net.dll",
+        "lib/netstandard2.1/SoundTouch.Net.pdb",
+        "lib/netstandard2.1/SoundTouch.Net.xml",
+        "logo.png",
+        "soundtouch.net.2.3.2.nupkg.sha512",
+        "soundtouch.net.nuspec"
       ]
     },
     "System.Security.AccessControl/4.7.0": {
@@ -606,29 +617,29 @@
       "NAudio >= 2.2.1",
       "Newtonsoft.Json >= 13.0.3",
       "ReaLTaiizor >= 3.8.1.1",
-      "SoundTouchSharp >= 2.3.2"
+      "SoundTouch.Net >= 2.3.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ragde\\.nuget\\packages\\": {},
-    "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\ecarrizales\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
+      "projectUniqueName": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
       "projectName": "GranDnDDM",
-      "projectPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
-      "packagesPath": "C:\\Users\\Ragde\\.nuget\\packages\\",
-      "outputPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\obj\\",
+      "projectPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
+      "packagesPath": "C:\\Users\\ecarrizales\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ragde\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ecarrizales\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -675,7 +686,7 @@
             "target": "Package",
             "version": "[3.8.1.1, )"
           },
-          "SoundTouchSharp": {
+          "SoundTouch.Net": {
             "target": "Package",
             "version": "[2.3.2, )"
           }

@@ -1,6 +1,6 @@
 ﻿using GranDnDDM.Tools;
 using NAudio.Wave;
-using SoundTouchSharp;
+using SoundTouch;
 using System;
 using System.Windows.Forms;
 
@@ -8,178 +8,121 @@ namespace GranDnDDM.Views
 {
     public partial class ModVoice : Form
     {
-
-
-    
         private WaveInEvent waveIn;
         private WaveOutEvent waveOut;
         private BufferedWaveProvider bufferedWaveProvider;
-        private SoundTouch soundTouchProcessor;  // Instancia de SoundTouchSharp
-        private bool isListening = false;
-        private SmbPitchShifter pitchShifter;
-        private float pitchFactor = 1.0f;
+        private SMBPitchShifterC pitchShifter;
+        private bool isRecording = false;
+        // Variable de pitch que se ajustará con el TrackBar
+        private float pitch = 1.0f;  // El valor por defecto es 1.0 (sin cambio en el pitch)
+
+        private SoundTouch.SoundTouchProcessor soundTouchProcessor;
 
         public ModVoice()
         {
             InitializeComponent();
-            soundTouchProcessor = new SoundTouch(); // Inicializar SoundTouch aquí
-            soundTouchProcessor.PitchSemiTones = 5;  // Configurar SoundTouch
-            soundTouchProcessor.Tempo = 1.0f;
+            pitchShifter = new SMBPitchShifterC(); // Instancia de la clase pitch shifter
+            soundTouchProcessor = new SoundTouchProcessor();
+            // Configuración del TrackBar
+            ptbPitch.Minimum = 0;   // Mínimo valor (graves)
+            ptbPitch.Maximum = 100;    // Máximo valor (agudos)
+            ptbPitch.Value = 50;        // Valor inicial centrado (sin cambio de tono)
+                                        // Configuración del TrackBar
 
-        }
 
+            ptbPitch.LargeChange = 20; // El valor por cambio grande
+            ptbPitch.SmallChange = 1;  // El valor por cambio pequeño
 
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-
-            if (isListening)
-            {
-                StopMicrophone();
-            }
-            else
-            {
-                StartMicrophone();
-            }
-
-            isListening = !isListening;
-        }
-        private void StartMicrophone()
-        {
-            try
-            {
-                soundTouchProcessor = new SoundTouch(); // 44.1 kHz, Mono
-
-                waveIn = new WaveInEvent
-                {
-                    WaveFormat = new WaveFormat(44100, 16,1), // 44.1 kHz, Mono
-                };
-
-                bufferedWaveProvider = new BufferedWaveProvider(waveIn.WaveFormat);
-                bufferedWaveProvider.DiscardOnBufferOverflow = true;
-
-                pitchShifter = new SmbPitchShifter(waveIn.WaveFormat.SampleRate);
-
-                waveIn.DataAvailable += (s, a) =>
-                {
-                    float[] floatBuffer = ConvertToFloatBuffer(a.Buffer, a.BytesRecorded);
-                    float[] outBuffer = new float[floatBuffer.Length];
-                   
-                    // Aplicar cambio de tono
-                    pitchShifter.PitchShift(pitchFactor, floatBuffer.Length, floatBuffer, outBuffer);
-
-                    byte[] byteBuffer = ProcessAudio(ConvertToByteBuffer(outBuffer));//ConvertToByteBuffer(outBuffer);
-
-                    byte[] byteBuffer2 = ConvertToByteBuffer(outBuffer);
-                        bufferedWaveProvider.AddSamples(byteBuffer, 0, byteBuffer.Length);
-                   // WaveIn_DataAvailable(s, a);
-                };
-
-                waveOut = new WaveOutEvent();
-                waveOut.Init(bufferedWaveProvider);
-                waveOut.Play();
-
-                waveIn.StartRecording();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al iniciar el micrófono: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void StopMicrophone()
-        {
-            if (waveIn != null)
-            {
-                waveIn.StopRecording();
-                waveIn.Dispose();
-                waveIn = null;
-            }
-
-            if (waveOut != null)
-            {
-                waveOut.Stop();
-                waveOut.Dispose();
-                waveOut = null;
-            }
         }
 
         private void ModVoice_Load(object sender, EventArgs e)
         {
+            // Configurar la captura de audio (micrófono)
+            waveIn = new WaveInEvent();
+            waveIn.WaveFormat = new WaveFormat(44100, 16, 1); // Formato de audio: 44100 Hz, 16 bits, mono
+            waveIn.DataAvailable += WaveIn_DataAvailable;
+
+            // Configurar la salida de audio
+            waveOut = new WaveOutEvent();
+            bufferedWaveProvider = new BufferedWaveProvider(waveIn.WaveFormat);
+            waveOut.Init(bufferedWaveProvider);
+
 
         }
-        private float[] ConvertToFloatBuffer(byte[] byteBuffer, int bytesRecorded)
+
+        private void WaveIn_DataAvailable(object sender, WaveInEventArgs e)
         {
-            float[] floatBuffer = new float[bytesRecorded / 2];
+            byte[] buffer = e.Buffer;
+
+            // Crear una muestra flotante de los datos de audio capturados
+            float[] floatBuffer = new float[buffer.Length / 2];
             for (int i = 0; i < floatBuffer.Length; i++)
             {
-                floatBuffer[i] = BitConverter.ToInt16(byteBuffer, i * 2) / 32768f;
+                short sample = BitConverter.ToInt16(buffer, i * 2);  // Convertir bytes a 16 bits
+                floatBuffer[i] = sample / 32768f; // Convertir a punto flotante en el rango [-1, 1]
             }
-            return floatBuffer;
-        }
-        private byte[] ConvertToByteBuffer(float[] floatBuffer)
-        {
-            byte[] byteBuffer = new byte[floatBuffer.Length * 2];
+
+            // Procesar el audio con el pitch shifter
+            float[] outputBuffer = new float[floatBuffer.Length];
+            pitchShifter.PitchShift(pitch, floatBuffer.Length, 44100f, floatBuffer);  // Cambiar tono por 1.5 veces
+
+            // El algoritmo puede basarse en la idea de retardo, modulación de frecuencia y mezcla de voces
             for (int i = 0; i < floatBuffer.Length; i++)
             {
-                short intSample = (short)(floatBuffer[i] * 32767);
-                BitConverter.GetBytes(intSample).CopyTo(byteBuffer, i * 2);
+                // Aquí iría el procesamiento del chorus (ejemplo de delay y mezcla)
+                // Esto es solo un esqueleto, se debería implementar la lógica específica de chorus
+                floatBuffer[i] *= 1.7f; // Aplicar algo de "wet" mix para chorus (solo ejemplo)
             }
-            return byteBuffer;
+            Array.Copy(floatBuffer, outputBuffer, floatBuffer.Length); // Copiar el audio procesado a outputBuffer
+
+            // Convertir el buffer procesado a bytes para reproducción
+            byte[] byteOutput = new byte[outputBuffer.Length * 2]; // Dos bytes por muestra
+            for (int i = 0; i < outputBuffer.Length; i++)
+            {
+                short sample = (short)(outputBuffer[i] * 32768); // Convertir a 16-bit
+                byteOutput[i * 2] = (byte)(sample & 0xff);      // Parte baja
+                byteOutput[i * 2 + 1] = (byte)((sample >> 8) & 0xff);  // Parte alta
+            }
+
+            // Agregar el audio procesado al BufferedWaveProvider para que se pueda reproducir
+            bufferedWaveProvider.AddSamples(byteOutput, 0, byteOutput.Length);
         }
-        private byte[] ProcessAudio(byte[] buffer)
+
+        private void btnStart_Click(object sender, EventArgs e)
         {
-            int numSamples = buffer.Length / 2;  // 2 bytes por muestra (16 bits)
-            float[] floatBuffer = new float[numSamples];
-
-            // Convertir los datos de 16-bit a 32-bit flotante
-            for (int i = 0; i < numSamples; i++)
+            // Iniciar la captura y la reproducción (ya lo hicimos al cargar el formulario, pero si deseas un botón de control)
+            if (isRecording)
             {
-                short sample = BitConverter.ToInt16(buffer, i * 2);  // Convertir 2 bytes a 16 bits
-                floatBuffer[i] = sample / 32768f;  // Convertir a float en el rango [-1, 1]
+                // Detener la grabación y detener la reproducción
+                waveIn.StopRecording();
+                waveOut.Stop();
+                btnStart.Text = "Iniciar Grabación";  // Cambiar el texto del botón
+                isRecording = false;  // Cambiar el estado de grabación
             }
-
-            // Inicializar SoundTouchProcessor
-            SoundTouch soundTouchProcessor = new SoundTouch();
-            soundTouchProcessor.PitchSemiTones = 5;  // Cambiar el tono en 5 semitonos
-            soundTouchProcessor.Tempo = 1.0f;    // Mantener la misma velocidad (1.0f para mantener)
-
-            float[] outputBuffer = new float[numSamples];
-
-            // Enviar todas las muestras a SoundTouch de una sola vez
-            soundTouchProcessor.PutSamples(floatBuffer, (uint)numSamples);
-            soundTouchProcessor.Flush();  // Asegúrate de que las muestras sean procesadas
-
-            // Recibir las muestras procesadas
-            int numProcessed = (int)soundTouchProcessor.ReceiveSamples(outputBuffer, (uint)outputBuffer.Length);
-            Console.WriteLine($"Número de muestras procesadas: {numProcessed}");
-
-            if (numProcessed == 0)
+            else
             {
-                Console.WriteLine("No se procesaron muestras.");
-                return new byte[0];
+                // Iniciar la grabación y reproducción
+                waveIn.StartRecording();
+                waveOut.Play();
+                btnStart.Text = "Detener Grabación";  // Cambiar el texto del botón
+                isRecording = true;  // Cambiar el estado de grabación
             }
-
-            // Convertir las muestras procesadas de float[] a byte[]
-            byte[] byteOutput = new byte[numProcessed * 2]; // 2 bytes por muestra (16 bits)
-            for (int j = 0; j < numProcessed; j++)
-            {
-                short sample = (short)(outputBuffer[j] * 32768);  // Convertir a 16-bit
-                byteOutput[j * 2] = (byte)(sample & 0xff);      // Parte baja
-                byteOutput[j * 2 + 1] = (byte)((sample >> 8) & 0xff);  // Parte alta
-            }
-
-            // Devolver el audio procesado
-            return byteOutput;
-
-
         }
 
 
 
-        private void btnStop_Click(object sender, EventArgs e)
+        private void ptbPitch_Scroll(object sender, ScrollEventArgs e)
         {
+            // El rango del TrackBar es 0 a 100, por lo que lo normalizamos entre 0.5 y 2.0 para el pitch
+            pitch = (ptbPitch.Value / 100.0f) + 0.5f;  // Valor de pitch entre 0.5 y 2.0
 
+            // Actualizar el label para mostrar el pitch actual
+            lblPitchValue.Text = $"Pitch: {pitch:F2}";
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();  // Cerrar la aplicación
         }
     }
 }

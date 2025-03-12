@@ -23,7 +23,7 @@ namespace GranDnDDM.Views
         private EditorMap empa = new EditorMap();
         private CreatureList cl = new CreatureList();
         private ShopCreeator sh = new ShopCreeator();
-
+        private ModVoice modVoice = new ModVoice();
         /// <summary>
         /// wave micro
         /// </summary>
@@ -208,7 +208,11 @@ namespace GranDnDDM.Views
 
         private void btnModVoice_Click(object sender, EventArgs e)
         {
-            ModVoice modVoice = new ModVoice();
+            if (modVoice.IsDisposed)
+            {
+                modVoice = new ModVoice();
+            }
+            
             modVoice.Show();
         }
     }

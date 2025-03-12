@@ -39,8 +39,8 @@
             btnOpenShop = new Button();
             btnMicroToggle = new Button();
             trackPitch = new TrackBar();
-            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnModVoice = new Button();
+            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             myForm.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackPitch).BeginInit();
@@ -58,6 +58,7 @@
             imageList1.Images.SetKeyName(4, "shopgen.png");
             imageList1.Images.SetKeyName(5, "microOn.png");
             imageList1.Images.SetKeyName(6, "microOff.png");
+            imageList1.Images.SetKeyName(7, "voiceicon.png");
             // 
             // myForm
             // 
@@ -84,9 +85,9 @@
             flowLayoutPanel1.Controls.Add(btnMusicControl);
             flowLayoutPanel1.Controls.Add(btnMapEditor);
             flowLayoutPanel1.Controls.Add(btnOpenShop);
+            flowLayoutPanel1.Controls.Add(btnModVoice);
             flowLayoutPanel1.Controls.Add(btnMicroToggle);
             flowLayoutPanel1.Controls.Add(trackPitch);
-            flowLayoutPanel1.Controls.Add(btnModVoice);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 31);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -141,7 +142,7 @@
             // 
             btnMicroToggle.ImageIndex = 6;
             btnMicroToggle.ImageList = imageList1;
-            btnMicroToggle.Location = new Point(262, 3);
+            btnMicroToggle.Location = new Point(326, 3);
             btnMicroToggle.Name = "btnMicroToggle";
             btnMicroToggle.Size = new Size(46, 54);
             btnMicroToggle.TabIndex = 16;
@@ -150,12 +151,23 @@
             // 
             // trackPitch
             // 
-            trackPitch.Location = new Point(314, 3);
+            trackPitch.Location = new Point(378, 3);
             trackPitch.Name = "trackPitch";
             trackPitch.Size = new Size(104, 45);
             trackPitch.TabIndex = 17;
             trackPitch.Visible = false;
             trackPitch.Scroll += trackPitch_Scroll;
+            // 
+            // btnModVoice
+            // 
+            btnModVoice.ImageIndex = 7;
+            btnModVoice.ImageList = imageList1;
+            btnModVoice.Location = new Point(262, 3);
+            btnModVoice.Name = "btnModVoice";
+            btnModVoice.Size = new Size(58, 54);
+            btnModVoice.TabIndex = 18;
+            btnModVoice.UseVisualStyleBackColor = true;
+            btnModVoice.Click += btnModVoice_Click;
             // 
             // btnClose
             // 
@@ -180,17 +192,6 @@
             btnClose.Text = "btnClose";
             btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             btnClose.Click += btnClose_Click;
-            // 
-            // btnModVoice
-            // 
-            btnModVoice.ImageIndex = 4;
-            btnModVoice.ImageList = imageList1;
-            btnModVoice.Location = new Point(424, 3);
-            btnModVoice.Name = "btnModVoice";
-            btnModVoice.Size = new Size(58, 54);
-            btnModVoice.TabIndex = 18;
-            btnModVoice.UseVisualStyleBackColor = true;
-            btnModVoice.Click += btnModVoice_Click;
             // 
             // DMDashboard
             // 

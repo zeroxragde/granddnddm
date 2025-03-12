@@ -38,12 +38,32 @@ namespace GranDnDDM.Views
             ptbPitch.Minimum = 0;   // Mínimo valor (graves)
             ptbPitch.Maximum = 100;    // Máximo valor (agudos)
             ptbPitch.Value = 50;        // Valor inicial centrado (sin cambio de tono)
-                                        // Configuración del TrackBar
-
-
+            // Configuración del TrackBar
             ptbPitch.LargeChange = 20; // El valor por cambio grande
             ptbPitch.SmallChange = 1;  // El valor por cambio pequeño
-                                       // Inicializar el modulador multibanda con sample rate 44100 Hz
+
+
+
+            // Configuración del TrackBar
+            trackBarTimbreShift.Minimum = 0;   // Mínimo valor (graves)
+            trackBarTimbreShift.Maximum = 100;    // Máximo valor (agudos)
+            trackBarTimbreShift.Value = 50;        // Valor inicial centrado (sin cambio de tono)
+            // Configuración del TrackBar
+            trackBarTimbreShift.LargeChange = 20; // El valor por cambio grande
+            trackBarTimbreShift.SmallChange = 1;  // El valor por cambio pequeño
+
+
+            // Configuración del TrackBar
+            trackBarTimbreStrength.Minimum = 0;   // Mínimo valor (graves)
+            trackBarTimbreStrength.Maximum = 100;    // Máximo valor (agudos)
+            trackBarTimbreStrength.Value = 50;        // Valor inicial centrado (sin cambio de tono)
+            // Configuración del TrackBar
+            trackBarTimbreStrength.LargeChange = 20; // El valor por cambio grande
+            trackBarTimbreStrength.SmallChange = 1;  // El valor por cambio pequeño
+
+            
+
+            // Inicializar el modulador multibanda con sample rate 44100 Hz
             multibandModulator = new MultibandModulator(44100);
             // Inicializar el VoiceProcessor
             voiceProcessor = new VoiceProcessor(44100);
@@ -60,7 +80,7 @@ namespace GranDnDDM.Views
             waveOut = new WaveOutEvent();
             bufferedWaveProvider = new BufferedWaveProvider(waveIn.WaveFormat);
             waveOut.Init(bufferedWaveProvider);
-            timbreFilter = new BiquadFilter(FilterType.BandPass, timbreShiftValue, 0.7f, 44100f);
+            timbreFilter = new BiquadFilter(FilterType.BandPass, timbreShiftValue, 1.7f, 44100f);
 
         }
         public static float[] ConvertirByteArrayAFloats(byte[] arreglo)
@@ -174,7 +194,7 @@ namespace GranDnDDM.Views
             pitch = (ptbPitch.Value / 100.0f) + 0.5f;  // Valor de pitch entre 0.5 y 2.0
 
             // Actualizar el label para mostrar el pitch actual
-            lblPitchValue.Text = $"Pitch: {pitch:F2}";
+            lblPitchValue.Text = $"{pitch:F2}";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -211,14 +231,14 @@ namespace GranDnDDM.Views
             // Volvemos a crear (o recalcular) el filtro con la nueva frecuencia central
             timbreFilter = new BiquadFilter(FilterType.BandPass, timbreShiftValue, 0.7f, 44100f);
 
-            //  lblTimbreShift.Text = $"Shift: {timbreShiftValue:F2} Hz";
+            lblTimbreShift.Text = $"Shift: {timbreShiftValue:F2} Hz";
         }
 
         private void trackBarTimbreStrength_Scroll(object sender, ScrollEventArgs e)
         {
             // Mapeamos el valor [0..100] a [0..1]
             timbreStrength = trackBarTimbreStrength.Value / 100f;
-         //   lblTimbreStrength.Text = $"Strength: {timbreStrength:P0}";
+           lblTimbreStrength.Text = $"{timbreStrength:P0}";
         }
     }
 }

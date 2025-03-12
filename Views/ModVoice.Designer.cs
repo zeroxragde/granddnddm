@@ -32,6 +32,8 @@
             btnStart = new ReaLTaiizor.Controls.AirButton();
             ptbPitch = new ReaLTaiizor.Controls.PoisonTrackBar();
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            lblTimbreShift = new ReaLTaiizor.Controls.BigLabel();
+            lblTimbreStrength = new ReaLTaiizor.Controls.BigLabel();
             trackBarTimbreStrength = new ReaLTaiizor.Controls.PoisonTrackBar();
             trackBarTimbreShift = new ReaLTaiizor.Controls.PoisonTrackBar();
             tbLowModDepth = new ReaLTaiizor.Controls.PoisonTrackBar();
@@ -100,6 +102,8 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(lblTimbreShift);
+            dreamForm1.Controls.Add(lblTimbreStrength);
             dreamForm1.Controls.Add(trackBarTimbreStrength);
             dreamForm1.Controls.Add(trackBarTimbreShift);
             dreamForm1.Controls.Add(tbLowModDepth);
@@ -118,10 +122,34 @@
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
             // 
+            // lblTimbreShift
+            // 
+            lblTimbreShift.AutoSize = true;
+            lblTimbreShift.BackColor = Color.Transparent;
+            lblTimbreShift.Font = new Font("Segoe UI", 25F);
+            lblTimbreShift.ForeColor = Color.White;
+            lblTimbreShift.Location = new Point(196, 399);
+            lblTimbreShift.Name = "lblTimbreShift";
+            lblTimbreShift.Size = new Size(38, 46);
+            lblTimbreShift.TabIndex = 31;
+            lblTimbreShift.Text = "0";
+            // 
+            // lblTimbreStrength
+            // 
+            lblTimbreStrength.AutoSize = true;
+            lblTimbreStrength.BackColor = Color.Transparent;
+            lblTimbreStrength.Font = new Font("Segoe UI", 25F);
+            lblTimbreStrength.ForeColor = Color.White;
+            lblTimbreStrength.Location = new Point(198, 474);
+            lblTimbreStrength.Name = "lblTimbreStrength";
+            lblTimbreStrength.Size = new Size(38, 46);
+            lblTimbreStrength.TabIndex = 30;
+            lblTimbreStrength.Text = "0";
+            // 
             // trackBarTimbreStrength
             // 
             trackBarTimbreStrength.BackColor = Color.Transparent;
-            trackBarTimbreStrength.Location = new Point(45, 476);
+            trackBarTimbreStrength.Location = new Point(15, 486);
             trackBarTimbreStrength.Name = "trackBarTimbreStrength";
             trackBarTimbreStrength.Size = new Size(164, 28);
             trackBarTimbreStrength.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -135,7 +163,7 @@
             // trackBarTimbreShift
             // 
             trackBarTimbreShift.BackColor = Color.Transparent;
-            trackBarTimbreShift.Location = new Point(45, 442);
+            trackBarTimbreShift.Location = new Point(13, 417);
             trackBarTimbreShift.Name = "trackBarTimbreShift";
             trackBarTimbreShift.Size = new Size(164, 28);
             trackBarTimbreShift.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -149,7 +177,7 @@
             // tbLowModDepth
             // 
             tbLowModDepth.BackColor = Color.Transparent;
-            tbLowModDepth.Location = new Point(45, 368);
+            tbLowModDepth.Location = new Point(13, 316);
             tbLowModDepth.Name = "tbLowModDepth";
             tbLowModDepth.Size = new Size(164, 28);
             tbLowModDepth.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -163,7 +191,7 @@
             // tbLowModFreq
             // 
             tbLowModFreq.BackColor = Color.Transparent;
-            tbLowModFreq.Location = new Point(45, 334);
+            tbLowModFreq.Location = new Point(13, 282);
             tbLowModFreq.Name = "tbLowModFreq";
             tbLowModFreq.Size = new Size(164, 28);
             tbLowModFreq.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -180,7 +208,7 @@
             lblPitchValue.BackColor = Color.Transparent;
             lblPitchValue.Font = new Font("Segoe UI", 25F);
             lblPitchValue.ForeColor = Color.White;
-            lblPitchValue.Location = new Point(13, 199);
+            lblPitchValue.Location = new Point(196, 239);
             lblPitchValue.Name = "lblPitchValue";
             lblPitchValue.Size = new Size(38, 46);
             lblPitchValue.TabIndex = 25;
@@ -212,5 +240,7 @@
         private ReaLTaiizor.Controls.PoisonTrackBar tbLowModDepth;
         private ReaLTaiizor.Controls.PoisonTrackBar trackBarTimbreStrength;
         private ReaLTaiizor.Controls.PoisonTrackBar trackBarTimbreShift;
+        private ReaLTaiizor.Controls.BigLabel lblTimbreStrength;
+        private ReaLTaiizor.Controls.BigLabel lblTimbreShift;
     }
 }

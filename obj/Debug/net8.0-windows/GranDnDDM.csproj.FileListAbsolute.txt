@@ -94,3 +94,5 @@ C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\SoundTouc
 X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\SoundTouch.Net.dll
 X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\Cloo.dll
 X:\DESARROLLO\CSharp\granddnddm\bin\Debug\net8.0-windows\WORLD.NET.dll
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\Cloo.dll
+C:\Users\ecarrizales\edgar\app\GIT\granddnddm\bin\Debug\net8.0-windows\WORLD.NET.dll

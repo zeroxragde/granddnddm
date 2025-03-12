@@ -32,6 +32,10 @@
             btnStart = new ReaLTaiizor.Controls.AirButton();
             ptbPitch = new ReaLTaiizor.Controls.PoisonTrackBar();
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            trackBarTimbreStrength = new ReaLTaiizor.Controls.PoisonTrackBar();
+            trackBarTimbreShift = new ReaLTaiizor.Controls.PoisonTrackBar();
+            tbLowModDepth = new ReaLTaiizor.Controls.PoisonTrackBar();
+            tbLowModFreq = new ReaLTaiizor.Controls.PoisonTrackBar();
             lblPitchValue = new ReaLTaiizor.Controls.BigLabel();
             dreamForm1.SuspendLayout();
             SuspendLayout();
@@ -96,6 +100,10 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(trackBarTimbreStrength);
+            dreamForm1.Controls.Add(trackBarTimbreShift);
+            dreamForm1.Controls.Add(tbLowModDepth);
+            dreamForm1.Controls.Add(tbLowModFreq);
             dreamForm1.Controls.Add(lblPitchValue);
             dreamForm1.Controls.Add(ptbPitch);
             dreamForm1.Controls.Add(btnStart);
@@ -103,12 +111,68 @@
             dreamForm1.Dock = DockStyle.Fill;
             dreamForm1.Location = new Point(0, 0);
             dreamForm1.Name = "dreamForm1";
-            dreamForm1.Size = new Size(246, 450);
+            dreamForm1.Size = new Size(246, 572);
             dreamForm1.TabIndex = 0;
             dreamForm1.TabStop = false;
             dreamForm1.Text = "Modificador de VOZ";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // trackBarTimbreStrength
+            // 
+            trackBarTimbreStrength.BackColor = Color.Transparent;
+            trackBarTimbreStrength.Location = new Point(45, 476);
+            trackBarTimbreStrength.Name = "trackBarTimbreStrength";
+            trackBarTimbreStrength.Size = new Size(164, 28);
+            trackBarTimbreStrength.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            trackBarTimbreStrength.TabIndex = 29;
+            trackBarTimbreStrength.Text = "poisonTrackBar1";
+            trackBarTimbreStrength.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            trackBarTimbreStrength.UseCustomBackColor = true;
+            trackBarTimbreStrength.Value = 0;
+            trackBarTimbreStrength.Scroll += trackBarTimbreStrength_Scroll;
+            // 
+            // trackBarTimbreShift
+            // 
+            trackBarTimbreShift.BackColor = Color.Transparent;
+            trackBarTimbreShift.Location = new Point(45, 442);
+            trackBarTimbreShift.Name = "trackBarTimbreShift";
+            trackBarTimbreShift.Size = new Size(164, 28);
+            trackBarTimbreShift.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            trackBarTimbreShift.TabIndex = 28;
+            trackBarTimbreShift.Text = "poisonTrackBar1";
+            trackBarTimbreShift.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            trackBarTimbreShift.UseCustomBackColor = true;
+            trackBarTimbreShift.Value = 0;
+            trackBarTimbreShift.Scroll += trackBarTimbreShift_Scroll;
+            // 
+            // tbLowModDepth
+            // 
+            tbLowModDepth.BackColor = Color.Transparent;
+            tbLowModDepth.Location = new Point(45, 368);
+            tbLowModDepth.Name = "tbLowModDepth";
+            tbLowModDepth.Size = new Size(164, 28);
+            tbLowModDepth.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            tbLowModDepth.TabIndex = 27;
+            tbLowModDepth.Text = "poisonTrackBar1";
+            tbLowModDepth.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            tbLowModDepth.UseCustomBackColor = true;
+            tbLowModDepth.Value = 0;
+            tbLowModDepth.Scroll += tbLowModDepth_Scroll;
+            // 
+            // tbLowModFreq
+            // 
+            tbLowModFreq.BackColor = Color.Transparent;
+            tbLowModFreq.Location = new Point(45, 334);
+            tbLowModFreq.Name = "tbLowModFreq";
+            tbLowModFreq.Size = new Size(164, 28);
+            tbLowModFreq.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            tbLowModFreq.TabIndex = 26;
+            tbLowModFreq.Text = "poisonTrackBar1";
+            tbLowModFreq.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            tbLowModFreq.UseCustomBackColor = true;
+            tbLowModFreq.Value = 0;
+            tbLowModFreq.Scroll += tbLowModFreq_Scroll;
             // 
             // lblPitchValue
             // 
@@ -126,7 +190,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(246, 450);
+            ClientSize = new Size(246, 572);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModVoice";
@@ -144,5 +208,9 @@
         private ReaLTaiizor.Controls.PoisonTrackBar ptbPitch;
         private ReaLTaiizor.Forms.DreamForm dreamForm1;
         private ReaLTaiizor.Controls.BigLabel lblPitchValue;
+        private ReaLTaiizor.Controls.PoisonTrackBar tbLowModFreq;
+        private ReaLTaiizor.Controls.PoisonTrackBar tbLowModDepth;
+        private ReaLTaiizor.Controls.PoisonTrackBar trackBarTimbreStrength;
+        private ReaLTaiizor.Controls.PoisonTrackBar trackBarTimbreShift;
     }
 }

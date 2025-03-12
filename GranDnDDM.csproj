@@ -36,6 +36,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.1" />
     <PackageReference Include="SoundTouch.Net" Version="2.3.2" />
+    <PackageReference Include="WORLD.NET" Version="1.5.0" />
   </ItemGroup>
 
   <ItemGroup>

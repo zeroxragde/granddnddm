@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "Cloo.clSharp/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Cloo.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Cloo.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -244,10 +257,40 @@
             "rid": "win"
           }
         }
+      },
+      "WORLD.NET/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Cloo.clSharp": "1.0.1",
+          "NAudio": "1.9.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/WORLD.NET.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WORLD.NET.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
   "libraries": {
+    "Cloo.clSharp/1.0.1": {
+      "sha512": "IobfnbM8xi2HjBN3lKYhomwwsp5Nk8MKNxT6Aag7A/0u/wuN6/ZwNh4AGMKZPutNwpa8UZfOJEoYWDB9Pr1jJg==",
+      "type": "package",
+      "path": "cloo.clsharp/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cloo.clsharp.1.0.1.nupkg.sha512",
+        "cloo.clsharp.nuspec",
+        "lib/netstandard2.0/Cloo.dll",
+        "lib/netstandard2.0/Cloo.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -610,6 +653,22 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "WORLD.NET/1.5.0": {
+      "sha512": "KlQ+VStdJR6Hw89rxfq6cLjK0ydeYjKKIErhUsPOUd5S8qG7rbYS0GpBZerQiY+yKeaCMP3+oPD9DchzthGS9g==",
+      "type": "package",
+      "path": "world.net/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/netstandard2.0/WORLD.NET.dll",
+        "lib/netstandard2.0/WORLD.NET.xml",
+        "lib/win32.dll",
+        "lib/win64.dll",
+        "world.net.1.5.0.nupkg.sha512",
+        "world.net.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -617,29 +676,30 @@
       "NAudio >= 2.2.1",
       "Newtonsoft.Json >= 13.0.3",
       "ReaLTaiizor >= 3.8.1.1",
-      "SoundTouch.Net >= 2.3.2"
+      "SoundTouch.Net >= 2.3.2",
+      "WORLD.NET >= 1.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ecarrizales\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\Ragde\\.nuget\\packages\\": {},
+    "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
+      "projectUniqueName": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
       "projectName": "GranDnDDM",
-      "projectPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\GranDnDDM.csproj",
-      "packagesPath": "C:\\Users\\ecarrizales\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\obj\\",
+      "projectPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
+      "packagesPath": "C:\\Users\\Ragde\\.nuget\\packages\\",
+      "outputPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "X:\\PROGRAMAS\\VisualStudio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ecarrizales\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ragde\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -689,6 +749,10 @@
           "SoundTouch.Net": {
             "target": "Package",
             "version": "[2.3.2, )"
+          },
+          "WORLD.NET": {
+            "target": "Package",
+            "version": "[1.5.0, )"
           }
         },
         "imports": [

@@ -32,6 +32,10 @@
             btnStart = new ReaLTaiizor.Controls.AirButton();
             ptbPitch = new ReaLTaiizor.Controls.PoisonTrackBar();
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            lblGainValue = new ReaLTaiizor.Controls.BigLabel();
+            trackBarGain = new ReaLTaiizor.Controls.PoisonTrackBar();
+            lblLowModFreq = new ReaLTaiizor.Controls.BigLabel();
+            lblLowModDepth = new ReaLTaiizor.Controls.BigLabel();
             lblTimbreShift = new ReaLTaiizor.Controls.BigLabel();
             lblTimbreStrength = new ReaLTaiizor.Controls.BigLabel();
             trackBarTimbreStrength = new ReaLTaiizor.Controls.PoisonTrackBar();
@@ -83,7 +87,7 @@
             // ptbPitch
             // 
             ptbPitch.BackColor = Color.Transparent;
-            ptbPitch.Location = new Point(13, 248);
+            ptbPitch.Location = new Point(15, 159);
             ptbPitch.Name = "ptbPitch";
             ptbPitch.Size = new Size(164, 28);
             ptbPitch.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -102,6 +106,10 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(lblGainValue);
+            dreamForm1.Controls.Add(trackBarGain);
+            dreamForm1.Controls.Add(lblLowModFreq);
+            dreamForm1.Controls.Add(lblLowModDepth);
             dreamForm1.Controls.Add(lblTimbreShift);
             dreamForm1.Controls.Add(lblTimbreStrength);
             dreamForm1.Controls.Add(trackBarTimbreStrength);
@@ -115,12 +123,62 @@
             dreamForm1.Dock = DockStyle.Fill;
             dreamForm1.Location = new Point(0, 0);
             dreamForm1.Name = "dreamForm1";
-            dreamForm1.Size = new Size(246, 572);
+            dreamForm1.Size = new Size(300, 572);
             dreamForm1.TabIndex = 0;
             dreamForm1.TabStop = false;
             dreamForm1.Text = "Modificador de VOZ";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // lblGainValue
+            // 
+            lblGainValue.AutoSize = true;
+            lblGainValue.BackColor = Color.Transparent;
+            lblGainValue.Font = new Font("Segoe UI", 25F);
+            lblGainValue.ForeColor = Color.White;
+            lblGainValue.Location = new Point(213, 509);
+            lblGainValue.Name = "lblGainValue";
+            lblGainValue.Size = new Size(38, 46);
+            lblGainValue.TabIndex = 35;
+            lblGainValue.Text = "0";
+            // 
+            // trackBarGain
+            // 
+            trackBarGain.BackColor = Color.Transparent;
+            trackBarGain.Location = new Point(17, 509);
+            trackBarGain.Name = "trackBarGain";
+            trackBarGain.Size = new Size(164, 28);
+            trackBarGain.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            trackBarGain.TabIndex = 34;
+            trackBarGain.Text = "poisonTrackBar1";
+            trackBarGain.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            trackBarGain.UseCustomBackColor = true;
+            trackBarGain.Value = 0;
+            trackBarGain.Scroll += trackBarGain_Scroll;
+            // 
+            // lblLowModFreq
+            // 
+            lblLowModFreq.AutoSize = true;
+            lblLowModFreq.BackColor = Color.Transparent;
+            lblLowModFreq.Font = new Font("Segoe UI", 25F);
+            lblLowModFreq.ForeColor = Color.White;
+            lblLowModFreq.Location = new Point(198, 272);
+            lblLowModFreq.Name = "lblLowModFreq";
+            lblLowModFreq.Size = new Size(38, 46);
+            lblLowModFreq.TabIndex = 33;
+            lblLowModFreq.Text = "0";
+            // 
+            // lblLowModDepth
+            // 
+            lblLowModDepth.AutoSize = true;
+            lblLowModDepth.BackColor = Color.Transparent;
+            lblLowModDepth.Font = new Font("Segoe UI", 25F);
+            lblLowModDepth.ForeColor = Color.White;
+            lblLowModDepth.Location = new Point(198, 226);
+            lblLowModDepth.Name = "lblLowModDepth";
+            lblLowModDepth.Size = new Size(38, 46);
+            lblLowModDepth.TabIndex = 32;
+            lblLowModDepth.Text = "0";
             // 
             // lblTimbreShift
             // 
@@ -128,7 +186,7 @@
             lblTimbreShift.BackColor = Color.Transparent;
             lblTimbreShift.Font = new Font("Segoe UI", 25F);
             lblTimbreShift.ForeColor = Color.White;
-            lblTimbreShift.Location = new Point(196, 399);
+            lblTimbreShift.Location = new Point(198, 365);
             lblTimbreShift.Name = "lblTimbreShift";
             lblTimbreShift.Size = new Size(38, 46);
             lblTimbreShift.TabIndex = 31;
@@ -140,7 +198,7 @@
             lblTimbreStrength.BackColor = Color.Transparent;
             lblTimbreStrength.Font = new Font("Segoe UI", 25F);
             lblTimbreStrength.ForeColor = Color.White;
-            lblTimbreStrength.Location = new Point(198, 474);
+            lblTimbreStrength.Location = new Point(200, 440);
             lblTimbreStrength.Name = "lblTimbreStrength";
             lblTimbreStrength.Size = new Size(38, 46);
             lblTimbreStrength.TabIndex = 30;
@@ -149,7 +207,7 @@
             // trackBarTimbreStrength
             // 
             trackBarTimbreStrength.BackColor = Color.Transparent;
-            trackBarTimbreStrength.Location = new Point(15, 486);
+            trackBarTimbreStrength.Location = new Point(17, 452);
             trackBarTimbreStrength.Name = "trackBarTimbreStrength";
             trackBarTimbreStrength.Size = new Size(164, 28);
             trackBarTimbreStrength.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -163,7 +221,7 @@
             // trackBarTimbreShift
             // 
             trackBarTimbreShift.BackColor = Color.Transparent;
-            trackBarTimbreShift.Location = new Point(13, 417);
+            trackBarTimbreShift.Location = new Point(15, 383);
             trackBarTimbreShift.Name = "trackBarTimbreShift";
             trackBarTimbreShift.Size = new Size(164, 28);
             trackBarTimbreShift.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -177,7 +235,7 @@
             // tbLowModDepth
             // 
             tbLowModDepth.BackColor = Color.Transparent;
-            tbLowModDepth.Location = new Point(13, 316);
+            tbLowModDepth.Location = new Point(15, 290);
             tbLowModDepth.Name = "tbLowModDepth";
             tbLowModDepth.Size = new Size(164, 28);
             tbLowModDepth.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -191,7 +249,7 @@
             // tbLowModFreq
             // 
             tbLowModFreq.BackColor = Color.Transparent;
-            tbLowModFreq.Location = new Point(13, 282);
+            tbLowModFreq.Location = new Point(17, 227);
             tbLowModFreq.Name = "tbLowModFreq";
             tbLowModFreq.Size = new Size(164, 28);
             tbLowModFreq.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
@@ -208,7 +266,7 @@
             lblPitchValue.BackColor = Color.Transparent;
             lblPitchValue.Font = new Font("Segoe UI", 25F);
             lblPitchValue.ForeColor = Color.White;
-            lblPitchValue.Location = new Point(196, 239);
+            lblPitchValue.Location = new Point(198, 150);
             lblPitchValue.Name = "lblPitchValue";
             lblPitchValue.Size = new Size(38, 46);
             lblPitchValue.TabIndex = 25;
@@ -218,7 +276,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(246, 572);
+            ClientSize = new Size(300, 572);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModVoice";
@@ -242,5 +300,10 @@
         private ReaLTaiizor.Controls.PoisonTrackBar trackBarTimbreShift;
         private ReaLTaiizor.Controls.BigLabel lblTimbreStrength;
         private ReaLTaiizor.Controls.BigLabel lblTimbreShift;
+        private ReaLTaiizor.Controls.BigLabel lblLowModFreq;
+        private ReaLTaiizor.Controls.BigLabel lblLowModDepth;
+        private ReaLTaiizor.Controls.BigLabel lblGainValue;
+        private ReaLTaiizor.Controls.PoisonTrackBar poisonTrackBar1;
+        private ReaLTaiizor.Controls.PoisonTrackBar trackBarGain;
     }
 }

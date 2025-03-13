@@ -24,6 +24,7 @@ namespace GranDnDDM.Views
         private CreatureList cl = new CreatureList();
         private ShopCreeator sh = new ShopCreeator();
         private ModVoice modVoice = new ModVoice();
+        private TableroIniciativa iniciativa = new TableroIniciativa();
         /// <summary>
         /// wave micro
         /// </summary>
@@ -212,8 +213,18 @@ namespace GranDnDDM.Views
             {
                 modVoice = new ModVoice();
             }
-            
+
             modVoice.Show();
+        }
+
+        private void btnIniciativa_Click(object sender, EventArgs e)
+        {
+            if (iniciativa.IsDisposed)
+            {
+                iniciativa = new TableroIniciativa();
+            }
+
+            iniciativa.Show();
         }
     }
 }

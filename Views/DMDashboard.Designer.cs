@@ -37,9 +37,10 @@
             btnMusicControl = new Button();
             btnMapEditor = new Button();
             btnOpenShop = new Button();
+            btnIniciativa = new Button();
+            btnModVoice = new Button();
             btnMicroToggle = new Button();
             trackPitch = new TrackBar();
-            btnModVoice = new Button();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             myForm.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -59,6 +60,7 @@
             imageList1.Images.SetKeyName(5, "microOn.png");
             imageList1.Images.SetKeyName(6, "microOff.png");
             imageList1.Images.SetKeyName(7, "voiceicon.png");
+            imageList1.Images.SetKeyName(8, "iconIniciativa.png");
             // 
             // myForm
             // 
@@ -85,6 +87,7 @@
             flowLayoutPanel1.Controls.Add(btnMusicControl);
             flowLayoutPanel1.Controls.Add(btnMapEditor);
             flowLayoutPanel1.Controls.Add(btnOpenShop);
+            flowLayoutPanel1.Controls.Add(btnIniciativa);
             flowLayoutPanel1.Controls.Add(btnModVoice);
             flowLayoutPanel1.Controls.Add(btnMicroToggle);
             flowLayoutPanel1.Controls.Add(trackPitch);
@@ -138,11 +141,33 @@
             btnOpenShop.UseVisualStyleBackColor = true;
             btnOpenShop.Click += btnOpenShop_Click;
             // 
+            // btnIniciativa
+            // 
+            btnIniciativa.ImageIndex = 8;
+            btnIniciativa.ImageList = imageList1;
+            btnIniciativa.Location = new Point(262, 3);
+            btnIniciativa.Name = "btnIniciativa";
+            btnIniciativa.Size = new Size(58, 54);
+            btnIniciativa.TabIndex = 19;
+            btnIniciativa.UseVisualStyleBackColor = true;
+            btnIniciativa.Click += btnIniciativa_Click;
+            // 
+            // btnModVoice
+            // 
+            btnModVoice.ImageIndex = 7;
+            btnModVoice.ImageList = imageList1;
+            btnModVoice.Location = new Point(326, 3);
+            btnModVoice.Name = "btnModVoice";
+            btnModVoice.Size = new Size(58, 54);
+            btnModVoice.TabIndex = 18;
+            btnModVoice.UseVisualStyleBackColor = true;
+            btnModVoice.Click += btnModVoice_Click;
+            // 
             // btnMicroToggle
             // 
             btnMicroToggle.ImageIndex = 6;
             btnMicroToggle.ImageList = imageList1;
-            btnMicroToggle.Location = new Point(326, 3);
+            btnMicroToggle.Location = new Point(390, 3);
             btnMicroToggle.Name = "btnMicroToggle";
             btnMicroToggle.Size = new Size(46, 54);
             btnMicroToggle.TabIndex = 16;
@@ -151,23 +176,12 @@
             // 
             // trackPitch
             // 
-            trackPitch.Location = new Point(378, 3);
+            trackPitch.Location = new Point(442, 3);
             trackPitch.Name = "trackPitch";
             trackPitch.Size = new Size(104, 45);
             trackPitch.TabIndex = 17;
             trackPitch.Visible = false;
             trackPitch.Scroll += trackPitch_Scroll;
-            // 
-            // btnModVoice
-            // 
-            btnModVoice.ImageIndex = 7;
-            btnModVoice.ImageList = imageList1;
-            btnModVoice.Location = new Point(262, 3);
-            btnModVoice.Name = "btnModVoice";
-            btnModVoice.Size = new Size(58, 54);
-            btnModVoice.TabIndex = 18;
-            btnModVoice.UseVisualStyleBackColor = true;
-            btnModVoice.Click += btnModVoice_Click;
             // 
             // btnClose
             // 
@@ -233,5 +247,6 @@
         private Button btnMicroToggle;
         private TrackBar trackPitch;
         private Button btnModVoice;
+        private Button btnIniciativa;
     }
 }

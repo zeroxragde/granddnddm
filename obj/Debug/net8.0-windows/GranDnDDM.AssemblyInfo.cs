@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GranDnDDM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c115eb7039ecba86ff00fa92fdcd9664fef07d6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e379e65cb96e0d8980d3e17a57ff9efeb55ae27")]
 [assembly: System.Reflection.AssemblyProductAttribute("GranDnDDM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GranDnDDM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\tableroiniciativa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\tableroiniciativa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\tableroiniciativa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\tableroiniciativa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\tools\\draggablelabelcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:tools\\draggablelabelcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\models\\labeldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:models\\labeldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\modvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\modvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\dmdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|X:\\DESARROLLO\\CSharp\\granddnddm\\views\\modvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\modvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\modvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\modvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,70 +34,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LabelData.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Models\\LabelData.cs",
-              "RelativeDocumentMoniker": "Models\\LabelData.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Models\\LabelData.cs",
-              "RelativeToolTip": "Models\\LabelData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T03:51:35.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DraggableLabelControl.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Tools\\DraggableLabelControl.cs",
-              "RelativeDocumentMoniker": "Tools\\DraggableLabelControl.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Tools\\DraggableLabelControl.cs",
-              "RelativeToolTip": "Tools\\DraggableLabelControl.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T03:38:44.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TableroIniciativa.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\TableroIniciativa.cs",
-              "RelativeDocumentMoniker": "Views\\TableroIniciativa.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\TableroIniciativa.cs",
-              "RelativeToolTip": "Views\\TableroIniciativa.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAkwHwAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T03:38:01.864Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TableroIniciativa.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\TableroIniciativa.cs",
-              "RelativeDocumentMoniker": "Views\\TableroIniciativa.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\TableroIniciativa.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Views\\TableroIniciativa.cs [Dise\u00F1o]",
+              "Title": "DMDashboard.cs [Dise\u00F1o]",
+              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs",
+              "RelativeDocumentMoniker": "Views\\DMDashboard.cs",
+              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\DMDashboard.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\DMDashboard.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T03:29:09.11Z",
+              "WhenOpened": "2025-03-13T04:07:36.489Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ModVoice.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "ModVoice.cs [Dise\u00F1o]",
               "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ModVoice.cs",
               "RelativeDocumentMoniker": "Views\\ModVoice.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ModVoice.cs [Design]",
-              "RelativeToolTip": "Views\\ModVoice.cs [Design]",
+              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ModVoice.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\ModVoice.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T23:04:28.778Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ModVoice.cs",
               "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ModVoice.cs",
               "RelativeDocumentMoniker": "Views\\ModVoice.cs",

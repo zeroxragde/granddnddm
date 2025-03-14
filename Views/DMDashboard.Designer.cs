@@ -38,13 +38,10 @@
             btnMapEditor = new Button();
             btnOpenShop = new Button();
             btnIniciativa = new Button();
-            btnModVoice = new Button();
-            btnMicroToggle = new Button();
-            trackPitch = new TrackBar();
+            btnCurrency = new Button();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             myForm.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)trackPitch).BeginInit();
             SuspendLayout();
             // 
             // imageList1
@@ -61,6 +58,7 @@
             imageList1.Images.SetKeyName(6, "microOff.png");
             imageList1.Images.SetKeyName(7, "voiceicon.png");
             imageList1.Images.SetKeyName(8, "iconIniciativa.png");
+            imageList1.Images.SetKeyName(9, "conversorcurrency.png");
             // 
             // myForm
             // 
@@ -88,9 +86,7 @@
             flowLayoutPanel1.Controls.Add(btnMapEditor);
             flowLayoutPanel1.Controls.Add(btnOpenShop);
             flowLayoutPanel1.Controls.Add(btnIniciativa);
-            flowLayoutPanel1.Controls.Add(btnModVoice);
-            flowLayoutPanel1.Controls.Add(btnMicroToggle);
-            flowLayoutPanel1.Controls.Add(trackPitch);
+            flowLayoutPanel1.Controls.Add(btnCurrency);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 31);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -152,36 +148,16 @@
             btnIniciativa.UseVisualStyleBackColor = true;
             btnIniciativa.Click += btnIniciativa_Click;
             // 
-            // btnModVoice
+            // btnCurrency
             // 
-            btnModVoice.ImageIndex = 7;
-            btnModVoice.ImageList = imageList1;
-            btnModVoice.Location = new Point(326, 3);
-            btnModVoice.Name = "btnModVoice";
-            btnModVoice.Size = new Size(58, 54);
-            btnModVoice.TabIndex = 18;
-            btnModVoice.UseVisualStyleBackColor = true;
-            btnModVoice.Click += btnModVoice_Click;
-            // 
-            // btnMicroToggle
-            // 
-            btnMicroToggle.ImageIndex = 6;
-            btnMicroToggle.ImageList = imageList1;
-            btnMicroToggle.Location = new Point(390, 3);
-            btnMicroToggle.Name = "btnMicroToggle";
-            btnMicroToggle.Size = new Size(46, 54);
-            btnMicroToggle.TabIndex = 16;
-            btnMicroToggle.UseVisualStyleBackColor = true;
-            btnMicroToggle.Click += btnMicroToggle_Click;
-            // 
-            // trackPitch
-            // 
-            trackPitch.Location = new Point(442, 3);
-            trackPitch.Name = "trackPitch";
-            trackPitch.Size = new Size(104, 45);
-            trackPitch.TabIndex = 17;
-            trackPitch.Visible = false;
-            trackPitch.Scroll += trackPitch_Scroll;
+            btnCurrency.ImageIndex = 9;
+            btnCurrency.ImageList = imageList1;
+            btnCurrency.Location = new Point(326, 3);
+            btnCurrency.Name = "btnCurrency";
+            btnCurrency.Size = new Size(58, 54);
+            btnCurrency.TabIndex = 20;
+            btnCurrency.UseVisualStyleBackColor = true;
+            btnCurrency.Click += btnCurrency_Click;
             // 
             // btnClose
             // 
@@ -230,8 +206,6 @@
             Load += DMDashboard_Load;
             myForm.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)trackPitch).EndInit();
             ResumeLayout(false);
         }
 
@@ -244,9 +218,7 @@
         private Button btnMapEditor;
         private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
         private Button btnOpenShop;
-        private Button btnMicroToggle;
-        private TrackBar trackPitch;
-        private Button btnModVoice;
         private Button btnIniciativa;
+        private Button btnCurrency;
     }
 }

@@ -13,9 +13,11 @@ namespace GranDnDDM.Views
 {
     public partial class FormDetalleItem : Form
     {
+        private Item objeto;
         public FormDetalleItem(Item i)
         {
             InitializeComponent();
+            objeto = i;
             CargarDetalles(i);
         }
 
@@ -26,13 +28,35 @@ namespace GranDnDDM.Views
             lblPrecio.Text = $"Precio: {item.precio}";
             lblTipoObjeto.Text = $"Tipo: {item.tipo_objeto}";
             lblCategoria.Text = $"Categoría: {item.categoria}";
+            string damage = item.dado != "Desconocido" && item.tipo_dano  != "Desconocido" ? $"{item.dado}{item.tipo_dano}":"N/A";
+            lblDano.Text = damage;
 
             // Cargar imagen si existe URL
             if (!string.IsNullOrEmpty(item.imagen_url))
             {
                 try
                 {
-                    pictureBoxImagen.Load(item.imagen_url);
+                    pictureBoxImagen.Image = objeto.Imagen;
+                }
+                catch
+                {
+                    return;
+                }
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void pictureBoxImagen_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(objeto.imagen_url))
+            {
+                try
+                {
+                    pictureBoxImagen.Image = objeto.Imagen;
                 }
                 catch
                 {
@@ -41,9 +65,9 @@ namespace GranDnDDM.Views
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void dreamForm1_Enter(object sender, EventArgs e)
         {
-            Close();
+
         }
     }
 }

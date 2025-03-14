@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetalleItem));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            lblDano = new Label();
+            label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblDescripcion = new Label();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
@@ -51,6 +53,8 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(lblDano);
+            dreamForm1.Controls.Add(label1);
             dreamForm1.Controls.Add(flowLayoutPanel1);
             dreamForm1.Controls.Add(btnClose);
             dreamForm1.Controls.Add(lblNombre);
@@ -67,29 +71,54 @@
             dreamForm1.Text = "Objeto";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            dreamForm1.Enter += dreamForm1_Enter;
+            // 
+            // lblDano
+            // 
+            lblDano.BackColor = Color.DimGray;
+            lblDano.Font = new Font("Tempus Sans ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDano.ForeColor = Color.White;
+            lblDano.Location = new Point(220, 205);
+            lblDano.Name = "lblDano";
+            lblDano.Size = new Size(150, 30);
+            lblDano.TabIndex = 19;
+            lblDano.Text = "Armadura intermedia";
+            lblDano.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Sylfaen", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(171, 204);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 30);
+            label1.TabIndex = 18;
+            label1.Text = "Daño:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = Color.Transparent;
             flowLayoutPanel1.Controls.Add(lblDescripcion);
-            flowLayoutPanel1.Location = new Point(192, 78);
+            flowLayoutPanel1.Location = new Point(168, 78);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(336, 146);
+            flowLayoutPanel1.Size = new Size(336, 123);
             flowLayoutPanel1.TabIndex = 17;
-            flowLayoutPanel1.WrapContents = false;
             // 
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
             lblDescripcion.BackColor = Color.Transparent;
-            lblDescripcion.Dock = DockStyle.Fill;
+            flowLayoutPanel1.SetFlowBreak(lblDescripcion, true);
             lblDescripcion.ForeColor = Color.White;
             lblDescripcion.Location = new Point(3, 0);
+            lblDescripcion.MaximumSize = new Size(336, 5000);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(41, 15);
+            lblDescripcion.Size = new Size(328, 75);
             lblDescripcion.TabIndex = 8;
-            lblDescripcion.Text = "DITEM";
+            lblDescripcion.Text = resources.GetString("lblDescripcion.Text");
             // 
             // btnClose
             // 
@@ -122,7 +151,7 @@
             lblNombre.ForeColor = Color.White;
             lblNombre.Location = new Point(12, 38);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(300, 30);
+            lblNombre.Size = new Size(516, 30);
             lblNombre.TabIndex = 6;
             // 
             // pictureBoxImagen
@@ -134,31 +163,43 @@
             pictureBoxImagen.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxImagen.TabIndex = 7;
             pictureBoxImagen.TabStop = false;
+            pictureBoxImagen.Click += pictureBoxImagen_Click;
             // 
             // lblPrecio
             // 
-            lblPrecio.Location = new Point(192, 148);
+            lblPrecio.BackColor = Color.Transparent;
+            lblPrecio.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPrecio.ForeColor = Color.White;
+            lblPrecio.Location = new Point(384, 257);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(150, 30);
             lblPrecio.TabIndex = 9;
+            lblPrecio.Text = "50 po";
+            lblPrecio.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTipoObjeto
             // 
-            lblTipoObjeto.BackColor = Color.Transparent;
+            lblTipoObjeto.BackColor = Color.DimGray;
+            lblTipoObjeto.Font = new Font("Showcard Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTipoObjeto.ForeColor = Color.White;
-            lblTipoObjeto.Location = new Point(192, 227);
+            lblTipoObjeto.Location = new Point(12, 257);
             lblTipoObjeto.Name = "lblTipoObjeto";
             lblTipoObjeto.Size = new Size(150, 30);
             lblTipoObjeto.TabIndex = 10;
+            lblTipoObjeto.Text = "Armaduras";
+            lblTipoObjeto.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblCategoria
             // 
-            lblCategoria.BackColor = Color.Transparent;
+            lblCategoria.BackColor = Color.DimGray;
+            lblCategoria.Font = new Font("Tempus Sans ITC", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCategoria.ForeColor = Color.White;
-            lblCategoria.Location = new Point(192, 257);
+            lblCategoria.Location = new Point(171, 257);
             lblCategoria.Name = "lblCategoria";
             lblCategoria.Size = new Size(150, 30);
             lblCategoria.TabIndex = 11;
+            lblCategoria.Text = "Armadura intermedia";
+            lblCategoria.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormDetalleItem
             // 
@@ -190,5 +231,7 @@
         private Label lblCategoria;
         private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label label1;
+        private Label lblDano;
     }
 }

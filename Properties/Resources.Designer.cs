@@ -93,9 +93,39 @@ namespace GranDnDDM.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap conversorcurrency {
+            get {
+                object obj = ResourceManager.GetObject("conversorcurrency", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap currencyChange {
+            get {
+                object obj = ResourceManager.GetObject("currencyChange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deleteImg {
             get {
                 object obj = ResourceManager.GetObject("deleteImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ESTADOS {
+            get {
+                object obj = ResourceManager.GetObject("ESTADOS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +236,16 @@ namespace GranDnDDM.Properties {
         internal static System.Drawing.Bitmap x_icon {
             get {
                 object obj = ResourceManager.GetObject("x-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap XP {
+            get {
+                object obj = ResourceManager.GetObject("XP", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

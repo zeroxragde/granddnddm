@@ -46,9 +46,32 @@ namespace GranDnDDM.Models
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                return null;
+                Console.WriteLine("Error: " + ex.Message + "\nStackTrace: " + ex.StackTrace);
+                try
+                {
+                    // Asegura que se utilice TLS 1.2
+                    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+                    using (WebClient webClient = new WebClient())
+                    {
+                        // Agrega un User-Agent para evitar respuestas Forbidden
+                        webClient.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3");
+
+                        byte[] data = webClient.DownloadData(url);
+                        using (MemoryStream stream = new MemoryStream(data))
+                        {
+                            return Image.FromStream(stream);
+                        }
+                    }
+                }
+                catch (Exception ex2)
+                {
+                    Console.WriteLine("Error: " + ex2.Message + "\nStackTrace: " + ex2.StackTrace);
+                    return null;
+                }
+
             }
         }
     }

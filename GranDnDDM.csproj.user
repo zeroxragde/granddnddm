@@ -7,6 +7,9 @@
     <Compile Update="Tools\MapEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\ConversorMoneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreatureEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -38,6 +41,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\MusicControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\OtherInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\ShopCreeator.cs">

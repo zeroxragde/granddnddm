@@ -10,6 +10,7 @@ namespace GranDnDDM.Enums
     {
         None,
         Draw,
-        Erase
+        Erase,
+        Fill
     }
 }

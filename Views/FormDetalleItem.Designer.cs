@@ -180,7 +180,7 @@
             // lblTipoObjeto
             // 
             lblTipoObjeto.BackColor = Color.DimGray;
-            lblTipoObjeto.Font = new Font("Showcard Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTipoObjeto.Font = new Font("Showcard Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTipoObjeto.ForeColor = Color.White;
             lblTipoObjeto.Location = new Point(12, 257);
             lblTipoObjeto.Name = "lblTipoObjeto";

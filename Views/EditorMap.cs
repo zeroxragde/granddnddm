@@ -45,7 +45,10 @@ namespace GranDnDDM.Views
             // ComboBox para seleccionar la categoría
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.Items.AddRange(new string[] { "personajes", "objetos", "tiles", "imagenes generales" });
+            CmbFilter.Items.AddRange(new string[] { "Todas", "personajes", "objetos", "tiles", "imagenes generales" });
             cmbCategory.SelectedIndex = 0;
+
+            CmbFilter.SelectedIndex = 0;
 
             string sinEspacios = Regex.Replace(GlobalTools.DM, @"\s+", "");
             jsonDataFile = Path.Combine(Application.StartupPath, "data_" + sinEspacios + "_img.json");
@@ -93,6 +96,8 @@ namespace GranDnDDM.Views
             mapEditor.DrawToBitmap(bmp, visibleRect);
             return bmp;
         }
+
+
         private void btnAddImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -102,41 +107,35 @@ namespace GranDnDDM.Views
                 {
                     try
                     {
-                        // Carga la imagen completa desde el archivo seleccionado
                         Image fullImage = Image.FromFile(ofd.FileName);
                         string category = cmbCategory.SelectedItem.ToString();
 
                         if (!Directory.Exists(imagesFolder))
                             Directory.CreateDirectory(imagesFolder);
 
-                        // Genera un nombre único para la imagen y cópiala a la carpeta "imagenes"
                         string extension = Path.GetExtension(ofd.FileName);
                         string uniqueFileName = Guid.NewGuid().ToString() + extension;
                         string destinationPath = Path.Combine(imagesFolder, uniqueFileName);
                         File.Copy(ofd.FileName, destinationPath);
 
-                        // Crea un preview pequeño de la imagen (por ejemplo, 64x64)
                         Image previewImage = new Bitmap(fullImage, new Size(64, 64));
 
-                        // Agrega el preview al ImageList usando el nombre único como clave
                         if (!ilTiles.Images.ContainsKey(uniqueFileName))
                         {
                             ilTiles.Images.Add(uniqueFileName, previewImage);
                         }
 
-                        // Crea un ListViewItem para el ListView de tiles.
-                        // Usa el preview (a través de ImageKey) y almacena la imagen completa en Tag.
                         ListViewItem item = new ListViewItem
                         {
-                            Text = category,         // O puedes poner otro texto informativo
-                            ImageKey = uniqueFileName,
-                            Tag = fullImage          // Aquí guardas la imagen en tamaño real
+                            Text = category,
+                            ImageKey = uniqueFileName, // Aquí se guarda correctamente el nombre del archivo
+                            Tag = fullImage
                         };
 
                         listViewTiles.Items.Add(item);
+                        allTilesItems.Add(item);
 
-                        // Guarda los datos en JSON y aplica filtros, si es necesario
-                        SaveGridData();
+                        SaveGridData(); // Guardar en JSON inmediatamente
                         ApplyFilter();
                     }
                     catch (Exception ex)
@@ -146,6 +145,7 @@ namespace GranDnDDM.Views
                 }
             }
         }
+
 
         // Método para aplicar el filtro por categoría
         private void ApplyFilter()
@@ -175,12 +175,14 @@ namespace GranDnDDM.Views
             List<ImageRecord> records = new List<ImageRecord>();
             foreach (ListViewItem item in listViewTiles.Items)
             {
-                if (!string.IsNullOrEmpty(item.Text) && item.Tag is string fileName)
+                if (!string.IsNullOrEmpty(item.Text) && !string.IsNullOrEmpty(item.ImageKey))
                 {
                     string category = item.Text;
+                    string fileName = item.ImageKey; // Aquí obtenemos el nombre del archivo correctamente
                     records.Add(new ImageRecord { Category = category, FileName = fileName });
                 }
             }
+
             string json = JsonSerializer.Serialize(records, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(jsonDataFile, json);
         }
@@ -196,32 +198,31 @@ namespace GranDnDDM.Views
                     List<ImageRecord> records = JsonSerializer.Deserialize<List<ImageRecord>>(json);
                     if (records != null)
                     {
+                        listViewTiles.Items.Clear(); // Evitar duplicados
+                        allTilesItems.Clear();
+
                         foreach (var record in records)
                         {
                             string fullPath = Path.Combine(imagesFolder, record.FileName);
                             if (File.Exists(fullPath))
                             {
-                                // Cargar la imagen completa desde el archivo
                                 Image fullImage = Image.FromFile(fullPath);
-                                // Crear un preview pequeño (por ejemplo, 64x64)
                                 Image previewImage = new Bitmap(fullImage, new Size(64, 64));
 
-                                // Agregar el preview al ImageList, usando el nombre único como clave
                                 if (!ilTiles.Images.ContainsKey(record.FileName))
                                 {
                                     ilTiles.Images.Add(record.FileName, previewImage);
                                 }
 
-                                // Crear un ListViewItem para el ListView de tiles.
-                                // Se usa el preview (a través de ImageKey) y se almacena la imagen completa en Tag.
                                 ListViewItem item = new ListViewItem
                                 {
-                                    Text = record.Category,// Muestra la categoría u otra información
+                                    Text = record.Category,
                                     ImageKey = record.FileName,
-                                    Tag = fullImage// Almacena la imagen en tamaño real
+                                    Tag = fullImage
                                 };
 
                                 listViewTiles.Items.Add(item);
+                                allTilesItems.Add(item);
                             }
                         }
                     }
@@ -232,6 +233,7 @@ namespace GranDnDDM.Views
                 }
             }
         }
+
 
         private void CmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -287,8 +289,8 @@ namespace GranDnDDM.Views
             // Actualiza la apariencia de los botones
             btnDraw.BackColor = Color.LightBlue;
             btnErase.BackColor = SystemColors.Control;
+            btnFillMap.BackColor = SystemColors.Control;
         }
-
 
         private void btnNone_Click(object sender, EventArgs e)
         {
@@ -297,6 +299,7 @@ namespace GranDnDDM.Views
             // Restablece los colores de los botones
             btnDraw.BackColor = SystemColors.Control;
             btnErase.BackColor = SystemColors.Control;
+            btnFillMap.BackColor = SystemColors.Control;
         }
 
         private void btnErase_Click(object sender, EventArgs e)
@@ -306,6 +309,7 @@ namespace GranDnDDM.Views
             mapEditor.Cursor = Cursors.No; // O el cursor que prefieras para borrar
             btnErase.BackColor = Color.LightBlue;
             btnDraw.BackColor = SystemColors.Control;
+            btnFillMap.BackColor = SystemColors.Control;
         }
 
         private void listViewTiles_MouseDown(object sender, MouseEventArgs e)
@@ -431,13 +435,14 @@ namespace GranDnDDM.Views
         {
             string respuesta = Interaction.InputBox(
             "Ingresa nombre de mapa:",
-            "Mapa Nuevo",
+            "",
             "Guardar Mapa "
             );
-            if (respuesta == null)
+            if (respuesta == null || respuesta == "")
             {
                 return;
             }
+            mapaName = respuesta;
             mapEditor.SaveMap(respuesta);
         }
 
@@ -466,6 +471,7 @@ namespace GranDnDDM.Views
             {
                 mapEditor.SaveMap(mapaName);
             }
+
             fullScreenForm.Close();
         }
 
@@ -483,6 +489,14 @@ namespace GranDnDDM.Views
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnFillMap_Click(object sender, EventArgs e)
+        {
+            mapEditor.CurrentToolMode = ToolMode.Fill;
+            btnFillMap.BackColor = Color.LightBlue; // Indicar que está activado
+            btnDraw.BackColor = SystemColors.Control;
+            btnErase.BackColor = SystemColors.Control;
         }
 
 

@@ -126,7 +126,11 @@ namespace GranDnDDM.Tools
         #region Mouse Handling (Selection, Drag, Resize)
         private void MapEditor_MouseDown(object sender, MouseEventArgs e)
         {
-
+            if (CurrentToolMode == ToolMode.Fill)
+            {
+                FillLayer();
+                return;
+            }
             // Si la herramienta activa es Dibujar
             if (CurrentToolMode == ToolMode.Draw)
             {
@@ -452,6 +456,10 @@ namespace GranDnDDM.Tools
         {
             try
             {
+                if(name=="" || name == null)
+                {
+                    return;
+                }
                 string mapJson = JsonSerializer.Serialize(layers, new JsonSerializerOptions { WriteIndented = true });
                 string mapFile = Path.Combine(Application.StartupPath, "mapa_" + name + ".json");
                 File.WriteAllText(mapFile, mapJson);
@@ -596,5 +604,39 @@ namespace GranDnDDM.Tools
             return layers;
         }
         #endregion
+
+        public void FillLayer()
+        {
+            if (DrawingImage == null)
+            {
+                MessageBox.Show("No se ha seleccionado ninguna imagen para rellenar el mapa.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            MapLayer activeLayer = layers[ActiveLayerIndex];
+
+            for (int col = 0; col < Columns; col++)
+            {
+                for (int row = 0; row < Rows; row++)
+                {
+                    Point gridPoint = new Point(col, row);
+
+                    MapItem newItem = new MapItem
+                    {
+                        Image = (Image)DrawingImage.Clone(),
+                        Category = "tile",
+                        GridLocation = gridPoint,
+                        Location = new Point(gridPoint.X * TileSize, gridPoint.Y * TileSize),
+                        Width = TileSize,
+                        Height = TileSize
+                    };
+
+                    activeLayer.GridItems[gridPoint] = newItem;
+                }
+            }
+
+            Invalidate(); // Refrescar la vista del mapa
+        }
+
     }
 }

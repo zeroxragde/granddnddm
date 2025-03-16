@@ -1,0 +1,59 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "7cf7343a-c272-4697-aae4-3b057c24f997.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": -662,
+          "Y": -13
+        },
+        "Width": 2024,
+        "Height": 845
+      }
+    ]
+  },
+  {
+    "Name": "objetos",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "2bf0a930-270e-4447-b4b5-e456eedf774c.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": -49,
+          "Y": 419
+        },
+        "Width": 474,
+        "Height": 332
+      }
+    ]
+  },
+  {
+    "Name": "personajes",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "f4056eac-3e03-44ae-bdda-0b668b8c8dc4.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 569,
+          "Y": 391
+        },
+        "Width": 102,
+        "Height": 109
+      }
+    ]
+  }
+]

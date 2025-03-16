@@ -251,21 +251,27 @@ namespace GranDnDDM.Views
 
         private void btnAddLayer_Click(object sender, EventArgs e)
         {
-            //revisar
+            // Pedir al usuario un nombre para la nueva capa
             string respuesta = Interaction.InputBox(
-            "Ingresa nombre de capa:",
-            "Capa Nueva",
-            "Nueva Capa " + mapEditor.GetLayers().Count
+                "Ingresa nombre de capa:",
+                "Capa Nueva",
+                "Nueva Capa " + mapEditor.GetLayers().Count
             );
-            if (respuesta == null)
+
+            if (respuesta == null || respuesta == "")
             {
                 return;
             }
-            // Puedes pedirle al usuario un nombre (aquí se usa uno automático)
-            string newLayerName = respuesta;
-            mapEditor.AddLayer(newLayerName);
-            cmbLayers.Items.Add(newLayerName);
-            cmbLayers.SelectedIndex = cmbLayers.Items.Count - 1; // Se activa la nueva capa
+
+            // Agregar la nueva capa a la lista de capas
+            mapEditor.AddLayer(respuesta);
+
+            // Actualizar el ComboBox
+            List<string> layerNames = mapEditor.GetLayers().Select(layer => layer.Name).ToList();
+
+            cmbLayers.DataSource = null; // Desvinculamos temporalmente el DataSource
+            cmbLayers.DataSource = layerNames; // Volvemos a establecer el DataSource actualizado
+            cmbLayers.SelectedIndex = cmbLayers.Items.Count - 1; // Selecciona la nueva capa
         }
 
         private void btnDraw_Click(object sender, EventArgs e)
@@ -348,41 +354,22 @@ namespace GranDnDDM.Views
             if (listViewTiles.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listViewTiles.SelectedItems[0];
-                // Asumimos que el Text del ítem contiene la categoría del tile.
                 string category = selectedItem.Text;
 
-                Image tileImage = null;
-                // Si la categoría es "imagenes generales", usamos la imagen completa que se guardó en Tag.
-                if (category.Equals("imagenes generales", StringComparison.OrdinalIgnoreCase))
+                if (selectedItem.Tag is Image tileImage)
                 {
-                    tileImage = selectedItem.Tag as Image;
-                }
-                else
-                {
-                    // Para un tile normal, usamos la imagen del ImageList.
-                    string imageKey = selectedItem.ImageKey;
-                    if (ilTiles.Images.ContainsKey(imageKey))
-                    {
-                        tileImage = ilTiles.Images[imageKey];
-                    }
-                }
+                    string fileName = selectedItem.ImageKey;  // Aquí obtenemos el nombre del archivo
 
-                if (tileImage != null)
-                {
-                    // Asigna la imagen (clonada) al editor para que se use al pintar.
                     mapEditor.DrawingImage = (Image)tileImage.Clone();
                     mapEditor.DrawingItem = new DraggedMapItem
                     {
-                        FileName = selectedItem.ImageKey,
-                        Category = selectedItem.Text,
+                        FileName = fileName,  // Guardamos el nombre del archivo
+                        Category = category,
                         Image = tileImage
                     };
-                    /*  MessageBox.Show("Tile seleccionado (" + category + ")", "Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+
+                    // Mostrar preview en un PictureBox si es necesario
                     pvPreview.Image = (Image)tileImage.Clone();
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró la imagen para el tile seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -433,23 +420,39 @@ namespace GranDnDDM.Views
 
         private void btnSaveMap_Click(object sender, EventArgs e)
         {
-            string respuesta = Interaction.InputBox(
-            "Ingresa nombre de mapa:",
-            "",
-            "Guardar Mapa "
-            );
-            if (respuesta == null || respuesta == "")
+            if (mapaName == "")
             {
-                return;
+                string respuesta = Interaction.InputBox(
+                "Ingresa nombre de mapa:",
+                "Mapa",
+                " "
+                );
+                if (respuesta != null || respuesta != "")
+                {
+                    mapEditor.SaveMap(respuesta);
+                }
+
             }
-            mapaName = respuesta;
-            mapEditor.SaveMap(respuesta);
+            else
+            {
+                if (mapaName != null || mapaName != "")
+                {
+                    mapEditor.SaveMap(mapaName);
+                }
+            }
+
         }
 
         private void btnLoadMap_Click(object sender, EventArgs e)
         {
-            mapaName = mapEditor.LoadMap();
-            Text = Text + "- Mapa: " + mapaName;
+            string mapaNameCopy = mapEditor.LoadMap();
+            if (mapaNameCopy != "") {
+                mapaName = mapaNameCopy;
+                Text = Text + "- Mapa: " + mapaName;
+                cmbLayers.DataSource = mapEditor.GetLayerDataSource();
+                cmbLayers.SelectedIndex = cmbLayers.Items.Count - 1; // Se activa la nueva capa
+            }
+
         }
 
         private void EditorMap_FormClosing(object sender, FormClosingEventArgs e)
@@ -458,18 +461,21 @@ namespace GranDnDDM.Views
             {
                 string respuesta = Interaction.InputBox(
                 "Ingresa nombre de mapa:",
-                "",
-                "Guardar Mapa "
+                "Mapa",
+                " "
                 );
                 if (respuesta != null || respuesta != "")
                 {
-                    mapEditor.SaveMap(Path.GetFileNameWithoutExtension(respuesta));
+                    mapEditor.SaveMap(respuesta);
                 }
 
             }
             else
             {
-                mapEditor.SaveMap(mapaName);
+                if (mapaName != null || mapaName != "")
+                {
+                    mapEditor.SaveMap(mapaName);
+                }
             }
 
             fullScreenForm.Close();
@@ -497,6 +503,22 @@ namespace GranDnDDM.Views
             btnFillMap.BackColor = Color.LightBlue; // Indicar que está activado
             btnDraw.BackColor = SystemColors.Control;
             btnErase.BackColor = SystemColors.Control;
+        }
+
+        private void btnSpriteSheet_Click(object sender, EventArgs e)
+        {
+            TileCutterForm tileCutter = new TileCutterForm();
+            tileCutter.ShowDialog();
+
+            // Recargar imágenes desde el JSON después de cerrar el formulario
+            LoadGridData();
+        }
+
+        private void ToggleLayerButton_Click(object sender, EventArgs e)
+        {
+            // Verifica si hay al menos una capa
+            mapEditor.ToggleHiddenLayer();
+
         }
 
 

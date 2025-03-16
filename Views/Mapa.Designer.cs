@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mapa));
             pbFullScreen = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pbFullScreen).BeginInit();
             SuspendLayout();
@@ -52,6 +53,7 @@
             ControlBox = false;
             Controls.Add(pbFullScreen);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Mapa";
             Text = "Mapa";
             TopMost = true;

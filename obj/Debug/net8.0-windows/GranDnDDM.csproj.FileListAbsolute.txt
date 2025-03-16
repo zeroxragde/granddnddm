@@ -102,3 +102,4 @@ C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\refint\Gr
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.pdb
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.genruntimeconfig.cache
 C:\Users\ecarrizales\edgar\app\GIT\granddnddm\obj\Debug\net8.0-windows\ref\GranDnDDM.dll
+X:\DESARROLLO\CSharp\granddnddm\obj\Debug\net8.0-windows\GranDnDDM.Views.TileCutterForm.resources

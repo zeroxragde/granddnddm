@@ -35,6 +35,8 @@
             ilCursores = new ImageList(components);
             ilTiles = new ImageList(components);
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            btnSpriteSheet = new Button();
+            btnFillMap = new Button();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnRefresh = new Button();
             pGrid = new Panel();
@@ -52,7 +54,7 @@
             CmbFilter = new ComboBox();
             btnAddImage = new Button();
             cmbCategory = new ComboBox();
-            btnFillMap = new Button();
+            ToggleLayerButton = new Button();
             dreamForm1.SuspendLayout();
             pGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pvPreview).BeginInit();
@@ -65,6 +67,7 @@
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "add_img.png");
             imageList1.Images.SetKeyName(1, "add_layer.png");
+            imageList1.Images.SetKeyName(2, "spritesheetsel.png");
             // 
             // imageList2
             // 
@@ -80,6 +83,7 @@
             imageList2.Images.SetKeyName(6, "6385107.png");
             imageList2.Images.SetKeyName(7, "refresh_map.png");
             imageList2.Images.SetKeyName(8, "fullPaint.png");
+            imageList2.Images.SetKeyName(9, "hidenlayer.png");
             // 
             // ilCursores
             // 
@@ -102,6 +106,8 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(ToggleLayerButton);
+            dreamForm1.Controls.Add(btnSpriteSheet);
             dreamForm1.Controls.Add(btnFillMap);
             dreamForm1.Controls.Add(btnClose);
             dreamForm1.Controls.Add(btnRefresh);
@@ -130,6 +136,30 @@
             dreamForm1.Text = "Map Editor";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 20;
+            // 
+            // btnSpriteSheet
+            // 
+            btnSpriteSheet.ForeColor = Color.Black;
+            btnSpriteSheet.ImageIndex = 2;
+            btnSpriteSheet.ImageList = imageList1;
+            btnSpriteSheet.Location = new Point(96, 24);
+            btnSpriteSheet.Name = "btnSpriteSheet";
+            btnSpriteSheet.Size = new Size(78, 69);
+            btnSpriteSheet.TabIndex = 38;
+            btnSpriteSheet.UseVisualStyleBackColor = true;
+            btnSpriteSheet.Click += btnSpriteSheet_Click;
+            // 
+            // btnFillMap
+            // 
+            btnFillMap.ForeColor = Color.Black;
+            btnFillMap.ImageIndex = 8;
+            btnFillMap.ImageList = imageList2;
+            btnFillMap.Location = new Point(469, 437);
+            btnFillMap.Name = "btnFillMap";
+            btnFillMap.Size = new Size(44, 41);
+            btnFillMap.TabIndex = 37;
+            btnFillMap.UseVisualStyleBackColor = true;
+            btnFillMap.Click += btnFillMap_Click;
             // 
             // btnClose
             // 
@@ -220,7 +250,7 @@
             // 
             // pvPreview
             // 
-            pvPreview.Location = new Point(936, 442);
+            pvPreview.Location = new Point(845, 442);
             pvPreview.Name = "pvPreview";
             pvPreview.Size = new Size(63, 56);
             pvPreview.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -339,17 +369,17 @@
             cmbCategory.Size = new Size(149, 23);
             cmbCategory.TabIndex = 21;
             // 
-            // btnFillMap
+            // ToggleLayerButton
             // 
-            btnFillMap.ForeColor = Color.Black;
-            btnFillMap.ImageIndex = 8;
-            btnFillMap.ImageList = imageList2;
-            btnFillMap.Location = new Point(469, 437);
-            btnFillMap.Name = "btnFillMap";
-            btnFillMap.Size = new Size(44, 41);
-            btnFillMap.TabIndex = 37;
-            btnFillMap.UseVisualStyleBackColor = true;
-            btnFillMap.Click += btnFillMap_Click;
+            ToggleLayerButton.ForeColor = Color.Black;
+            ToggleLayerButton.ImageIndex = 9;
+            ToggleLayerButton.ImageList = imageList2;
+            ToggleLayerButton.Location = new Point(1018, 464);
+            ToggleLayerButton.Name = "ToggleLayerButton";
+            ToggleLayerButton.Size = new Size(44, 41);
+            ToggleLayerButton.TabIndex = 39;
+            ToggleLayerButton.UseVisualStyleBackColor = true;
+            ToggleLayerButton.Click += ToggleLayerButton_Click;
             // 
             // EditorMap
             // 
@@ -396,5 +426,7 @@
         private ComboBox cmbCategory;
         private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
         private Button btnFillMap;
+        private Button btnSpriteSheet;
+        private Button ToggleLayerButton;
     }
 }

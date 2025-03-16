@@ -1,0 +1,70 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "cb9ec46e-0dba-4026-adb9-a3af983cc033.jpg",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": -30,
+          "Y": -1
+        },
+        "Width": 1382,
+        "Height": 823
+      }
+    ]
+  },
+  {
+    "Name": "Enemigos",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "9f884ca3-2d4e-480c-92c1-be32ddad2c53.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 391,
+          "Y": 403
+        },
+        "Width": 131,
+        "Height": 130
+      },
+      {
+        "FileName": "9f884ca3-2d4e-480c-92c1-be32ddad2c53.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 838,
+          "Y": 395
+        },
+        "Width": 153,
+        "Height": 145
+      },
+      {
+        "FileName": "efb3903b-775b-44f4-8934-14a96589ee02.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 555,
+          "Y": 271
+        },
+        "Width": 199,
+        "Height": 200
+      }
+    ]
+  },
+  {
+    "Name": "personajes",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": []
+  }
+]

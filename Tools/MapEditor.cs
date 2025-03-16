@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Windows.Forms;
 using GranDnDDM.Models;
 using GranDnDDM.Enums;
+using System.ComponentModel;
 
 namespace GranDnDDM.Tools
 {
@@ -35,7 +36,7 @@ namespace GranDnDDM.Tools
         private Point dragStartPos;
         private Rectangle originalBounds;
 
-        private const int HANDLE_SIZE = 8;
+        private const int HANDLE_SIZE = 32;
         private string lastSelectedFilePath = string.Empty;
 
         public MapEditor()
@@ -81,7 +82,7 @@ namespace GranDnDDM.Tools
                         Height = draggedItem.Image.Height
                     };
 
-                    if (draggedItem.Category == "imagenes generales")
+                    if (draggedItem.Category == "imagenes generales" || draggedItem.Category == "personajes")
                     {
                         activeLayer.FreeItems.Add(newItem);
                     }
@@ -108,7 +109,7 @@ namespace GranDnDDM.Tools
                         FileName = draggedItem.FileName,
                         Height = draggedItem.Image.Height
                     };
-                    if (draggedItem.Category == "imagenes generales")
+                    if (draggedItem.Category == "imagenes generales" || draggedItem.Category == "personajes")
                         activeLayer.FreeItems.Add(newItem);
                     else
                     {
@@ -124,6 +125,16 @@ namespace GranDnDDM.Tools
         #endregion
 
         #region Mouse Handling (Selection, Drag, Resize)
+
+        public Bitmap GetSnapshot()
+        {
+            Bitmap bmp = new Bitmap(this.Width, this.Height);
+            this.DrawToBitmap(bmp, new Rectangle(0, 0, this.Width, this.Height));
+            return bmp;
+        }
+
+
+
         private void MapEditor_MouseDown(object sender, MouseEventArgs e)
         {
             if (CurrentToolMode == ToolMode.Fill)
@@ -131,7 +142,8 @@ namespace GranDnDDM.Tools
                 FillLayer();
                 return;
             }
-            // Si la herramienta activa es Dibujar
+
+            // Si la herramienta activa es 'Draw'
             if (CurrentToolMode == ToolMode.Draw)
             {
                 if (DrawingImage == null)
@@ -140,19 +152,16 @@ namespace GranDnDDM.Tools
                     return;
                 }
 
-                // Se calcula la celda en la que se hizo click
                 int col = e.X / TileSize;
                 int row = e.Y / TileSize;
                 Point gridPoint = new Point(col, row);
 
-                // Obtenemos la capa activa
                 MapLayer activeLayer = layers[ActiveLayerIndex];
 
-                // Creamos un nuevo ítem usando la imagen seleccionada
                 MapItem newItem = new MapItem
                 {
                     Image = (Image)DrawingImage.Clone(),
-                    Category = "tile", // O la categoría que manejes para tiles
+                    Category = "tile", // O la categoría correspondiente
                     GridLocation = gridPoint,
                     Location = new Point(gridPoint.X * TileSize, gridPoint.Y * TileSize),
                     Width = TileSize,
@@ -170,95 +179,83 @@ namespace GranDnDDM.Tools
                 Point gridPoint = new Point(col, row);
 
                 MapLayer activeLayer = layers[ActiveLayerIndex];
+
+                // Borrar ítem de GridItems (ya lo tienes implementado)
                 if (activeLayer.GridItems.ContainsKey(gridPoint))
                 {
                     activeLayer.GridItems.Remove(gridPoint);
                     Invalidate();
                 }
+
+                // Borrar ítem de FreeItems
+                // Recorremos la lista de FreeItems y buscamos el ítem que se debe borrar
+                for (int i = activeLayer.FreeItems.Count - 1; i >= 0; i--)
+                {
+                    MapItem item = activeLayer.FreeItems[i];
+                    if (item.GetBounds().Contains(e.Location)) // Comparar con la ubicación del mouse
+                    {
+                        activeLayer.FreeItems.RemoveAt(i); // Eliminar el ítem de FreeItems
+                        Invalidate(); // Redibujar para actualizar el UI
+                        break; // Salir del ciclo después de borrar el primer ítem encontrado
+                    }
+                }
+
                 return;
             }
             else
             {
-                // Obtenemos la capa activa
+                // Lógica para seleccionar ítems (incluyendo imágenes generales)
                 MapLayer activeLayer = layers[ActiveLayerIndex];
-                // Primero, chequeamos si dimos clic en un handle de redimensionado del ítem seleccionado
-                if (selectedItem != null && selectedItem.GridLocation == null)
-                {
-                    // Solo redimensionamos los items "free"
-                    currentHandle = GetHandleAtPoint(selectedItem, e.Location);
-                    if (currentHandle != ResizeHandle.None)
-                    {
-                        isResizing = true;
-                        dragStartPos = e.Location;
-                        originalBounds = selectedItem.GetBounds();
-                        return;
-                    }
-                }
-
-                // Si no se dio clic en un handle, revisamos si se clicó sobre algún ítem "free"
                 MapItem clickedItem = null;
+
+                // Revisamos si clicamos en un ítem "free"
                 for (int i = activeLayer.FreeItems.Count - 1; i >= 0; i--)
                 {
                     var item = activeLayer.FreeItems[i];
-                    if (item.GetBounds().Contains(e.Location))
+                    if (item.GetBounds().Contains(e.Location)) // Si hacemos clic sobre un ítem
                     {
                         clickedItem = item;
                         break;
                     }
                 }
 
-                // Seleccionamos el ítem clicado (o ninguno si se clicó en un área vacía)
-                selectedItem = clickedItem;
-
-                // Si clicamos en un ítem, iniciamos arrastre para moverlo
-                if (selectedItem != null)
+                // Si encontramos un ítem y su categoría es "imagenes generales", lo seleccionamos para moverlo o redimensionarlo
+                if (clickedItem != null && (clickedItem.Category == "imagenes generales" || clickedItem.Category == "personajes"))
                 {
+                    selectedItem = clickedItem;
                     isDragging = true;
                     dragStartPos = e.Location;
                     originalBounds = selectedItem.GetBounds();
-                }
 
+                    // Verificamos si clicamos sobre un handle de redimensionamiento
+                    currentHandle = GetHandleAtPoint(selectedItem, e.Location);
+                    if (currentHandle != ResizeHandle.None)
+                    {
+                        isResizing = true; // Empezamos el proceso de redimensionamiento
+                        return;
+                    }
+                }
             }
-        }
-        public Bitmap GetSnapshot()
-        {
-            Bitmap bmp = new Bitmap(this.Width, this.Height);
-            this.DrawToBitmap(bmp, new Rectangle(0, 0, this.Width, this.Height));
-            return bmp;
         }
         private void MapEditor_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!isDragging && !isResizing && selectedItem != null && selectedItem.GridLocation == null)
+            if (isDragging && selectedItem != null && !isResizing)
             {
-                var handle = GetHandleAtPoint(selectedItem, e.Location);
-                switch (handle)
-                {
-                    case ResizeHandle.TopLeft:
-                    case ResizeHandle.BottomRight:
-                        this.Cursor = Cursors.SizeNWSE;
-                        break;
-                    case ResizeHandle.TopRight:
-                    case ResizeHandle.BottomLeft:
-                        this.Cursor = Cursors.SizeNESW;
-                        break;
-                    case ResizeHandle.TopCenter:
-                    case ResizeHandle.BottomCenter:
-                        this.Cursor = Cursors.SizeNS;
-                        break;
-                    case ResizeHandle.MiddleLeft:
-                    case ResizeHandle.MiddleRight:
-                        this.Cursor = Cursors.SizeWE;
-                        break;
-                    default:
-                        this.Cursor = Cursors.Default;
-                        break;
-                }
+                int dx = e.X - dragStartPos.X;
+                int dy = e.Y - dragStartPos.Y;
+                var bounds = originalBounds;
+                bounds.X += dx;
+                bounds.Y += dy;
+                selectedItem.Location = new Point(bounds.X, bounds.Y);
+                Invalidate(); // Redibujamos para actualizar la vista
             }
             else if (isResizing && selectedItem != null)
             {
                 Rectangle newBounds = originalBounds;
                 int dx = e.X - dragStartPos.X;
                 int dy = e.Y - dragStartPos.Y;
+
+                // Redimensionar el ítem, considerando el manejador seleccionado
                 switch (currentHandle)
                 {
                     case ResizeHandle.TopLeft:
@@ -296,25 +293,18 @@ namespace GranDnDDM.Tools
                         newBounds.Height += dy;
                         break;
                 }
+
+                // Restringir el tamaño mínimo
                 if (newBounds.Width < 1) newBounds.Width = 1;
                 if (newBounds.Height < 1) newBounds.Height = 1;
+
                 selectedItem.Location = new Point(newBounds.X, newBounds.Y);
                 selectedItem.Width = newBounds.Width;
                 selectedItem.Height = newBounds.Height;
-                this.Invalidate();
-            }
-            else if (isDragging && selectedItem != null)
-            {
-                int dx = e.X - dragStartPos.X;
-                int dy = e.Y - dragStartPos.Y;
-                var bounds = originalBounds;
-                bounds.X += dx;
-                bounds.Y += dy;
-                selectedItem.Location = new Point(bounds.X, bounds.Y);
-                this.Invalidate();
+
+                Invalidate(); // Redibujar el control
             }
         }
-
         private void MapEditor_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
@@ -447,8 +437,9 @@ namespace GranDnDDM.Tools
                     y = bounds.Bottom - HANDLE_SIZE / 2;
                     break;
             }
-            return new Rectangle(x, y, HANDLE_SIZE, HANDLE_SIZE);
+            return new Rectangle(x, y, HANDLE_SIZE, HANDLE_SIZE);  // Usa HANDLE_SIZE para el tamaño de los cuadros
         }
+
         #endregion
 
         #region Guardado y Carga de Mapa
@@ -461,7 +452,15 @@ namespace GranDnDDM.Tools
                     return;
                 }
                 string mapJson = JsonSerializer.Serialize(layers, new JsonSerializerOptions { WriteIndented = true });
-                string mapFile = Path.Combine(Application.StartupPath, "mapa_" + name + ".json");
+                string mapFile = "";
+                if (GlobalTools.IsValidPath(name))
+                {
+                     mapFile = name;
+                }
+                else {
+                    mapFile = Path.Combine(Application.StartupPath, "Mapas","mapa_" + name + ".json");
+                }
+                   
                 File.WriteAllText(mapFile, mapJson);
                 MessageBox.Show("Mapa guardado correctamente.", "Guardar Mapa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -469,6 +468,19 @@ namespace GranDnDDM.Tools
             {
                 MessageBox.Show("Error al guardar el mapa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Método para obtener el DataSource del ComboBox (en este caso, nombres de las capas)
+        public BindingList<string> GetLayerDataSource()
+        {
+            var layerNames = new BindingList<string>();  // Usamos BindingList para que se pueda vincular al ComboBox
+
+            foreach (var layer in layers)
+            {
+                layerNames.Add(layer.Name);  // Suponiendo que cada capa tiene una propiedad 'Name'
+            }
+
+            return layerNames; // Devolvemos la lista que puede ser usada como DataSource
         }
 
         public string LoadMap()
@@ -489,7 +501,7 @@ namespace GranDnDDM.Tools
                     List<MapLayer> loadedLayers = JsonSerializer.Deserialize<List<MapLayer>>(json);
                     if (loadedLayers != null)
                     {
-                        layers = loadedLayers;
+                        layers = loadedLayers; // Asigna las capas cargadas al mapa actual
 
                         if (string.IsNullOrEmpty(imagesFolder))
                         {
@@ -498,7 +510,9 @@ namespace GranDnDDM.Tools
                         }
 
                         foreach (MapLayer layer in layers)
-                        {
+                        {//recorremos las capas
+
+                            // Recorremos los tiles en la cuadrícula del mapa
                             foreach (var kvp in layer.GridItems)
                             {
                                 MapItem item = kvp.Value;
@@ -514,23 +528,13 @@ namespace GranDnDDM.Tools
                                         item.Image = SolicitarImagen($"No se encontró '{item.FileName}' para un tile de la cuadrícula.\nSelecciona la imagen correspondiente:");
                                         if (item.Image != null)
                                         {
-                                            string newFileName = Path.GetFileName(lastSelectedFilePath);
-                                            item.FileName = newFileName;
-                                            string destinationPath = Path.Combine(imagesFolder, newFileName);
-                                            if (!File.Exists(destinationPath))
-                                            {
-                                                File.Copy(lastSelectedFilePath, destinationPath);
-                                            }
+                                            GuardarImagen(item);
                                         }
                                     }
                                 }
-                                else
-                                {
-                                    Console.WriteLine("El FileName es nulo o vacío en un MapItem de GridItems.");
-                                    return "";
-                                }
                             }
 
+                            // Recorremos los objetos libres en el mapa
                             foreach (MapItem item in layer.FreeItems)
                             {
                                 if (!string.IsNullOrEmpty(item.FileName))
@@ -545,28 +549,18 @@ namespace GranDnDDM.Tools
                                         item.Image = SolicitarImagen($"No se encontró '{item.FileName}' para un ítem libre.\nSelecciona la imagen correspondiente:");
                                         if (item.Image != null)
                                         {
-                                            string newFileName = Path.GetFileName(lastSelectedFilePath);
-                                            item.FileName = newFileName;
-                                            string destinationPath = Path.Combine(imagesFolder, newFileName);
-                                            if (!File.Exists(destinationPath))
-                                            {
-                                                File.Copy(lastSelectedFilePath, destinationPath);
-                                            }
+                                            GuardarImagen(item);
                                         }
                                     }
                                 }
-                                else
-                                {
-                                    Console.WriteLine("El FileName es nulo o vacío en un MapItem de FreeItems.");
-                                }
                             }
-                            return ofd.FileName;
                         }
-
+                        // Forzar actualización de la interfaz
                         Invalidate();
                         MessageBox.Show("Mapa cargado correctamente.", "Cargar Mapa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return "";
-                    }
+                        return ofd.FileName;
+
+                    } 
                 }
                 catch (Exception ex)
                 {
@@ -577,6 +571,18 @@ namespace GranDnDDM.Tools
             return "";
         }
 
+
+
+        private void GuardarImagen(MapItem item)
+        {
+            string newFileName = Path.GetFileName(lastSelectedFilePath);
+            item.FileName = newFileName;
+            string destinationPath = Path.Combine(imagesFolder, newFileName);
+            if (!File.Exists(destinationPath))
+            {
+                File.Copy(lastSelectedFilePath, destinationPath);
+            }
+        }
         private Image SolicitarImagen(string mensaje)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -605,6 +611,21 @@ namespace GranDnDDM.Tools
         }
         #endregion
 
+        public void ToggleHiddenLayer()
+        {
+            // Verifica si hay al menos una capa
+            if (layers.Count > 0)
+            {
+                // Obtiene la capa activa
+                MapLayer activeLayer = layers[ActiveLayerIndex];
+
+                // Alterna la visibilidad de la capa activa
+                activeLayer.Visible = !activeLayer.Visible;
+
+                // Actualiza la interfaz
+                Invalidate(); // Esto hará que se redibuje el mapa y se actualice la visibilidad
+            }
+        }
         public void FillLayer()
         {
             if (DrawingImage == null)
@@ -628,7 +649,8 @@ namespace GranDnDDM.Tools
                         GridLocation = gridPoint,
                         Location = new Point(gridPoint.X * TileSize, gridPoint.Y * TileSize),
                         Width = TileSize,
-                        Height = TileSize
+                        Height = TileSize,
+                        FileName = DrawingItem.FileName
                     };
 
                     activeLayer.GridItems[gridPoint] = newItem;

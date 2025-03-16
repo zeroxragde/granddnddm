@@ -24,7 +24,16 @@ namespace GranDnDDM.Tools
 
             return string.Join(" ", dict.Select(kv => $"{kv.Key}({kv.Value})"));
         }
-
+        public static bool IsValidPath(string path)
+        {
+            // Verificar si la ruta es absoluta
+            if (Path.IsPathRooted(path))
+            {
+                // Verificar si el archivo o directorio existe (opcional)
+                return File.Exists(path) || Directory.Exists(path);
+            }
+            return false;
+        }
         public static string ConvertImageToBase64()
         {
             using (OpenFileDialog ofd = new OpenFileDialog())

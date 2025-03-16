@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GranDnDDM.Views
 {
-    public partial class OtherInfo: Form
+    public partial class OtherInfo : Form
     {
         public OtherInfo()
         {
             InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

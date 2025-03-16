@@ -1,0 +1,21 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "bf223714-25dc-4252-9545-9b906ba9ae65.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 1,
+          "Y": -9
+        },
+        "Width": 1348,
+        "Height": 938
+      }
+    ]
+  }
+]

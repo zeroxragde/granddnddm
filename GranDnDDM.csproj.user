@@ -55,5 +55,8 @@
     <Compile Update="Views\TableroIniciativa.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\TileCutterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

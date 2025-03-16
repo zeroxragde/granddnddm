@@ -25,6 +25,7 @@ namespace GranDnDDM.Views
         private ShopCreeator sh = new ShopCreeator();
         private TableroIniciativa iniciativa = new TableroIniciativa();
         private ConversorMoneda currency = new ConversorMoneda();
+        private OtherInfo inf = new OtherInfo();
 
         public DMDashboard(Form1 f)
         {
@@ -114,6 +115,15 @@ namespace GranDnDDM.Views
             }
 
             currency.Show();
+        }
+
+        private void btnOtherInfo_Click(object sender, EventArgs e)
+        {
+            if (inf.IsDisposed)
+            {
+                inf = new OtherInfo();
+            }
+            inf.Show();
         }
     }
 }

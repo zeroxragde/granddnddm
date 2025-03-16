@@ -1,0 +1,40 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "3e72a3e2-91a4-4c87-8153-17891f6e633a.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": -14,
+          "Y": 0
+        },
+        "Width": 1364,
+        "Height": 797
+      }
+    ]
+  },
+  {
+    "Name": "Trampas",
+    "Visible": false,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "fc1ea55f-d5e1-4abd-a133-65069580473e.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 259,
+          "Y": 242
+        },
+        "Width": 338,
+        "Height": 274
+      }
+    ]
+  }
+]

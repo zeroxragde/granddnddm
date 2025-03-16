@@ -40,6 +40,7 @@
             btnIniciativa = new Button();
             btnCurrency = new Button();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
+            btnOtherInfo = new Button();
             myForm.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -59,6 +60,7 @@
             imageList1.Images.SetKeyName(7, "voiceicon.png");
             imageList1.Images.SetKeyName(8, "iconIniciativa.png");
             imageList1.Images.SetKeyName(9, "conversorcurrency.png");
+            imageList1.Images.SetKeyName(10, "otherinfo.png");
             // 
             // myForm
             // 
@@ -87,6 +89,7 @@
             flowLayoutPanel1.Controls.Add(btnOpenShop);
             flowLayoutPanel1.Controls.Add(btnIniciativa);
             flowLayoutPanel1.Controls.Add(btnCurrency);
+            flowLayoutPanel1.Controls.Add(btnOtherInfo);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 31);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -183,6 +186,17 @@
             btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             btnClose.Click += btnClose_Click;
             // 
+            // btnOtherInfo
+            // 
+            btnOtherInfo.ImageIndex = 10;
+            btnOtherInfo.ImageList = imageList1;
+            btnOtherInfo.Location = new Point(390, 3);
+            btnOtherInfo.Name = "btnOtherInfo";
+            btnOtherInfo.Size = new Size(58, 54);
+            btnOtherInfo.TabIndex = 21;
+            btnOtherInfo.UseVisualStyleBackColor = true;
+            btnOtherInfo.Click += btnOtherInfo_Click;
+            // 
             // DMDashboard
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -220,5 +234,6 @@
         private Button btnOpenShop;
         private Button btnIniciativa;
         private Button btnCurrency;
+        private Button btnOtherInfo;
     }
 }

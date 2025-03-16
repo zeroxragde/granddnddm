@@ -30,18 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OtherInfo));
             themeForm1 = new ReaLTaiizor.Forms.ThemeForm();
-            pictureBox1 = new PictureBox();
+            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             themeForm1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // themeForm1
             // 
             themeForm1.BackColor = Color.FromArgb(32, 41, 50);
+            themeForm1.Controls.Add(btnClose);
             themeForm1.Controls.Add(flowLayoutPanel1);
             themeForm1.Controls.Add(pictureBox1);
             themeForm1.Dock = DockStyle.Fill;
@@ -58,16 +60,29 @@
             themeForm1.TabIndex = 0;
             themeForm1.Text = "Otra Informacion";
             // 
-            // pictureBox1
+            // btnClose
             // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Image = Properties.Resources.XP;
-            pictureBox1.Location = new Point(12, 83);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(468, 169);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            btnClose.BackColor = Color.Transparent;
+            btnClose.BackgroundImage = Properties.Resources.closewin;
+            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
+            btnClose.ColorLeft = Color.DodgerBlue;
+            btnClose.ColorRight = Color.DodgerBlue;
+            btnClose.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnClose.FilterAlpha = 200;
+            btnClose.FilterEnabled = true;
+            btnClose.Image = null;
+            btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnClose.IsElipse = false;
+            btnClose.IsParallax = false;
+            btnClose.Location = new Point(760, 12);
+            btnClose.Name = "btnClose";
+            btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnClose.Size = new Size(27, 26);
+            btnClose.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnClose.TabIndex = 16;
+            btnClose.Text = "btnClose";
+            btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnClose.Click += btnClose_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -91,6 +106,17 @@
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Image = Properties.Resources.XP;
+            pictureBox1.Location = new Point(12, 83);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(468, 169);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
             // OtherInfo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -103,9 +129,9 @@
             Text = "Otra Informacion";
             TransparencyKey = Color.Fuchsia;
             themeForm1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -115,5 +141,6 @@
         private PictureBox pictureBox1;
         private FlowLayoutPanel flowLayoutPanel1;
         private PictureBox pictureBox2;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
     }
 }

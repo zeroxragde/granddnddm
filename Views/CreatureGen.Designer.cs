@@ -251,9 +251,9 @@
             // 
             pImagen.BorderStyle = BorderStyle.Fixed3D;
             pImagen.Controls.Add(imgCreatura);
-            pImagen.Location = new Point(354, 347);
+            pImagen.Location = new Point(435, 347);
             pImagen.Name = "pImagen";
-            pImagen.Size = new Size(264, 193);
+            pImagen.Size = new Size(197, 193);
             pImagen.TabIndex = 41;
             // 
             // imgCreatura
@@ -261,7 +261,7 @@
             imgCreatura.Dock = DockStyle.Fill;
             imgCreatura.Location = new Point(0, 0);
             imgCreatura.Name = "imgCreatura";
-            imgCreatura.Size = new Size(260, 189);
+            imgCreatura.Size = new Size(193, 189);
             imgCreatura.SizeMode = PictureBoxSizeMode.StretchImage;
             imgCreatura.TabIndex = 0;
             imgCreatura.TabStop = false;

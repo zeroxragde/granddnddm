@@ -163,6 +163,7 @@ namespace GranDnDDM.Views
                         Font = new Font("Comic Sans MS", 11F),
                         ForeColor = Color.White,
                         AutoSize = true,
+                        Margin = new Padding(10),
                         MaximumSize = new Size(pCard.Width - 20, 0)
                     };
                     pAcciones.Controls.Add(actionLabel);

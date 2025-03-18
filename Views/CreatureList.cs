@@ -249,6 +249,75 @@ namespace GranDnDDM.Views
             }
         }
 
+        private void btnImportCrea_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Archivos de criatura (*.crea)|*.crea";
+                ofd.Title = "Selecciona un archivo de criatura para importar";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = ofd.FileName;
+
+                    try
+                    {
+                        // Leer el contenido del archivo .crea
+                        string jsonContent = File.ReadAllText(filePath);
+
+                        // Deserializar el archivo en un objeto Creatura
+                        Creatura creatura = JsonConvert.DeserializeObject<Creatura>(jsonContent);
+
+                        if (creatura == null)
+                        {
+                            MessageBox.Show("El archivo .crea no contiene datos válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Generar un nombre único para guardar la criatura
+                        string newFileName = $"{creatura.Nombre.Replace(" ", "_")}_{Guid.NewGuid().ToString().Substring(0, 6)}.crea";
+                        string destinationPath = Path.Combine(Application.StartupPath, newFileName);
+
+                        // Copiar el archivo importado a la carpeta de la aplicación
+                        File.Copy(filePath, destinationPath, true);
+
+                        // Cargar o crear el archivo JSON donde se guardan las criaturas
+                        string jsonPath = Path.Combine(Application.StartupPath, "Creaturas.json");
+                        List<CreaturaRecord> registros = new List<CreaturaRecord>();
+
+                        if (File.Exists(jsonPath))
+                        {
+                            string jsonExistente = File.ReadAllText(jsonPath);
+                            registros = JsonConvert.DeserializeObject<List<CreaturaRecord>>(jsonExistente) ?? new List<CreaturaRecord>();
+                        }
+
+                        // Agregar la nueva criatura al listado
+                        CreaturaRecord nuevoRegistro = new CreaturaRecord
+                        {
+                            FileName = newFileName,
+                            Nombre = creatura.Nombre,
+                            CR = creatura.CR
+                        };
+
+                        registros.Add(nuevoRegistro);
+
+                        // Guardar los datos actualizados en el JSON
+                        string updatedJson = JsonConvert.SerializeObject(registros, Formatting.Indented);
+                        File.WriteAllText(jsonPath, updatedJson);
+
+                        // Agregar al DataGridView (listCreature)
+                        listCreature.Rows.Add(nuevoRegistro.FileName, nuevoRegistro.Nombre, nuevoRegistro.CR);
+
+                        MessageBox.Show($"Criatura '{creatura.Nombre}' importada correctamente.", "Importación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al importar la criatura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
         //////////////////////////////////////////
     }
 }

@@ -16,18 +16,18 @@ namespace GranDnDDM.Views
         // Diccionario para convertir cada moneda a Copper Pieces (cp)
         private Dictionary<string, double> toCopper = new Dictionary<string, double>()
         {
-            { "cp", 1 },    // Copper
-            { "sp", 10 },   // Silver
-            { "ep", 50 },   // Electrum
-            { "gp", 100 },  // Gold
-            { "pp", 1000 }  // Platinum
+            { "COBRE", 1 },    // Cobre
+            { "PLATA", 10 },   // Plata
+            { "ELECTRUM", 50 },   // Electrum
+            { "ORO", 100 },  // Oro
+            { "PLATINO", 1000 }  // Platino
         };
 
         public ConversorMoneda()
         {
             InitializeComponent();
-            cmbTo.Items.AddRange(new object[] { "cp", "sp", "ep", "gp", "pp" });
-            cmbFrom.Items.AddRange(new object[] { "cp", "sp", "ep", "gp", "pp" });
+            cmbTo.Items.AddRange(new object[] { "COBRE", "PLATA", "ELECTRUM", "ORO", "PLATINO" });
+            cmbFrom.Items.AddRange(new object[] { "COBRE", "PLATA", "ELECTRUM", "ORO", "PLATINO" });
             cmbFrom.SelectedIndex = 0; // Seleccionar por defecto "gp"
             cmbTo.SelectedIndex = 3; // Seleccionar por defecto "gp"
         }

@@ -458,7 +458,7 @@ namespace GranDnDDM.Views
                     ActualizarRegistroCreatura(sfd.FileName);
                     CreatureGen creatureGen = new CreatureGen(creatura);
                     creatureGen.Show();
-                    // Hide();
+                    Hide();
 
                     MessageBox.Show("Archivo guardado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -478,6 +478,7 @@ namespace GranDnDDM.Views
         private void ActualizarRegistroCreatura(string savedFilePath)
         {
             // Definir la ruta del archivo de registros
+          
             string creaturasJsonFile = Path.Combine(Application.StartupPath, "Creaturas.json");
             List<CreaturaRecord> registros;
 
@@ -495,7 +496,7 @@ namespace GranDnDDM.Views
             // Creamos un nuevo registro usando el nombre del archivo (sin la ruta completa) y la propiedad Nombre
             var nuevoRegistro = new CreaturaRecord
             {
-                FileName = Path.GetFileName(savedFilePath),
+                FileName = "Creaturas/" + Path.GetFileName(savedFilePath),
                 Nombre = creatura.Nombre,
                 CR = creatura.CR
             };

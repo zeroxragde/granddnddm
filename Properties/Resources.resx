@@ -130,11 +130,14 @@
   <data name="x-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\x-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="backEpicoNormalized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resData\backEpicoNormalized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="deleteImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\deleteImg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mitrash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resData\mitrash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="currencyChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resData\currencyChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,9 +148,6 @@
   <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="myRandom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resData\myRandom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,11 +157,14 @@
   <data name="iconCreature" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\iconCreature.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backEpicoNormalized" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resData\backEpicoNormalized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="closewin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\closewin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="myRandom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resData\myRandom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mitrash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resData\mitrash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fondo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\fondo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,7 +175,7 @@
   <data name="XP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resData\XP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="currencyChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resData\currencyChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resData\import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

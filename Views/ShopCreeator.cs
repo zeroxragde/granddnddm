@@ -44,6 +44,48 @@ namespace GranDnDDM.Views
 
             // Llenar el ComboBox
             CargarCategoriasEnComboBox();
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+    null, dgvTienda, new object[] { true });
+            dgvTienda.VirtualMode = true;
+            dgvTienda.CellValueNeeded += dgvTienda_CellValueNeeded;
+        }
+        private void dgvTienda_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < itemsSeleccionados.Count)
+            {
+                var item = itemsSeleccionados[e.RowIndex];
+                switch (dgvTienda.Columns[e.ColumnIndex].DataPropertyName)
+                {
+                    case "nombre": e.Value = item.nombre; break;
+                    case "precio": e.Value = item.precio; break;
+                    case "tipo_objeto": e.Value = item.tipo_objeto; break;
+                    case "Imagen":
+                        if (!string.IsNullOrEmpty(item.imagen_url))
+                        {
+                            e.Value = DescargarImagen(item.imagen_url);
+                        }
+                        break;
+                }
+            }
+        }
+        private Image DescargarImagen(string url)
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    byte[] imageData = client.DownloadData(url);
+                    using (MemoryStream stream = new MemoryStream(imageData))
+                    {
+                        return Image.FromStream(stream);
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
         private void CargarCategoriasEnComboBox()
         {

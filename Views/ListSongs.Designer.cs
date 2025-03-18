@@ -262,7 +262,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListSongs";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ListSongs";
             TransparencyKey = Color.Fuchsia;
             Load += ListSongs_Load;

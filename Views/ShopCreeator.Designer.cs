@@ -31,8 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopCreeator));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            cbCat = new ReaLTaiizor.Controls.HopeComboBox();
             parrotPictureBox4 = new ReaLTaiizor.Controls.ParrotPictureBox();
-            btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnNuevo = new ReaLTaiizor.Controls.ParrotPictureBox();
             parrotPictureBox3 = new ReaLTaiizor.Controls.ParrotPictureBox();
             numItems = new ReaLTaiizor.Controls.HopeNumeric();
@@ -57,8 +57,8 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(cbCat);
             dreamForm1.Controls.Add(parrotPictureBox4);
-            dreamForm1.Controls.Add(btnClose);
             dreamForm1.Controls.Add(btnNuevo);
             dreamForm1.Controls.Add(parrotPictureBox3);
             dreamForm1.Controls.Add(numItems);
@@ -72,12 +72,26 @@
             dreamForm1.Dock = DockStyle.Fill;
             dreamForm1.Location = new Point(0, 0);
             dreamForm1.Name = "dreamForm1";
-            dreamForm1.Size = new Size(1028, 483);
+            dreamForm1.Size = new Size(1028, 506);
             dreamForm1.TabIndex = 0;
             dreamForm1.TabStop = false;
             dreamForm1.Text = "Generador de Tiendas";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // cbCat
+            // 
+            cbCat.DrawMode = DrawMode.OwnerDrawFixed;
+            cbCat.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCat.FlatStyle = FlatStyle.Flat;
+            cbCat.Font = new Font("Segoe UI", 12F);
+            cbCat.FormattingEnabled = true;
+            cbCat.ItemHeight = 30;
+            cbCat.Location = new Point(12, 450);
+            cbCat.Name = "cbCat";
+            cbCat.Size = new Size(314, 36);
+            cbCat.TabIndex = 17;
+            cbCat.SelectedIndexChanged += cbCat_SelectedIndexChanged;
             // 
             // parrotPictureBox4
             // 
@@ -102,30 +116,6 @@
             parrotPictureBox4.Text = "parrotPictureBox4";
             parrotPictureBox4.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             parrotPictureBox4.Click += parrotPictureBox4_Click;
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Transparent;
-            btnClose.BackgroundImage = Properties.Resources.closewin;
-            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
-            btnClose.ColorLeft = Color.DodgerBlue;
-            btnClose.ColorRight = Color.DodgerBlue;
-            btnClose.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            btnClose.FilterAlpha = 200;
-            btnClose.FilterEnabled = true;
-            btnClose.Image = null;
-            btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            btnClose.IsElipse = false;
-            btnClose.IsParallax = false;
-            btnClose.Location = new Point(1131, 1);
-            btnClose.Name = "btnClose";
-            btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            btnClose.Size = new Size(27, 26);
-            btnClose.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            btnClose.TabIndex = 16;
-            btnClose.Text = "btnClose";
-            btnClose.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            btnClose.Click += btnClose_Click;
             // 
             // btnNuevo
             // 
@@ -160,7 +150,7 @@
             parrotPictureBox3.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             parrotPictureBox3.IsElipse = false;
             parrotPictureBox3.IsParallax = false;
-            parrotPictureBox3.Location = new Point(138, 33);
+            parrotPictureBox3.Location = new Point(138, 22);
             parrotPictureBox3.Name = "parrotPictureBox3";
             parrotPictureBox3.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             parrotPictureBox3.Size = new Size(42, 43);
@@ -183,7 +173,7 @@
             numItems.ForeColor = Color.Black;
             numItems.HoverButtonTextColorA = Color.FromArgb(64, 158, 255);
             numItems.HoverButtonTextColorB = Color.FromArgb(64, 158, 255);
-            numItems.Location = new Point(12, 40);
+            numItems.Location = new Point(12, 29);
             numItems.MaxNum = 10F;
             numItems.MinNum = 0F;
             numItems.Name = "numItems";
@@ -269,7 +259,7 @@
             btnFiltroBusca.Font = new Font("Segoe UI", 12F);
             btnFiltroBusca.ForeColor = Color.FromArgb(48, 49, 51);
             btnFiltroBusca.Hint = "Buscar Objeto";
-            btnFiltroBusca.Location = new Point(12, 428);
+            btnFiltroBusca.Location = new Point(12, 406);
             btnFiltroBusca.MaxLength = 32767;
             btnFiltroBusca.Multiline = false;
             btnFiltroBusca.Name = "btnFiltroBusca";
@@ -318,7 +308,7 @@
             // dgvLisstaItems
             // 
             dgvLisstaItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLisstaItems.Location = new Point(12, 89);
+            dgvLisstaItems.Location = new Point(12, 67);
             dgvLisstaItems.Name = "dgvLisstaItems";
             dgvLisstaItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLisstaItems.Size = new Size(314, 333);
@@ -337,7 +327,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1028, 483);
+            ClientSize = new Size(1028, 506);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -364,7 +354,7 @@
         private ReaLTaiizor.Controls.HopeNumeric numItems;
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox3;
         private ReaLTaiizor.Controls.ParrotPictureBox btnNuevo;
-        private ReaLTaiizor.Controls.ParrotPictureBox btnClose;
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox4;
+        private ReaLTaiizor.Controls.HopeComboBox cbCat;
     }
 }

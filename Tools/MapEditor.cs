@@ -38,7 +38,16 @@ namespace GranDnDDM.Tools
 
         private const int HANDLE_SIZE = 32;
         private string lastSelectedFilePath = string.Empty;
-
+        // Evita que el control se active (no recibe el foco) al ser clickeado.
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x08000000; // WS_EX_NOACTIVATE
+                return cp;
+            }
+        }
         public MapEditor()
         {
             DoubleBuffered = true;
@@ -48,11 +57,18 @@ namespace GranDnDDM.Tools
             MouseDown += MapEditor_MouseDown;
             MouseMove += MapEditor_MouseMove;
             MouseUp += MapEditor_MouseUp;
-
+            TabStop = false;
             // Crear capa base inicial
             layers.Add(new MapLayer("Capa Base"));
         }
-
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+            if (this.Parent != null)
+            {
+                this.Parent.Focus();
+            }
+        }
         #region Drag & Drop
         private void MapEditor_DragEnter(object sender, DragEventArgs e)
         {
@@ -137,12 +153,37 @@ namespace GranDnDDM.Tools
 
         private void MapEditor_MouseDown(object sender, MouseEventArgs e)
         {
+
+            // Si hay un elemento seleccionado, y se hace clic fuera de su área de selección (incluyendo los handles),
+            // se borra la selección para que desaparezcan los HandleRect.
+            if (selectedItem != null)
+            {
+                bool clickOnHandle = false;
+                // Verifica si el clic cae dentro de alguno de los rectángulos de los handles.
+                foreach (ResizeHandle handle in Enum.GetValues(typeof(ResizeHandle)))
+                {
+                    if (handle == ResizeHandle.None)
+                        continue;
+                    Rectangle hr = GetHandleRect(selectedItem.GetBounds(), handle);
+                    if (hr.Contains(e.Location))
+                    {
+                        clickOnHandle = true;
+                        break;
+                    }
+                }
+                // Si el clic no está sobre los handles ni dentro del área del elemento seleccionado, se limpia la selección.
+                if (!clickOnHandle && !selectedItem.GetBounds().Contains(e.Location))
+                {
+                    selectedItem = null;
+                    Invalidate(); // Redibuja el control sin mostrar los handles.
+                }
+            }
             if (CurrentToolMode == ToolMode.Fill)
             {
                 FillLayer();
                 return;
             }
-
+           // ActualizarContenidoConScrollPreservado();
             // Si la herramienta activa es 'Draw'
             if (CurrentToolMode == ToolMode.Draw)
             {
@@ -236,6 +277,7 @@ namespace GranDnDDM.Tools
                     }
                 }
             }
+        
         }
         private void MapEditor_MouseMove(object sender, MouseEventArgs e)
         {
@@ -366,6 +408,7 @@ namespace GranDnDDM.Tools
             {
                 DrawSelection(g, selectedItem);
             }
+            //ActualizarContenidoConScrollPreservado();
         }
 
         private void DrawSelection(Graphics g, MapItem item)

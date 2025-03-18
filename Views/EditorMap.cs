@@ -26,11 +26,13 @@ namespace GranDnDDM.Views
         private Mapa fullScreenForm;
         private System.Windows.Forms.Timer updateTimer;
         private string mapaName = "";
-
+        // Guarda la posición actual del scroll
+        private Point scrollPos;
         //private MapEditor mapEditor;
         public EditorMap()
         {
             InitializeComponent();
+            scrollPos = pGrid.AutoScrollPosition;
         }
 
         private void EditorMap_Load(object sender, EventArgs e)
@@ -137,6 +139,7 @@ namespace GranDnDDM.Views
 
                         SaveGridData(); // Guardar en JSON inmediatamente
                         ApplyFilter();
+
                     }
                     catch (Exception ex)
                     {
@@ -446,7 +449,8 @@ namespace GranDnDDM.Views
         private void btnLoadMap_Click(object sender, EventArgs e)
         {
             string mapaNameCopy = mapEditor.LoadMap();
-            if (mapaNameCopy != "") {
+            if (mapaNameCopy != "")
+            {
                 mapaName = mapaNameCopy;
                 Text = Text + "- Mapa: " + mapaName;
                 cmbLayers.DataSource = mapEditor.GetLayerDataSource();
@@ -520,6 +524,8 @@ namespace GranDnDDM.Views
             mapEditor.ToggleHiddenLayer();
 
         }
+
+
 
 
 

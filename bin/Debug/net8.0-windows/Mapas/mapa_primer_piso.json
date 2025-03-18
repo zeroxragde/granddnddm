@@ -10,11 +10,11 @@
         "GridLocation": null,
         "Location": {
           "IsEmpty": false,
-          "X": -7,
-          "Y": -4
+          "X": -209,
+          "Y": -76
         },
-        "Width": 1387,
-        "Height": 766
+        "Width": 2070,
+        "Height": 1071
       }
     ]
   }

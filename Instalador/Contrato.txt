@@ -1,0 +1,30 @@
+CONTRATO DE TÉRMINOS Y CONDICIONES DE USO DE LA APLICACIÓN GRANDDNDDM
+
+Fecha de última actualización: 2025/03/17
+
+1. Objeto y Alcance
+El presente Contrato de Términos y Condiciones de Uso (en adelante, “Contrato”) regula el acceso y utilización de la aplicación GrandDnDDM (en adelante, “la App”), de titularidad de [Nombre del Desarrollador o Empresa] (en adelante, “el Desarrollador”). La utilización de la App implica la aceptación plena y sin reservas de todas las cláusulas aquí dispuestas.
+
+2. Aceptación de Términos
+El usuario (en adelante, “Usuario”) declara haber leído, comprendido y aceptado de forma voluntaria y sin reservas las presentes condiciones. En consecuencia, el uso de la App implica la adhesión a este Contrato.
+
+3. Propiedad Intelectual y Derechos de Autor
+3.1. La totalidad de los contenidos, diseños, logotipos, textos, imágenes, software y demás elementos que integran la App se encuentran protegidos por la legislación vigente en materia de propiedad intelectual.
+3.2. No obstante lo anterior, el Usuario reconoce y acepta que, en relación con el uso de la App, el Desarrollador queda expresamente desblinde de cualquier responsabilidad por reclamaciones, acciones legales o perjuicios que puedan derivarse del uso indebido, reproducción o explotación no autorizada de contenidos protegidos por derechos de autor que eventualmente sean incorporados por terceros o generados a partir del uso de la App.
+3.3. El Usuario se compromete a utilizar la App de conformidad con la ley, absteniéndose de realizar cualquier acto que infrinja o vulnere derechos de autor u otros derechos de propiedad intelectual de terceros.
+
+4. Limitación de Responsabilidad
+4.1. La App se proporciona “tal cual” y “según disponibilidad”, sin garantía expresa o implícita de ningún tipo.
+4.2. El Desarrollador no será responsable, bajo ninguna circunstancia, de daños directos, indirectos, incidentales, especiales o consecuentes que pudieran derivarse del acceso o uso de la App, incluyendo aquellos relacionados con posibles reclamaciones por derechos de autor de terceros.
+
+5. Indemnización
+El Usuario se obliga a indemnizar y mantener indemne al Desarrollador, sus afiliados y/o representantes legales, frente a cualquier reclamación, demanda, acción o procedimiento que surja como consecuencia del uso inadecuado de la App, incluyendo reclamaciones relacionadas con derechos de autor.
+
+6. Modificaciones al Contrato
+El Desarrollador se reserva el derecho de modificar o actualizar en cualquier momento las condiciones del presente Contrato. Las modificaciones serán publicadas en la App y entrarán en vigor desde su publicación. El uso continuado de la App tras la publicación de cambios implicará la aceptación de las modificaciones.
+
+7. Vigencia y Terminación
+Este Contrato entrará en vigor a partir del momento en que el Usuario acceda o utilice la App, y se mantendrá vigente mientras el Usuario haga uso de la misma. El Desarrollador podrá suspender o terminar el acceso del Usuario en caso de incumplimiento de cualquiera de las cláusulas aquí estipuladas.
+
+8. Jurisdicción y Ley Aplicable
+El presente Contrato se regirá e interpretará de acuerdo con las leyes de [País/Estado]. Para la resolución de cualquier controversia derivada del mismo, las partes se someten a la jurisdicción de los tribunales competentes de [Ciudad/Estado], renunciando expresamente a cualquier otro fuero que pudiera corresponderles.

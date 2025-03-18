@@ -8,5 +8,10 @@
     "FileName": "Creaturas/gpt_guardian.crea",
     "Nombre": "Guardian",
     "CR": "1"
+  },
+  {
+    "FileName": "gpt_jefefinal.crea",
+    "Nombre": "Sothrax, el Devorador de Almas",
+    "CR": "2"
   }
 ]

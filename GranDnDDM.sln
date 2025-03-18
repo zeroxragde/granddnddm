@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranDnDDM", "GranDnDDM.csproj", "{EB22881D-8363-4CE0-95F1-B50783E25127}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstaladorGrandDnDDm", "..\InstaladorGrandDnDDm\InstaladorGrandDnDDm.vdproj", "{EE3C61CC-8514-7776-83ED-A5C34AD1B0D7}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GrandDnDDM", "Instalador\GrandDnDDM\GrandDnDDM.vdproj", "{08633E86-4E49-593F-D2C6-23C42708DCEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{EB22881D-8363-4CE0-95F1-B50783E25127}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB22881D-8363-4CE0-95F1-B50783E25127}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB22881D-8363-4CE0-95F1-B50783E25127}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE3C61CC-8514-7776-83ED-A5C34AD1B0D7}.Debug|Any CPU.ActiveCfg = Debug
-		{EE3C61CC-8514-7776-83ED-A5C34AD1B0D7}.Release|Any CPU.ActiveCfg = Release
+		{08633E86-4E49-593F-D2C6-23C42708DCEE}.Debug|Any CPU.ActiveCfg = Debug
+		{08633E86-4E49-593F-D2C6-23C42708DCEE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

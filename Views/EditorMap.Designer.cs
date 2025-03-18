@@ -35,6 +35,7 @@
             ilCursores = new ImageList(components);
             ilTiles = new ImageList(components);
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            ToggleLayerButton = new Button();
             btnSpriteSheet = new Button();
             btnFillMap = new Button();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
@@ -54,7 +55,6 @@
             CmbFilter = new ComboBox();
             btnAddImage = new Button();
             cmbCategory = new ComboBox();
-            ToggleLayerButton = new Button();
             dreamForm1.SuspendLayout();
             pGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pvPreview).BeginInit();
@@ -130,12 +130,24 @@
             dreamForm1.Location = new Point(0, 0);
             dreamForm1.Margin = new Padding(2);
             dreamForm1.Name = "dreamForm1";
-            dreamForm1.Size = new Size(1412, 505);
+            dreamForm1.Size = new Size(1150, 505);
             dreamForm1.TabIndex = 0;
             dreamForm1.TabStop = false;
             dreamForm1.Text = "Map Editor";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 20;
+            // 
+            // ToggleLayerButton
+            // 
+            ToggleLayerButton.ForeColor = Color.Black;
+            ToggleLayerButton.ImageIndex = 9;
+            ToggleLayerButton.ImageList = imageList2;
+            ToggleLayerButton.Location = new Point(726, 463);
+            ToggleLayerButton.Name = "ToggleLayerButton";
+            ToggleLayerButton.Size = new Size(44, 41);
+            ToggleLayerButton.TabIndex = 39;
+            ToggleLayerButton.UseVisualStyleBackColor = true;
+            ToggleLayerButton.Click += ToggleLayerButton_Click;
             // 
             // btnSpriteSheet
             // 
@@ -175,7 +187,7 @@
             btnClose.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             btnClose.IsElipse = false;
             btnClose.IsParallax = false;
-            btnClose.Location = new Point(1370, 1);
+            btnClose.Location = new Point(1111, 0);
             btnClose.Name = "btnClose";
             btnClose.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             btnClose.Size = new Size(27, 26);
@@ -190,7 +202,7 @@
             btnRefresh.ForeColor = Color.Black;
             btnRefresh.ImageIndex = 7;
             btnRefresh.ImageList = imageList2;
-            btnRefresh.Location = new Point(1256, 466);
+            btnRefresh.Location = new Point(964, 466);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(44, 41);
             btnRefresh.TabIndex = 35;
@@ -205,7 +217,7 @@
             pGrid.Controls.Add(mapEditor);
             pGrid.Location = new Point(371, 35);
             pGrid.Name = "pGrid";
-            pGrid.Size = new Size(1029, 396);
+            pGrid.Size = new Size(737, 396);
             pGrid.TabIndex = 34;
             // 
             // mapEditor
@@ -217,10 +229,10 @@
             mapEditor.CurrentToolMode = Enums.ToolMode.None;
             mapEditor.DrawingImage = null;
             mapEditor.DrawingItem = null;
-            mapEditor.Location = new Point(1, 4);
+            mapEditor.Location = new Point(3, 3);
             mapEditor.Name = "mapEditor";
             mapEditor.Rows = 64;
-            mapEditor.Size = new Size(1023, 385);
+            mapEditor.Size = new Size(736, 405);
             mapEditor.TabIndex = 1;
             mapEditor.TileSize = 32;
             // 
@@ -229,7 +241,7 @@
             btnLoadMap.ForeColor = Color.Black;
             btnLoadMap.ImageIndex = 6;
             btnLoadMap.ImageList = imageList2;
-            btnLoadMap.Location = new Point(1306, 466);
+            btnLoadMap.Location = new Point(1014, 466);
             btnLoadMap.Name = "btnLoadMap";
             btnLoadMap.Size = new Size(44, 41);
             btnLoadMap.TabIndex = 33;
@@ -241,7 +253,7 @@
             btnSaveMap.ForeColor = Color.Black;
             btnSaveMap.ImageIndex = 5;
             btnSaveMap.ImageList = imageList2;
-            btnSaveMap.Location = new Point(1356, 466);
+            btnSaveMap.Location = new Point(1064, 466);
             btnSaveMap.Name = "btnSaveMap";
             btnSaveMap.Size = new Size(44, 41);
             btnSaveMap.TabIndex = 32;
@@ -250,7 +262,7 @@
             // 
             // pvPreview
             // 
-            pvPreview.Location = new Point(845, 442);
+            pvPreview.Location = new Point(640, 437);
             pvPreview.Name = "pvPreview";
             pvPreview.Size = new Size(63, 56);
             pvPreview.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -333,7 +345,7 @@
             // 
             cmbLayers.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLayers.FormattingEnabled = true;
-            cmbLayers.Location = new Point(1017, 437);
+            cmbLayers.Location = new Point(725, 437);
             cmbLayers.Name = "cmbLayers";
             cmbLayers.Size = new Size(383, 23);
             cmbLayers.TabIndex = 24;
@@ -369,24 +381,12 @@
             cmbCategory.Size = new Size(149, 23);
             cmbCategory.TabIndex = 21;
             // 
-            // ToggleLayerButton
-            // 
-            ToggleLayerButton.ForeColor = Color.Black;
-            ToggleLayerButton.ImageIndex = 9;
-            ToggleLayerButton.ImageList = imageList2;
-            ToggleLayerButton.Location = new Point(1018, 464);
-            ToggleLayerButton.Name = "ToggleLayerButton";
-            ToggleLayerButton.Size = new Size(44, 41);
-            ToggleLayerButton.TabIndex = 39;
-            ToggleLayerButton.UseVisualStyleBackColor = true;
-            ToggleLayerButton.Click += ToggleLayerButton_Click;
-            // 
             // EditorMap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
-            ClientSize = new Size(1412, 505);
+            ClientSize = new Size(1150, 505);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");

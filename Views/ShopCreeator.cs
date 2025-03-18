@@ -41,6 +41,24 @@ namespace GranDnDDM.Views
             {
                 cbTiendas.SelectedIndex = 0;
             }
+
+            // Llenar el ComboBox
+            CargarCategoriasEnComboBox();
+        }
+        private void CargarCategoriasEnComboBox()
+        {
+            // Obtener categorías únicas y agregarlas a la lista
+            var categoriasUnicas = itemsDisponibles.Select(o => o.tipo_objeto).Distinct().ToList();
+
+            // Agregar la opción "Todos" al inicio de la lista
+            categoriasUnicas.Insert(0, "Todos");
+
+            // Llenar el ComboBox
+            cbCat.Items.Clear();
+            cbCat.Items.AddRange(categoriasUnicas.ToArray());
+
+            // Seleccionar "Todos" por defecto
+            cbCat.SelectedIndex = 0;
         }
         private void CargarDataGridView()
         {
@@ -353,6 +371,21 @@ namespace GranDnDDM.Views
         private void parrotPictureBox4_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void cbCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCat.SelectedItem == null) return;
+
+            string categoriaSeleccionada = cbCat.SelectedItem.ToString();
+
+            // Si se selecciona "Todos", mostrar todos los ítems
+            List<Item> itemsFiltrados = (categoriaSeleccionada == "Todos")
+                ? itemsDisponibles
+                : itemsDisponibles.Where(item => item.tipo_objeto == categoriaSeleccionada).ToList();
+
+            // Actualizar el DataGridView con los elementos filtrados
+            dgvLisstaItems.DataSource = new BindingList<Item>(itemsFiltrados);
         }
 
         ///////////////////////

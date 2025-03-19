@@ -13,5 +13,10 @@
     "FileName": "Creaturas/Tempestus.crea",
     "Nombre": "Tempestus (Elemental de Tormenta)",
     "CR": "2"
+  },
+  {
+    "FileName": "Creaturas/arpias.crea",
+    "Nombre": "Arpías",
+    "CR": "2"
   }
 ]

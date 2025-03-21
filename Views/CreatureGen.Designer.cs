@@ -33,6 +33,8 @@
             tabPagesCreatura = new ReaLTaiizor.Controls.AirTabPage();
             tabGeneral = new TabPage();
             pCard = new ReaLTaiizor.Controls.Panel();
+            txtNotas = new TextBox();
+            nightLabel17 = new ReaLTaiizor.Controls.NightLabel();
             pImagen = new Panel();
             imgCreatura = new PictureBox();
             lblNivelDesafio = new ReaLTaiizor.Controls.NightLabel();
@@ -115,6 +117,11 @@
             panel20 = new Panel();
             bigLabel5 = new ReaLTaiizor.Controls.BigLabel();
             pEfectoRegio = new FlowLayoutPanel();
+            tabHechizos = new TabPage();
+            panel21 = new ReaLTaiizor.Controls.Panel();
+            panel22 = new Panel();
+            bigLabel6 = new ReaLTaiizor.Controls.BigLabel();
+            pHechizos = new FlowLayoutPanel();
             btnClose = new ReaLTaiizor.Controls.ParrotPictureBox();
             formTheme1.SuspendLayout();
             tabPagesCreatura.SuspendLayout();
@@ -149,6 +156,8 @@
             panel17.SuspendLayout();
             tabERegional.SuspendLayout();
             panel19.SuspendLayout();
+            tabHechizos.SuspendLayout();
+            panel21.SuspendLayout();
             SuspendLayout();
             // 
             // formTheme1
@@ -180,6 +189,7 @@
             tabPagesCreatura.Controls.Add(tabAGuarida);
             tabPagesCreatura.Controls.Add(tabAMitica);
             tabPagesCreatura.Controls.Add(tabERegional);
+            tabPagesCreatura.Controls.Add(tabHechizos);
             tabPagesCreatura.Dock = DockStyle.Fill;
             tabPagesCreatura.ItemSize = new Size(30, 115);
             tabPagesCreatura.Location = new Point(3, 28);
@@ -212,6 +222,8 @@
             // pCard
             // 
             pCard.BackColor = Color.FromArgb(128, 64, 64);
+            pCard.Controls.Add(txtNotas);
+            pCard.Controls.Add(nightLabel17);
             pCard.Controls.Add(pImagen);
             pCard.Controls.Add(lblNivelDesafio);
             pCard.Controls.Add(nightLabel16);
@@ -246,6 +258,30 @@
             pCard.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pCard.TabIndex = 6;
             pCard.Text = "panel1";
+            // 
+            // txtNotas
+            // 
+            txtNotas.BackColor = Color.FromArgb(128, 64, 64);
+            txtNotas.Font = new Font("Comic Sans MS", 11.25F);
+            txtNotas.ForeColor = Color.FromArgb(255, 192, 128);
+            txtNotas.Location = new Point(18, 405);
+            txtNotas.Multiline = true;
+            txtNotas.Name = "txtNotas";
+            txtNotas.ReadOnly = true;
+            txtNotas.Size = new Size(402, 135);
+            txtNotas.TabIndex = 43;
+            // 
+            // nightLabel17
+            // 
+            nightLabel17.AutoSize = true;
+            nightLabel17.BackColor = Color.Transparent;
+            nightLabel17.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nightLabel17.ForeColor = Color.FromArgb(255, 192, 128);
+            nightLabel17.Location = new Point(13, 379);
+            nightLabel17.Name = "nightLabel17";
+            nightLabel17.Size = new Size(56, 23);
+            nightLabel17.TabIndex = 42;
+            nightLabel17.Text = "Notas";
             // 
             // pImagen
             // 
@@ -1170,6 +1206,63 @@
             pEfectoRegio.TabIndex = 0;
             pEfectoRegio.WrapContents = false;
             // 
+            // tabHechizos
+            // 
+            tabHechizos.BackColor = Color.White;
+            tabHechizos.BackgroundImage = Properties.Resources.backEpicoNormalized;
+            tabHechizos.BackgroundImageLayout = ImageLayout.Stretch;
+            tabHechizos.Controls.Add(panel21);
+            tabHechizos.Location = new Point(119, 4);
+            tabHechizos.Name = "tabHechizos";
+            tabHechizos.Size = new Size(823, 597);
+            tabHechizos.TabIndex = 7;
+            tabHechizos.Text = "Hechizos";
+            // 
+            // panel21
+            // 
+            panel21.BackColor = Color.FromArgb(128, 64, 64);
+            panel21.Controls.Add(panel22);
+            panel21.Controls.Add(bigLabel6);
+            panel21.Controls.Add(pHechizos);
+            panel21.EdgeColor = Color.FromArgb(32, 41, 50);
+            panel21.Location = new Point(38, 21);
+            panel21.Name = "panel21";
+            panel21.Padding = new Padding(5);
+            panel21.Size = new Size(747, 554);
+            panel21.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panel21.TabIndex = 11;
+            panel21.Text = "panel1";
+            // 
+            // panel22
+            // 
+            panel22.BackColor = Color.DarkRed;
+            panel22.Location = new Point(15, 54);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(714, 10);
+            panel22.TabIndex = 2;
+            // 
+            // bigLabel6
+            // 
+            bigLabel6.AutoSize = true;
+            bigLabel6.BackColor = Color.Transparent;
+            bigLabel6.Font = new Font("Segoe UI", 25F);
+            bigLabel6.ForeColor = Color.FromArgb(255, 128, 0);
+            bigLabel6.Location = new Point(8, 5);
+            bigLabel6.Name = "bigLabel6";
+            bigLabel6.Size = new Size(154, 46);
+            bigLabel6.TabIndex = 1;
+            bigLabel6.Text = "Hechizos";
+            // 
+            // pHechizos
+            // 
+            pHechizos.AutoScroll = true;
+            pHechizos.FlowDirection = FlowDirection.TopDown;
+            pHechizos.Location = new Point(18, 70);
+            pHechizos.Name = "pHechizos";
+            pHechizos.Size = new Size(719, 476);
+            pHechizos.TabIndex = 0;
+            pHechizos.WrapContents = false;
+            // 
             // btnClose
             // 
             btnClose.BackColor = Color.Transparent;
@@ -1264,6 +1357,9 @@
             tabERegional.ResumeLayout(false);
             panel19.ResumeLayout(false);
             panel19.PerformLayout();
+            tabHechizos.ResumeLayout(false);
+            panel21.ResumeLayout(false);
+            panel21.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1357,5 +1453,12 @@
         private Panel panel20;
         private ReaLTaiizor.Controls.BigLabel bigLabel5;
         private FlowLayoutPanel pEfectoRegio;
+        private TextBox txtNotas;
+        private ReaLTaiizor.Controls.NightLabel nightLabel17;
+        private TabPage tabHechizos;
+        private ReaLTaiizor.Controls.Panel panel21;
+        private Panel panel22;
+        private ReaLTaiizor.Controls.BigLabel bigLabel6;
+        private FlowLayoutPanel pHechizos;
     }
 }

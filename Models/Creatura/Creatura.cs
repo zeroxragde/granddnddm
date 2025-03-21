@@ -31,6 +31,7 @@ namespace GranDnDDM.Models.Creatura
         public int Inteligencia { get; set; }
         public int Sabiduria { get; set; }
         public int Carisma { get; set; }
+        public int BonificadorAtaque { get; set; }
         public int BonificadorFuerza { get; set; }
         public int BonificadorDestreza { get; set; }
         public int BonificadorConstitucion { get; set; }
@@ -68,7 +69,7 @@ namespace GranDnDDM.Models.Creatura
         public List<Accion> Reacciones { get; set; } = new List<Accion>();
 
         // --- Acciones especiales (Hechizos, etc.) ---
-        public string HechizosOEspeciales { get; set; }
+        public List<Accion> HechizosOEspeciales { get; set; } = new List<Accion>();
         // Aquí podrías guardar la descripción de la capacidad de conjurar (Spellcasting).
 
         // --- Legendaria ---

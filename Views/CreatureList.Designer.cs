@@ -31,13 +31,14 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatureList));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            btnReload = new ReaLTaiizor.Controls.ParrotPictureBox();
+            btnImportCrea = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnEditar = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnDelete = new ReaLTaiizor.Controls.ParrotPictureBox();
             listCreature = new DataGridView();
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             btnNueva = new ReaLTaiizor.Controls.DreamButton();
             imageList1 = new ImageList(components);
-            btnImportCrea = new ReaLTaiizor.Controls.ParrotPictureBox();
             dreamForm1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listCreature).BeginInit();
             SuspendLayout();
@@ -50,6 +51,7 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(btnReload);
             dreamForm1.Controls.Add(btnImportCrea);
             dreamForm1.Controls.Add(btnEditar);
             dreamForm1.Controls.Add(btnDelete);
@@ -66,6 +68,54 @@
             dreamForm1.Text = "Lista de Creaturas";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // btnReload
+            // 
+            btnReload.BackColor = Color.Transparent;
+            btnReload.BackgroundImage = Properties.Resources.reload;
+            btnReload.BackgroundImageLayout = ImageLayout.Stretch;
+            btnReload.ColorLeft = Color.DodgerBlue;
+            btnReload.ColorRight = Color.DodgerBlue;
+            btnReload.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnReload.FilterAlpha = 200;
+            btnReload.FilterEnabled = true;
+            btnReload.Image = null;
+            btnReload.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnReload.IsElipse = false;
+            btnReload.IsParallax = false;
+            btnReload.Location = new Point(337, 205);
+            btnReload.Name = "btnReload";
+            btnReload.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnReload.Size = new Size(39, 38);
+            btnReload.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnReload.TabIndex = 19;
+            btnReload.Text = "btnClose";
+            btnReload.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnReload.Click += btnReload_Click;
+            // 
+            // btnImportCrea
+            // 
+            btnImportCrea.BackColor = Color.Transparent;
+            btnImportCrea.BackgroundImage = Properties.Resources.import;
+            btnImportCrea.BackgroundImageLayout = ImageLayout.Stretch;
+            btnImportCrea.ColorLeft = Color.DodgerBlue;
+            btnImportCrea.ColorRight = Color.DodgerBlue;
+            btnImportCrea.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnImportCrea.FilterAlpha = 200;
+            btnImportCrea.FilterEnabled = true;
+            btnImportCrea.Image = null;
+            btnImportCrea.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnImportCrea.IsElipse = false;
+            btnImportCrea.IsParallax = false;
+            btnImportCrea.Location = new Point(340, 152);
+            btnImportCrea.Name = "btnImportCrea";
+            btnImportCrea.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnImportCrea.Size = new Size(33, 38);
+            btnImportCrea.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnImportCrea.TabIndex = 18;
+            btnImportCrea.Text = "btnClose";
+            btnImportCrea.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnImportCrea.Click += btnImportCrea_Click;
             // 
             // btnEditar
             // 
@@ -169,30 +219,6 @@
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "closewin.png");
             // 
-            // btnImportCrea
-            // 
-            btnImportCrea.BackColor = Color.Transparent;
-            btnImportCrea.BackgroundImage = Properties.Resources.import;
-            btnImportCrea.BackgroundImageLayout = ImageLayout.Stretch;
-            btnImportCrea.ColorLeft = Color.DodgerBlue;
-            btnImportCrea.ColorRight = Color.DodgerBlue;
-            btnImportCrea.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            btnImportCrea.FilterAlpha = 200;
-            btnImportCrea.FilterEnabled = true;
-            btnImportCrea.Image = null;
-            btnImportCrea.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            btnImportCrea.IsElipse = false;
-            btnImportCrea.IsParallax = false;
-            btnImportCrea.Location = new Point(340, 152);
-            btnImportCrea.Name = "btnImportCrea";
-            btnImportCrea.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            btnImportCrea.Size = new Size(33, 38);
-            btnImportCrea.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            btnImportCrea.TabIndex = 18;
-            btnImportCrea.Text = "btnClose";
-            btnImportCrea.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            btnImportCrea.Click += btnImportCrea_Click;
-            // 
             // CreatureList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -200,6 +226,7 @@
             ClientSize = new Size(385, 603);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CreatureList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreatureList";
@@ -219,5 +246,6 @@
         private ReaLTaiizor.Controls.ParrotPictureBox btnDelete;
         private ReaLTaiizor.Controls.ParrotPictureBox btnEditar;
         private ReaLTaiizor.Controls.ParrotPictureBox btnImportCrea;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnReload;
     }
 }

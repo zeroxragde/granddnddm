@@ -14,13 +14,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GranDnDDM.Views
 {
     public partial class CreatureEditor : Form
     {
         private Creatura creatura;
-        private bool isEditing =  false;
+        private bool isEditing = false;
         private string filename = "mi_creatura.crea";
 
         public CreatureEditor(Creatura c, string f)
@@ -433,15 +434,17 @@ namespace GranDnDDM.Views
             pTiradasSav.Controls.Add(contenedor);
 
         }
-
+        /*
         private void tabPage1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = tabPage1.SelectedIndex;
             if (selectedIndex == 4)
             {
                 tabPage1.SelectedIndex = 0;
+                creatura.Notas = txtNotas.Text;
                 //GUARDAR EN .cre
                 SaveFileDialog sfd = new SaveFileDialog();
+                sfd.InitialDirectory = Path.Combine(Application.StartupPath, "Creaturas");
                 sfd.Filter = "Archivos CREA|*.crea|Todos los archivos|*.*";
                 sfd.Title = "Guardar archivo de criatura";
                 sfd.FileName = filename; // Nombre sugerido
@@ -461,24 +464,73 @@ namespace GranDnDDM.Views
                     Hide();
 
                     MessageBox.Show("Archivo guardado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
                 }
-
-
-
                 return;
             }
             if (selectedIndex == 5)
             {
                 Hide();
             }
+        }*/
+        private void tabPage1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = tabPage1.SelectedIndex;
+            if (selectedIndex == 4)
+            {
+                tabPage1.SelectedIndex = 0;
+                creatura.Notas = txtNotas.Text;
 
+                // Verifica si ya hay un archivo asociado (es decir, si se está editando una criatura existente)
+                if (!string.IsNullOrEmpty(filename) && File.Exists(filename))
+                {
+                    // Si el archivo ya existe, simplemente sobrescribir sin preguntar
+                    string json = JsonConvert.SerializeObject(creatura, Formatting.Indented);
+                    File.WriteAllText(filename, json);
+
+                    //  ActualizarRegistroCreatura(filename);
+                    CreatureGen creatureGen = new CreatureGen(creatura);
+                    creatureGen.Show();
+                    Hide();
+
+                    MessageBox.Show("Archivo actualizado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Si no hay un archivo guardado previamente, pedir ruta con SaveFileDialog
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.InitialDirectory = Path.Combine(Application.StartupPath, "Creaturas");
+                    sfd.Filter = "Archivos CREA|*.crea|Todos los archivos|*.*";
+                    sfd.Title = "Guardar archivo de criatura";
+                    sfd.FileName = filename; // Nombre sugerido
+                    sfd.OverwritePrompt = false;
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        // Guardar el archivo en la nueva ruta
+                        filename = sfd.FileName; // Actualizar la variable con la nueva ruta
+                        string json = JsonConvert.SerializeObject(creatura, Formatting.Indented);
+                        File.WriteAllText(filename, json);
+
+                        ActualizarRegistroCreatura(filename);
+                        CreatureGen creatureGen = new CreatureGen(creatura);
+                        creatureGen.Show();
+                        Hide();
+
+                        MessageBox.Show("Archivo guardado correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                return;
+            }
+            if (selectedIndex == 5)
+            {
+                Hide();
+            }
         }
+
         private void ActualizarRegistroCreatura(string savedFilePath)
         {
             // Definir la ruta del archivo de registros
-          
+
             string creaturasJsonFile = Path.Combine(Application.StartupPath, "Creaturas.json");
             List<CreaturaRecord> registros;
 
@@ -576,7 +628,7 @@ namespace GranDnDDM.Views
             // Agregamos el Label y el PictureBox al contenedor
             contenedor.Controls.Add(lbl);
             contenedor.Controls.Add(picRemove);
-            if(!isEditing)creatura.Habilidades.Add(textoSeleccionado, tipo);
+            if (!isEditing) creatura.Habilidades.Add(textoSeleccionado, tipo);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pHabilidades.Controls.Add(contenedor);
         }
@@ -729,63 +781,84 @@ namespace GranDnDDM.Views
             if (cbArmaduras.SelectedItem != null)
             {
                 string armaduraSeleccionada = cbArmaduras.SelectedItem.ToString();
-                creatura.ClaseArmadura = 10;
+                creatura.ClaseArmadura = 10; // Base sin armadura
                 creatura.DescripcionArmadura = armaduraSeleccionada;
+
+
                 switch (armaduraSeleccionada)
                 {
-
                     case "Armadura de Mago":
-                        // Acción para "Armadura de Mago" (mage armor)
-                        creatura.DescripcionArmadura = "13 " + armaduraSeleccionada;
+                        creatura.ClaseArmadura = 13 + creatura.Destreza;
+                        creatura.DescripcionArmadura = $"Mage Armor (13 + Destreza)";
                         break;
+
                     case "Acolchada":
+                        creatura.ClaseArmadura = 11 + creatura.Destreza;
+                        creatura.Notas = "Desventaja en sigilo.";
+                        break;
+
                     case "Cuero":
-                        // Acción para "Cuero" (leather)
-                        creatura.ClaseArmadura = 11;
+                        creatura.ClaseArmadura = 11 + creatura.Destreza;
                         break;
+
                     case "Cuero Tachonado":
+                        creatura.ClaseArmadura = 12 + creatura.Destreza;
+                        break;
+
                     case "Oculta":
-                        // Acción para "Oculta" (hide)
-                        creatura.ClaseArmadura = 12;
+                        creatura.ClaseArmadura = 12 + Math.Min(creatura.Destreza, 2);
                         break;
+
                     case "Camisa de Malla":
-                        // Acción para "Camisa de Malla" (chain shirt)
-                        creatura.ClaseArmadura = 13;
+                        creatura.ClaseArmadura = 13 + Math.Min(creatura.Destreza, 2);
                         break;
+
                     case "Armadura de Escamas":
-                    // Acción para "Armadura de Escamas" (scale mail)
+                        creatura.ClaseArmadura = 14 + Math.Min(creatura.Destreza, 2);
+                        creatura.Notas = "Desventaja en sigilo.";
+                        break;
+
                     case "Coraza":
-                        // Acción para "Coraza" (breastplate)
-                        creatura.ClaseArmadura = 14;
+                        creatura.ClaseArmadura = 14 + Math.Min(creatura.Destreza, 2);
                         break;
+
                     case "Media Armadura":
-                        // Acción para "Media Armadura" (half plate)
-                        creatura.ClaseArmadura = 15;
+                        creatura.ClaseArmadura = 15 + Math.Min(creatura.Destreza, 2);
+                        creatura.Notas = "Desventaja en sigilo.";
                         break;
+
                     case "Armadura de Anillos":
-                        // Acción para "Armadura de Anillos" (ring mail)
                         creatura.ClaseArmadura = 14;
+                        creatura.Notas = "Desventaja en sigilo.";
                         break;
+
                     case "Cota de Malla":
-                        // Acción para "Cota de Malla" (chain mail)
                         creatura.ClaseArmadura = 16;
+                        creatura.Notas = "Desventaja en sigilo. Requiere Fuerza 13.";
                         break;
+
                     case "Armadura Laminada":
-                        // Acción para "Armadura Laminada" (splint)
                         creatura.ClaseArmadura = 17;
+                        creatura.Notas = "Desventaja en sigilo. Requiere Fuerza 15.";
                         break;
+
                     case "Armadura Completa":
-                        // Acción para "Armadura Completa" (plate)
                         creatura.ClaseArmadura = 18;
+                        creatura.Notas = "Desventaja en sigilo. Requiere Fuerza 15.";
                         break;
+
                     case "Otra":
-                        // Acción para "Otra" (other)
-                        Console.WriteLine("Se ha seleccionado 'Otra' (other)");
+                        creatura.Notas = "Personalizada";
+                        Console.WriteLine("Se ha seleccionado 'Otra' (other).");
                         break;
+
                     default:
-                        Console.WriteLine("Opción no reconocida");
+                        Console.WriteLine("Opción no reconocida.");
                         break;
                 }
+
+                // Actualizar el textbox txtNotas con la información de las desventajas o requisitos
+                txtNotas.Text += "\r\n" + creatura.Notas;
             }
         }
 
@@ -1120,7 +1193,7 @@ namespace GranDnDDM.Views
             // Agregamos el Label y el PictureBox al contenedor
             contenedor.Controls.Add(lbl);
             contenedor.Controls.Add(picRemove);
-            if (!isEditing)creatura.Idiomas.Add(textoSeleccionado, tipo);
+            if (!isEditing) creatura.Idiomas.Add(textoSeleccionado, tipo);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pIdiomasList.Controls.Add(contenedor);
         }
@@ -1170,27 +1243,107 @@ namespace GranDnDDM.Views
 
         private void cbCR_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int id = cbCR.SelectedIndex;
-            if (id == 0)
+            /*    int id = cbCR.SelectedIndex;
+                if (id == 0)
+                {
+                    return;
+                }
+                // Obtenemos el texto seleccionado en el ComboBox
+                string textoSeleccionado = cbCR.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(textoSeleccionado)) return;
+                // Se espera el formato: "CR (XP XP)"
+                // Ejemplo: "1/4 (50 XP)" o "0 (10 XP)"
+                var regex = new Regex(@"^([\d/]+)\s*\(\s*([\d,]+)\s*XP\)$");
+                var match = regex.Match(textoSeleccionado);
+                if (match.Success)
+                {
+                    string cr = match.Groups[1].Value.Trim();
+                    int xp = int.Parse(match.Groups[2].Value.Replace(",", "").Trim());
+                    creatura.CR = cr;
+                    creatura.XP = xp;
+
+                }
+                */
+
+            // Verifica que se haya seleccionado un CR válido (índice 0 es "seleccionar", por ejemplo)
+            if (cbCR.SelectedIndex <= 0)
+                return;
+
+            // Obtenemos el texto del ComboBox, que debe tener el formato "CR (XP XP)"
+            string textoSeleccionado = cbCR.SelectedItem?.ToString();
+            if (string.IsNullOrWhiteSpace(textoSeleccionado))
+                return;
+
+            // Usamos una expresión regular para extraer el CR y el XP.
+            // Se espera un formato como: "1/4 (50 XP)" o "0 (10 XP)"
+            Regex regex = new Regex(@"^([\d/]+)\s*\(\s*([\d,]+)\s*XP\)$");
+            Match match = regex.Match(textoSeleccionado);
+            if (!match.Success)
             {
+                MessageBox.Show("El formato de CR seleccionado no es válido.");
                 return;
             }
-            // Obtenemos el texto seleccionado en el ComboBox
-            string textoSeleccionado = cbCR.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(textoSeleccionado)) return;
-            // Se espera el formato: "CR (XP XP)"
-            // Ejemplo: "1/4 (50 XP)" o "0 (10 XP)"
-            var regex = new Regex(@"^([\d/]+)\s*\(\s*([\d,]+)\s*XP\)$");
-            var match = regex.Match(textoSeleccionado);
-            if (match.Success)
+
+            // Extraemos el CR y el XP desde el string
+            string crTexto = match.Groups[1].Value.Trim();
+            int xp = int.Parse(match.Groups[2].Value.Replace(",", "").Trim());
+
+            // Asignamos los valores al modelo de la criatura
+            creatura.CR = crTexto;
+            creatura.XP = xp;
+
+            // Convertimos el CR (por ejemplo, "1/4") a un valor numérico (0.25)
+            double crValor = ConvertCRToNumber(crTexto);
+
+            // Lógica para ajustar estadísticas en función del CR:
+            // 1. Calculamos los Puntos de Golpe (PG) usando una fórmula básica.
+            //    Aquí, por ejemplo, partimos de una base de 10 PG y sumamos 8 PG por cada unidad (redondeada) de CR.
+            creatura.PuntosGolpe = calcularPuntosGolpe(crValor);
+
+            // 2. Ajustamos la Clase de Armadura (CA) solo si la criatura tiene el valor base (10)
+            if (creatura.ClaseArmadura == 10)
             {
-                string cr = match.Groups[1].Value.Trim();
-                int xp = int.Parse(match.Groups[2].Value.Replace(",", "").Trim());
-                creatura.CR = cr;
-                creatura.XP = xp;
+                creatura.ClaseArmadura = calcularCA(crValor);
             }
 
+            // 3. Calculamos un bonificador de ataque simple: 2 + la mitad del CR (redondeado)
+            int bonificadorAtaque = 2 + (int)(crValor / 2);
+            txtNotas.Text += Environment.NewLine + "Bonificador" + bonificadorAtaque;
 
+        }
+        // Método para calcular los Puntos de Golpe (PG) basados en el CR.
+        // Ejemplo de lógica: PG = 10 + 8 * (valor redondeado hacia arriba del CR)
+        private int calcularPuntosGolpe(double cr)
+        {
+            int incremento = (int)Math.Ceiling(cr);
+            return 10 + 8 * incremento;
+        }
+
+        // Método para calcular la Clase de Armadura (CA) en función del CR.
+        // Esta es una lógica simple basada en rangos de CR, que puedes ajustar según tus reglas.
+        private int calcularCA(double cr)
+        {
+            if (cr < 2)
+                return 12;
+            else if (cr < 5)
+                return 14;
+            else if (cr < 10)
+                return 16;
+            else if (cr < 15)
+                return 18;
+            else
+                return 20;
+        }
+        // Convierte el CR de string a un valor numérico (Ejemplo: "1/4" → 0.25)
+        private double ConvertCRToNumber(string cr)
+        {
+            return cr switch
+            {
+                "1/8" => 0.125,
+                "1/4" => 0.25,
+                "1/2" => 0.5,
+                _ => double.TryParse(cr, out double num) ? num : 0
+            };
         }
 
         private void cbCreaturaLegendaria_CheckedChanged(object sender, EventArgs e)
@@ -1631,8 +1784,12 @@ namespace GranDnDDM.Views
 
         private void btnAddAction_Click(object sender, EventArgs e)
         {
-            string actionName = txtNameAction.Text;
-            string description = descriptionFilter(txtDesAction.Text);
+            addAction(txtNameAction.Text, txtDesAction.Text);
+        }
+        private void addAction(string name, string desc)
+        {
+            string actionName = name;
+            string description = descriptionFilter(desc);
             Accion accion = new Accion();
             accion.Nombre = actionName;
             accion.Descripcion = description;
@@ -1694,7 +1851,7 @@ namespace GranDnDDM.Views
             contenedor.Controls.Add(lblAction);
             contenedor.Controls.Add(lblDesc);
             contenedor.Controls.Add(picRemove);
-            creatura.Acciones.Add(accion);
+            if (!isEditing) creatura.Acciones.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
         }
@@ -1764,7 +1921,7 @@ namespace GranDnDDM.Views
             contenedor.Controls.Add(lblAction);
             contenedor.Controls.Add(lblDesc);
             contenedor.Controls.Add(picRemove);
-            creatura.Reacciones.Add(accion);
+            if (!isEditing) creatura.Reacciones.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
         }
@@ -1834,7 +1991,7 @@ namespace GranDnDDM.Views
             contenedor.Controls.Add(lblAction);
             contenedor.Controls.Add(lblDesc);
             contenedor.Controls.Add(picRemove);
-            creatura.AccionesAdicionales.Add(accion);
+            if (!isEditing) creatura.AccionesAdicionales.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
         }
@@ -1905,7 +2062,7 @@ namespace GranDnDDM.Views
             contenedor.Controls.Add(lblAction);
             contenedor.Controls.Add(lblDesc);
             contenedor.Controls.Add(picRemove);
-            creatura.AccionesLegendarias.Add(accion);
+            if (!isEditing) creatura.AccionesLegendarias.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
         }
@@ -1975,7 +2132,7 @@ namespace GranDnDDM.Views
             contenedor.Controls.Add(lblAction);
             contenedor.Controls.Add(lblDesc);
             contenedor.Controls.Add(picRemove);
-            creatura.AccionesMiticas.Add(accion);
+            if (!isEditing) creatura.AccionesMiticas.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
         }
@@ -2045,7 +2202,7 @@ namespace GranDnDDM.Views
             contenedor.Controls.Add(lblAction);
             contenedor.Controls.Add(lblDesc);
             contenedor.Controls.Add(picRemove);
-            creatura.AccionesGuarida.Add(accion);
+            if (!isEditing) creatura.AccionesGuarida.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
         }
@@ -2115,7 +2272,7 @@ namespace GranDnDDM.Views
             contenedor.Controls.Add(lblAction);
             contenedor.Controls.Add(lblDesc);
             contenedor.Controls.Add(picRemove);
-            creatura.EfectosRegionales.Add(accion);
+            if (!isEditing) creatura.EfectosRegionales.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
         }
@@ -2172,7 +2329,7 @@ namespace GranDnDDM.Views
 
             // --- Habilidades y Stats ---
             txtFuerza.Text = c.Fuerza.ToString();
-            txtFuerza_Leave(null,null);
+            txtFuerza_Leave(null, null);
             txtDes.Text = c.Destreza.ToString();
             txtDes_Leave(null, null);
             txtCons.Text = c.Constitucion.ToString();
@@ -2277,7 +2434,8 @@ namespace GranDnDDM.Views
             {
                 txtNameAction.Text = acc.Nombre;
                 txtDesAction.Text = acc.Descripcion;
-                btnAddAction_Click(null, null);
+                // btnAddAction_Click(null, null);
+                addAction(acc.Nombre, acc.Descripcion);
             }
             foreach (var acc in c.AccionesHabilidad.ToList())
             {
@@ -2297,10 +2455,16 @@ namespace GranDnDDM.Views
                 txtDesAction.Text = acc.Descripcion;
                 btnAddReaction_Click(null, null);
             }
+            foreach (var acc in c.HechizosOEspeciales.ToList())
+            {
+                txtNameAction.Text = acc.Nombre;
+                txtDesAction.Text = acc.Descripcion;
+                addHechizo(acc.Nombre, acc.Descripcion);
+            }
 
             // --- Acciones Legendarias ---
             cbCreaturaLegendaria.Checked = c.EsLegendaria;
-            pAcciones.Controls.Clear();
+            // pAcciones.Controls.Clear();
             foreach (var acc in c.AccionesLegendarias.ToList())
             {
                 txtNameAction.Text = acc.Nombre;
@@ -2349,13 +2513,13 @@ namespace GranDnDDM.Views
         }
 
         private void comboBoxAlineamiento_SelectedIndexChanged(object sender, EventArgs e)
-        {  
+        {
             if (comboBoxAlineamiento.SelectedItem != null)
             {
                 string alineamientoSeleccionado = comboBoxAlineamiento.SelectedItem.ToString();
                 creatura.Alineamiento = alineamientoSeleccionado;
             }
-            
+
         }
 
         private string ExtraerTelepatia(string texto)
@@ -2372,7 +2536,80 @@ namespace GranDnDDM.Views
             return "";
         }
 
+        private void btnHechizo_Click(object sender, EventArgs e)
+        {
+            addHechizo(txtNameAction.Text, txtDesAction.Text);
+        }
 
+        private void addHechizo(string name, string desc)
+        {
+            string actionName = name;
+            string description = descriptionFilter(desc);
+            Accion accion = new Accion();
+            accion.Nombre = actionName;
+            accion.Descripcion = description;
+
+            // Creamos un contenedor (Panel) para el Label y el PictureBox
+            FlowLayoutPanel contenedor = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(3),
+                Tag = actionName
+            };
+            // Label para actionName en negrita
+            Label lblAction = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //    BackColor = Color.DarkBlue,
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold),
+                Text = actionName + "(Hechizo): "
+            };
+
+            // Label para descripción en texto normal
+            Label lblDesc = new Label
+            {
+                AutoSize = true,
+                Margin = new Padding(3),
+                ForeColor = Color.White,
+                //  BackColor = Color.DarkViolet,
+                Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold),
+                Text = description
+            };
+
+
+            // Creamos el PictureBox como botón para eliminar
+            PictureBox picRemove = new PictureBox
+            {
+                // Asigna aquí tu icono de eliminar; puede ser un recurso de tu proyecto o una imagen cargada
+                Image = Properties.Resources.x_icon,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand,
+                Size = new Size(16, 16),
+                Margin = new Padding(3)
+            };
+
+            // Evento click del PictureBox para eliminar el panel
+            picRemove.Click += (s, ev) =>
+            {
+                // Quitamos el contenedor del panel principal
+                pIdiomasList.Controls.Remove(contenedor);
+                // Liberamos recursos
+                creatura.HechizosOEspeciales.RemoveAll(s => s == accion);
+                contenedor.Dispose();
+            };
+
+            // Agregamos el Label y el PictureBox al contenedor
+            // Luego, agrégales al contenedor (por ejemplo, a un Panel o al formulario)
+            contenedor.Controls.Add(lblAction);
+            contenedor.Controls.Add(lblDesc);
+            contenedor.Controls.Add(picRemove);
+            if (!isEditing) creatura.HechizosOEspeciales.Add(accion);
+            // Agregamos el contenedor al FlowLayoutPanel principal
+            pAcciones.Controls.Add(contenedor);
+        }
 
 
 

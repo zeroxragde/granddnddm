@@ -30,6 +30,7 @@ namespace GranDnDDM.Views
             tabAGuarida.Visible = false;
             tabALegends.Visible = false;
             tabAMitica.Visible = false;
+            tabHechizos.Visible = false;
             var tabAMiticaHide = tabPagesCreatura.TabPages["tabAMitica"];
             if (tabAMiticaHide != null && !creatura.EsMitica)
             {
@@ -53,6 +54,11 @@ namespace GranDnDDM.Views
             {
                 tabPagesCreatura.TabPages.Remove(tabEfectoRegional);
             }
+            var tabHechizosHide = tabPagesCreatura.TabPages["tabHechizos"];
+            if (tabHechizosHide != null && creatura.HechizosOEspeciales.Count==0)
+            {
+                tabPagesCreatura.TabPages.Remove(tabHechizosHide);
+            }
 
             if(creatura.Imagen != null)
             {
@@ -61,7 +67,7 @@ namespace GranDnDDM.Views
                     imgCreatura.Image = GlobalTools.ConvertBase64ToImage(creatura.Imagen);
                 }
             }
-
+            txtNotas.Text = creatura.Notas;
 
             if (creatura == null) return;
 
@@ -169,9 +175,26 @@ namespace GranDnDDM.Views
                     pAcciones.Controls.Add(actionLabel);
                 }
             }
-            if (creatura.AccionesAdicionales.Count > 0)
+            if (creatura.AccionesHabilidad.Count > 0)
             {
                 pAcciones.Visible = true;
+                foreach (var action in creatura.AccionesHabilidad)
+                {
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pAcciones.Controls.Add(actionLabel);
+                }
+            }
+            if (creatura.AccionesAdicionales.Count > 0)
+            {
+                pAccionAdicional.Visible = true;
                 foreach (var action in creatura.AccionesAdicionales)
                 {
                     var actionLabel = new Label
@@ -188,7 +211,7 @@ namespace GranDnDDM.Views
             }
             if (creatura.AccionesLegendarias.Count > 0)
             {
-                pAcciones.Visible = true;
+                pAccionLegendaria.Visible = true;
                 foreach (var action in creatura.AccionesLegendarias)
                 {
                     var actionLabel = new Label
@@ -205,7 +228,7 @@ namespace GranDnDDM.Views
             }
             if (creatura.AccionesGuarida.Count > 0)
             {
-                pAcciones.Visible = true;
+                pAccionGuarida.Visible = true;
                 foreach (var action in creatura.AccionesGuarida)
                 {
                     var actionLabel = new Label
@@ -222,7 +245,7 @@ namespace GranDnDDM.Views
             }
             if (creatura.AccionesMiticas.Count > 0)
             {
-                pAcciones.Visible = true;
+                pAccionMitica.Visible = true;
                 foreach (var action in creatura.AccionesMiticas)
                 {
                     var actionLabel = new Label
@@ -239,7 +262,7 @@ namespace GranDnDDM.Views
             }
             if (creatura.EfectosRegionales.Count > 0)
             {
-                pAcciones.Visible = true;
+                pEfectoRegio.Visible = true;
                 foreach (var action in creatura.EfectosRegionales)
                 {
                     var actionLabel = new Label
@@ -252,6 +275,23 @@ namespace GranDnDDM.Views
                         MaximumSize = new Size(pCard.Width - 20, 0)
                     };
                     pEfectoRegio.Controls.Add(actionLabel);
+                }
+            }
+            if (creatura.HechizosOEspeciales.Count > 0)
+            {
+                pHechizos.Visible = true;
+                foreach (var action in creatura.HechizosOEspeciales)
+                {
+                    var actionLabel = new Label
+                    {
+                        Text = $"{action.Nombre}: {action.Descripcion}",
+                        Font = new Font("Comic Sans MS", 11F),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        MaximumSize = new Size(pCard.Width - 20, 0)
+                    };
+                    pHechizos.Controls.Add(actionLabel);
                 }
             }
         }

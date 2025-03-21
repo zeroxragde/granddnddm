@@ -69,6 +69,9 @@
             txtNombre = new ReaLTaiizor.Controls.HopeTextBox();
             lblFuerza = new ReaLTaiizor.Controls.BigLabel();
             tabPage3 = new TabPage();
+            materialMaskedTextBox1 = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
+            lblNotas = new ReaLTaiizor.Controls.BigLabel();
+            txtNotas = new ReaLTaiizor.Controls.HopeTextBox();
             picFotoCreatura = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnUploadFoto = new ReaLTaiizor.Controls.DreamButton();
             pIdiomasList = new FlowLayoutPanel();
@@ -109,6 +112,7 @@
             hopeCheckBox4 = new ReaLTaiizor.Controls.HopeCheckBox();
             hopeCheckBox3 = new ReaLTaiizor.Controls.HopeCheckBox();
             tabPage5 = new TabPage();
+            btnHechizo = new ReaLTaiizor.Controls.Button();
             pAcciones = new FlowLayoutPanel();
             bigLabel18 = new ReaLTaiizor.Controls.BigLabel();
             btnUsePresent = new ReaLTaiizor.Controls.Button();
@@ -904,6 +908,9 @@
             // tabPage3
             // 
             tabPage3.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage3.Controls.Add(materialMaskedTextBox1);
+            tabPage3.Controls.Add(lblNotas);
+            tabPage3.Controls.Add(txtNotas);
             tabPage3.Controls.Add(picFotoCreatura);
             tabPage3.Controls.Add(btnUploadFoto);
             tabPage3.Controls.Add(pIdiomasList);
@@ -935,6 +942,83 @@
             tabPage3.TabIndex = 1;
             tabPage3.Tag = "t2";
             tabPage3.Text = "Datos 2";
+            // 
+            // materialMaskedTextBox1
+            // 
+            materialMaskedTextBox1.AllowPromptAsInput = true;
+            materialMaskedTextBox1.AnimateReadOnly = false;
+            materialMaskedTextBox1.AsciiOnly = false;
+            materialMaskedTextBox1.BackgroundImageLayout = ImageLayout.None;
+            materialMaskedTextBox1.BeepOnError = false;
+            materialMaskedTextBox1.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
+            materialMaskedTextBox1.Depth = 0;
+            materialMaskedTextBox1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMaskedTextBox1.HidePromptOnLeave = false;
+            materialMaskedTextBox1.HideSelection = true;
+            materialMaskedTextBox1.InsertKeyMode = InsertKeyMode.Default;
+            materialMaskedTextBox1.LeadingIcon = null;
+            materialMaskedTextBox1.Location = new Point(27, 522);
+            materialMaskedTextBox1.Mask = "CR:00 CP:000000";
+            materialMaskedTextBox1.MaxLength = 32767;
+            materialMaskedTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialMaskedTextBox1.Name = "materialMaskedTextBox1";
+            materialMaskedTextBox1.PasswordChar = '\0';
+            materialMaskedTextBox1.PrefixSuffixText = null;
+            materialMaskedTextBox1.PromptChar = '_';
+            materialMaskedTextBox1.ReadOnly = false;
+            materialMaskedTextBox1.RejectInputOnFirstFailure = false;
+            materialMaskedTextBox1.ResetOnPrompt = true;
+            materialMaskedTextBox1.ResetOnSpace = true;
+            materialMaskedTextBox1.RightToLeft = RightToLeft.No;
+            materialMaskedTextBox1.SelectedText = "";
+            materialMaskedTextBox1.SelectionLength = 0;
+            materialMaskedTextBox1.SelectionStart = 0;
+            materialMaskedTextBox1.ShortcutsEnabled = true;
+            materialMaskedTextBox1.Size = new Size(250, 48);
+            materialMaskedTextBox1.SkipLiterals = true;
+            materialMaskedTextBox1.TabIndex = 60;
+            materialMaskedTextBox1.TabStop = false;
+            materialMaskedTextBox1.Text = " R:    P:";
+            materialMaskedTextBox1.TextAlign = HorizontalAlignment.Left;
+            materialMaskedTextBox1.TextMaskFormat = MaskFormat.IncludeLiterals;
+            materialMaskedTextBox1.TrailingIcon = null;
+            materialMaskedTextBox1.UseSystemPasswordChar = false;
+            materialMaskedTextBox1.ValidatingType = null;
+            // 
+            // lblNotas
+            // 
+            lblNotas.AutoSize = true;
+            lblNotas.BackColor = Color.Transparent;
+            lblNotas.Font = new Font("Segoe UI", 25F);
+            lblNotas.ForeColor = Color.White;
+            lblNotas.Location = new Point(332, 444);
+            lblNotas.Name = "lblNotas";
+            lblNotas.Size = new Size(115, 46);
+            lblNotas.TabIndex = 59;
+            lblNotas.Text = "Notas:";
+            // 
+            // txtNotas
+            // 
+            txtNotas.BackColor = Color.White;
+            txtNotas.BaseColor = Color.FromArgb(44, 55, 66);
+            txtNotas.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtNotas.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtNotas.Font = new Font("Segoe UI", 12F);
+            txtNotas.ForeColor = Color.FromArgb(48, 49, 51);
+            txtNotas.Hint = "Notas";
+            txtNotas.Location = new Point(332, 493);
+            txtNotas.MaxLength = 32767;
+            txtNotas.Multiline = true;
+            txtNotas.Name = "txtNotas";
+            txtNotas.PasswordChar = '\0';
+            txtNotas.ScrollBars = ScrollBars.None;
+            txtNotas.SelectedText = "";
+            txtNotas.SelectionLength = 0;
+            txtNotas.SelectionStart = 0;
+            txtNotas.Size = new Size(519, 123);
+            txtNotas.TabIndex = 58;
+            txtNotas.TabStop = false;
+            txtNotas.UseSystemPasswordChar = false;
             // 
             // picFotoCreatura
             // 
@@ -1610,6 +1694,7 @@
             // tabPage5
             // 
             tabPage5.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage5.Controls.Add(btnHechizo);
             tabPage5.Controls.Add(pAcciones);
             tabPage5.Controls.Add(bigLabel18);
             tabPage5.Controls.Add(btnUsePresent);
@@ -1630,6 +1715,26 @@
             tabPage5.TabIndex = 3;
             tabPage5.Tag = "t4";
             tabPage5.Text = "Acciones";
+            // 
+            // btnHechizo
+            // 
+            btnHechizo.BackColor = Color.Transparent;
+            btnHechizo.BorderColor = Color.FromArgb(32, 34, 37);
+            btnHechizo.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnHechizo.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnHechizo.Font = new Font("Microsoft Sans Serif", 12F);
+            btnHechizo.Image = null;
+            btnHechizo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHechizo.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnHechizo.Location = new Point(619, 250);
+            btnHechizo.Name = "btnHechizo";
+            btnHechizo.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnHechizo.PressedColor = Color.FromArgb(165, 37, 37);
+            btnHechizo.Size = new Size(144, 40);
+            btnHechizo.TabIndex = 68;
+            btnHechizo.Text = "HECHIZO";
+            btnHechizo.TextAlignment = StringAlignment.Center;
+            btnHechizo.Click += btnHechizo_Click;
             // 
             // pAcciones
             // 
@@ -1698,7 +1803,7 @@
             btnAddGuaridaAction.Image = null;
             btnAddGuaridaAction.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddGuaridaAction.InactiveColor = Color.FromArgb(32, 34, 37);
-            btnAddGuaridaAction.Location = new Point(810, 154);
+            btnAddGuaridaAction.Location = new Point(810, 147);
             btnAddGuaridaAction.Name = "btnAddGuaridaAction";
             btnAddGuaridaAction.PressedBorderColor = Color.FromArgb(165, 37, 37);
             btnAddGuaridaAction.PressedColor = Color.FromArgb(165, 37, 37);
@@ -1761,7 +1866,7 @@
             btnEfectoRegional.Image = null;
             btnEfectoRegional.ImageAlign = ContentAlignment.MiddleLeft;
             btnEfectoRegional.InactiveColor = Color.FromArgb(32, 34, 37);
-            btnEfectoRegional.Location = new Point(810, 211);
+            btnEfectoRegional.Location = new Point(810, 198);
             btnEfectoRegional.Name = "btnEfectoRegional";
             btnEfectoRegional.PressedBorderColor = Color.FromArgb(165, 37, 37);
             btnEfectoRegional.PressedColor = Color.FromArgb(165, 37, 37);
@@ -1782,7 +1887,7 @@
             btnAddReaction.Image = null;
             btnAddReaction.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddReaction.InactiveColor = Color.FromArgb(32, 34, 37);
-            btnAddReaction.Location = new Point(619, 154);
+            btnAddReaction.Location = new Point(620, 149);
             btnAddReaction.Name = "btnAddReaction";
             btnAddReaction.PressedBorderColor = Color.FromArgb(165, 37, 37);
             btnAddReaction.PressedColor = Color.FromArgb(165, 37, 37);
@@ -1802,7 +1907,7 @@
             btnAddActonBonus.Image = null;
             btnAddActonBonus.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddActonBonus.InactiveColor = Color.FromArgb(32, 34, 37);
-            btnAddActonBonus.Location = new Point(619, 211);
+            btnAddActonBonus.Location = new Point(619, 200);
             btnAddActonBonus.Name = "btnAddActonBonus";
             btnAddActonBonus.PressedBorderColor = Color.FromArgb(165, 37, 37);
             btnAddActonBonus.PressedColor = Color.FromArgb(165, 37, 37);
@@ -2044,5 +2149,9 @@
         private FlowLayoutPanel pAcciones;
         private ReaLTaiizor.Controls.ParrotPictureBox picFotoCreatura;
         private ReaLTaiizor.Controls.DreamButton btnUploadFoto;
+        private ReaLTaiizor.Controls.BigLabel lblNotas;
+        private ReaLTaiizor.Controls.HopeTextBox txtNotas;
+        private ReaLTaiizor.Controls.Button btnHechizo;
+        private ReaLTaiizor.Controls.MaterialMaskedTextBox materialMaskedTextBox1;
     }
 }

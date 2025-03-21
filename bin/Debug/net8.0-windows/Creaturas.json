@@ -18,5 +18,35 @@
     "FileName": "Creaturas/arpias.crea",
     "Nombre": "Arpías",
     "CR": "2"
+  },
+  {
+    "FileName": "Sombras_Errantes_5f952e.crea",
+    "Nombre": "Sombras Errantes",
+    "CR": "2"
+  },
+  {
+    "FileName": "Creaturas\\Espectros_de_la_Niebla_Perdida_542369.crea",
+    "Nombre": "Espectros de la Niebla Perdida",
+    "CR": "3"
+  },
+  {
+    "FileName": "Creaturas\\Centinela_Maldito_14c47e.crea",
+    "Nombre": "Centinela Maldito",
+    "CR": "4"
+  },
+  {
+    "FileName": "Creaturas\\Guardianes_del_Campanario_ce5c7e.crea",
+    "Nombre": "Guardianes del Campanario",
+    "CR": "5"
+  },
+  {
+    "FileName": "Creaturas\\Sacerdote_Maldito_560c58.crea",
+    "Nombre": "Sacerdote Maldito",
+    "CR": "6"
+  },
+  {
+    "FileName": "Creaturas\\Ecos_del_Pasado_aeddeb.crea",
+    "Nombre": "Ecos del Pasado",
+    "CR": "3"
   }
 ]

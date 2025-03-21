@@ -1,0 +1,107 @@
+{
+  "Nombre": "Ecos del Pasado",
+  "Imagen": null,
+  "Tamanio": "Mediano",
+  "Tipo": "No muerto",
+  "Alineamiento": "Neutral Malvado",
+  "ClaseArmadura": 12,
+  "DescripcionArmadura": "Ninguna",
+  "PuntosGolpe": 45,
+  "DadosGolpe": "(6d8+12)",
+  "VelocidadCaminar": 0,
+  "VelocidadVolar": 40,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 8,
+  "Destreza": 14,
+  "Constitucion": 12,
+  "Inteligencia": 10,
+  "Sabiduria": 12,
+  "Carisma": 16,
+  "BonificadorAtaque": 0,
+  "BonificadorFuerza": -1,
+  "BonificadorDestreza": 2,
+  "BonificadorConstitucion": 1,
+  "BonificadorInteligencia": 0,
+  "BonificadorSabiduria": 1,
+  "BonificadorCarisma": 3,
+  "Salvacion": [
+    "Carisma"
+  ],
+  "Habilidades": {
+    "Persuasión": 5,
+    "Engaño": 5,
+    "Percepción": 4
+  },
+  "VulnerabilidadesDano": [
+    "Radiante",
+    "Psíquico"
+  ],
+  "ResistenciasDano": [
+    "Necrótico",
+    "Contundente",
+    "Ataques no mágicos"
+  ],
+  "InmunidadesDano": [
+    "Veneno"
+  ],
+  "InmunidadesCondicion": [
+    "Envenenado",
+    "Aterrorizado",
+    "Paralizado",
+    "Aturdido"
+  ],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 14"
+  ],
+  "Idiomas": {
+    "Común": true,
+    "Élfico": true
+  },
+  "CR": "3",
+  "XP": 850,
+  "Acciones": [
+    {
+      "Nombre": "Toque del Recuerdo",
+      "Descripcion": "+5 al ataque, alcance 5 ft., una criatura.\nGolpe: 12 (2d8 + 3) de daño necrótico.\nEl objetivo debe hacer una Salvación de Sabiduría CD 14 o quedar aturdido por 1 turno, reviviendo un recuerdo aterrador de su pasado."
+    }
+  ],
+  "AccionesHabilidad": [
+    {
+      "Nombre": "Susurros de la Muerte",
+      "Descripcion": "El Eco del Pasado murmura fragmentos de memorias perdidas. Todas las criaturas a 20 pies deben hacer una Salvación de Sabiduría CD 14 o sufrir 10 (3d6) de daño psíquico y quedar aterrorizadas hasta el final de su siguiente turno."
+    }
+  ],
+  "AccionesAdicionales": [],
+  "Reacciones": [
+    {
+      "Nombre": "Reflejo Doloroso",
+      "Descripcion": "Cuando es impactado por un ataque cuerpo a cuerpo, puede usar su reacción para proyectar un eco de su atacante. La criatura atacante debe hacer una Salvación de Inteligencia CD 14 o recibir 7 (2d6) de daño psíquico."
+    }
+  ],
+  "HechizosOEspeciales": [
+    {
+      "Nombre": "Ilusión Sombría",
+      "Descripcion": "El Eco del Pasado puede proyectar una sombra ilusoria de un ser querido del objetivo. El objetivo debe hacer una Salvación de Sabiduría CD 14 o quedar incapacitado hasta el final de su siguiente turno."
+    },
+    {
+      "Nombre": "Voz de los Caídos",
+      "Descripcion": "Puede imitar la voz de cualquier criatura que haya escuchado en los últimos 24 horas, perfecta para confundir a sus enemigos."
+    }
+  ],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Sombras de memorias olvidadas que atormentan a los vivos con recuerdos de su pasado."
+}

@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "X:\\DESARROLLO\\CSharp\\granddnddm\\",
+  "WorkspaceRootPath": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|X:\\DESARROLLO\\CSharp\\granddnddm\\views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\shopcreeator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\creatureeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\creatureeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creatureeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creaturegen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|x:\\desarrollo\\csharp\\granddnddm\\views\\creaturelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|c:\\users\\ecarrizales\\edgar\\app\\git\\granddnddm\\views\\creaturelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB22881D-8363-4CE0-95F1-B50783E25127}|GranDnDDM.csproj|solutionrelative:views\\creaturelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -40,11 +40,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ShopCreeator.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ShopCreeator.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\ShopCreeator.cs",
               "RelativeDocumentMoniker": "Views\\ShopCreeator.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ShopCreeator.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\ShopCreeator.cs",
               "RelativeToolTip": "Views\\ShopCreeator.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAQwFgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T20:50:56.977Z",
               "EditorCaption": ""
@@ -53,9 +53,10 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ShopCreeator.cs [Dise\u00F1o]",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\ShopCreeator.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\ShopCreeator.cs",
               "RelativeDocumentMoniker": "Views\\ShopCreeator.cs",
               "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\ShopCreeator.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\ShopCreeator.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T02:46:59.431Z"
             },
@@ -63,9 +64,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "CreatureList.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureList.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureList.cs",
               "RelativeDocumentMoniker": "Views\\CreatureList.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureList.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureList.cs",
               "RelativeToolTip": "Views\\CreatureList.cs",
               "ViewState": "AgIAAAgBAAAAAAAAAAAQwD0BAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -75,9 +76,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "CreatureGen.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureGen.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.cs",
               "RelativeDocumentMoniker": "Views\\CreatureGen.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureGen.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureGen.cs",
               "RelativeToolTip": "Views\\CreatureGen.cs",
               "ViewState": "AgIAAJMAAAAAAAAAAAAowKQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -87,9 +88,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "CreatureEditor.cs",
-              "DocumentMoniker": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureEditor.cs",
+              "DocumentMoniker": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureEditor.cs",
               "RelativeDocumentMoniker": "Views\\CreatureEditor.cs",
-              "ToolTip": "X:\\DESARROLLO\\CSharp\\granddnddm\\Views\\CreatureEditor.cs",
+              "ToolTip": "C:\\Users\\ecarrizales\\edgar\\app\\GIT\\granddnddm\\Views\\CreatureEditor.cs",
               "RelativeToolTip": "Views\\CreatureEditor.cs",
               "ViewState": "AgIAAL0BAAAAAAAAAIAwwMkBAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

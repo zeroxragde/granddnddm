@@ -1,0 +1,105 @@
+{
+  "Nombre": "Guardianes Devorados",
+  "Imagen": null,
+  "Tamanio": "Mediano",
+  "Tipo": "No muerto",
+  "Alineamiento": "Caótico Malvado",
+  "ClaseArmadura": 14,
+  "DescripcionArmadura": "Armadura Natural",
+  "PuntosGolpe": 68,
+  "DadosGolpe": "(8d8+24)",
+  "VelocidadCaminar": 30,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 20,
+  "Fuerza": 16,
+  "Destreza": 14,
+  "Constitucion": 16,
+  "Inteligencia": 6,
+  "Sabiduria": 10,
+  "Carisma": 8,
+  "BonificadorAtaque": 6,
+  "BonificadorFuerza": 3,
+  "BonificadorDestreza": 2,
+  "BonificadorConstitucion": 3,
+  "BonificadorInteligencia": -2,
+  "BonificadorSabiduria": 0,
+  "BonificadorCarisma": -1,
+  "Salvacion": ["Constitución", "Sabiduría"],
+  "Habilidades": {
+    "Atletismo": 6,
+    "Percepción": 4
+  },
+  "VulnerabilidadesDano": [
+    "Radiante",
+    "Fuego"
+  ],
+  "ResistenciasDano": [
+    "Contundente",
+    "Perforante",
+    "Cortante",
+    "Ataques no mágicos"
+  ],
+  "InmunidadesDano": [
+    "Veneno",
+    "Necrótico"
+  ],
+  "InmunidadesCondicion": [
+    "Agotamiento",
+    "Envenenado",
+    "Asustado"
+  ],
+  "Sentidos": [
+    "Visión en la Oscuridad 60 pies",
+    "Percepción Ciega 30 pies"
+  ],
+  "Idiomas": {
+    "Común": "Entiende",
+    "Abisal": "Entiende"
+  },
+  "CR": 4,
+  "XP": 1100,
+  "Acciones": [
+    {
+      "Nombre": "Espada Devoradora",
+      "Descripcion": "+6 al ataque para golpear, alcance 5 ft., un objetivo.\nGolpe: 12 (2d6+3) de daño cortante más 7 (2d6) de daño necrótico. El objetivo debe hacer una Salvación de CON CD 14 o sufre Desventaja en tiradas de ataque hasta el final de su siguiente turno."
+    },
+    {
+      "Nombre": "Aullido de los Perdidos (Recarga 5-6)",
+      "Descripcion": "Los Guardianes emiten un grito distorsionado. Todas las criaturas a 30 ft. deben hacer una Salvación de Sabiduría CD 13.\nEn una falla, quedan asustadas por 1 minuto. Pueden repetir la salvación al final de cada turno, terminando el efecto en éxito."
+    }
+  ],
+  "AccionesHabilidad": [
+    {
+      "Nombre": "Carcasa de la Perdición",
+      "Descripcion": "Cuando los Guardianes reciben daño radiante o de fuego, todas las criaturas a 10 ft. reciben 5 (1d10) de daño necrótico como reflejo de la energía maldita."
+    }
+  ],
+  "AccionesAdicionales": [
+    {
+      "Nombre": "Carga Maldita",
+      "Descripcion": "Si el Guardián se mueve al menos 20 ft. en línea recta antes de hacer un ataque con la Espada Devoradora, la criatura impactada tiene Desventaja en su Salvación de CON."
+    }
+  ],
+  "Reacciones": [
+    {
+      "Nombre": "Revancha de los Caídos",
+      "Descripcion": "Cuando una criatura dentro de 10 ft. reduce a 0 los puntos de golpe de otro Guardián, este puede hacer inmediatamente un ataque con Espada Devoradora antes de morir."
+    }
+  ],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Las almas de los aventureros que perecieron en el Laberinto de la Ruina Eterna, corrompidos y esclavizados por la distorsión de la Grieta."
+}

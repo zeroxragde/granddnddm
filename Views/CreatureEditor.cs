@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GranDnDDM.Views
 {
@@ -41,7 +42,7 @@ namespace GranDnDDM.Views
         private void init_app()
         {
             InitializeComponent();
-
+        
             // Supongamos que tienes el JSON en un archivo "abilities.json" 
             string json = File.ReadAllText("statblockdata.json");
 
@@ -204,6 +205,7 @@ namespace GranDnDDM.Views
             cbIdiomas.Items.Add("Otro");
 
             // Agrega la opción "CR Personalizado"
+            cbCR.Items.Add("Seleccionar CR");
             cbCR.Items.Add("CR Personalizado");
             // Agregar las opciones de CR con XP hasta 30
             cbCR.Items.Add("0 (10 XP)");
@@ -475,6 +477,14 @@ namespace GranDnDDM.Views
         private void tabPage1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = tabPage1.SelectedIndex;
+            if (gbCRXP.Visible) { 
+                // Asignamos los valores al modelo de la criatura
+                creatura.CR = txtCustomCR.Text;
+                creatura.XP = int.Parse(txtCustomXP.Text);
+                string crTextoCustom = txtCustomCR.Text + $"({getTextFormat(txtCustomCR.Text)} XP)";
+                crBonus(crTextoCustom);
+            }
+
             if (selectedIndex == 4)
             {
                 tabPage1.SelectedIndex = 0;
@@ -1240,6 +1250,15 @@ namespace GranDnDDM.Views
             if (txtVisionVerdadera.Text == "") { return; }
             creatura.Sentidos.Add("Vision verdadera en " + txtVisionVerdadera.Text + " pies");
         }
+        private string getTextFormat(string t)
+        {
+            if (decimal.TryParse(t, out decimal number))
+            {
+                
+                return  number.ToString("#,##0");
+            }
+            return "";
+        }
 
         private void cbCR_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1266,8 +1285,16 @@ namespace GranDnDDM.Views
                 */
 
             // Verifica que se haya seleccionado un CR válido (índice 0 es "seleccionar", por ejemplo)
-            if (cbCR.SelectedIndex <= 0)
+            if (cbCR.SelectedIndex <= 0) {
                 return;
+            }
+            if (cbCR.SelectedIndex == 1) {
+                gbCRXP.Visible = true;
+                return;
+            }
+            gbCRXP.Visible = false;
+
+          
 
             // Obtenemos el texto del ComboBox, que debe tener el formato "CR (XP XP)"
             string textoSeleccionado = cbCR.SelectedItem?.ToString();
@@ -1291,6 +1318,11 @@ namespace GranDnDDM.Views
             // Asignamos los valores al modelo de la criatura
             creatura.CR = crTexto;
             creatura.XP = xp;
+            crBonus(crTexto);
+
+        }
+        private void crBonus(string crTexto)
+        {
 
             // Convertimos el CR (por ejemplo, "1/4") a un valor numérico (0.25)
             double crValor = ConvertCRToNumber(crTexto);
@@ -1309,7 +1341,6 @@ namespace GranDnDDM.Views
             // 3. Calculamos un bonificador de ataque simple: 2 + la mitad del CR (redondeado)
             int bonificadorAtaque = 2 + (int)(crValor / 2);
             txtNotas.Text += Environment.NewLine + "Bonificador" + bonificadorAtaque;
-
         }
         // Método para calcular los Puntos de Golpe (PG) basados en el CR.
         // Ejemplo de lógica: PG = 10 + 8 * (valor redondeado hacia arriba del CR)
@@ -2455,11 +2486,13 @@ namespace GranDnDDM.Views
                 txtDesAction.Text = acc.Descripcion;
                 btnAddReaction_Click(null, null);
             }
-            foreach (var acc in c.HechizosOEspeciales.ToList())
-            {
-                txtNameAction.Text = acc.Nombre;
-                txtDesAction.Text = acc.Descripcion;
-                addHechizo(acc.Nombre, acc.Descripcion);
+            if (c.HechizosOEspeciales != null) {
+                foreach (var acc in c.HechizosOEspeciales.ToList())
+                {
+                    txtNameAction.Text = acc.Nombre;
+                    txtDesAction.Text = acc.Descripcion;
+                    addHechizo(acc.Nombre, acc.Descripcion);
+                }
             }
 
             // --- Acciones Legendarias ---

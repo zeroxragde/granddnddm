@@ -13,11 +13,11 @@ namespace GranDnDDM.Models
         public string imagen_url { get; set; }
         public string dado { get; set; }
         public string tipo_dano { get; set; }
+        public string descripcion { get; set; }
         public List<string> propiedades { get; set; }
         public string costo { get; set; }
         public string precio { get; set; }
         public string peso { get; set; }
-        public string descripcion { get; set; }
         public string origen { get; set; }
         public string tipo_objeto { get; set; }
         public string categoria { get; set; }

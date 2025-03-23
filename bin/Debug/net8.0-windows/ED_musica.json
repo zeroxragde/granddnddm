@@ -28,5 +28,70 @@
     "FileName": "6602dbbd-0e3b-41ad-9e05-06613a26d9c4.mp3",
     "RealName": "Call of the Shadows",
     "Category": "accion"
+  },
+  {
+    "FileName": "bad813d2-3623-4165-a4b2-83bb2adb1d53.mp3",
+    "RealName": "Inicio",
+    "Category": "eol"
+  },
+  {
+    "FileName": "095b26b3-2118-4b83-8c88-5cbc048d4394.mp3",
+    "RealName": "AlmacenLlegada",
+    "Category": "eol"
+  },
+  {
+    "FileName": "79c2d34f-eb52-4e98-9e54-72d786e9e8d3.mp3",
+    "RealName": "Dentor del Almacen",
+    "Category": "eol"
+  },
+  {
+    "FileName": "2c907854-289d-4d01-bbad-aa799f743a8e.mp3",
+    "RealName": "Encuentro",
+    "Category": "eol"
+  },
+  {
+    "FileName": "5f061122-17c4-40e9-9a51-828ba765f511.mp3",
+    "RealName": "Baile del enano",
+    "Category": "eol"
+  },
+  {
+    "FileName": "83cec26e-ea2b-4640-90a5-5f4e8b54b4e0.mp3",
+    "RealName": "RetornoActo2",
+    "Category": "eol"
+  },
+  {
+    "FileName": "1f3d91fe-ad3e-469e-9ac0-3e0113c39cb9.mp3",
+    "RealName": "Torre",
+    "Category": "eol"
+  },
+  {
+    "FileName": "ebffd587-6500-4c27-bd21-f0910a246fde.mp3",
+    "RealName": "Galeria",
+    "Category": "eol"
+  },
+  {
+    "FileName": "6b1b1bba-9977-4ace-a58f-72e7034099bd.mp3",
+    "RealName": "Canto del elfo",
+    "Category": "eol"
+  },
+  {
+    "FileName": "3ef5b639-2d1a-4345-a30e-f03982e8a3a9.mp3",
+    "RealName": "Laberinto",
+    "Category": "eol"
+  },
+  {
+    "FileName": "0998c320-40fc-47fe-8654-6c204c414be1.mp3",
+    "RealName": "Traicion",
+    "Category": "eol"
+  },
+  {
+    "FileName": "3a40bc82-3b19-4f21-a59d-0168dbd429a1.mp3",
+    "RealName": "Final Battle P1",
+    "Category": "eol"
+  },
+  {
+    "FileName": "1361cb5b-9d13-4b88-b74c-f604ad350a53.mp3",
+    "RealName": "Final Battle P2",
+    "Category": "eol"
   }
 ]

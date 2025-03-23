@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopCreeator));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            btnShow = new ReaLTaiizor.Controls.ParrotPictureBox();
             cbCat = new ReaLTaiizor.Controls.HopeComboBox();
             parrotPictureBox4 = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnNuevo = new ReaLTaiizor.Controls.ParrotPictureBox();
@@ -57,6 +58,7 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(btnShow);
             dreamForm1.Controls.Add(cbCat);
             dreamForm1.Controls.Add(parrotPictureBox4);
             dreamForm1.Controls.Add(btnNuevo);
@@ -78,6 +80,27 @@
             dreamForm1.Text = "Generador de Tiendas";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // btnShow
+            // 
+            btnShow.BackColor = Color.Transparent;
+            btnShow.ColorLeft = Color.Transparent;
+            btnShow.ColorRight = Color.Turquoise;
+            btnShow.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnShow.FilterAlpha = 200;
+            btnShow.FilterEnabled = false;
+            btnShow.Image = Properties.Resources.seeicon;
+            btnShow.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnShow.IsElipse = false;
+            btnShow.IsParallax = false;
+            btnShow.Location = new Point(903, 428);
+            btnShow.Name = "btnShow";
+            btnShow.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnShow.Size = new Size(42, 43);
+            btnShow.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnShow.TabIndex = 18;
+            btnShow.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnShow.Click += btnShow_Click;
             // 
             // cbCat
             // 
@@ -334,6 +357,7 @@
             Name = "ShopCreeator";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ShopCreeator";
+            FormClosed += ShopCreeator_FormClosed;
             dreamForm1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvTienda).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLisstaItems).EndInit();
@@ -356,5 +380,6 @@
         private ReaLTaiizor.Controls.ParrotPictureBox btnNuevo;
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox4;
         private ReaLTaiizor.Controls.HopeComboBox cbCat;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnShow;
     }
 }

@@ -1,4 +1,5 @@
 [
+
   {
     "nombre": "Arco corto",
     "imagen_url": "https://s3-eu-west-2.amazonaws.com/dungeon20/images/1281/small-4dc6d7283972df986dd6081ebe5ee4bffdc7ceae.PNG?1637061789",
@@ -15,7 +16,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Ballesta ligera",
@@ -34,7 +36,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Bastón",
@@ -50,7 +53,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Clava",
@@ -66,7 +70,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Daga",
@@ -85,7 +90,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Dardo",
@@ -103,7 +109,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Gran clava",
@@ -119,7 +126,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Hacha de mano",
@@ -136,7 +144,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Honda",
@@ -153,7 +162,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Hoz",
@@ -169,7 +179,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Jabalina",
@@ -186,7 +197,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Lanza",
@@ -204,7 +216,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Martillo ligero",
@@ -222,7 +235,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Maza",
@@ -236,7 +250,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas sencillas"
+    "categoria": "Armas sencillas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Alabarda",
@@ -254,7 +269,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Arco largo",
@@ -273,7 +289,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Ballesta de mano",
@@ -292,7 +309,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Ballesta pesada",
@@ -311,7 +329,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Cerbatana",
@@ -329,7 +348,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Cimitarra",
@@ -346,7 +366,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Espada corta",
@@ -363,7 +384,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Espada larga",
@@ -379,7 +401,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Espadón",
@@ -396,7 +419,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Estoque",
@@ -412,7 +436,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Flagelo",
@@ -426,7 +451,8 @@
     "descripcion": "También conocido como Mangual",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Gran hacha",
@@ -443,7 +469,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Guja",
@@ -461,7 +488,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Hacha de batalla",
@@ -477,7 +505,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Lanza de caballería",
@@ -494,7 +523,8 @@
     "descripcion": "Tendrás desventaja si usas una lanza de caballería para atacar a un objetivo que esté a 5 pies o menos de ti. Además, si no estás sobre una montura, necesitarás las dos manos para empuñarla.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Látigo",
@@ -511,7 +541,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Lucero del alba",
@@ -525,7 +556,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Martillo de guerra",
@@ -541,7 +573,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Mazo de guerra",
@@ -558,7 +591,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Pica",
@@ -576,7 +610,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Pico de guerra",
@@ -590,7 +625,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Red",
@@ -608,7 +644,8 @@
     "descripcion": "Una criatura Grande o más pequeña que sea impactada por una red quedará apresada hasta ser liberada. Esta arma no tendrá efecto sobre objetivos sin forma definida o que sean de tamaño Enorme o mayor. Una criatura puede emplear su acción para hacer una prueba de Fuerza con CD 10. Si tiene éxito, podrá liberarse a sí misma o a otra criatura dentro de su alcance. Infligir 5 de daño cortante a la red (CA 10) también liberará a la criatura sin causarle daño alguno, pondrá fin al efecto y destruirá la red.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Tridente",
@@ -626,7 +663,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armas",
-    "categoria": "Armas marciales"
+    "categoria": "Armas marciales",
+    "CA": "No disponible"
   },
   {
     "nombre": "Acolchada",
@@ -642,7 +680,8 @@
     "descripcion": "La armadura acolchada consiste en capas acolchadas de tela y guata",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura ligera"
+    "categoria": "Armadura ligera",
+    "CA": "11"
   },
   {
     "nombre": "Cuero",
@@ -656,7 +695,8 @@
     "descripcion": "El peto y los protectores de los hombros de esta armadura están hechos de cuero que se ha endurecido hirviéndolo en aceite. El resto de la armadura está hecha de materiales más blandos y flexibles.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura ligera"
+    "categoria": "Armadura ligera",
+    "CA": "11"
   },
   {
     "nombre": "Cuero tachonado",
@@ -670,7 +710,8 @@
     "descripcion": "Está fabricada de cuero duro pero flexible y reforzada con remaches o púas.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura ligera"
+    "categoria": "Armadura ligera",
+    "CA": "12"
   },
   {
     "nombre": "Camisote de malla",
@@ -684,7 +725,8 @@
     "descripcion": "Un camisote de malla está hecho de anillos de metal enganchados y se lleva entre capas de tela o cuero para que el sonido de los anillos rozándose entre sí quede amortiguado. Esta armadura ofrece una protección modesta a la parte superior del cuerpo.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura intermedia"
+    "categoria": "Armadura intermedia",
+    "CA": "13"
   },
   {
     "nombre": "Coraza",
@@ -698,7 +740,8 @@
     "descripcion": "Esta armadura consiste en un peto de metal a medida que se lleva con cuero flexible. Aunque deja las piernas y los brazos relativamente desprotegidos, ofrece una buena protección para los órganos vitales sin restar libertad de movimiento.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura intermedia"
+    "categoria": "Armadura intermedia",
+    "CA": "14"
   },
   {
     "nombre": "Cota de escamas",
@@ -714,7 +757,8 @@
     "descripcion": "Esta armadura está compuesta por una cota y grebas de cuero (y quizás un faldar separado) cubiertas con piezas de metal superpuestas que parecen las escamas de un pez. Esta armadura incluye guanteletes.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura intermedia"
+    "categoria": "Armadura intermedia",
+    "CA": "14"
   },
   {
     "nombre": "Pieles",
@@ -728,7 +772,8 @@
     "descripcion": "Esta tosca armadura está compuesta por varias capas de pelaje y piel. Normalmente la llevan las tribus bárbaras, los humanoides malignos y otros pueblos que no tienen acceso a las herramientas y a los materiales necesarios para crear una armadura mejor.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura intermedia"
+    "categoria": "Armadura intermedia",
+    "CA": "12"
   },
   {
     "nombre": "Placas y malla",
@@ -744,7 +789,8 @@
     "descripcion": "Una armadura de placas y malla está compuesta por placas de metal moldeadas que cubren la mayoría del cuerpo. No incluye protección en las piernas más allá de unas simples grebas atadas con tiras de cuero.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura intermedia"
+    "categoria": "Armadura intermedia",
+    "CA": "15"
   },
   {
     "nombre": "Armadura de bandas",
@@ -761,7 +807,8 @@
     "descripcion": "Esta armadura está hecha de unas estrechas láminas de metal sujetas a un forro de cuero que se lleva sobre un tejido acolchado. Las juntas están protegidas con cota de malla flexible.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura pesada"
+    "categoria": "Armadura pesada",
+    "CA": "17"
   },
   {
     "nombre": "Armadura de placas",
@@ -778,7 +825,8 @@
     "descripcion": "Esta armadura está formada por placas de metal interconectadas a las que se le ha dado forma para cubrir todo el cuerpo. Una armadura de placas incluye guanteletes, botas de cuero pesadas, un yelmo con visor y capas finas de acolchamiento debajo de la armadura. Hebillas y correas distribuyen el peso por el cuerpo.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura pesada"
+    "categoria": "Armadura pesada",
+    "CA": "18"
   },
   {
     "nombre": "Cota de malla",
@@ -795,7 +843,8 @@
     "descripcion": "Está hecha de anillas de metal e incluye una capa de tejido acolchado que se lleva debajo de la cota para evitar que se roce y para amortiguar el impacto de los golpes. Esta armadura incluye guanteletes.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura pesada"
+    "categoria": "Armadura pesada",
+    "CA": "16"
   },
   {
     "nombre": "Cota guarnecida",
@@ -811,7 +860,8 @@
     "descripcion": "Esta armadura es una armadura de cuero con unas pesadas anillas cosidas, que ayudan a reforzar la armadura contra los golpes de hachas y espadas. La armadura de anillas es inferior a la cota de malla y normalmente solo la llevan aquellos que no pueden costearse una armadura mejor.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Armadura pesada"
+    "categoria": "Armadura pesada",
+    "CA": "14"
   },
   {
     "nombre": "Escudo",
@@ -825,7 +875,8 @@
     "descripcion": "No disponible",
     "origen": "Reglas básicas",
     "tipo_objeto": "Armaduras",
-    "categoria": "Escudo"
+    "categoria": "Escudo",
+    "CA": "2"
   },
   {
     "nombre": "Herramientas de artesano",
@@ -839,11 +890,12 @@
     "descripcion": "Estas herramientas incluyen los objetos necesarios para realizar un trabajo o cerrar un trato. Tener competencia con un set de herramientas de artesano te permite añadir tu bonificador por competencia a cualquier prueba de característica que hagas al usar las herramientas de tu artesanía. Cada tipo de herramientas de artesano requiere tener su propia competencia.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Herramientas"
+    "categoria": "Herramientas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Herramientas de ladrón",
-    "imagen_url": "https://i.pinimg.com/736x/6f/66/9c/6f669ca80cc18c35fe0c5eca6f9e2624.jpg",
+    "imagen_url": "No disponible",
     "dado": "Desconocido",
     "tipo_dano": "Desconocido",
     "propiedades": [],
@@ -853,11 +905,12 @@
     "descripcion": "Este set de herramientas incluye una lima pequeña, un set de ganzúas, un espejo pequeño sobre una empuñadura de metal, un set de tijeras de hoja estrecha y un par de alicates. Tener competencia con estas herramientas te permite añadir tu bonificador por competencia a cualquier prueba de característica que realices para desactivar trampas o abrir cerraduras.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Herramientas"
+    "categoria": "Herramientas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Herramientas de navegante",
-    "imagen_url": "https://i.pinimg.com/736x/28/09/2d/28092dc47982f22b88eb8ba00750a6b6.jpg",
+    "imagen_url": "No disponible",
     "dado": "Desconocido",
     "tipo_dano": "Desconocido",
     "propiedades": [],
@@ -867,11 +920,12 @@
     "descripcion": "Este set de instrumentos se usa para navegar por el mar. Tener competencia con las herramientas de navegante te permite registrar la trayectoria de un barco y seguir cartas de navegación. Además, te permiten añadir tu bonificador por competencia a cualquier prueba de característica que hagas para orientarte en el mar.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Herramientas"
+    "categoria": "Herramientas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Kit de disfraz",
-    "imagen_url": "https://i.pinimg.com/736x/ea/7f/4b/ea7f4bce89361dbc9ee082204f7381e5.jpg",
+    "imagen_url": "No disponible",
     "dado": "Desconocido",
     "tipo_dano": "Desconocido",
     "propiedades": [],
@@ -881,11 +935,12 @@
     "descripcion": "Esta bolsa contiene maquillaje, tinte de pelo y un pequeño atrezo que te permiten cambiar tu apariencia física. Tener competencia con este kit te permite añadir tu bonificador por competencia a cualquier prueba de característica que hagas para crear un disfraz.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Herramientas"
+    "categoria": "Herramientas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Kit de envenenador",
-    "imagen_url": "https://i.pinimg.com/736x/27/c1/a2/27c1a22729f5132f0cd219718f40fad7.jpg",
+    "imagen_url": "No disponible",
     "dado": "Desconocido",
     "tipo_dano": "Desconocido",
     "propiedades": [],
@@ -895,11 +950,12 @@
     "descripcion": "Un kit de envenenador incluye viales, productos químicos y otras herramientas necesarias para crear venenos. Tener competencia con este kit te permite añadir tu bonificador por competencia a cualquier prueba de característica que hagas para fabricar o usar venenos.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Herramientas"
+    "categoria": "Herramientas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Kit de falsificación",
-    "imagen_url": "https://i.pinimg.com/736x/3f/6a/cd/3f6acd29728bd429c44b4e981b5ad61f.jpg",
+    "imagen_url": "No disponible",
     "dado": "Desconocido",
     "tipo_dano": "Desconocido",
     "propiedades": [],
@@ -909,11 +965,12 @@
     "descripcion": "Esta cajita contiene varios papeles y pergaminos, plumas y tintas, sellos y lacres, láminas de oro y metal, y otros suministros necesarios para crear copias convincentes de documentos. Tener competencia con este kit te permite añadir tu bonificador por competencia a cualquier prueba de característica que hagas para falsificar un documento.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Herramientas"
+    "categoria": "Herramientas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Kit de herborista",
-    "imagen_url": "https://i.pinimg.com/736x/cd/12/c2/cd12c204de6b26142039c8edf0711505.jpg",
+    "imagen_url": "No disponible",
     "dado": "Desconocido",
     "tipo_dano": "Desconocido",
     "propiedades": [],
@@ -923,7 +980,53 @@
     "descripcion": "Este kit contiene varios instrumentos que los herboristas usan para crear remedios y pociones, como tijeras, mortero y mano, bolsas y viales. Tener competencia con este kit te permite añadir tu bonificador por competencia a cualquier prueba de característica que hagas para identificar y usar hierbas. Asimismo, es necesario tener competencia con este kit para crear antitoxinas y pociones de curación.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Herramientas"
+    "categoria": "Herramientas",
+    "CA": "No disponible"
+  },
+  {
+    "nombre": "Set de juego",
+    "imagen_url": "No disponible",
+    "dado": "Desconocido",
+    "tipo_dano": "Desconocido",
+    "propiedades": [],
+    "costo": "",
+    "precio": "",
+    "peso": "",
+    "descripcion": "No disponible",
+    "origen": "Reglas básicas",
+    "tipo_objeto": "Equipo de aventuras",
+    "categoria": "Herramientas",
+    "CA": "No disponible"
+  },
+  {
+    "nombre": "Vehículo (acuático)",
+    "imagen_url": "No disponible",
+    "dado": "Desconocido",
+    "tipo_dano": "Desconocido",
+    "propiedades": [],
+    "costo": "",
+    "precio": "",
+    "peso": "",
+    "descripcion": "No disponible",
+    "origen": "Reglas básicas",
+    "tipo_objeto": "Equipo de aventuras",
+    "categoria": "Herramientas",
+    "CA": "No disponible"
+  },
+  {
+    "nombre": "Vehículo (terrestre)",
+    "imagen_url": "No disponible",
+    "dado": "Desconocido",
+    "tipo_dano": "Desconocido",
+    "propiedades": [],
+    "costo": "",
+    "precio": "",
+    "peso": "",
+    "descripcion": "No disponible",
+    "origen": "Reglas básicas",
+    "tipo_objeto": "Equipo de aventuras",
+    "categoria": "Herramientas",
+    "CA": "No disponible"
   },
   {
     "nombre": "Paquete de artista",
@@ -937,7 +1040,8 @@
     "descripcion": "Incluye una mochila, un petate, 2 disfraces, 5 velas, raciones para 5 días, una cantimplora y útiles para disfrazarse.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Paquetes de equipo"
+    "categoria": "Paquetes de equipo",
+    "CA": "No disponible"
   },
   {
     "nombre": "Paquete de diplomático",
@@ -951,7 +1055,8 @@
     "descripcion": "Incluye un cofre, 2 estuches para mapas o pergaminos, una muda de ropas de calidad, una botella de tinta, una pluma, 2 frascos de aceite, 5 hojas de papel, un vial de perfume, lacre y un jabón.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Paquetes de equipo"
+    "categoria": "Paquetes de equipo",
+    "CA": "No disponible"
   },
   {
     "nombre": "Paquete de erudito",
@@ -965,7 +1070,8 @@
     "descripcion": "Incluye una mochila, un libro de algún saber concreto, una botella de tinta, una pluma, 10 hojas de pergamino, una bolsita con arena y un cuchillo pequeño.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Paquetes de equipo"
+    "categoria": "Paquetes de equipo",
+    "CA": "No disponible"
   },
   {
     "nombre": "Paquete de explorador",
@@ -979,7 +1085,8 @@
     "descripcion": "Incluye una mochila, un petate, utensilios de cocina, un yesquero, 10 antorchas, raciones para 10 días y una cantimplora. Además, este paquete también tiene una cuerda de cáñamo de 50 pies enganchada en uno de sus lados.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Paquetes de equipo"
+    "categoria": "Paquetes de equipo",
+    "CA": "No disponible"
   },
   {
     "nombre": "Paquete de explorador de mazmorras",
@@ -993,7 +1100,8 @@
     "descripcion": "Incluye una mochila, una palanqueta, un martillo, 10 pitones, 10 antorchas, un yesquero, raciones para 10 días y una cantimplora. Además, este paquete también tiene una cuerda de cáñamo de 50 pies enganchada en uno de sus lados.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Paquetes de equipo"
+    "categoria": "Paquetes de equipo",
+    "CA": "No disponible"
   },
   {
     "nombre": "Paquete de ladrón",
@@ -1007,7 +1115,8 @@
     "descripcion": "Incluye una mochila, una bolsa con 1.000 bolas de metal, 10 pies de cordel, una campana, 5 velas, una palanqueta, un martillo, 10 pitones, una linterna sorda, 2 frascos de aceite, raciones para 5 días, un yesquero y una cantimplora. Además, este paquete también tiene una cuerda de cáñamo de 50 pies enganchada en uno de sus lados.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Paquetes de equipo"
+    "categoria": "Paquetes de equipo",
+    "CA": "No disponible"
   },
   {
     "nombre": "Paquete de sacerdote",
@@ -1021,7 +1130,8 @@
     "descripcion": "Incluye una mochila, una manta, 10 velas, un yesquero, una caja para limosnas, 2 barras de incienso, un incensario, vestiduras, raciones para 2 días y una cantimplora.",
     "origen": "Reglas básicas",
     "tipo_objeto": "Equipo de aventuras",
-    "categoria": "Paquetes de equipo"
+    "categoria": "Paquetes de equipo",
+    "CA": "No disponible"
   },
   {
     "nombre": "Poción de curación menor",

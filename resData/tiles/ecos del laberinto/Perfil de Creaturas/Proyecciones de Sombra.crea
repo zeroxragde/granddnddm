@@ -1,0 +1,107 @@
+{
+  "Nombre": "Proyecciones de Sombra",
+  "Imagen": null,
+  "Tamanio": "Mediano",
+  "Tipo": "No muerto",
+  "Alineamiento": "Caótico Malvado",
+  "ClaseArmadura": 13,
+  "DescripcionArmadura": "Ninguna",
+  "PuntosGolpe": 38,
+  "DadosGolpe": "(6d8+12)",
+  "VelocidadCaminar": 30,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 10,
+  "Destreza": 16,
+  "Constitucion": 12,
+  "Inteligencia": 8,
+  "Sabiduria": 12,
+  "Carisma": 14,
+  "BonificadorAtaque": 0,
+  "BonificadorFuerza": 0,
+  "BonificadorDestreza": 3,
+  "BonificadorConstitucion": 1,
+  "BonificadorInteligencia": -1,
+  "BonificadorSabiduria": 1,
+  "BonificadorCarisma": 2,
+  "Salvacion": [
+    "Destreza",
+    "Carisma"
+  ],
+  "Habilidades": {
+    "Sigilo": 5,
+    "Engaño": 4,
+    "Percepción": 3
+  },
+  "VulnerabilidadesDano": [
+    "Radiante"
+  ],
+  "ResistenciasDano": [
+    "Necrótico",
+    "Psíquico",
+    "Ataques no mágicos"
+  ],
+  "InmunidadesDano": [
+    "Veneno"
+  ],
+  "InmunidadesCondicion": [
+    "Envenenado",
+    "Aterrorizado",
+    "Paralizado",
+    "Aturdido"
+  ],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 13"
+  ],
+  "Idiomas": {
+    "Común": true,
+    "Infernal": true
+  },
+  "CR": "2",
+  "XP": 425,
+  "Acciones": [
+    {
+      "Nombre": "Garra Sombría",
+      "Descripcion": "+5 al ataque, alcance 5 ft., una criatura.\nGolpe: 10 (2d6 + 3) de daño necrótico.\nSi el objetivo falla una Salvación de Constitución CD 13, su sombra queda debilitada, reduciendo su velocidad a la mitad hasta el final de su siguiente turno."
+    }
+  ],
+  "AccionesHabilidad": [
+    {
+      "Nombre": "Reflejo Sin Alma",
+      "Descripcion": "El Proyección de Sombra puede copiar la forma de una criatura que vea en un espejo dentro de 30 pies. La criatura debe hacer una Salvación de Sabiduría CD 13 o quedar asustada por 1 minuto, creyendo que su reflejo ha cobrado vida."
+    }
+  ],
+  "AccionesAdicionales": [],
+  "Reacciones": [
+    {
+      "Nombre": "Forma Espectral",
+      "Descripcion": "Cuando es atacada, la Proyección de Sombra puede volverse parcialmente intangible, otorgando Desventaja en un ataque contra ella una vez por turno."
+    }
+  ],
+  "HechizosOEspeciales": [
+    {
+      "Nombre": "Danza de las Sombras",
+      "Descripcion": "La criatura se mueve sin hacer ruido y proyecta múltiples imágenes de sí misma. Hasta el final de su siguiente turno, todas las tiradas de ataque contra ella tienen Desventaja."
+    },
+    {
+      "Nombre": "Ecos del Espejo",
+      "Descripcion": "Si está cerca de un espejo, puede teletransportarse a otro espejo en un radio de 60 pies, emergiendo con una ráfaga de sombras."
+    }
+  ],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Sombras que emergen de los espejos, imitaciones vacías de aquellos que se reflejan en ellas."
+}

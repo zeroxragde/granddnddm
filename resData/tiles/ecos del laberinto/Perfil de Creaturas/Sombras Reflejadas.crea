@@ -1,0 +1,108 @@
+{
+  "Nombre": "Sombras Reflejadas",
+  "Imagen": null,
+  "Tamanio": "Mediano",
+  "Tipo": "No muerto",
+  "Alineamiento": "Neutral Malvado",
+  "ClaseArmadura": 13,
+  "DescripcionArmadura": "Ninguna",
+  "PuntosGolpe": 35,
+  "DadosGolpe": "(6d8+9)",
+  "VelocidadCaminar": 30,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 8,
+  "Destreza": 16,
+  "Constitucion": 12,
+  "Inteligencia": 10,
+  "Sabiduria": 14,
+  "Carisma": 15,
+  "BonificadorAtaque": 0,
+  "BonificadorFuerza": -1,
+  "BonificadorDestreza": 3,
+  "BonificadorConstitucion": 1,
+  "BonificadorInteligencia": 0,
+  "BonificadorSabiduria": 2,
+  "BonificadorCarisma": 2,
+  "Salvacion": [
+    "Destreza",
+    "Carisma"
+  ],
+  "Habilidades": {
+    "Sigilo": 5,
+    "Engaño": 5,
+    "Percepción": 4
+  },
+  "VulnerabilidadesDano": [
+    "Radiante",
+    "Fuego"
+  ],
+  "ResistenciasDano": [
+    "Necrótico",
+    "Psíquico",
+    "Ataques no mágicos"
+  ],
+  "InmunidadesDano": [
+    "Veneno"
+  ],
+  "InmunidadesCondicion": [
+    "Envenenado",
+    "Aterrorizado",
+    "Paralizado",
+    "Aturdido"
+  ],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 14"
+  ],
+  "Idiomas": {
+    "Común": true,
+    "Infernal": true
+  },
+  "CR": "2",
+  "XP": 425,
+  "Acciones": [
+    {
+      "Nombre": "Garra Reflejada",
+      "Descripcion": "+5 al ataque, alcance 5 ft., una criatura.\nGolpe: 10 (2d6 + 3) de daño necrótico.\nEl objetivo debe hacer una Salvación de Sabiduría CD 13 o su sombra cobra vida y ataca a su dueño en el siguiente turno."
+    }
+  ],
+  "AccionesHabilidad": [
+    {
+      "Nombre": "Duplicado Sombrío",
+      "Descripcion": "La Sombra Reflejada puede copiar la forma y movimientos de una criatura que vea dentro de 30 pies. La criatura debe hacer una Salvación de Inteligencia CD 13 o sufrir Desventaja en sus ataques contra la Sombra durante 1 minuto."
+    }
+  ],
+  "AccionesAdicionales": [],
+  "Reacciones": [
+    {
+      "Nombre": "Reflejo Distorsionado",
+      "Descripcion": "Cuando es atacada, la Sombra Reflejada puede dividirse en dos imágenes borrosas. Hasta el inicio de su siguiente turno, cualquier ataque contra ella tiene un 50% de fallar."
+    }
+  ],
+  "HechizosOEspeciales": [
+    {
+      "Nombre": "Atrapado entre Mundos",
+      "Descripcion": "Puede moverse a través de superficies reflectantes como espejos o agua, apareciendo en otro punto de la Galería a 60 pies de distancia."
+    },
+    {
+      "Nombre": "Murmullos del Velo",
+      "Descripcion": "Susurra palabras en un idioma olvidado. Todas las criaturas a 10 pies deben hacer una Salvación de Sabiduría CD 12 o quedar confundidas por 1 turno."
+    }
+  ],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Sombras atrapadas en reflejos, ecos de entidades que alguna vez cruzaron los planos."
+}

@@ -492,7 +492,7 @@ namespace GranDnDDM.Views
                 // Capturamos el contenido actual del MapEditor
                 Bitmap bmp = mapEditor.GetSnapshot();
                 // Actualizamos la imagen en el formulario full screen
-                fullScreenForm.UpdateMap(bmp);
+                fullScreenForm.UpdateMap(bmp,true);
             }
         }
 

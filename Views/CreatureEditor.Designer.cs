@@ -69,7 +69,9 @@
             txtNombre = new ReaLTaiizor.Controls.HopeTextBox();
             lblFuerza = new ReaLTaiizor.Controls.BigLabel();
             tabPage3 = new TabPage();
-            materialMaskedTextBox1 = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
+            gbCRXP = new ReaLTaiizor.Controls.GroupBox();
+            txtCustomXP = new ReaLTaiizor.Controls.HopeTextBox();
+            txtCustomCR = new ReaLTaiizor.Controls.HopeTextBox();
             lblNotas = new ReaLTaiizor.Controls.BigLabel();
             txtNotas = new ReaLTaiizor.Controls.HopeTextBox();
             picFotoCreatura = new ReaLTaiizor.Controls.ParrotPictureBox();
@@ -133,6 +135,7 @@
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            gbCRXP.SuspendLayout();
             tabPage4.SuspendLayout();
             tabPage5.SuspendLayout();
             SuspendLayout();
@@ -197,7 +200,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage2.BackColor = Color.FromArgb(41, 50, 63);
             tabPage2.Controls.Add(cbShield);
             tabPage2.Controls.Add(txtOtraTipoCreatura);
             tabPage2.Controls.Add(pCondiciones);
@@ -907,8 +910,8 @@
             // 
             // tabPage3
             // 
-            tabPage3.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage3.Controls.Add(materialMaskedTextBox1);
+            tabPage3.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage3.Controls.Add(gbCRXP);
             tabPage3.Controls.Add(lblNotas);
             tabPage3.Controls.Add(txtNotas);
             tabPage3.Controls.Add(picFotoCreatura);
@@ -943,47 +946,75 @@
             tabPage3.Tag = "t2";
             tabPage3.Text = "Datos 2";
             // 
-            // materialMaskedTextBox1
+            // gbCRXP
             // 
-            materialMaskedTextBox1.AllowPromptAsInput = true;
-            materialMaskedTextBox1.AnimateReadOnly = false;
-            materialMaskedTextBox1.AsciiOnly = false;
-            materialMaskedTextBox1.BackgroundImageLayout = ImageLayout.None;
-            materialMaskedTextBox1.BeepOnError = false;
-            materialMaskedTextBox1.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
-            materialMaskedTextBox1.Depth = 0;
-            materialMaskedTextBox1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMaskedTextBox1.HidePromptOnLeave = false;
-            materialMaskedTextBox1.HideSelection = true;
-            materialMaskedTextBox1.InsertKeyMode = InsertKeyMode.Default;
-            materialMaskedTextBox1.LeadingIcon = null;
-            materialMaskedTextBox1.Location = new Point(27, 522);
-            materialMaskedTextBox1.Mask = "CR:00 CP:000000";
-            materialMaskedTextBox1.MaxLength = 32767;
-            materialMaskedTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialMaskedTextBox1.Name = "materialMaskedTextBox1";
-            materialMaskedTextBox1.PasswordChar = '\0';
-            materialMaskedTextBox1.PrefixSuffixText = null;
-            materialMaskedTextBox1.PromptChar = '_';
-            materialMaskedTextBox1.ReadOnly = false;
-            materialMaskedTextBox1.RejectInputOnFirstFailure = false;
-            materialMaskedTextBox1.ResetOnPrompt = true;
-            materialMaskedTextBox1.ResetOnSpace = true;
-            materialMaskedTextBox1.RightToLeft = RightToLeft.No;
-            materialMaskedTextBox1.SelectedText = "";
-            materialMaskedTextBox1.SelectionLength = 0;
-            materialMaskedTextBox1.SelectionStart = 0;
-            materialMaskedTextBox1.ShortcutsEnabled = true;
-            materialMaskedTextBox1.Size = new Size(250, 48);
-            materialMaskedTextBox1.SkipLiterals = true;
-            materialMaskedTextBox1.TabIndex = 60;
-            materialMaskedTextBox1.TabStop = false;
-            materialMaskedTextBox1.Text = " R:    P:";
-            materialMaskedTextBox1.TextAlign = HorizontalAlignment.Left;
-            materialMaskedTextBox1.TextMaskFormat = MaskFormat.IncludeLiterals;
-            materialMaskedTextBox1.TrailingIcon = null;
-            materialMaskedTextBox1.UseSystemPasswordChar = false;
-            materialMaskedTextBox1.ValidatingType = null;
+            gbCRXP.BackColor = Color.Transparent;
+            gbCRXP.BackGColor = Color.FromArgb(50, 63, 74);
+            gbCRXP.BaseColor = Color.Transparent;
+            gbCRXP.BorderColorG = Color.FromArgb(159, 159, 161);
+            gbCRXP.BorderColorH = Color.FromArgb(182, 180, 186);
+            gbCRXP.Controls.Add(txtCustomXP);
+            gbCRXP.Controls.Add(txtCustomCR);
+            gbCRXP.Font = new Font("Tahoma", 9F);
+            gbCRXP.ForeColor = Color.White;
+            gbCRXP.HeaderColor = Color.Navy;
+            gbCRXP.Location = new Point(55, 527);
+            gbCRXP.MinimumSize = new Size(136, 50);
+            gbCRXP.Name = "gbCRXP";
+            gbCRXP.Padding = new Padding(5, 28, 5, 5);
+            gbCRXP.Size = new Size(175, 80);
+            gbCRXP.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            gbCRXP.TabIndex = 60;
+            gbCRXP.Text = "CR/XP";
+            gbCRXP.Visible = false;
+            // 
+            // txtCustomXP
+            // 
+            txtCustomXP.BackColor = Color.White;
+            txtCustomXP.BaseColor = Color.FromArgb(44, 55, 66);
+            txtCustomXP.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtCustomXP.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtCustomXP.Font = new Font("Segoe UI", 12F);
+            txtCustomXP.ForeColor = Color.FromArgb(48, 49, 51);
+            txtCustomXP.Hint = "XP";
+            txtCustomXP.Location = new Point(89, 31);
+            txtCustomXP.MaxLength = 32767;
+            txtCustomXP.Multiline = false;
+            txtCustomXP.Name = "txtCustomXP";
+            txtCustomXP.PasswordChar = '\0';
+            txtCustomXP.ScrollBars = ScrollBars.None;
+            txtCustomXP.SelectedText = "";
+            txtCustomXP.SelectionLength = 0;
+            txtCustomXP.SelectionStart = 0;
+            txtCustomXP.Size = new Size(75, 38);
+            txtCustomXP.TabIndex = 1;
+            txtCustomXP.TabStop = false;
+            txtCustomXP.UseSystemPasswordChar = false;
+            txtCustomXP.KeyPress += SoloNumeros_KeyPress;
+            // 
+            // txtCustomCR
+            // 
+            txtCustomCR.BackColor = Color.White;
+            txtCustomCR.BaseColor = Color.FromArgb(44, 55, 66);
+            txtCustomCR.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtCustomCR.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtCustomCR.Font = new Font("Segoe UI", 12F);
+            txtCustomCR.ForeColor = Color.FromArgb(48, 49, 51);
+            txtCustomCR.Hint = "CR";
+            txtCustomCR.Location = new Point(8, 31);
+            txtCustomCR.MaxLength = 32767;
+            txtCustomCR.Multiline = false;
+            txtCustomCR.Name = "txtCustomCR";
+            txtCustomCR.PasswordChar = '\0';
+            txtCustomCR.ScrollBars = ScrollBars.None;
+            txtCustomCR.SelectedText = "";
+            txtCustomCR.SelectionLength = 0;
+            txtCustomCR.SelectionStart = 0;
+            txtCustomCR.Size = new Size(75, 38);
+            txtCustomCR.TabIndex = 0;
+            txtCustomCR.TabStop = false;
+            txtCustomCR.UseSystemPasswordChar = false;
+            txtCustomCR.KeyPress += SoloNumeros_KeyPress;
             // 
             // lblNotas
             // 
@@ -1429,7 +1460,7 @@
             // 
             // tabPage4
             // 
-            tabPage4.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage4.BackColor = Color.FromArgb(41, 50, 63);
             tabPage4.Controls.Add(btnUpdateData);
             tabPage4.Controls.Add(txtRasgoRegional);
             tabPage4.Controls.Add(txtRasgoGuarida);
@@ -1693,7 +1724,7 @@
             // 
             // tabPage5
             // 
-            tabPage5.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage5.BackColor = Color.FromArgb(41, 50, 63);
             tabPage5.Controls.Add(btnHechizo);
             tabPage5.Controls.Add(pAcciones);
             tabPage5.Controls.Add(bigLabel18);
@@ -2005,7 +2036,7 @@
             // 
             // tabPage6
             // 
-            tabPage6.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage6.BackColor = Color.FromArgb(41, 50, 63);
             tabPage6.Location = new Point(139, 4);
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(1076, 628);
@@ -2014,7 +2045,7 @@
             // 
             // Salir
             // 
-            Salir.BackColor = Color.FromArgb(50, 63, 74);
+            Salir.BackColor = Color.FromArgb(41, 50, 63);
             Salir.Location = new Point(139, 4);
             Salir.Name = "Salir";
             Salir.Size = new Size(1076, 628);
@@ -2042,6 +2073,7 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            gbCRXP.ResumeLayout(false);
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
             tabPage5.ResumeLayout(false);
@@ -2141,7 +2173,6 @@
         private FlowLayoutPanel pDasmagesList;
         private FlowLayoutPanel pIdiomasList;
         private CheckBox cbShield;
-        private ReaLTaiizor.Controls.ForeverTextBox foreverTextBox1;
         private TextBox txtRasgoGuarida;
         private TextBox txtRasgoRegional;
         private ReaLTaiizor.Controls.ForeverTextBox txtRasgoMitico;
@@ -2152,6 +2183,8 @@
         private ReaLTaiizor.Controls.BigLabel lblNotas;
         private ReaLTaiizor.Controls.HopeTextBox txtNotas;
         private ReaLTaiizor.Controls.Button btnHechizo;
-        private ReaLTaiizor.Controls.MaterialMaskedTextBox materialMaskedTextBox1;
+        private ReaLTaiizor.Controls.GroupBox gbCRXP;
+        private ReaLTaiizor.Controls.HopeTextBox txtCustomXP;
+        private ReaLTaiizor.Controls.HopeTextBox txtCustomCR;
     }
 }

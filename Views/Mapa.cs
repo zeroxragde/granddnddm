@@ -42,13 +42,18 @@ namespace GranDnDDM.Views
 
       
 
-        public void UpdateMap(Bitmap bmp)
+        public void UpdateMap(Bitmap bmp, bool imgCentrada=false)
         {
             if (pbFullScreen.Image != null)
             {
                 pbFullScreen.Image.Dispose();
             }
+           
+            if (imgCentrada) {
+                pbFullScreen.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
             pbFullScreen.Image = bmp;
+
         }
 
     }

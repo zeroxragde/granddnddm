@@ -600,7 +600,7 @@ namespace GranDnDDM.Tools
                         }
                         // Forzar actualización de la interfaz
                         Invalidate();
-                        MessageBox.Show("Mapa cargado correctamente.", "Cargar Mapa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       // MessageBox.Show("Mapa cargado correctamente.", "Cargar Mapa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return ofd.FileName;
 
                     } 

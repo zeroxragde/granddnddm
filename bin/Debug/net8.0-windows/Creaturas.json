@@ -48,5 +48,35 @@
     "FileName": "Creaturas\\Ecos_del_Pasado_aeddeb.crea",
     "Nombre": "Ecos del Pasado",
     "CR": "3"
+  },
+  {
+    "FileName": "Creaturas\\Eco_del_Árbol_Perdido_af3aa3.crea",
+    "Nombre": "Eco del Árbol Perdido",
+    "CR": "2"
+  },
+  {
+    "FileName": "Creaturas\\Proyecciones_de_Sombra_0adaba.crea",
+    "Nombre": "Proyecciones de Sombra",
+    "CR": "2"
+  },
+  {
+    "FileName": "Creaturas\\Sombras_Reflejadas_fbd7af.crea",
+    "Nombre": "Sombras Reflejadas",
+    "CR": "2"
+  },
+  {
+    "FileName": "Creaturas\\Constructo_del_Laberinto_e197e5.crea",
+    "Nombre": "Constructo del Laberinto",
+    "CR": "5"
+  },
+  {
+    "FileName": "Creaturas\\Guardianes_Devorados_49fa1d.crea",
+    "Nombre": "Guardianes Devorados",
+    "CR": "4"
+  },
+  {
+    "FileName": "Creaturas\\Emrys,_el_Arquitecto_del_Laberinto_7d4ccb.crea",
+    "Nombre": "Emrys, el Arquitecto del Laberinto",
+    "CR": "6"
   }
 ]

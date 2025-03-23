@@ -1,0 +1,40 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "d0799606-4b69-45f8-a73b-2c8d756fc550.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 416,
+          "Y": 0
+        },
+        "Width": 712,
+        "Height": 1102
+      }
+    ]
+  },
+  {
+    "Name": "Mapa",
+    "Visible": false,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "27330a7b-55b5-4336-8255-9750786a099b.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 224,
+          "Y": 6
+        },
+        "Width": 1068,
+        "Height": 851
+      }
+    ]
+  }
+]

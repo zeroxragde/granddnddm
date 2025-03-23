@@ -16,12 +16,12 @@ namespace GranDnDDM.Views
     public partial class CreatureGen : Form
     {
         private Creatura creatura;
-        private NightLabel lblActual;
+        private NightLabel lblActual; 
+        private Mapa fullScreenForm = new Mapa();
         public CreatureGen()
         {
             InitializeComponent();
-
-
+  
         }
         public CreatureGen(Creatura c)
         {
@@ -36,31 +36,34 @@ namespace GranDnDDM.Views
             {
                 tabPagesCreatura.TabPages.Remove(tabAMiticaHide);
             }
-            
+
             var tabALegendsHide = tabPagesCreatura.TabPages["tabALegends"];
             if (tabALegendsHide != null && !creatura.EsLegendaria)
             {
                 tabPagesCreatura.TabPages.Remove(tabALegendsHide);
             }
-            
+
             var tabAGuaridaHide = tabPagesCreatura.TabPages["tabAGuarida"];
             if (tabAGuaridaHide != null && !creatura.TieneGuarida)
             {
                 tabPagesCreatura.TabPages.Remove(tabAGuaridaHide);
             }
-            
+
             var tabEfectoRegional = tabPagesCreatura.TabPages["tabERegional"];
             if (tabEfectoRegional != null && !creatura.TieneEfectosRegionales)
             {
                 tabPagesCreatura.TabPages.Remove(tabEfectoRegional);
             }
             var tabHechizosHide = tabPagesCreatura.TabPages["tabHechizos"];
-            if (tabHechizosHide != null && creatura.HechizosOEspeciales.Count==0)
-            {
-                tabPagesCreatura.TabPages.Remove(tabHechizosHide);
+            if (creatura.HechizosOEspeciales != null) {
+                if (tabHechizosHide != null && creatura.HechizosOEspeciales.Count == 0)
+                {
+                    tabPagesCreatura.TabPages.Remove(tabHechizosHide);
+                }
             }
 
-            if(creatura.Imagen != null)
+
+            if (creatura.Imagen != null)
             {
                 if (creatura.Imagen.Length > 0)
                 {
@@ -277,29 +280,53 @@ namespace GranDnDDM.Views
                     pEfectoRegio.Controls.Add(actionLabel);
                 }
             }
-            if (creatura.HechizosOEspeciales.Count > 0)
-            {
-                pHechizos.Visible = true;
-                foreach (var action in creatura.HechizosOEspeciales)
+            if (creatura.HechizosOEspeciales != null) {
+                if (creatura.HechizosOEspeciales.Count > 0)
                 {
-                    var actionLabel = new Label
+                    pHechizos.Visible = true;
+                    foreach (var action in creatura.HechizosOEspeciales)
                     {
-                        Text = $"{action.Nombre}: {action.Descripcion}",
-                        Font = new Font("Comic Sans MS", 11F),
-                        ForeColor = Color.White,
-                        AutoSize = true,
-                        Margin = new Padding(10),
-                        MaximumSize = new Size(pCard.Width - 20, 0)
-                    };
-                    pHechizos.Controls.Add(actionLabel);
+                        var actionLabel = new Label
+                        {
+                            Text = $"{action.Nombre}: {action.Descripcion}",
+                            Font = new Font("Comic Sans MS", 11F),
+                            ForeColor = Color.White,
+                            AutoSize = true,
+                            Margin = new Padding(10),
+                            MaximumSize = new Size(pCard.Width - 20, 0)
+                        };
+                        pHechizos.Controls.Add(actionLabel);
+                    }
                 }
             }
+
         }
 
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            fullScreenForm.Close();
             Close();
+        }
+
+        private void btnShowImage_Click(object sender, EventArgs e)
+        {
+            if (creatura.Imagen != null)
+            {
+                if (creatura.Imagen.Length > 0)
+                {
+                  
+                    if (fullScreenForm.IsDisposed)
+                    {
+                        fullScreenForm = new Mapa();
+                    }
+
+                    fullScreenForm.Show();
+                    fullScreenForm.UpdateMap(GlobalTools.ConvertBase64ToBitmap(creatura.Imagen));
+                }
+
+            }
+
         }
 
 

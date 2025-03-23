@@ -32,15 +32,15 @@
             formTheme1 = new ReaLTaiizor.Forms.FormTheme();
             tabPagesCreatura = new ReaLTaiizor.Controls.AirTabPage();
             tabGeneral = new TabPage();
+            btnShowImage = new PictureBox();
             pCard = new ReaLTaiizor.Controls.Panel();
+            lblName = new ReaLTaiizor.Controls.NightLabel();
             txtNotas = new TextBox();
             nightLabel17 = new ReaLTaiizor.Controls.NightLabel();
             pImagen = new Panel();
             imgCreatura = new PictureBox();
             lblNivelDesafio = new ReaLTaiizor.Controls.NightLabel();
             nightLabel16 = new ReaLTaiizor.Controls.NightLabel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            lblName = new ReaLTaiizor.Controls.NightLabel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             lblOtrosDatos = new ReaLTaiizor.Controls.NightLabel();
             lblInteligencia = new ReaLTaiizor.Controls.NightLabel();
@@ -126,10 +126,10 @@
             formTheme1.SuspendLayout();
             tabPagesCreatura.SuspendLayout();
             tabGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnShowImage).BeginInit();
             pCard.SuspendLayout();
             pImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgCreatura).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             tavSkills.SuspendLayout();
             panel10.SuspendLayout();
@@ -211,6 +211,7 @@
             tabGeneral.BackColor = Color.White;
             tabGeneral.BackgroundImage = Properties.Resources.backEpicoNormalized;
             tabGeneral.BackgroundImageLayout = ImageLayout.Stretch;
+            tabGeneral.Controls.Add(btnShowImage);
             tabGeneral.Controls.Add(pCard);
             tabGeneral.Location = new Point(119, 4);
             tabGeneral.Name = "tabGeneral";
@@ -219,15 +220,27 @@
             tabGeneral.TabIndex = 0;
             tabGeneral.Text = "General";
             // 
+            // btnShowImage
+            // 
+            btnShowImage.BackColor = Color.Transparent;
+            btnShowImage.Image = Properties.Resources.seeicon;
+            btnShowImage.Location = new Point(23, 19);
+            btnShowImage.Name = "btnShowImage";
+            btnShowImage.Size = new Size(48, 50);
+            btnShowImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnShowImage.TabIndex = 7;
+            btnShowImage.TabStop = false;
+            btnShowImage.Click += btnShowImage_Click;
+            // 
             // pCard
             // 
             pCard.BackColor = Color.FromArgb(128, 64, 64);
+            pCard.Controls.Add(lblName);
             pCard.Controls.Add(txtNotas);
             pCard.Controls.Add(nightLabel17);
             pCard.Controls.Add(pImagen);
             pCard.Controls.Add(lblNivelDesafio);
             pCard.Controls.Add(nightLabel16);
-            pCard.Controls.Add(flowLayoutPanel1);
             pCard.Controls.Add(flowLayoutPanel2);
             pCard.Controls.Add(lblInteligencia);
             pCard.Controls.Add(lblCarisma);
@@ -258,6 +271,18 @@
             pCard.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pCard.TabIndex = 6;
             pCard.Text = "panel1";
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.BackColor = Color.Transparent;
+            lblName.Font = new Font("Cascadia Code", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblName.ForeColor = Color.FromArgb(255, 128, 128);
+            lblName.Location = new Point(19, 5);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(146, 46);
+            lblName.TabIndex = 44;
+            lblName.Text = "Ankheg";
             // 
             // txtNotas
             // 
@@ -325,26 +350,6 @@
             nightLabel16.Size = new Size(135, 23);
             nightLabel16.TabIndex = 39;
             nightLabel16.Text = "Nivel de desafio";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(lblName);
-            flowLayoutPanel1.Location = new Point(12, 8);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(539, 51);
-            flowLayoutPanel1.TabIndex = 5;
-            // 
-            // lblName
-            // 
-            lblName.AutoSize = true;
-            lblName.BackColor = Color.Transparent;
-            lblName.Font = new Font("Cascadia Code", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblName.ForeColor = Color.FromArgb(255, 128, 128);
-            lblName.Location = new Point(3, 0);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(146, 46);
-            lblName.TabIndex = 0;
-            lblName.Text = "Ankheg";
             // 
             // flowLayoutPanel2
             // 
@@ -1307,12 +1312,11 @@
             formTheme1.ResumeLayout(false);
             tabPagesCreatura.ResumeLayout(false);
             tabGeneral.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnShowImage).EndInit();
             pCard.ResumeLayout(false);
             pCard.PerformLayout();
             pImagen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgCreatura).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             tavSkills.ResumeLayout(false);
@@ -1373,8 +1377,6 @@
         private ReaLTaiizor.Controls.Panel pCard;
         private ReaLTaiizor.Controls.NightLabel lblNivelDesafio;
         private ReaLTaiizor.Controls.NightLabel nightLabel16;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private ReaLTaiizor.Controls.NightLabel lblName;
         private FlowLayoutPanel flowLayoutPanel2;
         private ReaLTaiizor.Controls.NightLabel lblOtrosDatos;
         private ReaLTaiizor.Controls.NightLabel lblInteligencia;
@@ -1460,5 +1462,7 @@
         private Panel panel22;
         private ReaLTaiizor.Controls.BigLabel bigLabel6;
         private FlowLayoutPanel pHechizos;
+        private ReaLTaiizor.Controls.NightLabel lblName;
+        private PictureBox btnShowImage;
     }
 }

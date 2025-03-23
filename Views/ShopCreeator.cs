@@ -20,6 +20,7 @@ namespace GranDnDDM.Views
         private List<Item> itemsDisponibles;
         private List<Item> itemsSeleccionados;
         private List<ShopData> tiendas = new List<ShopData>();
+        private Mapa formMapa = new Mapa();
 
 
         public ShopCreeator()
@@ -110,15 +111,15 @@ namespace GranDnDDM.Views
             dgvLisstaItems.DataSource = null;
             dgvLisstaItems.AutoGenerateColumns = false;
             dgvLisstaItems.Columns.Clear();
-
             // Agregar columnas
-
             dgvLisstaItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre", DataPropertyName = "nombre" });
             dgvLisstaItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Precio", DataPropertyName = "precio" });
             dgvLisstaItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo de Objeto", DataPropertyName = "tipo_objeto" });
+            // Cargar los datos en el DataGridView
+            dgvLisstaItems.DataSource = listaItems;
 
 
-
+            dgvTienda.AutoGenerateColumns = false;
             // Agregar una columna de imagen manualmente
             DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
             imgColumn.HeaderText = "Imagen";
@@ -126,12 +127,18 @@ namespace GranDnDDM.Views
             imgColumn.DataPropertyName = "Imagen";
             imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ajusta la imagen al tamaño de la celda
             dgvTienda.Columns.Add(imgColumn);
-
+          
+            
             // Asignar el DataSource
-            dgvTienda.DataSource = new BindingList<Item>(itemsSeleccionados);
+           
+            dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre", DataPropertyName = "nombre", Width = 200 });
+            dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Dado", DataPropertyName = "dado" });
+            dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo", DataPropertyName = "tipo_dano" });
+            dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Precio", DataPropertyName = "precio" });
+            dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Descripcion", DataPropertyName = "descripcion" });
 
             // Ocultar la columna de URL para que no se muestre
-            if (dgvTienda.Columns["imagen_url"] != null)
+            /*if (dgvTienda.Columns["imagen_url"] != null)
             {
                 dgvTienda.Columns["imagen_url"].Visible = false;
             }
@@ -139,10 +146,10 @@ namespace GranDnDDM.Views
             dgvTienda.Columns["dado"].Visible = false;
             dgvTienda.Columns["tipo_dano"].Visible = false;
             dgvTienda.Columns["peso"].Visible = false;
-            dgvTienda.Columns["origen"].Visible = false;
+            dgvTienda.Columns["origen"].Visible = false;*/
 
-            // Cargar los datos en el DataGridView
-            dgvLisstaItems.DataSource = listaItems;
+            dgvTienda.DataSource = listaItems;//new BindingList<Item>(itemsSeleccionados);
+
         }
         private List<Item> CargarItemsDesdeJson()
         {
@@ -203,7 +210,6 @@ namespace GranDnDDM.Views
                 }
             }
         }
-
         private void CargarTiendasEnComboBox()
         {
             try
@@ -303,8 +309,6 @@ namespace GranDnDDM.Views
             }
         }
 
-
-
         private void AgregarItemsAleatorios(int cantidad)
         {
             if (itemsDisponibles.Count == 0) return;
@@ -327,7 +331,6 @@ namespace GranDnDDM.Views
             dgvLisstaItems.DataSource = new BindingList<Item>(itemsDisponibles);
             dgvTienda.DataSource = new BindingList<Item>(itemsSeleccionados);
         }
-
 
         private void parrotPictureBox3_Click(object sender, EventArgs e)
         {
@@ -428,6 +431,28 @@ namespace GranDnDDM.Views
 
             // Actualizar el DataGridView con los elementos filtrados
             dgvLisstaItems.DataSource = new BindingList<Item>(itemsFiltrados);
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (formMapa.IsDisposed)
+            {
+                formMapa = new Mapa();
+            }
+            formMapa.Show();
+            // Crear un bitmap con el tamaño del DataGridView
+            dgvTienda.ClearSelection();
+            Bitmap bitmap = new Bitmap(formMapa.Width, formMapa.Height);
+            dgvTienda.DrawToBitmap(bitmap, new Rectangle(0, 0, formMapa.Width, formMapa.Height));
+            
+            Bitmap tienda = GlobalTools.ConvertirDGVABitmap(dgvTienda, txtShopName.Text,2f);
+            formMapa.UpdateMap(tienda, true);
+
+        }
+
+        private void ShopCreeator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formMapa.Close();
         }
 
         ///////////////////////

@@ -1,0 +1,59 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "5273ad4a-d028-4e6c-aaec-280862fd46a8.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 404,
+          "Y": -1
+        },
+        "Width": 647,
+        "Height": 1066
+      }
+    ]
+  },
+  {
+    "Name": "Mapa",
+    "Visible": false,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "6605b1f9-a405-4eb4-85ee-7cf8be4b7a87.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 361,
+          "Y": 22
+        },
+        "Width": 863,
+        "Height": 742
+      }
+    ]
+  },
+  {
+    "Name": "Sotano",
+    "Visible": false,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "d286d9fd-28f7-4e9c-8ce3-3c9a20900489.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 402,
+          "Y": 15
+        },
+        "Width": 836,
+        "Height": 832
+      }
+    ]
+  }
+]

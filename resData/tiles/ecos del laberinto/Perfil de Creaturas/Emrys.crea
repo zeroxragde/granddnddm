@@ -1,0 +1,141 @@
+{
+  "Nombre": "Emrys, el Arquitecto del Laberinto",
+  "Imagen": "",
+  "Tamanio": "Mediano",
+  "Tipo": "Humanoide",
+  "Alineamiento": "Caótico Malvado",
+  "ClaseArmadura": 17,
+  "DescripcionArmadura": "Armadura de Cuero Tachonado",
+  "PuntosGolpe": 85,
+  "DadosGolpe": "(10d8+20)",
+  "VelocidadCaminar": 30,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 20,
+  "Fuerza": 12,
+  "Destreza": 18,
+  "Constitucion": 14,
+  "Inteligencia": 16,
+  "Sabiduria": 14,
+  "Carisma": 20,
+  "BonificadorAtaque": 7,
+  "BonificadorFuerza": 1,
+  "BonificadorDestreza": 4,
+  "BonificadorConstitucion": 2,
+  "BonificadorInteligencia": 3,
+  "BonificadorSabiduria": 2,
+  "BonificadorCarisma": 5,
+  "Salvacion": ["Destreza", "Inteligencia", "Carisma"],
+  "Habilidades": {
+    "Sigilo": "+9",
+    "Engaño": "+9",
+    "Persuasión": "+7",
+    "Percepción": "+6",
+    "Juego de Manos": "+8"
+  },
+  "VulnerabilidadesDano": [
+    "Radiante"
+  ],
+  "ResistenciasDano": [
+    "Necrótico",
+    "Psíquico",
+    "Cortante (no mágico)"
+  ],
+  "InmunidadesDano": [
+    "Veneno"
+  ],
+  "InmunidadesCondicion": [
+    "Envenenado",
+    "Hechizado"
+  ],
+  "Sentidos": [
+    "Visión en la Oscuridad 60 pies",
+    "Sentido Trueno 30 pies"
+  ],
+  "Idiomas": {
+    "Común": "Habla",
+    "Infernal": "Habla",
+    "Abyssal": "Habla"
+  },
+  "CR": "6",
+  "XP": 2300,
+  "Acciones": [
+    {
+      "Nombre": "Ataque con Estoque Maldito",
+      "Descripcion": "Ataque de arma cuerpo a cuerpo: +9 para golpear, alcance 5 pies, un objetivo. Daño: 12 (2d8+3) perforante + 9 (2d6) necrótico."
+    },
+    {
+      "Nombre": "Dagas Sombrías",
+      "Descripcion": "Emrys lanza dos dagas de energía oscura. Ataque a distancia: +8 para golpear, alcance 20/60 pies, una criatura. Daño: 10 (2d6+3) psíquico. Si impacta, el objetivo tiene desventaja en su próximo ataque hasta el final de su turno."
+    }
+  ],
+  "AccionesHabilidad": [
+    {
+      "Nombre": "Paso entre las Sombras",
+      "Descripcion": "Como acción adicional, Emrys se teletransporta hasta 30 pies a un espacio en penumbra u oscuridad que pueda ver."
+    },
+    {
+      "Nombre": "Grito del Laberinto",
+      "Descripcion": "Emrys desata un grito que distorsiona la realidad. Todas las criaturas en un radio de 20 pies deben hacer una Salvación de Sabiduría (CD 16). En una falla, reciben 18 (4d8) daño psíquico y quedan asustadas durante 1 minuto."
+    }
+  ],
+  "AccionesAdicionales": [
+    {
+      "Nombre": "Golpe Sombra",
+      "Descripcion": "Si impacta con un ataque cuerpo a cuerpo, puede usar un dado de golpe adicional para infligir 2d6 de daño necrótico adicional."
+    }
+  ],
+  "Reacciones": [
+    {
+      "Nombre": "Esquiva Increíble",
+      "Descripcion": "Cuando recibe daño de un ataque que puede ver, reduce el daño a la mitad."
+    }
+  ],
+  "HechizosOEspeciales": [
+    {
+      "Nombre": "Tormenta de Grietas (3/día)",
+      "Descripcion": "Emrys canaliza el poder de las Grietas y genera una tormenta de sombras en un radio de 30 pies. Las criaturas dentro del área deben hacer una Salvación de Constitución (CD 16) o sufrir 21 (6d6) de daño necrótico y ser arrastradas 10 pies hacia él."
+    }
+  ],
+  "EsLegendaria": true,
+  "CantidadResistenciasLegendarias": 3,
+  "AccionesLegendarias": [
+    {
+      "Nombre": "Oscuridad Devastadora",
+      "Descripcion": "Emrys invoca un área de oscuridad mágica en un radio de 15 pies. Solo él puede ver dentro de esta zona. Dura hasta el final de su siguiente turno."
+    },
+    {
+      "Nombre": "Golpe del Vacío",
+      "Descripcion": "Hace un ataque con estoque sin gastar su acción."
+    },
+    {
+      "Nombre": "Desvanecerse",
+      "Descripcion": "Emrys puede moverse hasta la mitad de su velocidad sin provocar ataques de oportunidad."
+    }
+  ],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": true,
+  "AccionesGuarida": [
+    {
+      "Nombre": "Ecos del Laberinto",
+      "Descripcion": "Cada turno, un eco ilusorio de Emrys aparece y ataca a un jugador (ataque ilusorio, CD 15 Sabiduría para disbelieve). Si falla, el objetivo recibe 10 (2d6+3) de daño psíquico."
+    }
+  ],
+  "DescripcionGuarida": "El Laberinto de la Ruina Eterna es una distorsión en la realidad, llena de pasillos cambiantes y trampas ilusorias.",
+  "TieneEfectosRegionales": true,
+  "EfectosRegionales": [
+    {
+      "Nombre": "Distorsión Espacial",
+      "Descripcion": "Los pasillos del Laberinto se reconfiguran cada minuto, cambiando rutas y bloqueando caminos anteriores."
+    },
+    {
+      "Nombre": "Ecos de la Oscuridad",
+      "Descripcion": "Las criaturas en la región sufren visiones distorsionadas y sus susurros son repetidos por el entorno."
+    }
+  ],
+  "DescripcionRegional": "El Laberinto de la Ruina Eterna es un espacio anclado entre realidades, donde la percepción del tiempo y el espacio se distorsiona.",
+  "Notas": "Bonificador +4 a todas las salvaciones contra efectos de encantamiento."
+}

@@ -1,0 +1,104 @@
+{
+  "Nombre": "Constructo del Laberinto",
+  "Imagen": null,
+  "Tamanio": "Grande",
+  "Tipo": "Constructo",
+  "Alineamiento": "Neutral Malvado",
+  "ClaseArmadura": 16,
+  "DescripcionArmadura": "Armadura Natural",
+  "PuntosGolpe": 95,
+  "DadosGolpe": "(10d10+30)",
+  "VelocidadCaminar": 30,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 10,
+  "VelocidadEscalado": 20,
+  "Fuerza": 20,
+  "Destreza": 10,
+  "Constitucion": 18,
+  "Inteligencia": 5,
+  "Sabiduria": 10,
+  "Carisma": 5,
+  "BonificadorAtaque": 7,
+  "BonificadorFuerza": 5,
+  "BonificadorDestreza": 0,
+  "BonificadorConstitucion": 4,
+  "BonificadorInteligencia": -3,
+  "BonificadorSabiduria": 0,
+  "BonificadorCarisma": -3,
+  "Salvacion": ["Constitución", "Fuerza"],
+  "Habilidades": {
+    "Atletismo": 5,
+    "Percepción": 3
+  },
+  "VulnerabilidadesDano": [
+    "Relámpago",
+    "Psíquico"
+  ],
+  "ResistenciasDano": [
+    "Contundente",
+    "Perforante",
+    "Cortante"
+  ],
+  "InmunidadesDano": [
+    "Veneno",
+    "Necrótico"
+  ],
+  "InmunidadesCondicion": [
+    "Agarrado",
+    "Paralizado",
+    "Petrificado",
+    "Envenenado"
+  ],
+  "Sentidos": [
+    "Visión en la Oscuridad 60 pies",
+    "Percepción Ciega 30 pies"
+  ],
+  "Idiomas": {
+    "Primordial": "Entiende"
+  },
+  "CR": 5,
+  "XP": 1800,
+  "Acciones": [
+    {
+      "Nombre": "Golpe Aplastante",
+      "Descripcion": "+7 al ataque para golpear, alcance 10 ft., un objetivo.\nGolpe: 18 (2d10+5) de daño contundente. Si el objetivo es una criatura, debe superar una Salvación de Fuerza CD 15 o ser derribado."
+    },
+    {
+      "Nombre": "Descarga Disonante (Recarga 5-6)",
+      "Descripcion": "El Constructo emite una onda de energía de la Grieta. Todas las criaturas en un cono de 30 ft. deben hacer una Salvación de Constitución CD 14.\nEn una falla, reciben 22 (4d10) de daño necrótico y quedan aturdidas hasta el final de su siguiente turno. En éxito, reciben la mitad de daño y no quedan aturdidas."
+    }
+  ],
+  "AccionesHabilidad": [
+    {
+      "Nombre": "Carcasa Adaptativa",
+      "Descripcion": "Cuando recibe daño de un tipo no radiante ni psíquico, el Constructo obtiene resistencia a ese tipo de daño hasta el final de su siguiente turno."
+    }
+  ],
+  "AccionesAdicionales": [
+    {
+      "Nombre": "Carga de Grieta",
+      "Descripcion": "Si el Constructo se mueve al menos 20 ft. en línea recta antes de atacar con Golpe Aplastante, el objetivo tiene Desventaja en la Salvación de Fuerza para evitar ser derribado."
+    }
+  ],
+  "Reacciones": [
+    {
+      "Nombre": "Defensa de Reflejo Retardado",
+      "Descripcion": "Cuando es impactado por un ataque cuerpo a cuerpo, el Constructo puede usar su reacción para reducir el daño en 1d10+4."
+    }
+  ],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Un guardián creado a partir de la fusión de materiales, animado por la energía de la Grieta. Su forma cambia ligeramente con cada enfrentamiento, como si intentara adaptarse a su entorno."
+}

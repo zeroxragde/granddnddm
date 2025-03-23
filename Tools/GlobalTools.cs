@@ -16,7 +16,22 @@ namespace GranDnDDM.Tools
         public static MusicRecord MusicaActual;
         //public static List<MusicRecord> ListaReproduccion = new List<MusicRecord>();
         public static IWMPPlaylist playlist;
-
+        public static Bitmap ConvertBase64ToBitmap(string base64String)
+        {
+            try
+            {
+                byte[] imageBytes = Convert.FromBase64String(base64String);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    Image img = Image.FromStream(ms);
+                    return new Bitmap(img); // Convierte a Bitmap
+                }
+            }
+            catch
+            {
+                return null; // Devuelve null si hay un error
+            }
+        }
         public static string ConvertDictionaryToString(Dictionary<string, string> dict)
         {
             if (dict == null || dict.Count == 0)
@@ -103,5 +118,50 @@ namespace GranDnDDM.Tools
 
             return total;
         }
+
+        public static Bitmap ConvertirDGVABitmap(DataGridView dataGridView, string nombreTienda, float escala)
+        {
+            int ancho = dataGridView.Width;
+            int alto = dataGridView.Height + 30; // Espacio extra para el título
+
+            // Crear un bitmap con espacio extra para el título
+            Bitmap bitmap = new Bitmap(ancho, alto);
+
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // Rellenar el fondo en blanco
+                g.FillRectangle(Brushes.White, 0, 0, ancho, alto);
+
+                // Dibujar el nombre de la tienda en la parte superior
+                using (Font fuente = new Font("Arial", 14, FontStyle.Bold))
+                using (Brush brush = new SolidBrush(Color.Black))
+                {
+                    g.DrawString(nombreTienda, fuente, brush, new PointF(10, 5));
+                }
+
+                // Dibujar el DataGridView dentro del bitmap
+                dataGridView.DrawToBitmap(bitmap, new Rectangle(0, 30, dataGridView.Width, dataGridView.Height));
+            }
+
+            // **Si la escala es mayor a 1, agrandamos la imagen**
+            if (escala > 1)
+            {
+                int nuevoAncho = (int)(bitmap.Width * escala);
+                int nuevoAlto = (int)(bitmap.Height * escala);
+
+                Bitmap imagenEscalada = new Bitmap(nuevoAncho, nuevoAlto);
+                using (Graphics g = Graphics.FromImage(imagenEscalada))
+                {
+                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    g.DrawImage(bitmap, new Rectangle(0, 0, nuevoAncho, nuevoAlto));
+                }
+
+                return imagenEscalada; // Devuelve la imagen escalada
+            }
+
+            return bitmap; // Devuelve la imagen sin cambios si la escala es 1
+        }
+
+////////////////////////
     }
 }

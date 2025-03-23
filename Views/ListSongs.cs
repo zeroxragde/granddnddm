@@ -334,10 +334,10 @@ namespace GranDnDDM.Views
 
 
                 // (Opcional) notifica al usuario
-                MessageBox.Show($"Se seleccionó: {selectedRecord.RealName} (Categoría: {selectedRecord.Category})",
+              /*  MessageBox.Show($"Se seleccionó: {selectedRecord.RealName} (Categoría: {selectedRecord.Category})",
                                 "Selección de canción",
                                 MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                                MessageBoxIcon.Information);*/
             }
         }
 

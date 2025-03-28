@@ -127,10 +127,10 @@ namespace GranDnDDM.Views
             imgColumn.DataPropertyName = "Imagen";
             imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ajusta la imagen al tamaño de la celda
             dgvTienda.Columns.Add(imgColumn);
-          
-            
+
+
             // Asignar el DataSource
-           
+
             dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre", DataPropertyName = "nombre", Width = 200 });
             dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Dado", DataPropertyName = "dado" });
             dgvTienda.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo", DataPropertyName = "tipo_dano" });
@@ -444,8 +444,8 @@ namespace GranDnDDM.Views
             dgvTienda.ClearSelection();
             Bitmap bitmap = new Bitmap(formMapa.Width, formMapa.Height);
             dgvTienda.DrawToBitmap(bitmap, new Rectangle(0, 0, formMapa.Width, formMapa.Height));
-            
-            Bitmap tienda = GlobalTools.ConvertirDGVABitmap(dgvTienda, txtShopName.Text,2f);
+
+            Bitmap tienda = GlobalTools.ConvertirDGVABitmap(dgvTienda, txtShopName.Text, 2f);
             formMapa.UpdateMap(tienda, true);
 
         }
@@ -453,6 +453,15 @@ namespace GranDnDDM.Views
         private void ShopCreeator_FormClosed(object sender, FormClosedEventArgs e)
         {
             formMapa.Close();
+        }
+
+        private void btnRandomName_Click(object sender, EventArgs e)
+        {
+            // Instancia de la clase generadora
+            GeneradorNombre generador = new GeneradorNombre();
+            // Llamada al método ObtenerNombre para generar un nombre y mostrarlo
+            string nombreTienda = generador.ObtenerNombre();
+            txtShopName.Text = nombreTienda;
         }
 
         ///////////////////////

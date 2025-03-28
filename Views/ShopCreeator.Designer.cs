@@ -45,6 +45,7 @@
             dgvTienda = new DataGridView();
             dgvLisstaItems = new DataGridView();
             imageList1 = new ImageList(components);
+            btnRandomName = new ReaLTaiizor.Controls.ParrotPictureBox();
             dreamForm1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTienda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLisstaItems).BeginInit();
@@ -58,6 +59,7 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(btnRandomName);
             dreamForm1.Controls.Add(btnShow);
             dreamForm1.Controls.Add(cbCat);
             dreamForm1.Controls.Add(parrotPictureBox4);
@@ -226,7 +228,7 @@
             txtShopName.SelectedText = "";
             txtShopName.SelectionLength = 0;
             txtShopName.SelectionStart = 0;
-            txtShopName.Size = new Size(604, 38);
+            txtShopName.Size = new Size(549, 38);
             txtShopName.TabIndex = 7;
             txtShopName.TabStop = false;
             txtShopName.UseSystemPasswordChar = false;
@@ -346,6 +348,27 @@
             imageList1.Images.SetKeyName(0, "mitrash.png");
             imageList1.Images.SetKeyName(1, "save.png");
             // 
+            // btnRandomName
+            // 
+            btnRandomName.BackColor = Color.Transparent;
+            btnRandomName.ColorLeft = Color.Transparent;
+            btnRandomName.ColorRight = Color.Turquoise;
+            btnRandomName.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            btnRandomName.FilterAlpha = 200;
+            btnRandomName.FilterEnabled = false;
+            btnRandomName.Image = Properties.Resources.myRandom;
+            btnRandomName.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            btnRandomName.IsElipse = false;
+            btnRandomName.IsParallax = false;
+            btnRandomName.Location = new Point(949, 33);
+            btnRandomName.Name = "btnRandomName";
+            btnRandomName.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btnRandomName.Size = new Size(42, 43);
+            btnRandomName.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btnRandomName.TabIndex = 19;
+            btnRandomName.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            btnRandomName.Click += btnRandomName_Click;
+            // 
             // ShopCreeator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -381,5 +404,6 @@
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox4;
         private ReaLTaiizor.Controls.HopeComboBox cbCat;
         private ReaLTaiizor.Controls.ParrotPictureBox btnShow;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnRandomName;
     }
 }

@@ -1,0 +1,70 @@
+{
+  "Nombre": "Monje Putrefacto",
+  "Imagen": "",
+  "Campania": "El Legado del Abismo",
+  "Tamanio": "Mediano",
+  "Tipo": "No muerto",
+  "Alineamiento": "Caótico Malvado",
+  "ClaseArmadura": 8,
+  "DescripcionArmadura": "Ropajes podridos",
+  "PuntosGolpe": 22,
+  "DadosGolpe": "(3d8 + 9)",
+  "VelocidadCaminar": 20,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 13,
+  "Destreza": 6,
+  "Constitucion": 16,
+  "Inteligencia": 3,
+  "Sabiduria": 6,
+  "Carisma": 5,
+  "BonificadorAtaque": 3,
+  "BonificadorFuerza": 1,
+  "BonificadorDestreza": -2,
+  "BonificadorConstitucion": 3,
+  "BonificadorInteligencia": -4,
+  "BonificadorSabiduria": -2,
+  "BonificadorCarisma": -3,
+  "Salvacion": [],
+  "Habilidades": {
+    "Percepción": "-1"
+  },
+  "VulnerabilidadesDano": [],
+  "ResistenciasDano": ["Necrótico"],
+  "InmunidadesDano": ["Veneno"],
+  "InmunidadesCondicion": ["Envenenado"],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 9"
+  ],
+  "Idiomas": {
+    "Común": "Entiende"
+  },
+  "CR": "1/4",
+  "XP": 50,
+  "Acciones": [
+    {
+      "Nombre": "Golpe descarnado",
+      "Descripcion": "+3 al ataque, alcance 5 pies, un objetivo. Golpe: 6 (1d6 + 3) de daño contundente. Si el objetivo es una criatura, debe superar una salvación de Constitución CD 11 o queda ralentizado hasta el final de su próximo turno."
+    }
+  ],
+  "AccionesHabilidad": [],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Antiguo monje de las ruinas, reanimado por la corrupción de la grieta. Emite un susurro sin voz al morir."
+}

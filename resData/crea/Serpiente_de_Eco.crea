@@ -1,0 +1,76 @@
+{
+  "Nombre": "Serpiente de Eco",
+  "Imagen": "",
+  "Campania": "El Legado del Abismo",
+  "Tamanio": "Pequeño",
+  "Tipo": "No muerto",
+  "Alineamiento": "Caótico Neutral",
+  "ClaseArmadura": 13,
+  "DescripcionArmadura": "Forma sombría",
+  "PuntosGolpe": 17,
+  "DadosGolpe": "(5d6)",
+  "VelocidadCaminar": 0,
+  "VelocidadVolar": 40,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 6,
+  "Destreza": 16,
+  "Constitucion": 10,
+  "Inteligencia": 4,
+  "Sabiduria": 12,
+  "Carisma": 6,
+  "BonificadorAtaque": 4,
+  "BonificadorFuerza": -2,
+  "BonificadorDestreza": 3,
+  "BonificadorConstitucion": 0,
+  "BonificadorInteligencia": -3,
+  "BonificadorSabiduria": 1,
+  "BonificadorCarisma": -2,
+  "Salvacion": [],
+  "Habilidades": {
+    "Sigilo": "5"
+  },
+  "VulnerabilidadesDano": [],
+  "ResistenciasDano": [
+    "Necrótico",
+    "Psíquico"
+  ],
+  "InmunidadesDano": [
+    "Veneno"
+  ],
+  "InmunidadesCondicion": [
+    "Aterrorizado",
+    "Envenenado"
+  ],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 11"
+  ],
+  "Idiomas": {},
+  "CR": "1/2",
+  "XP": 100,
+  "Acciones": [
+    {
+      "Nombre": "Mordida Espectral",
+      "Descripcion": "+4 al ataque, alcance 5 pies, un objetivo. Daño: 6 (1d8 + 2) necrótico. El objetivo debe superar una Salvación de Constitución CD 11 o queda aturdido hasta el final de su próximo turno (1 en 4 probabilidad de activarse)."
+    }
+  ],
+  "AccionesHabilidad": [],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Criaturas sombrías con forma de serpiente. Se deslizan entre las grietas y atacan en silencio."
+}

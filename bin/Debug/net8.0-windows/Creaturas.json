@@ -93,5 +93,20 @@
     "FileName": "Creaturas\\Guardián_Espectral_6fd60e.crea",
     "Nombre": "Guardián Espectral",
     "CR": "2"
+  },
+  {
+    "FileName": "Creaturas\\Monje_Putrefacto_bc80e3.crea",
+    "Nombre": "Monje Putrefacto",
+    "CR": "1/4"
+  },
+  {
+    "FileName": "Creaturas\\Serpiente_de_Eco_0d9b25.crea",
+    "Nombre": "Serpiente de Eco",
+    "CR": "1/2"
+  },
+  {
+    "FileName": "Creaturas\\Estatua_Viva_f6ab93.crea",
+    "Nombre": "Estatua Viva",
+    "CR": "1"
   }
 ]

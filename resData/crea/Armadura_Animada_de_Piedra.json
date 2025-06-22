@@ -1,0 +1,79 @@
+{
+  "Nombre": "Armadura Animada de Piedra",
+  "Imagen": "",
+  "Campania": "El Legado del Abismo",
+  "Tamanio": "Mediano",
+  "Tipo": "Constructo",
+  "Alineamiento": "No alineado",
+  "ClaseArmadura": 17,
+  "DescripcionArmadura": "Placas pétreas encantadas",
+  "PuntosGolpe": 33,
+  "DadosGolpe": "(6d8 + 6)",
+  "VelocidadCaminar": 25,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 14,
+  "Destreza": 11,
+  "Constitucion": 13,
+  "Inteligencia": 1,
+  "Sabiduria": 3,
+  "Carisma": 1,
+  "BonificadorAtaque": 4,
+  "BonificadorFuerza": 2,
+  "BonificadorDestreza": 0,
+  "BonificadorConstitucion": 1,
+  "BonificadorInteligencia": -5,
+  "BonificadorSabiduria": -4,
+  "BonificadorCarisma": -5,
+  "Salvacion": [],
+  "Habilidades": {},
+  "VulnerabilidadesDano": [],
+  "ResistenciasDano": [
+    "Contundente",
+    "Perforante",
+    "Cortante"
+  ],
+  "InmunidadesDano": [
+    "Veneno",
+    "Psíquico"
+  ],
+  "InmunidadesCondicion": [
+    "Encantado",
+    "Fatigado",
+    "Paralizado",
+    "Petrificado",
+    "Envenenado"
+  ],
+  "Sentidos": [
+    "Percepción ciega 60 pies",
+    "Percepción pasiva 6"
+  ],
+  "Idiomas": {},
+  "CR": "1",
+  "XP": 150,
+  "Acciones": [
+    {
+      "Nombre": "Golpe",
+      "Descripcion": "+4 al ataque, alcance 5 pies, un objetivo. Golpe: 5 (1d6 + 2) de daño contundente."
+    }
+  ],
+  "AccionesHabilidad": [],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Guardianes de piedra que protegen el pedestal de las ruinas. Se activan si alguien gira el disco."
+}

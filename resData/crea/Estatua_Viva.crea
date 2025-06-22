@@ -1,0 +1,81 @@
+{
+  "Nombre": "Estatua Viva",
+  "Imagen": "",
+  "Campania": "El Legado del Abismo",
+  "Tamanio": "Mediano",
+  "Tipo": "Constructo",
+  "Alineamiento": "No alineado",
+  "ClaseArmadura": 16,
+  "DescripcionArmadura": "Piedra encantada",
+  "PuntosGolpe": 45,
+  "DadosGolpe": "(6d10 + 12)",
+  "VelocidadCaminar": 25,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 14,
+  "Destreza": 11,
+  "Constitucion": 14,
+  "Inteligencia": 1,
+  "Sabiduria": 3,
+  "Carisma": 1,
+  "BonificadorAtaque": 4,
+  "BonificadorFuerza": 2,
+  "BonificadorDestreza": 0,
+  "BonificadorConstitucion": 2,
+  "BonificadorInteligencia": -5,
+  "BonificadorSabiduria": -4,
+  "BonificadorCarisma": -5,
+  "Salvacion": [],
+  "Habilidades": {},
+  "VulnerabilidadesDano": [],
+  "ResistenciasDano": [
+    "Contundente",
+    "Perforante",
+    "Cortante (no mágicos)"
+  ],
+  "InmunidadesDano": [
+    "Veneno",
+    "Psíquico"
+  ],
+  "InmunidadesCondicion": [
+    "Encantado",
+    "Fatigado",
+    "Paralizado",
+    "Petrificado",
+    "Envenenado",
+    "Aterrorizado",
+    "Aturdido"
+  ],
+  "Sentidos": [
+    "Percepción ciega 60 pies",
+    "Percepción pasiva 6"
+  ],
+  "Idiomas": {},
+  "CR": "1",
+  "XP": 150,
+  "Acciones": [
+    {
+      "Nombre": "Golpe de piedra",
+      "Descripcion": "+4 al ataque, alcance 5 pies, un objetivo. Daño: 7 (1d8 + 3) de daño contundente."
+    }
+  ],
+  "AccionesHabilidad": [],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Estas estatuas de piedra cobran vida cuando se gira el disco en la cámara. No se detendrán hasta que sean destruidas o se las aleje del pedestal."
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": false,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "1f921ddd-02af-424e-9180-33d262a00f16.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 14,
+          "Y": 12
+        },
+        "Width": 1506,
+        "Height": 749
+      }
+    ]
+  },
+  {
+    "Name": "MASP",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "89ca32ef-3b3b-47cf-9cbf-0436c4324361.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 69,
+          "Y": 10
+        },
+        "Width": 1403,
+        "Height": 867
+      }
+    ]
+  }
+]

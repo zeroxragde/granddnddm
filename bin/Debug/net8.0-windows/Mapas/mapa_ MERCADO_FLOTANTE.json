@@ -1,0 +1,21 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "988ee178-56a0-4d91-88c7-34363f7136ec.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 17,
+          "Y": 16
+        },
+        "Width": 1388,
+        "Height": 847
+      }
+    ]
+  }
+]

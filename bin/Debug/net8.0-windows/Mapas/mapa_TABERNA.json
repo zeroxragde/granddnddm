@@ -1,0 +1,40 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "f8d8c891-5081-4f97-a96f-c8b64d7aa839.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 16,
+          "Y": 19
+        },
+        "Width": 1510,
+        "Height": 844
+      }
+    ]
+  },
+  {
+    "Name": "MAPA",
+    "Visible": false,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "cafce6f6-96a9-4e5f-835d-f8b3ec365e4b.png",
+        "Category": "personajes",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 23,
+          "Y": 16
+        },
+        "Width": 1496,
+        "Height": 841
+      }
+    ]
+  }
+]

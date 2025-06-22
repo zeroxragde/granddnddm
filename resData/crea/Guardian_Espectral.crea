@@ -1,0 +1,97 @@
+{
+  "Nombre": "Guardián Espectral",
+  "Campania": "El Legado del Abismo",
+  "Imagen": "",
+  "Tamanio": "Mediano",
+  "Tipo": "No muerto",
+  "Alineamiento": "Caótico maligno",
+  "ClaseArmadura": 14,
+  "DescripcionArmadura": "Forma etérea",
+  "PuntosGolpe": 45,
+  "DadosGolpe": "(6d8+18)",
+  "VelocidadCaminar": 0,
+  "VelocidadVolar": 40,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 6,
+  "Destreza": 16,
+  "Constitucion": 16,
+  "Inteligencia": 12,
+  "Sabiduria": 10,
+  "Carisma": 17,
+  "BonificadorAtaque": 5,
+  "BonificadorFuerza": -2,
+  "BonificadorDestreza": 3,
+  "BonificadorConstitucion": 3,
+  "BonificadorInteligencia": 1,
+  "BonificadorSabiduria": 0,
+  "BonificadorCarisma": 3,
+  "Salvacion": [
+    "Sabiduría",
+    "Carisma"
+  ],
+  "Habilidades": {
+    "Historia": "3",
+    "Religión": "3",
+    "Percepción": "4"
+  },
+  "VulnerabilidadesDano": [],
+  "ResistenciasDano": [
+    "Necrótico",
+    "Fuego",
+    "Relámpago",
+    "Cortante",
+    "Perforante",
+    "Contundente de armas no mágicas"
+  ],
+  "InmunidadesDano": [
+    "Veneno",
+    "Frío"
+  ],
+  "InmunidadesCondicion": [
+    "Aterrorizado",
+    "Envenenado",
+    "Encantado",
+    "Fatigado",
+    "Agarrado"
+  ],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 14"
+  ],
+  "Idiomas": {
+    "Común": "Entiende",
+    "Inframundo": "Entiende"
+  },
+  "CR": "2",
+  "XP": 450,
+  "Acciones": [
+    {
+      "Nombre": "Toque del Olvido",
+      "Descripcion": "Ataque cuerpo a cuerpo con hechizo: +5 al ataque, alcance 5 pies, una criatura. Impacto: 13 (3d6 + 3) de daño necrótico. El objetivo debe hacer una tirada de salvación de Sabiduría CD 13 o quedar desorientado (desventaja en ataques y salvaciones) hasta el final de su próximo turno."
+    }
+  ],
+  "AccionesHabilidad": [
+    {
+      "Nombre": "Grito de las Almas",
+      "Descripcion": "Todas las criaturas a 20 pies deben hacer una tirada de salvación de Sabiduría CD 13. Al fallar, reciben 9 (2d8) de daño psíquico y no pueden reaccionar hasta el final de su siguiente turno."
+    }
+  ],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Un espíritu vinculado a antiguos sellos arcanos. No puede abandonar la cámara que custodia. Su presencia se manifiesta cuando se acerca un fragmento del sello roto."
+}

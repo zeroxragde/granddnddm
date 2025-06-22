@@ -31,8 +31,8 @@ namespace GranDnDDM.Views
             filename = f;
             creatura = new Creatura();
             isEditing = true;
-            creatura = c;
             init_app();
+            creatura = c;
             CargarDatosCreaturaEnFormulario();
 
         }

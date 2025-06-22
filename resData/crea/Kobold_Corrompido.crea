@@ -1,0 +1,76 @@
+{
+  "Nombre": "Kobold Corrompido",
+  "Campania": "El Legado del Abismo",
+  "Imagen": "",
+  "Tamanio": "Pequeño",
+  "Tipo": "Humanoide (reptiliano)",
+  "Alineamiento": "Legal maligno",
+  "ClaseArmadura": 12,
+  "DescripcionArmadura": "Sin armadura",
+  "PuntosGolpe": 5,
+  "DadosGolpe": "(2d6)",
+  "VelocidadCaminar": 30,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 7,
+  "Destreza": 15,
+  "Constitucion": 9,
+  "Inteligencia": 8,
+  "Sabiduria": 7,
+  "Carisma": 8,
+  "BonificadorAtaque": 4,
+  "BonificadorFuerza": -2,
+  "BonificadorDestreza": 2,
+  "BonificadorConstitucion": -1,
+  "BonificadorInteligencia": -1,
+  "BonificadorSabiduria": -2,
+  "BonificadorCarisma": -1,
+  "Salvacion": [],
+  "Habilidades": {
+    "Sigilo": "4",
+    "Percepción": "2"
+  },
+  "VulnerabilidadesDano": [],
+  "ResistenciasDano": [],
+  "InmunidadesDano": [],
+  "InmunidadesCondicion": [],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 12"
+  ],
+  "Idiomas": {
+    "Común": "Habla",
+    "Dracónico": "Habla"
+  },
+  "CR": "1/8",
+  "XP": 25,
+  "Acciones": [
+    {
+      "Nombre": "Daga",
+      "Descripcion": "Ataque cuerpo a cuerpo con arma: +4 al ataque, alcance 5 pies, un objetivo. Impacto: 4 (1d4 + 2) de daño perforante."
+    },
+    {
+      "Nombre": "Lanzar hueso afilado",
+      "Descripcion": "Ataque a distancia con arma improvisada: +4 al ataque, alcance 20/60 pies, un objetivo. Impacto: 3 (1d4 + 1) de daño perforante. El hueso se rompe tras el ataque."
+    }
+  ],
+  "AccionesHabilidad": [],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Estos kobolds han sido alterados por una energía oscura. No hablan, tienen los ojos vidriosos, y luchan con una desesperación salvaje. Uno porta un mapa manchado de sangre y una pluma desgastada."
+}

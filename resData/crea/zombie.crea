@@ -1,0 +1,73 @@
+{
+  "Nombre": "Zombi Reciente",
+  "Campania": "El Legado del Abismo",
+  "Imagen": "",
+  "Tamanio": "Mediano",
+  "Tipo": "No muerto",
+  "Alineamiento": "Neutral maligno",
+  "ClaseArmadura": 8,
+  "DescripcionArmadura": "Ropas desgarradas",
+  "PuntosGolpe": 22,
+  "DadosGolpe": "(3d8+9)",
+  "VelocidadCaminar": 20,
+  "VelocidadVolar": 0,
+  "VelocidadNadar": 0,
+  "VelocidadCavar": 0,
+  "VelocidadEscalado": 0,
+  "Fuerza": 13,
+  "Destreza": 6,
+  "Constitucion": 16,
+  "Inteligencia": 3,
+  "Sabiduria": 6,
+  "Carisma": 5,
+  "BonificadorAtaque": 3,
+  "BonificadorFuerza": 1,
+  "BonificadorDestreza": -2,
+  "BonificadorConstitucion": 3,
+  "BonificadorInteligencia": -4,
+  "BonificadorSabiduria": -2,
+  "BonificadorCarisma": -3,
+  "Salvacion": [],
+  "Habilidades": {},
+  "VulnerabilidadesDano": [],
+  "ResistenciasDano": [
+    "Necrótico"
+  ],
+  "InmunidadesDano": [],
+  "InmunidadesCondicion": [
+    "Encantado",
+    "Aterrorizado"
+  ],
+  "Sentidos": [
+    "Visión en la oscuridad 60 pies",
+    "Percepción pasiva 8"
+  ],
+  "Idiomas": {
+    "Común": "Entiende"
+  },
+  "CR": "1/4",
+  "XP": 50,
+  "Acciones": [
+    {
+      "Nombre": "Golpe podrido",
+      "Descripcion": "Ataque cuerpo a cuerpo: +3 al ataque, alcance 5 pies, una criatura. Impacto: 5 (1d6 + 2) de daño contundente. Si el objetivo es una criatura, debe superar una salvación de Constitución CD 10 o quedar envenenada hasta el final de su siguiente turno."
+    }
+  ],
+  "AccionesHabilidad": [],
+  "AccionesAdicionales": [],
+  "Reacciones": [],
+  "HechizosOEspeciales": [],
+  "EsLegendaria": false,
+  "CantidadResistenciasLegendarias": 0,
+  "AccionesLegendarias": [],
+  "EsMitica": false,
+  "DescripcionMitica": null,
+  "AccionesMiticas": [],
+  "TieneGuarida": false,
+  "AccionesGuarida": [],
+  "DescripcionGuarida": null,
+  "TieneEfectosRegionales": false,
+  "EfectosRegionales": [],
+  "DescripcionRegional": null,
+  "Notas": "Zombis recientes con ropa de comerciantes desaparecidos. Se mueven lentamente pero con fuerza descomunal. Su carne aún gotea fluido oscuro, y emiten gemidos apagados."
+}

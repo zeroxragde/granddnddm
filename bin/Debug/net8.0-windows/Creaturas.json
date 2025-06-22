@@ -78,5 +78,20 @@
     "FileName": "Creaturas\\Emrys,_el_Arquitecto_del_Laberinto_7d4ccb.crea",
     "Nombre": "Emrys, el Arquitecto del Laberinto",
     "CR": "6"
+  },
+  {
+    "FileName": "Creaturas\\Kobold_Corrompido_c9c652.crea",
+    "Nombre": "Kobold Corrompido",
+    "CR": "1/8"
+  },
+  {
+    "FileName": "Creaturas\\Zombi_Reciente_14bb84.crea",
+    "Nombre": "Zombi Reciente",
+    "CR": "1/4"
+  },
+  {
+    "FileName": "Creaturas\\Guardián_Espectral_6fd60e.crea",
+    "Nombre": "Guardián Espectral",
+    "CR": "2"
   }
 ]

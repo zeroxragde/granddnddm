@@ -1,0 +1,40 @@
+[
+  {
+    "Name": "Capa Base",
+    "Visible": true,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "c31c628a-51a9-4756-9492-9427fcb72eb2.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 292,
+          "Y": 16
+        },
+        "Width": 1024,
+        "Height": 1024
+      }
+    ]
+  },
+  {
+    "Name": "tumba",
+    "Visible": false,
+    "GridItems": {},
+    "FreeItems": [
+      {
+        "FileName": "56ecc4c3-0efe-4e2b-81c1-00aa6e95efcd.png",
+        "Category": "imagenes generales",
+        "GridLocation": null,
+        "Location": {
+          "IsEmpty": false,
+          "X": 694,
+          "Y": 267
+        },
+        "Width": 286,
+        "Height": 378
+      }
+    ]
+  }
+]

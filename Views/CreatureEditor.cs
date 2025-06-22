@@ -24,15 +24,17 @@ namespace GranDnDDM.Views
         private Creatura creatura;
         private bool isEditing = false;
         private string filename = "mi_creatura.crea";
+        private editorCamp ecampana = new editorCamp();
 
         public CreatureEditor(Creatura c, string f)
         {
             filename = f;
             creatura = new Creatura();
             isEditing = true;
-            init_app();
             creatura = c;
+            init_app();
             CargarDatosCreaturaEnFormulario();
+
         }
         public CreatureEditor()
         {
@@ -42,12 +44,13 @@ namespace GranDnDDM.Views
         private void init_app()
         {
             InitializeComponent();
-        
+
+            addCampToSelect();
             // Supongamos que tienes el JSON en un archivo "abilities.json" 
             string json = File.ReadAllText("statblockdata.json");
-
             // Deserializa al objeto Root
             StatBlockData root = JsonConvert.DeserializeObject<StatBlockData>(json);
+
             // Asigna la lista como DataSource del ComboBox
             cbPresents.DataSource = root.CommonAbilities;
             cbPresents.DisplayMember = "Name";
@@ -267,7 +270,42 @@ namespace GranDnDDM.Views
         }
 
 
+        private void addCampToSelect() {
+            // Lee el JSON (o "{}" si hubo algún problema)
+            string jsonCampa;
+            try
+            {
+                jsonCampa = File.ReadAllText("listCampaign.json");
+                if (string.IsNullOrWhiteSpace(jsonCampa))
+                    jsonCampa = "[]";          // Cadena válida para una lista vacía
+            }
+            catch
+            {
+                jsonCampa = "[]";
+            }
 
+            // Deserializa a List<Campaign>, capturando errores
+            List<Campaign> campaigns;
+            try
+            {
+                campaigns = JsonConvert
+                    .DeserializeObject<List<Campaign>>(jsonCampa)
+                    ?? new List<Campaign>();
+            }
+            catch
+            {
+                campaigns = new List<Campaign>();
+            }
+            campaigns.Insert(0, new Campaign { Nombre = "Seleccionar Campaña" });
+
+            
+            cbSelCamp.DataSource = campaigns;
+            cbSelCamp.DisplayMember = "Nombre";
+            cbSelCamp.ValueMember = "Nombre";   // ← importante
+            cbSelCamp.SelectedIndex = 0;
+            if (campaigns.Count > 0)
+                cbSelCamp.SelectedIndex = 0;
+        }
         private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -477,7 +515,8 @@ namespace GranDnDDM.Views
         private void tabPage1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = tabPage1.SelectedIndex;
-            if (gbCRXP.Visible) { 
+            if (gbCRXP.Visible)
+            {
                 // Asignamos los valores al modelo de la criatura
                 creatura.CR = txtCustomCR.Text;
                 creatura.XP = int.Parse(txtCustomXP.Text);
@@ -1254,8 +1293,8 @@ namespace GranDnDDM.Views
         {
             if (decimal.TryParse(t, out decimal number))
             {
-                
-                return  number.ToString("#,##0");
+
+                return number.ToString("#,##0");
             }
             return "";
         }
@@ -1285,16 +1324,18 @@ namespace GranDnDDM.Views
                 */
 
             // Verifica que se haya seleccionado un CR válido (índice 0 es "seleccionar", por ejemplo)
-            if (cbCR.SelectedIndex <= 0) {
+            if (cbCR.SelectedIndex <= 0)
+            {
                 return;
             }
-            if (cbCR.SelectedIndex == 1) {
+            if (cbCR.SelectedIndex == 1)
+            {
                 gbCRXP.Visible = true;
                 return;
             }
             gbCRXP.Visible = false;
 
-          
+
 
             // Obtenemos el texto del ComboBox, que debe tener el formato "CR (XP XP)"
             string textoSeleccionado = cbCR.SelectedItem?.ToString();
@@ -2335,7 +2376,7 @@ namespace GranDnDDM.Views
             {
                 picFotoCreatura.Image = GlobalTools.ConvertBase64ToImage(c.Imagen);
             }
-
+            cbSelCamp.SelectedValue = c.Campania;
             // --- Armadura ---
             cbArmaduras.SelectedItem = c.DescripcionArmadura;
             txtBonus.Text = (c.DescripcionArmadura == "Armadura Natural" || c.DescripcionArmadura == "Otra")
@@ -2486,7 +2527,8 @@ namespace GranDnDDM.Views
                 txtDesAction.Text = acc.Descripcion;
                 btnAddReaction_Click(null, null);
             }
-            if (c.HechizosOEspeciales != null) {
+            if (c.HechizosOEspeciales != null)
+            {
                 foreach (var acc in c.HechizosOEspeciales.ToList())
                 {
                     txtNameAction.Text = acc.Nombre;
@@ -2642,6 +2684,34 @@ namespace GranDnDDM.Views
             if (!isEditing) creatura.HechizosOEspeciales.Add(accion);
             // Agregamos el contenedor al FlowLayoutPanel principal
             pAcciones.Controls.Add(contenedor);
+        }
+
+        private void btnAddCamp_Click(object sender, EventArgs e)
+        {
+            if (ecampana.IsDisposed)
+            {
+                ecampana = new editorCamp();
+            }
+            DialogResult d = ecampana.ShowDialog();
+            if (DialogResult.OK == d){
+                addCampToSelect();
+            }
+        }
+
+        private void cbSelCamp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            // Si está en la posición cero (tu “Seleccionar Campaña”), salimos
+            if (cbSelCamp.SelectedIndex == 0) return;
+
+            // Casteamos el SelectedItem a Campaign
+            var sel = cbSelCamp.SelectedItem as Campaign;
+            if (sel == null) return;
+
+            // Ahora sí obtenemos el nombre
+            creatura.Campania = sel.Nombre;
+
+
         }
 
 

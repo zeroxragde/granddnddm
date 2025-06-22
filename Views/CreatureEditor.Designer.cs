@@ -32,6 +32,8 @@
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
             tabPage1 = new ReaLTaiizor.Controls.TabPage();
             tabPage2 = new TabPage();
+            btnAddCamp = new ReaLTaiizor.Controls.Button();
+            cbSelCamp = new ReaLTaiizor.Controls.HopeComboBox();
             cbShield = new CheckBox();
             txtOtraTipoCreatura = new ReaLTaiizor.Controls.HopeTextBox();
             pCondiciones = new FlowLayoutPanel();
@@ -200,7 +202,9 @@
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage2.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage2.Controls.Add(btnAddCamp);
+            tabPage2.Controls.Add(cbSelCamp);
             tabPage2.Controls.Add(cbShield);
             tabPage2.Controls.Add(txtOtraTipoCreatura);
             tabPage2.Controls.Add(pCondiciones);
@@ -244,6 +248,40 @@
             tabPage2.TabIndex = 0;
             tabPage2.Tag = "t1";
             tabPage2.Text = "Datos 1";
+            // 
+            // btnAddCamp
+            // 
+            btnAddCamp.BackColor = Color.Transparent;
+            btnAddCamp.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAddCamp.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddCamp.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAddCamp.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddCamp.Image = null;
+            btnAddCamp.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddCamp.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAddCamp.Location = new Point(960, 110);
+            btnAddCamp.Name = "btnAddCamp";
+            btnAddCamp.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAddCamp.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAddCamp.Size = new Size(62, 40);
+            btnAddCamp.TabIndex = 42;
+            btnAddCamp.Text = "+";
+            btnAddCamp.TextAlignment = StringAlignment.Center;
+            btnAddCamp.Click += btnAddCamp_Click;
+            // 
+            // cbSelCamp
+            // 
+            cbSelCamp.DrawMode = DrawMode.OwnerDrawFixed;
+            cbSelCamp.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSelCamp.FlatStyle = FlatStyle.Flat;
+            cbSelCamp.Font = new Font("Segoe UI", 15.75F);
+            cbSelCamp.FormattingEnabled = true;
+            cbSelCamp.ItemHeight = 30;
+            cbSelCamp.Location = new Point(699, 112);
+            cbSelCamp.Name = "cbSelCamp";
+            cbSelCamp.Size = new Size(255, 36);
+            cbSelCamp.TabIndex = 41;
+            cbSelCamp.SelectedIndexChanged += cbSelCamp_SelectedIndexChanged;
             // 
             // cbShield
             // 
@@ -910,7 +948,7 @@
             // 
             // tabPage3
             // 
-            tabPage3.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage3.BackColor = Color.FromArgb(50, 63, 74);
             tabPage3.Controls.Add(gbCRXP);
             tabPage3.Controls.Add(lblNotas);
             tabPage3.Controls.Add(txtNotas);
@@ -1460,7 +1498,7 @@
             // 
             // tabPage4
             // 
-            tabPage4.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage4.BackColor = Color.FromArgb(50, 63, 74);
             tabPage4.Controls.Add(btnUpdateData);
             tabPage4.Controls.Add(txtRasgoRegional);
             tabPage4.Controls.Add(txtRasgoGuarida);
@@ -1724,7 +1762,7 @@
             // 
             // tabPage5
             // 
-            tabPage5.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage5.BackColor = Color.FromArgb(50, 63, 74);
             tabPage5.Controls.Add(btnHechizo);
             tabPage5.Controls.Add(pAcciones);
             tabPage5.Controls.Add(bigLabel18);
@@ -2036,7 +2074,7 @@
             // 
             // tabPage6
             // 
-            tabPage6.BackColor = Color.FromArgb(41, 50, 63);
+            tabPage6.BackColor = Color.FromArgb(50, 63, 74);
             tabPage6.Location = new Point(139, 4);
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(1076, 628);
@@ -2045,7 +2083,7 @@
             // 
             // Salir
             // 
-            Salir.BackColor = Color.FromArgb(41, 50, 63);
+            Salir.BackColor = Color.FromArgb(50, 63, 74);
             Salir.Location = new Point(139, 4);
             Salir.Name = "Salir";
             Salir.Size = new Size(1076, 628);
@@ -2186,5 +2224,7 @@
         private ReaLTaiizor.Controls.GroupBox gbCRXP;
         private ReaLTaiizor.Controls.HopeTextBox txtCustomXP;
         private ReaLTaiizor.Controls.HopeTextBox txtCustomCR;
+        private ReaLTaiizor.Controls.Button btnAddCamp;
+        private ReaLTaiizor.Controls.HopeComboBox cbSelCamp;
     }
 }

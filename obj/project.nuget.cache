@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tHgZG5IoYQM=",
+  "dgSpecHash": "G/mffG7uWgo=",
   "success": true,
   "projectFilePath": "X:\\DESARROLLO\\CSharp\\granddnddm\\GranDnDDM.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,11 @@
     "C:\\Users\\Ragde\\.nuget\\packages\\soundtouch.net\\2.3.2\\soundtouch.net.2.3.2.nupkg.sha512",
     "C:\\Users\\Ragde\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Ragde\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
-    "C:\\Users\\Ragde\\.nuget\\packages\\world.net\\1.5.0\\world.net.1.5.0.nupkg.sha512"
+    "C:\\Users\\Ragde\\.nuget\\packages\\world.net\\1.5.0\\world.net.1.5.0.nupkg.sha512",
+    "C:\\Users\\Ragde\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\Ragde\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\Ragde\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\Ragde\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.15\\microsoft.netcore.app.host.win-x64.8.0.15.nupkg.sha512"
   ],
   "logs": []
 }

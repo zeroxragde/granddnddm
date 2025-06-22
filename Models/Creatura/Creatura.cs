@@ -6,6 +6,7 @@ namespace GranDnDDM.Models.Creatura
     {
         // --- Identificación básica ---
         public string Nombre { get; set; }          // Ej: "Goblin", "Dragón Rojo Adulto"
+        public string Campania { get; set; } = "";          // Ej: Historia base
         public string Imagen { get; set; }          // Ej: "Goblin", "Dragón Rojo Adulto"
         public string Tamanio { get; set; }         // Ej: "Pequeño", "Mediano", "Grande"
         public string Tipo { get; set; }            // Ej: "Humanoide", "Dragón", "No muerto"

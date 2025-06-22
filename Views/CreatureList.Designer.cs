@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatureList));
             dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            cbCampaignFilter = new ReaLTaiizor.Controls.HopeComboBox();
             btnReload = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnImportCrea = new ReaLTaiizor.Controls.ParrotPictureBox();
             btnEditar = new ReaLTaiizor.Controls.ParrotPictureBox();
@@ -51,6 +52,7 @@
             dreamForm1.ColorD = Color.FromArgb(27, 27, 27);
             dreamForm1.ColorE = Color.FromArgb(0, 0, 0, 0);
             dreamForm1.ColorF = Color.FromArgb(25, 255, 255, 255);
+            dreamForm1.Controls.Add(cbCampaignFilter);
             dreamForm1.Controls.Add(btnReload);
             dreamForm1.Controls.Add(btnImportCrea);
             dreamForm1.Controls.Add(btnEditar);
@@ -62,12 +64,25 @@
             dreamForm1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dreamForm1.Location = new Point(0, 0);
             dreamForm1.Name = "dreamForm1";
-            dreamForm1.Size = new Size(385, 603);
+            dreamForm1.Size = new Size(385, 641);
             dreamForm1.TabIndex = 0;
             dreamForm1.TabStop = false;
             dreamForm1.Text = "Lista de Creaturas";
             dreamForm1.TitleAlign = HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
+            // 
+            // cbCampaignFilter
+            // 
+            cbCampaignFilter.DrawMode = DrawMode.OwnerDrawFixed;
+            cbCampaignFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCampaignFilter.FlatStyle = FlatStyle.Flat;
+            cbCampaignFilter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbCampaignFilter.FormattingEnabled = true;
+            cbCampaignFilter.ItemHeight = 30;
+            cbCampaignFilter.Location = new Point(89, 551);
+            cbCampaignFilter.Name = "cbCampaignFilter";
+            cbCampaignFilter.Size = new Size(211, 36);
+            cbCampaignFilter.TabIndex = 42;
             // 
             // btnReload
             // 
@@ -188,7 +203,7 @@
             dreamButton1.ColorD = Color.FromArgb(0, 0, 0, 0);
             dreamButton1.ColorE = Color.FromArgb(25, 255, 255, 255);
             dreamButton1.ForeColor = Color.Red;
-            dreamButton1.Location = new Point(233, 547);
+            dreamButton1.Location = new Point(241, 595);
             dreamButton1.Name = "dreamButton1";
             dreamButton1.Size = new Size(120, 40);
             dreamButton1.TabIndex = 2;
@@ -204,7 +219,7 @@
             btnNueva.ColorD = Color.FromArgb(0, 0, 0, 0);
             btnNueva.ColorE = Color.FromArgb(25, 255, 255, 255);
             btnNueva.ForeColor = Color.FromArgb(40, 218, 255);
-            btnNueva.Location = new Point(21, 547);
+            btnNueva.Location = new Point(21, 595);
             btnNueva.Name = "btnNueva";
             btnNueva.Size = new Size(127, 40);
             btnNueva.TabIndex = 1;
@@ -223,7 +238,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(385, 603);
+            ClientSize = new Size(385, 641);
             Controls.Add(dreamForm1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -247,5 +262,6 @@
         private ReaLTaiizor.Controls.ParrotPictureBox btnEditar;
         private ReaLTaiizor.Controls.ParrotPictureBox btnImportCrea;
         private ReaLTaiizor.Controls.ParrotPictureBox btnReload;
+        private ReaLTaiizor.Controls.HopeComboBox cbCampaignFilter;
     }
 }

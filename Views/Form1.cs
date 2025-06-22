@@ -1,6 +1,7 @@
 using GranDnDDM.Models;
 using GranDnDDM.Tools;
 using GranDnDDM.Views;
+using System.Text.Json;
 
 namespace GranDnDDM
 {
@@ -17,6 +18,30 @@ namespace GranDnDDM
             // Obtiene el monitor actual donde se muestra la aplicación
             Screen currentScreen = Screen.FromControl(this);
             MonitorItem itemASeleccionar = null;
+
+
+            string jsonCampa = "";
+            try
+            {
+                jsonCampa = File.ReadAllText("listCampaign.json");
+            }
+            catch
+            {
+                List<Campaign> campa = new List<Campaign>();
+                // Serializa a JSON con formato identado
+                var opciones = new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                };
+                string jsonString = JsonSerializer.Serialize(campa, opciones);
+
+                // Crea el archivo y escribe el JSON
+                File.WriteAllText("listCampaign.json", jsonString);
+
+
+
+
+            }
 
 
             int contador = 1;

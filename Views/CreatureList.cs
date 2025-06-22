@@ -16,11 +16,58 @@ namespace GranDnDDM.Views
     public partial class CreatureList : Form
     {
         CreatureEditor editor = new CreatureEditor();
+        private List<CreaturaRecord> allRecords;
         public CreatureList()
         {
             InitializeComponent();
-        }
 
+
+            // 2) Carga las campañas en el ComboBox
+            //    Leemos el JSON de campañas (listCampaign.json)
+            List<string> campaigns;
+            try
+            {
+                var j = File.ReadAllText(Path.Combine(Application.StartupPath, "listCampaign.json"));
+                campaigns = JsonConvert.DeserializeObject<List<Campaign>>(j)
+                            .Select(c => c.Nombre).ToList();
+            }
+            catch
+            {
+                campaigns = new List<string>();
+            }
+
+            // 3) Ponemos "Todas las criaturas" como primera
+            campaigns.Insert(0, "Todas las criaturas");
+            cbCampaignFilter.DataSource = campaigns;
+            cbCampaignFilter.SelectedIndex = 0;
+
+            // 4) Manejador de cambio
+            cbCampaignFilter.SelectedIndexChanged += cbCampaignFilter_SelectedIndexChanged;
+        }
+        private void cbCampaignFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = cbCampaignFilter.SelectedItem.ToString();
+
+            foreach (DataGridViewRow row in listCreature.Rows)
+            {
+                // Columna oculta con el FileName
+                string fileName = row.Cells["FileName"].Value.ToString();
+                string filePath = Path.Combine(Application.StartupPath, fileName);
+
+                if (!File.Exists(filePath))
+                {
+                    row.Visible = false;
+                    continue;
+                }
+
+                // Igual que en btnEditar_Click, deserializa la criatura:
+                Creatura c = JsonConvert.DeserializeObject<Creatura>(File.ReadAllText(filePath));
+
+                // Muestra si es "Todas las criaturas" o coincide la Campania:
+                row.Visible = selected == "Todas las criaturas"
+                    || string.Equals(c.Campania, selected, StringComparison.OrdinalIgnoreCase);
+            }
+        }
         private void btnNueva_Click(object sender, EventArgs e)
         {
             editor.Show();
